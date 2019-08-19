@@ -9,7 +9,7 @@
 
 ## 규칙
 
-* 들여쓰기시 **2칸 공백사용** 을 사용합니다.
+* 들여쓰기시 **2칸의 공백** 을 사용합니다.
 
   eslint: [`indent`](http://eslint.org/docs/rules/indent)
 
@@ -196,7 +196,7 @@
   console.log(value)
   ```
 
-여러 줄의 **삼항 연산자** 를 사용할 경우 `?`와 `:`를 각각의 행으로 처리해야합니다.
+* 여러 줄의 **삼항 연산자** 를 사용할 경우 `?`와 `:`를 각각의 행으로 처리해야합니다.
 
   eslint: [`operator-linebreak`](http://eslint.org/docs/rules/operator-linebreak)
 
