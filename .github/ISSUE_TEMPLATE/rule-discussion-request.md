@@ -8,13 +8,15 @@ assignees: appear, boxersb, inbeom, luffy-song, polysiya, steve-triple, torres-t
 
 ---
 
-### Standards rule
+### AS-IS: Standards rule
 `STYLE_GUIDE.md` 의 특정 rule section을 복사해서 붙여넣으세요.
 
-----
+
+### TO-BE
 
 제안하고 싶은 내용 및 의견
 
+----
 > 댓글로 이모지 또는 새로운 의견을 남겨주세요~  
 > ex) - :three: : 나는 요래조래
 
