@@ -1,5 +1,4 @@
-const assign = require("object.assign");
-const baseStyleRules = require("eslint-config-airbnb-base/rules/style").rules;
+const baseStyleRules = require("./style").rules;
 
 const dangleRules = baseStyleRules["no-underscore-dangle"];
 
@@ -17,7 +16,7 @@ module.exports = {
   rules: {
     "no-underscore-dangle": [
       dangleRules[0],
-      assign({}, dangleRules[1], {
+      Object.assign({}, dangleRules[1], {
         allow: dangleRules[1].allow.concat(["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"])
       })
     ],

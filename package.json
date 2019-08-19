@@ -1,5 +1,5 @@
 {
-  "name": "@titicacadev/eslint-config-triple",
+  "name": "@titicaca/eslint-config-triple",
   "version": "0.0.1",
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
