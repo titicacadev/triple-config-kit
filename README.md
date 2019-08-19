@@ -2,12 +2,12 @@
 - eslint-config-triple은 트리플의 자바스크립트 코딩컨벤션을 지원하는 [eslint](http://eslint.org/) 룰 셋입니다.
 
 > ### eslint-config-triple은 2개의 룰 셋을 제공합니다.
-> - ES6+ 룰 셋 : `@titicacadev/eslint-config-triple`
-> - Typescript 룰 셋 : `@titicacadev/eslint-config-triple/typescript`
+> - ES6+ 룰 셋 : `@titicaca/eslint-config-triple`
+> - Typescript 룰 셋 : `@titicaca/eslint-config-triple/typescript`
 
 ## Install
 ```
-#npm install eslint-config-triple
+#npm install @titicaca/eslint-config-triple
 ```
 
 ## Usage
@@ -15,7 +15,7 @@
 ```
 // .eslintrc 파일
 {
-  "extends": "@titicacadev/eslint-config-triple",
+  "extends": "@titicaca/eslint-config-triple",
   "rules": {
     // 프로젝트별 적용할 Rules
   }
@@ -26,7 +26,7 @@
 ```
 // .eslintrc 파일
 {
-  "extends": "@titicacadev/eslint-config-triple/typescript",
+  "extends": "@titicaca/eslint-config-triple/typescript",
   "rules": {
     // 프로젝트별 적용할 Rules
   }

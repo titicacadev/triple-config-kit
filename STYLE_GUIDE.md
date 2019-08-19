@@ -1,2515 +1,1392 @@
 # Triple JavaScript Style Guide
 
-트리플 자바스크립트 스타일 가이드는 [Airbnb 자바스크립트 스타일 가이드](https://github.com/airbnb/javascript)를 기준으로 작성되었습니다.  
+트리플 자바스크립트 스타일 가이드는 [Javascript Standard Style](https://standardjs.com/rules-kokr.html)을 기준으로 작성되었습니다.  
 
-## Table of Contents
+----
+# JavaScript Standard Style
 
-  1. [Types](#types)
-  1. [References](#references)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Destructuring](#destructuring)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Arrow Functions](#arrow-functions)
-  1. [Classes & Constructors](#classes--constructors)
-  1. [Modules](#modules)
-  1. [Iterators and Generators](#iterators-and-generators)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Comparison Operators & Equality](#comparison-operators--equality)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-casting--coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Events](#events)
-  1. [jQuery](#jquery)
-  1. [Resources](#resources)
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-## Types
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#types)와 동일합니다.
+## 규칙
 
-  - [1.1](#1.1) <a name='1.1'></a> **Primitives**: primitive type은 그 값을 직접 조작한다.
-    + `string`
-    + `number`
-    + `boolean`
-    + `null`
-    + `undefined`
+* 들여쓰기시 **2칸 공백사용** 을 사용합니다.
 
-    ```javascript
-    const foo = 1;
-    let bar = foo;
+  eslint: [`indent`](http://eslint.org/docs/rules/indent)
 
-    bar = 9;
+  ```js
+  function hello (name) {
+    console.log('hi', name)
+  }
+  ```
 
-    console.log(foo, bar); // => 1, 9
-    ```
+* 이스케이프를 피하기 위해 **문자열에 작은 따옴표** 를 사용합니다.
 
-  - [1.2](#1.2) <a name='1.2'></a> **Complex**: 참조형(Complex)은 참조를 통해 값을 조작한다.
+  eslint: [`quotes`](http://eslint.org/docs/rules/quotes)
 
-    + `object`
-    + `array`
-    + `function`
+  ```js
+  console.log('hello there')
+  $("<div class='box'>")
+  ```
 
-    ```javascript
-    const foo = [1, 2];
-    const bar = foo;
+* **사용하지 않는 변수를 정의하지 마세요.**
 
-    bar[0] = 9;
+  eslint: [`no-unused-vars`](http://eslint.org/docs/rules/no-unused-vars)
 
-    console.log(foo[0], bar[0]); // => 9, 9
-    ```
+  ```js
+  function myFunction () {
+    var result = something()   // ✗ 피하세요
+  }
+  ```
 
-**[⬆ back to top](#table-of-contents)**
+* **예약어 뒤에는 공백을 추가합니다.**
 
-## References
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#references)와 동일합니다.
+  eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing)
 
-  - [2.1](#2.1) <a name='2.1'></a> 변수 선언은 가급적 `const` 를 사용하고, `var` 를 사용하지 않는다. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+  ```js
+  if (condition) { ... }   // ✓ 좋아요
+  if(condition) { ... }    // ✗ 피하세요
+  ```
 
-    ```javascript
-    // bad
-    var a = 1;
-    var b = 2;
+* **함수 선언 괄호 앞에 공백을 추가합니다.**
 
-    // good
-    const a = 1;
-    const b = 2;
-    ```
+  eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren)
 
-  - [2.2](#2.2) <a name='2.2'></a> 참조를 재할당 해야한다면 `var` 대신 `let` 을 사용한다.  eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+  ```js
+  function name (arg) { ... }   // ✓ 좋아요
+  function name(arg) { ... }    // ✗ 피하세요
 
-    ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
+  run(function () { ... })      // ✓ 좋아요
+  run(function() { ... })       // ✗ 피하세요
+  ```
 
-    // good, use the let.
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
+* **항상** `==` 대신 `===`을 **사용** 합니다.<br>
+  예외: `null || undefined`는 `obj == null`로 확인할 수 있습니다.
 
-  - [2.3](#2.3) <a name='2.3'></a> `let` 과 `const` 는 선언된 블록 안에서만 존재하는 블록 스코프이다.
+  eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq)
 
-    ```javascript
-    // const 와 let 은 선언된 블록의 안에서만 존재한다.
-    {
-      let a = 1;
-      const b = 1;
-    }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
-    ```
+  ```js
+  if (name === 'John')   // ✓ 좋아요
+  if (name == 'John')    // ✗ 피하세요
+  ```
 
-**[⬆ back to top](#table-of-contents)**
+  ```js
+  if (name !== 'John')   // ✓ 좋아요
+  if (name != 'John')    // ✗ 피하세요
+  ```
 
-## Objects
-> `3.6` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#objects)와 동일합니다.
+* 공백사이에 **연산자를 넣어주세요.**
 
-  - [3.1](#3.1) <a name='3.1'></a> 오브젝트를 작성할 때는, 리터럴 구문을 사용한다.  eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
-    ```javascript
-    // bad
-    const item = new Object();
+  eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops)
 
-    // good
-    const item = {};
-    ```
+  ```js
+  // ✓ 좋아요
+  var x = 2
+  var message = 'hello, ' + name + '!'
+  ```
 
-  - [3.2](#3.2) <a name='3.2'></a> 동적 프로퍼티명을 갖는 오브젝트를 작성할 때, 계산된 프로퍼티명(computed property names)을 이용한다.
+  ```js
+  // ✗ 피하세요
+  var x=2
+  var message = 'hello, '+name+'!'
+  ```
 
-    ```javascript
-    function getKey(k) {
-      return `key named ${k}`;
-    }
+* **쉽표 뒤에 공백** 이 있어야 합니다.
 
-    // bad
-    const obj = {
-      id: 5,
-      name: "San Francisco",
-    };
-    obj[getKey("enabled")] = true;
+  eslint: [`comma-spacing`](http://eslint.org/docs/rules/comma-spacing)
 
-    // good
-    const obj = {
-      id: 5,
-      name: "San Francisco",
-      ［getKey("enabled")]: true
-    };
-    ```
+  ```js
+  // ✓ 좋아요
+  var list = [1, 2, 3, 4]
+  function greet (name, options) { ... }
+  ```
 
-  - [3.3](#3.3) <a name='3.3'></a> 메서드의 단축 구문을 이용한다. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html)
+  ```js
+  // ✗ 피하세요
+  var list = [1,2,3,4]
+  function greet (name,options) { ... }
+  ```
 
-    ```javascript
-    // bad
-    const atom = {
-      value: 1,
+* **else 문은** 중괄호와 같은 줄에 **두어야 합니다.**
 
-      addValue: function (value) {
-        return atom.value + value;
-      },
-    };
+  eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style)
 
-    // good
-    const atom = {
-      value: 1,
-
-      addValue(value) {
-        return atom.value + value;
-      },
-    };
-    ```
-
-  - [3.4](#3.4) <a name='3.4'></a>속성의 단축구문을 이용한다. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) 
-
-    ```javascript
-    const lukeSkywalker = "Luke Skywalker";
-
-    // bad
-    const obj = {
-      lukeSkywalker: lukeSkywalker,
-    };
-
-    // good
-    const obj = {
-      lukeSkywalker,
-    };
-    ```
-
-  - [3.5](#3.5) <a name='3.5'></a> 속성의 단축 구문은 오브젝트 선언의 시작 부분에 그룹화한다.
-
-    ```javascript
-    const anakinSkywalker = "Anakin Skywalker";
-    const lukeSkywalker = "Luke Skywalker";
-
-    // bad
-    const obj = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
-    };
-
-    // good
-    const obj = {
-      // 단축 속성 구문 - 시작
-      lukeSkywalker,
-      anakinSkywalker,
-      // 단축 속성 구문 - 끝
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
-    };
-    ```
-
-
-  - [3.6](#3.6) <a name='3.6'></a>속성명이 키워드(default, if, ...)일 경우에는 꼭 따옴표를 붙인다. 또한, `-`문자와 같이 속성명으로 지정할수 없는 경우에는 꼭 따옴표를 붙인다. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html)
-
-    ```js
-    // bad
-    const bad = {
-      foo: 3,
-      default: 20,
-      data-blah: 5
-    };
-
-    // good
-    const good = {
-      foo: 3,
-      "default": 20,
-      "data-blah": 5,
-      10: "triple"
-    };
-    ```
-
-  - [3.7](#3.7) <a name='3.7'></a>`hasOwnProperty`, `propertyIsEnumerable`, `isPrototypeOf` 와 같은 `Object.prototype` 메서드를 직접적으로 사용하지 않는다. eslint: [`no-prototype-builtins`](http://eslint.org/docs/rules/no-prototype-builtins.html)
- 
-    ```javascript
-    // bad
-    console.log(object.hasOwnProperty(key));
-
-    // good
-    console.log(Object.prototype.hasOwnProperty.call(object, key));
-
-    // best
-    const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-    /* or */
-    import has from "has";
+  ```js
+  // ✓ 좋아요
+  if (condition) {
     // ...
-    console.log(has.call(object, key));
-    ```
+  } else {
+    // ...
+  }
+  ```
 
-  - [3.8](#3.8) <a name='3.8'></a>얕은 복사(shallow-copy)를 하기 위해서 [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 보다는 spread 연산자(...)를 선호한다. 오브젝트에서 몇몇 속성을 제거한 새로운 오브젝트를 얻고자 할때는 rest 파라미터(...)를 사용한다.
+  ```js
+  // ✗ 피하세요
+  if (condition) {
+    // ...
+  }
+  else {
+    // ...
+  }
+  ```
 
-    ```javascript
-    // very bad
-    const original = { a: 1, b: 2 };
-    const copy = Object.assign(original, { c: 3 }); // this mutates `original`
-    delete copy.a; // so does this
+* **여러줄의 if문을 사용할 경우** 중괄호를 사용해야합니다.
 
-    // bad
-    const original = { a: 1, b: 2 };
-    const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+  eslint: [`curly`](http://eslint.org/docs/rules/curly)
 
-    // good
-    const original = { a: 1, b: 2 };
-    const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+  ```js
+  // ✓ 좋아요
+  if (options.quiet !== true) console.log('done')
+  ```
 
-    const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
-    ```
+  ```js
+  // ✓ 좋아요
+  if (options.quiet !== true) {
+    console.log('done')
+  }
+  ```
+
+  ```js
+  // ✗ 피하세요
+  if (options.quiet !== true)
+    console.log('done')
+  ```
+
+* `err` 함수파라미터가 있을 경우 **항상 처리해줘야 합니다.**
+
+  eslint: [`handle-callback-err`](http://eslint.org/docs/rules/handle-callback-err)
+  ```js
+  // ✓ 좋아요
+  run(function (err) {
+    if (err) throw err
+    window.alert('done')
+  })
+  ```
+
+  ```js
+  // ✗ 피하세요
+  run(function (err) {
+    window.alert('done')
+  })
+  ```
+
+* **항상 브라우저 전역 접두어에는** `window`를 붙여야 합니다.<br>
+  예외의 경우들: `document`, `console`, `navigator`.
+
+  eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef)
+
+  ```js
+  window.alert('hi')   // ✓ 좋아요
+  ```
+
+* **여러 줄의 공백을 허용하지 않습니다.**
+
+  eslint: [`no-multiple-empty-lines`](http://eslint.org/docs/rules/no-multiple-empty-lines)
+
+  ```js
+  // ✓ 좋아요
+  var value = 'hello world'
+  console.log(value)
+  ```
+
+  ```js
+  // ✗ 피하세요
+  var value = 'hello world'
 
 
-**[⬆ back to top](#table-of-contents)**
+  console.log(value)
+  ```
 
-## Arrays
-> `4.4 ~ 5` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#array)와 동일합니다.
+여러 줄의 **삼항 연산자** 를 사용할 경우 `?`와 `:`를 각각의 행으로 처리해야합니다.
 
-  - [4.1](#4.1) <a name='4.1'></a> 배열을 작성 할 때는 리터럴 구문을 사용한다. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  eslint: [`operator-linebreak`](http://eslint.org/docs/rules/operator-linebreak)
 
-    ```javascript
-    // bad
-    const items = new Array();
-    // good
-    const items = [];
-    ```
+  ```js
+  // ✓ 좋아요
+  var location = env.development ? 'localhost' : 'www.api.com'
 
-  - [4.2](#4.2) <a name='4.2'></a> 아이템을 배열에 추가하는 경우, 직접 배열에 항목을 대입하지 말고 [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)를 이용한다.
+  // ✓ 좋아요
+  var location = env.development
+    ? 'localhost'
+    : 'www.api.com'
 
-    ```javascript
-    const someStack = [];
+  // ✗ 피하세요
+  var location = env.development ?
+    'localhost' :
+    'www.api.com'
+  ```
 
-    // bad
-    someStack[someStack.length] = "abracadabra";
+* **var 선언의 경우** 각각 자체적으로 선언해야 합니다.
 
-    // good
-    someStack.push("abracadabra");
-    ```
+  eslint: [`one-var`](http://eslint.org/docs/rules/one-var)
 
-  - [4.3](#4.3) <a name='4.3'></a> 배열을 복사할 때는 배열의 spread 연산자(`...`) 를 이용한다.
+  ```js
+  // ✓ 좋아요
+  var silent = true
+  var verbose = true
 
-    ```javascript
-    // bad
-    const len = items.length;
-    const itemsCopy = [];
-    let i;
+  // ✗ 피하세요
+  var silent = true, verbose = true
 
-    for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
-    }
+  // ✗ 피하세요
+  var silent = true,
+      verbose = true
+  ```
 
-    // good
-    const itemsCopy = [...items];
-    ```
+* **조건부 할당을** 추가적으로 괄호로 묶습니다. 이것은 표현식이 등호 (`===`)에 대한 오타보다는 의도적으로 할당 (`=`)이라는 것을 분명히해야 합니다.
 
-  - [4.4](#4.4) <a name='4.4'></a>[Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#arrays--from)와 다르게 `array-like 오브젝트를 배열로 변환하는 경우`에 대해서는 별도로 가이드 하지 않는다.
+  eslint: [`no-cond-assign`](http://eslint.org/docs/rules/no-cond-assign)
 
-  - [4.5](#4.5) <a name='4.5'></a>[Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#arrays--callback-return)와 다르게 `배열의 메서드 콜백`에 대해서는 별도로 가이드 하지 않는다. eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return.html)
+  ```js
+  // ✓ 좋아요
+  while ((m = text.match(expr))) {
+    // ...
+  }
 
-  - [4.6](#4.6) <a name='4.6'></a>배열이 멀티 라인인 경우, 배열의 시작(before)과 끝(after)은 개행한다.
+  // ✗ 피하세요
+  while (m = text.match(expr)) {
+    // ...
+  }
+  ```
 
-    ```javascript
-    // bad
-    const arr = [
-      [0, 1], [2, 3], [4, 5],
-    ];
+* 한 줄에 중괄호로 처리할 경우 공백을 추가합니다.
 
-    const objectInArray = [{
-      id: 1,
-    }, {
-      id: 2,
-    }];
+  eslint: [`block-spacing`](http://eslint.org/docs/rules/block-spacing)
 
-    const numberInArray = [
-      1, 2,
-    ];
+  ```js
+    function foo () {return true}    // ✗ 피하세요
+    function foo () { return true }  // ✓ 좋아요
+  ```
 
-    // good
-    const arr = [[0, 1], [2, 3], [4, 5]];
+* **변수나 함수이름 사용시 카멜케이스(camelcase)를 사용합니다.**
 
-    const objectInArray = [
-      {
-        id: 1,
-      },
-      {
-        id: 2,
-      },
-    ];
+  eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase)
 
-    const numberInArray = [
-      1,
-      2,
-    ];
-    ```
+  ```js
+    function my_function () { }    // ✗ 피하세요
+    function myFunction () { }     // ✓ 좋아요
 
-**[⬆ back to top](#table-of-contents)**
+    var my_var = 'hello'           // ✗ 피하세요
+    var myVar = 'hello'            // ✓ 좋아요
+  ```
 
-## Destructuring
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#references)와 다르게 별도의 가이드를 제공하지 않습니다.
+* **뒤쪽에 쉼표는 허용하지 않습니다.**
 
-## Strings
-> `6.1`,`6.2` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#strings)와 동일합니다.
+  eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle)
 
-  - [6.1](#6.1) <a name='6.1'></a>따옴표는 쌍따옴표를 사용한다. 이스케이프한 경우는 예외로 홑따옴표를 사용할 수 있다. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
-
-    ```javascript
-    // bad
-    var key = 'triple';
+  ```js
     var obj = {
-      'key': '1'
+      message: 'hello',   // ✗ 피하세요
     }
+  ```
 
-    // good
-    var key = "triple";
+* **쉼표를 사용할 경우 현재 행 끝에 있어야 합니다.**
+
+  eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style)
+
+  ```js
     var obj = {
-      "key": "1"
-    }
-    ```
-
-  - [6.2](#6.2) <a name='6.2'></a>문자열은 `100`자를 넘지 않는다. `100`자가 넘는 긴 문자열인 경우 줄바꿈시 escape 문자(\)를 사용하지 않는다. escape문자 대신 `+` 연산자를 사용한다.  ES6의 template strings가 사용 가능한 환경에서는 [6.3](#6.3) 룰을 적용한다.
-
-    ```javascript
-    // bad
-    const errorMessage = 'This is a super long error that was thrown because \
-    of Batman. When you stop to think about how Batman had anything to do \
-    with this, you would get nowhere \
-    fast.';
-
-    // good
-    const errorMessage = "This is a super long error that was thrown because " +
-      "of Batman. When you stop to think about how Batman had anything to do " +
-      "with this, you would get nowhere fast.";
-    ```
-
-  - [6.3](#6.3) <a name='6.3'></a> 프로그램에서 문자열을 생성하는 경우는 문자열 연결이 아닌 template strings를 이용한다. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing)
-
-    ```javascript
-    // bad
-    function sayHi(name) {
-      return "How are you, " + name + "?";
+      foo: 'foo'
+      ,bar: 'bar'   // ✗ 피하세요
     }
 
-    // bad
-    function sayHi(name) {
-      return ["How are you, ", name, "?"].join();
+    var obj = {
+      foo: 'foo',
+      bar: 'bar'   // ✓ 좋아요
     }
+  ```
 
-    // good
-    function sayHi(name) {
-      return `How are you, ${name}?`;
+* **점(Dot)은 각 속성과 같은 줄에 있어야 합니다.**
+
+  eslint: [`dot-location`](http://eslint.org/docs/rules/dot-location)
+
+  ```js
+    console.
+      log('hello')  // ✗ 피하세요
+
+    console
+      .log('hello') // ✓ 좋아요
+  ```
+
+* **파일은 개행으로 끝나야합니다.**
+
+  eslint: [`eol-last`](http://eslint.org/docs/rules/eol-last)
+
+* **함수식별자와 호출사이에는 공백이 없어야 합니다.**
+
+  eslint: [`func-call-spacing`](http://eslint.org/docs/rules/func-call-spacing)
+
+  ```js
+  console.log ('hello') // ✗ 피하세요
+  console.log('hello')  // ✓ 좋아요
+  ```
+
+* **콜론과 키 값 쌍의 값 사이에 공백을 추가해야 합니다.**
+
+  eslint: [`key-spacing`](http://eslint.org/docs/rules/key-spacing)
+
+  ```js
+  var obj = { 'key' : 'value' }    // ✗ 피하세요
+  var obj = { 'key' :'value' }     // ✗ 피하세요
+  var obj = { 'key':'value' }      // ✗ 피하세요
+  var obj = { 'key': 'value' }     // ✓ 좋아요
+  ```
+
+* **생성자 이름은 대문자로 시작해야합니다.**
+
+  eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap)
+
+  ```js
+  function animal () {}
+  var dog = new animal()    // ✗ 피하세요
+
+  function Animal () {}
+  var dog = new Animal()    // ✓ 좋아요
+  ```
+
+* **인수가 없는 생성자는 괄호로 호출해야합니다.**
+
+  eslint: [`new-parens`](http://eslint.org/docs/rules/new-parens)
+
+  ```js
+  function Animal () {}
+  var dog = new Animal    // ✗ 피하세요
+  var dog = new Animal()  // ✓ 좋아요
+  ```
+
+* **setter가 정의되면 객체에 getter가 포함되어 있어야 합니다.**
+
+  eslint: [`accessor-pairs`](http://eslint.org/docs/rules/accessor-pairs)
+
+  ```js
+  var person = {
+    set name (value) {    // ✗ 피하세요
+      this._name = value
     }
-    ```
+  }
 
-  - [6.4](#6.4) <a name='6.4'></a> 절대로 `eval()` 을 사용하지 않는다.
+  var person = {
+    set name (value) {
+      this._name = value
+    },
+    get name () {         // ✓ 좋아요
+      return this._name
+    }
+  }
+  ```
 
+* **파생 클래스의 생성자는 `super`를 호출해야합니다.**
 
-  - [6.5](#6.5) <a name='6.5'></a> 문자열에 불필요한 escape 문자를 사용하지 않는다.  eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+  eslint: [`constructor-super`](http://eslint.org/docs/rules/constructor-super)
 
-    ```javascript
-    // bad
-    const foo = "\'this\' \i\s \'quoted\'";
+  ```js
+  class Dog {
+    constructor () {
+      super()   // ✗ 피하세요
+    }
+  }
 
-    // good
-    const foo = "\"this\" is 'quoted'";
-    const foo = `my name is '${name}'`;
-    ```
+  class Dog extends Mammal {
+    constructor () {
+      super()   // ✓ 좋아요
+    }
+  }
+  ```
 
+* **배열 생성자 대신에 배열 리터럴을 사용하십시오.**
 
-**[⬆ back to top](#table-of-contents)**
+  eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor)
 
-## Functions
-> `7.1 ~ 2`, `7.11 ~ 14` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#functions)와 동일합니다.
+  ```js
+  var nums = new Array(1, 2, 3)   // ✗ 피하세요
+  var nums = [1, 2, 3]            // ✓ 좋아요
+  ```
 
-  - [7.1](#7.1) <a name='7.1'></a>함수 스타일에 대해서는 별도의 스타일 가이드를 제공하지 않는다. eslint: [`func-style`](http://eslint.org/docs/rules/func-style) 
+* **`arguments.callee`과 `arguments.caller`를 사용하지 마십시오.**
 
-    ```javascript
-    // type 1
-    function foo() {
+  eslint: [`no-caller`](http://eslint.org/docs/rules/no-caller)
+
+  ```js
+  function foo (n) {
+    if (n <= 0) return
+
+    arguments.callee(n - 1)   // ✗ 피하세요
+  }
+
+  function foo (n) {
+    if (n <= 0) return
+
+    foo(n - 1)                // ✓ 좋아요
+  }
+  ```
+
+* **클래스로 선언된 변수를 수정하지 마세요**
+
+  eslint: [`no-class-assign`](http://eslint.org/docs/rules/no-class-assign)
+
+  ```js
+  class Dog {}
+  Dog = 'Fido'    // ✗ 피하세요
+  ```
+
+* **`const`를 사용하여 선언 된 변수는 수정하지 마십시오.**
+
+  eslint: [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign)
+
+  ```js
+  const score = 100
+  score = 125       // ✗ 피하세요
+  ```
+
+* **조건(반복 제외)에서 상수 표현식을 사용하지 마십시오.**
+
+  eslint: [`no-constant-condition`](http://eslint.org/docs/rules/no-constant-condition)
+
+  ```js
+  if (false) {    // ✗ 피하세요
+    // ...
+  }
+
+  if (x === 0) {  // ✓ 좋아요
+    // ...
+  }
+
+  while (true) {  // ✓ 좋아요
+    // ...
+  }
+  ```
+
+* **정규식에는 제어 문자가 없습니다.**
+
+  eslint: [`no-control-regex`](http://eslint.org/docs/rules/no-control-regex)
+
+  ```js
+  var pattern = /\x1f/    // ✗ 피하세요
+  var pattern = /\x20/    // ✓ 좋아요
+  ```
+
+* **`debugger`문은 없습니다.**
+
+  eslint: [`no-debugger`](http://eslint.org/docs/rules/no-debugger)
+
+  ```js
+  function sum (a, b) {
+    debugger      // ✗ 피하세요
+    return a + b
+  }
+  ```
+
+** **변수에 `delete` 연산자는 없습니다.**
+
+  eslint: [`no-delete-var`](http://eslint.org/docs/rules/no-delete-var)
+
+  ```js
+  var name
+  delete name     // ✗ 피하세요
+  ```
+
+* **함수 정의시 중복된 인수를 사용할 수 없습니다.**
+
+  eslint: [`no-dupe-args`](http://eslint.org/docs/rules/no-dupe-args)
+
+  ```js
+  function sum (a, b, a) {  // ✗ 피하세요
+    // ...
+  }
+
+  function sum (a, b, c) {  // ✓ 좋아요
+    // ...
+  }
+  ```
+
+* **클래스 멤버에 중복된 이름을 사용할 수 없습니다.**
+
+  eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
+
+  ```js
+  class Dog {
+    bark () {}
+    bark () {}    // ✗ 피하세요
+  }
+  ```
+
+* **객체 리터럴에서 중복된 키 값을 사용할 수 없습니다.**
+
+  eslint: [`no-dupe-keys`](http://eslint.org/docs/rules/no-dupe-keys)
+
+  ```js
+  var user = {
+    name: 'Jane Doe',
+    name: 'John Doe'    // ✗ 피하세요
+  }
+  ```
+
+* **`switch`문에서 중복된 `case` 라벨을 사용할 수 없습니다.**
+
+  eslint: [`no-duplicate-case`](http://eslint.org/docs/rules/no-duplicate-case)
+
+  ```js
+  switch (id) {
+    case 1:
       // ...
-    }
+    case 1:     // ✗ 피하세요
+  }
+  ```
 
-    // type 2
-    const foo = function() {
-      // ...
-    };
-
-    // type 3
-    const foo = function bar() {
-      // ...
-    };
-    ```
-    
-  - [7.2](#7.2) <a name='7.2'></a>즉시 실행함수는 함수를 괄호로 감싼다. eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html)
-
-    ```javascript
-    // bad
-    !function()) {
-      console.log("Welcome to the Internet. Please follow me.");
-    }();
-
-    // bad
-    (function() {
-      console.log("Welcome to the Internet. Please follow me.");
-    }());
-
-    // good
-    (function() {
-      console.log("Welcome to the Internet. Please follow me.");
-    })();
-    ```
-
-  - [7.3](#7.3) <a name='7.3'></a> 함수 이외의 블록 (if나 while같은) 안에서 함수를 선언하지 않는다. eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
-
-    ```js
-    // bad
-    let i;
-    for (i = 10; i; i--) {
-        (function() { 
-          return i; 
-        })();
-    }
+* **모듈 당 하나의 import 문을 사용해야 합니다.**
 
-    // bad
-    while(i) {
-        let a = function() {
-          return i;
-        };
-        a();
-    }
+  eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
 
-    // good
-    const a = function() {};
-    let i;
-    for (i = 10; i; i--) {
-        a();
-    }
-    ```
+  ```js
+  import { myFunc1 } from 'module'
+  import { myFunc2 } from 'module'          // ✗ 피하세요
 
-  - [7.4](#7.4) <a name='7.4'></a> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#functions--note-on-blocks)와 다르게 `block 내의 함수선언`에 대해서는 별도로 가이드 하지 않는다.
+  import { myFunc1, myFunc2 } from 'module' // ✓ 좋아요
+  ```
 
-  - [7.5](#7.5) <a name='7.5'></a> 절대로 파라미터에 `arguments` 를 지정하지 않는다. 이것은 함수 스코프에 전해지는  `arguments` 오브젝트의 참조를 덮어 버린다.
+* **정규식에서 빈 문자 클래스가 없어야 합니다.**
 
-    ```javascript
-    // bad
-    function nope(name, options, arguments) {
-      // ...stuff...
-    }
+  eslint: [`no-empty-character-class`](http://eslint.org/docs/rules/no-empty-character-class)
 
-    // good
-    function yup(name, options, args) {
-      // ...stuff...
-    }
-    ```
-
-  - [7.6](#7.6) <a name='7.6'></a> 절대 `arguments` 를 이용하지 않는다. 대신에 rest 파라미터(`...`) 를 이용한다. eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params.html)
-
-    ```javascript
-    // bad
-    function concatenateAll() {
-      const args = Array.prototype.slice.call(arguments);
-      return args.join("");
-    }
+  ```js
+  const myRegex = /^abc[]/      // ✗ 피하세요
+  const myRegex = /^abc[a-z]/   // ✓ 좋아요
+  ```
 
-    // good
-    function concatenateAll(...args) {
-      return args.join("");
-    }
-    ```
-
-  - [7.7](#7.7) <a name='7.7'></a> 함수의 파라미터를 재정의하지 않는다. 대신 default 파라미터를 이용한다.
-
-    ```javascript
-    // really bad
-    function handleThings(opts) {
-      opts = opts || {};
-      // ...
-    }
+* **비어있는 구조의 패턴이 없어야 합니다.**
 
-    // still bad
-    function handleThings(opts) {
-      if (opts === void 0) {
-        opts = {};
-      }
-      // ...
-    }
+  eslint: [`no-empty-pattern`](http://eslint.org/docs/rules/no-empty-pattern)
 
-    // good
-    function handleThings(opts = {}) {
-      // ...
-    }
-    ```
-
-  - [7.8](#7.8) <a name='7.8'></a> side effect 를 유발하는 default 파라미터의 이용을 피한다.
-
-    ```javascript
-    var b = 1;
-    // bad
-    function count(a = b++) {
-      console.log(a);
-    }
-    count();  // 1
-    count();  // 2
-    count(3); // 3
-    count();  // 3
-    ```
-
-  - [7.9](#7.9) <a name='7.9'></a> 항상 default 파라미터는 뒤쪽에 둔다.
-
-    ```javascript
-    // bad
-    function handleThings(opts = {}, name) {
-      // ...
-    }
+  ```js
+  const { a: {} } = foo         // ✗ 피하세요
+  const { a: { b } } = foo      // ✓ 좋아요
+  ```
 
-    // good
-    function handleThings(name, opts = {}) {
-      // ...
-    }
-    ```
-
-  - [7.10](#7.10) <a name='7.10'></a> 절대 새 함수를 작성하기 위해 Function constructor를 이용하지 않는다. eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
-
-    ```javascript
-    // bad
-    var add = new Function("a", "b", "return a + b");
-
-    // still bad
-    var subtract = Function("a", "b", "return a - b");
-    ```
-
-  - [7.11](#7.11) <a name='7.11'></a>익명함수는 function과 괄호 사이에 공백이 없다. 
-   기명 함수(named function)는 함수 이름과 괄호 사이에 공백이 없다.  
-   async arrow function인 경우 async와 arrow function 사이에 공백이 있다.  
-   eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
-
-    ```javascript
-    // bad
-    const f = function () {};
-    const g = function a (){};
-    const h = async(v,i) => {};
-
-    // good
-    const x = function() {};
-    const y = function a() {};
-    const z = async (v,i) => {};
-    ```
-
-  - [7.12](#7.12) <a name='7.12'></a>가급적 mutate parameter는 사용하지 않는다. 하지만, 필요에 의해서는 주의하여 사용한다. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
-
-    ```javascript
-    // 권장하지 않음.
-    function f1(obj) {
-      obj.key = 1;
-    }
-    ```
-
-  - [7.13](#7.13) <a name='7.13'></a>파라미터를 재할당하지 않는다. 단, 파라미터의 속성에 대해서는 재할당이 가능하다. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
-
-    ```javascript
-    // bad
-    function f1(a) {
-      a = 1;
-      // ...
-    }
+* **`eval()`을 사용하지 않습니다.**
 
-    // bad
-    function f2(a) {
-      if (!a) { a = 1; }
-      // ...
-    }
+  eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
 
-    
-    // good
-    function f3(a) {
-      const b = a || 1;
-      // ...
-    }
+  ```js
+  eval( "var result = user." + propName ) // ✗ 피하세요
+  var result = user[propName]             // ✓ 좋아요
+  ```
 
-    // good
-    function f4(a) {
-      if (!a) { a.b = 1; }
-      // ...
-    }    
-    ```
-
-  - [7.14](#7.14) <a name='7.14'></a>가변함수를 호출할 때는 spread 연산자 (`...`)를 사용한다. eslint: [`prefer-spread`](http://eslint.org/docs/rules/prefer-spread)
-
-    ```javascript
-    // bad
-    const x = [1, 2, 3, 4, 5];
-    console.log.apply(console, x);
-
-    // good
-    const x = [1, 2, 3, 4, 5];
-    console.log(...x);
-
-    // bad
-    new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
-
-    // good
-    new Date(...[2016, 8, 5]);
-    ```
-
-  - [7.15](#7.15) <a name='7.15'></a>함수의 정의가 멀티라인 인 경우, 오브젝트와 같은 스타일 가이드를 따른다. [19.1](#19.1)을 참조한다.
-
-    ```javascript
-    // bad
-    function foo(bar,
-                 baz,
-                 quux) {
-      // ...
-    }
+* **`catch`절의 예외를 재할당하면 안됩니다.**
 
-    // good
-    function foo(
-      bar,
-      baz,
-      quux,
-    ) {
-      // ...
-    }
+  eslint: [`no-ex-assign`](http://eslint.org/docs/rules/no-ex-assign)
 
-    // bad
-    console.log(foo,
-      bar,
-      baz);
-
-    // good
-    console.log(
-      foo,
-      bar,
-      baz,
-    );
-    ```    
-
-**[⬆ back to top](#table-of-contents)**
-
-## Arrow Functions
-> `8.2`, `8.4` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#arrow-functions)와 동일합니다.
-
-  - [8.1](#8.1) <a name='8.1'></a>익명함수를 전달하는 경우, arrow function 표기를 이용한다. eslint: [`prefer-arrow-callback`](http://eslint.org/docs/rules/prefer-arrow-callback.html), [`arrow-spacing`](http://eslint.org/docs/rules/arrow-spacing.html)
-
-    ```javascript
-    // bad
-    [1, 2, 3].map(function (x) {
-      const y = x + 1;
-      return x * y;
-    });
-
-    // good
-    [1, 2, 3].map(x => {
-      const y = x + 1;
-      return x * y;
-    });
-    ```
-
-  - [8.2](#8.2) <a name='8.2'></a>함수의 몸체(body)가 단일 표현식이라면 중괄호(`{}`)를 생략하고, 묵시적으로 그 값은 반환값이 된다.  그렇지 않으면, 중괄호(`{}`)는 생략할 수 없고, 반환값이 필요한 경우는 return 을 명시한다. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html), [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style.html)
-
-    ```javascript
-    // bad
-    [1, 2, 3].map(number => {
-      const nextNumber = number + 1;
-      `A string containing the ${nextNumber}.`;
-    });
-
-    // good
-    [1, 2, 3].map(number => `A string containing the ${number}.`);
-
-    // good
-    [1, 2, 3].map(number => {
-      const nextNumber = number + 1;
-      return `A string containing the ${nextNumber}.`;
-    });
-
-    // good
-    [1, 2, 3].map((number, index) => ({
-      [index]: number,
-    }));
-
-    // good
-    [1, 2, 3].forEach(number => {
-      console.log(nextNumber);
-    });
-    ```
-
-  - [8.3](#8.3) <a name='8.3'></a> 식이 복수행에 걸쳐 있을 경우는 가독성을 더욱 좋게하기 위해 소괄호(`()`)로 감싼다.
-
-    ```js
-    // bad
-    [1, 2, 3].map(number => "As time went by, the string containing the " +
-      "${number} became much longer. So we needed to break it over multiple " +
-      "lines."
-    );
-
-    // good
-    [1, 2, 3].map(number => (
-      "As time went by, the string containing the ${number} became much " +
-      "longer. So we needed to break it over multiple lines."
-    ));
-    ```
-
-  - [8.4](#8.4) <a name='8.4'></a>함수가 단일 파라미터인 경우, 소괄호(`()`)는 생략한다. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html)
-
-    ```javascript
-    // bad
-    [1, 2, 3].map((x) => x * x);
-
-    // good
-    [1, 2, 3].map(x => x * x);
-
-    // good
-    [1, 2, 3].map(number => (
-      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
-    ));
-
-    // bad
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
-
-    // good
-    [1, 2, 3].map(x => {
-      const y = x + 1;
-      return x * y;
-    });
-    ```
-
-  - [8.5](#8.5) <a name='8.5'></a>arrow function 문법(`=>`)과 비교 연산자 (`<=`, `>=`)를 함께 사용할 경우, 소괄호(`()`)를 이용하여 혼란스럽지 않도록 표현한다. eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
-
-    ```javascript
-    // bad
-    const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
-
-    // bad
-    const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
-
-    // good
-    const itemHeight = item => (item.height > 256 ? item.largeSize : item.smallSize);
-
-    // good
-    const itemHeight = (item) => {
-      const { height, largeSize, smallSize } = item;
-      return height > 256 ? largeSize : smallSize;
-    };
-    ```    
-
-**[⬆ back to top](#table-of-contents)**
-
-## Classes & Constructors
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#classes--constructors)와 동일합니다.
-
-  - [9.1](#9.1) <a name='9.1'></a>`prototype`을 직접 조작하는 것을 피하고 항상 `class`를 이용한다.
-
-    ```javascript
-    // bad
-    function Queue(contents = []) {
-      this._queue = [...contents];
-    }
-    Queue.prototype.pop = function() {
-      const value = this._queue[0];
-      this._queue.splice(0, 1);
-      return value;
-    }
+  ```js
+  try {
+    // ...
+  } catch (e) {
+    e = 'new value'             // ✗ 피하세요
+  }
 
-    // good
-    class Queue {
-      constructor(contents = []) {
-        this._queue = [...contents];
-      }
-      pop() {
-        const value = this._queue[0];
-        this._queue.splice(0, 1);
-        return value;
-      }
-    }
-    ```
-
-  - [9.2](#9.2) <a name='9.2'></a>상속은 `extends` 를 이용한다. 
-
-    ```javascript
-    // bad
-    const inherits = require("inherits");
-    function PeekableQueue(contents) {
-      Queue.apply(this, contents);
-    }
-    inherits(PeekableQueue, Queue);
-    PeekableQueue.prototype.peek = function() {
-      return this._queue[0];
-    }
+  try {
+    // ...
+  } catch (e) {
+    const newVal = 'new value'  // ✓ 좋아요
+  }
+  ```
 
-    // good
-    class PeekableQueue extends Queue {
-      peek() {
-        return this._queue[0];
-      }
-    }
-    ```
-
-  - [9.3](#9.3) <a name='9.3'></a>필요하다면, 메서드의 반환값으로 `this` 를 반환하는 것으로 메서드체이닝을 할 수 있다. 
-
-    ```javascript
-    // bad
-    Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return true;
-    };
-
-    Jedi.prototype.setHeight = function(height) {
-      this.height = height;
-    };
-
-    const luke = new Jedi();
-    luke.jump(); // => true
-    luke.setHeight(20); // => undefined
-
-    // good
-    class Jedi {
-      jump() {
-        this.jumping = true;
-        return this;
-      }
-
-      setHeight(height) {
-        this.height = height;
-        return this;
-      }
-    }
+* **네이티브 객체를 확장하지 않습니다.**
 
-    const luke = new Jedi();
+  eslint: [`no-extend-native`](http://eslint.org/docs/rules/no-extend-native)
 
-    luke.jump()
-      .setHeight(20);
-    ```
+  ```js
+  Object.prototype.age = 21     // ✗ 피하세요
+  ```
 
+* **불필요한 함수 바인딩을 피해야 합니다.**
 
-  - [9.4](#9.4) <a name='9.4'></a>toString()을 작성하는 것을 허용하지만 올바르게 동작하는 지와 side effect 가 없는지를 꼭 확인한다.
+  eslint: [`no-extra-bind`](http://eslint.org/docs/rules/no-extra-bind)
 
-    ```javascript
-    class Jedi {
-      constructor(options = {}) {
-        this.name = options.name || "no name";
-      }
+  ```js
+  const name = function () {
+    getName()
+  }.bind(user)    // ✗ 피하세요
 
-      getName() {
-        return this.name;
-      }
+  const name = function () {
+    this.getName()
+  }.bind(user)    // ✓ 좋아요
+  ```
 
-      toString() {
-        return `Jedi - ${this.getName()}`;
-      }
-    }
-    ```
+* **불필요한 boolean 캐스트를 피해야 합니다.**
 
-  - [9.5](#9.5) <a name='9.5'></a>불필요한 빈 default constructor는 사용하지 않는다. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
+  eslint: [`no-extra-boolean-cast`](http://eslint.org/docs/rules/no-extra-boolean-cast)
 
-    ```javascript
-    // bad
-    class Jedi {
-      constructor() {}
+  ```js
+  const result = true
+  if (!!result) {   // ✗ 피하세요
+    // ...
+  }
 
-      getName() {
-        return this.name;
-      }
-    }
+  const result = true
+  if (result) {     // ✓ 좋아요
+    // ...
+  }
+  ```
 
-    // bad
-    class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-      }
-    }
+* **함수 표현식에는 불필요한 괄호가 없어야 합니다.**
 
-    // good
-    class Rey extends Jedi {
-      constructor(...args) {
-        super(...args);
-        this.name = 'Rey';
-      }
-    }
-    ```    
-
-  - [9.6](#9.6) <a name='9.6'></a>클래스에는 동일 멤버가 있어서는 안된다. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
-
-    ```javascript
-    // bad
-    class Foo {
-      bar() { return 1; }
-      bar() { return 2; }
-    }
+  eslint: [`no-extra-parens`](http://eslint.org/docs/rules/no-extra-parens)
 
-    // good
-    class Foo {
-      bar() { return 1; }
-    }
+  ```js
+  const myFunc = (function () { })   // ✗ 피하세요
+  const myFunc = function () { }     // ✓ 좋아요
+  ```
 
-    // good
-    class Foo {
-      bar() { return 2; }
-    }
-    ```    
+* **'switch'경우에 완료되지 못하는 것을 막기 위해 'break'를 사용하십시오.**
 
-**[⬆ back to top](#table-of-contents)**
+  eslint: [`no-fallthrough`](http://eslint.org/docs/rules/no-fallthrough)
 
-## Modules
-> `10.5`, `10.9` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#modules)와 동일합니다.
+  ```js
+  switch (filter) {
+    case 1:
+      doSomething()    // ✗ 피하세요
+    case 2:
+      doSomethingElse()
+  }
 
-  - [10.1](#10.1) <a name='10.1'></a>비표준 모듈시스템이 아닌 (`import`/`export`) 를 항상 사용한다.
+  switch (filter) {
+    case 1:
+      doSomething()
+      break           // ✓ 좋아요
+    case 2:
+      doSomethingElse()
+  }
 
-    ```javascript
-    // bad
-    const AirbnbStyleGuide = require("./AirbnbStyleGuide");
-    module.exports = AirbnbStyleGuide.es6;
+  switch (filter) {
+    case 1:
+      doSomething()
+      // fallthrough  // ✓ 좋아요
+    case 2:
+      doSomethingElse()
+  }
+  ```
 
-    // ok
-    import AirbnbStyleGuide from "./AirbnbStyleGuide";
-    export default AirbnbStyleGuide.es6;
+* **부동 소숫점이 없어야 합니다.**
 
-    // best
-    import {es6} from "./AirbnbStyleGuide";
-    export default es6;
-    ```
+  eslint: [`no-floating-decimal`](http://eslint.org/docs/rules/no-floating-decimal)
 
-  - [10.2](#10.2) <a name='10.2'></a>wildcard import 는 이용하지 않는다.
+  ```js
+  const discount = .5      // ✗ 피하세요
+  const discount = 0.5     // ✓ 좋아요
+  ```
 
-    ```javascript
-    // bad
-    import * as AirbnbStyleGuide from "./AirbnbStyleGuide";
+* **함수 선언을 재지정하지 말아야 합니다.**
 
-    // good
-    import AirbnbStyleGuide from "./AirbnbStyleGuide";
-    ```
+  eslint: [`no-func-assign`](http://eslint.org/docs/rules/no-func-assign)
 
-  - [10.3](#10.3) <a name='10.3'></a>import 문으로부터 직접 export 하지 않는다.
+  ```js
+  function myFunc () { }
+  myFunc = myOtherFunc    // ✗ 피하세요
+  ```
 
-    ```javascript
-    // bad
-    // filename es6.js
-    export {es6 as default} from "./airbnbStyleGuide";
+* **읽기전용 전역 변수를 재정의하지 말아야합니다.**
 
-    // good
-    // filename es6.js
-    import {es6} from "./AirbnbStyleGuide";
-    export default es6;
-    ```
+  eslint: [`no-global-assign`](http://eslint.org/docs/rules/no-global-assign)
 
-  - [10.4](#10.4) <a name='10.4'></a>import는 중복되지 않게 한 곳에서 import 한다.
- eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+  ```js
+  window = {}     // ✗ 피하세요
+  ```
 
-    ```javascript
-    // bad
-    import foo from "foo";
-    // … some other imports … //
-    import {named1, named2} from "foo";
+* **`eval()`이 포함되지 않도록 합니다.**
 
-    // good
-    import foo, {named1, named2} from "foo";
+  eslint: [`no-implied-eval`](http://eslint.org/docs/rules/no-implied-eval)
 
-    // good
-    import foo, {
-      named1,
-      named2
-    } from "foo";
-    ```
+  ```js
+  setTimeout("alert('Hello world')")                   // ✗ 피하세요
+  setTimeout(function () { alert('Hello world') })     // ✓ 좋아요
+  ```
 
-  - [10.5](#10.5) <a name='10.5'></a>mutable 객체를 export 하는 것에 대해 강제하지 않는다. eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+* **중괄호 안에서 함수가 선언되지 말아야 합니다.**
 
-    ```javascript
-    // good
-    // let은 변경 가능한 객체
-    let foo = {
-      a: 10
-    }
-    export {foo};
+  eslint: [`no-inner-declarations`](http://eslint.org/docs/rules/no-inner-declarations)
 
-    // good
-    // const는 변경 가능하지 않는 객체
-    const foo = 3;
-    export {foo};
-    ```
+  ```js
+  if (authenticated) {
+    function setAuthUser () {}    // ✗ 피하세요
+  }
+  ```
 
-  - [10.6](#10.6) <a name='10.6'></a>export가 하나일 경우, default export를 사용한다. 
- eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+* **`RegExp` 생성자에 잘못된 정규 표현식 문자열이 없어야 합니다.**
 
-    ```javascript
-    // bad
-    export function foo() {}
+  eslint: [`no-invalid-regexp`](http://eslint.org/docs/rules/no-invalid-regexp)
 
-    // good
-    export default function foo() {}
-    ```
+  ```js
+  RegExp('[a-z')    // ✗ 피하세요
+  RegExp('[a-z]')   // ✓ 좋아요
+  ```
 
-  - [10.7](#10.7) <a name='10.7'></a>모든 `import`문은 상위에 위치한다.
- eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
+* **불규칙한 공백이 없어야 합니다.**
 
-    ```javascript
-    // bad
-    import foo from "foo";
-    foo.init();
+  eslint: [`no-irregular-whitespace`](http://eslint.org/docs/rules/no-irregular-whitespace)
 
-    import bar from "bar";
+  ```js
+  function myFunc () /*<NBSP>*/{}   // ✗ 피하세요
+  ```
 
-    // good
-    import foo from "foo";
-    import bar from "bar";
+* **`__iterator__`를 사용하지 않아야 합니다.**
 
-    foo.init();
-    ```
+  eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator)
 
-  - [10.8](#10.8) <a name='10.8'></a>멀티 라인 imports 문은 배열이나 오브젝트의 literal과 같이 표현한다. [19.1](#19.1)을 참조한다.
+  ```js
+  Foo.prototype.__iterator__ = function () {}   // ✗ 피하세요
+  ```
 
-    ```javascript
-    // good
-    import {
-      longNameA,
-      longNameB,
-      longNameC,
-      longNameD,
-      longNameE,
-    } from "path";
-    ```
+* **범위 변수와 이름을 공유하는 라벨이 없어야 합니다.**
 
-  - [10.9](#10.9) <a name='10.9'></a>웹팩 로더 문법 사용에 대해 강제하지 않는다. eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
+  eslint: [`no-label-var`](http://eslint.org/docs/rules/no-label-var)
 
-    ```javascript
-    // good
-    import fooSass from 'css!sass!foo.scss';
-    import barCss from 'style!css!bar.css';
+  ```js
+  var score = 100
+  function game () {
+    score: while (true) {      // ✗ 피하세요
+      score -= 10
+      if (score > 0) continue score
+      break
+    }
+  }
+  ```
 
-    // good
-    import fooSass from 'foo.scss';
-    import barCss from 'bar.css';
-    ```
+* **라벨문을 사용하지 말아야 합니다.**
 
-**[⬆ back to top](#table-of-contents)**
+  eslint: [`no-labels`](http://eslint.org/docs/rules/no-labels)
 
-## Iterators and Generators
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#iterators-and-generators)와 다르게 별도의 가이드를 제공하지 않습니다.
+  ```js
+  label:
+    while (true) {
+      break label     // ✗ 피하세요
+    }
+  ```
 
-## Properties
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#properties)와 동일합니다.
+* **불필요하게 중첩된 블록이 없어야 합니다.**
 
-  - [12.1](#12.1) <a name='12.1'></a>프로퍼티에 억세스하는 경우는 점 `.` 을 사용한다. eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html)
+  eslint: [`no-lone-blocks`](http://eslint.org/docs/rules/no-lone-blocks)
 
-    ```javascript
-    const luke = {
-      jedi: true,
-      age: 28,
-    };
+  ```js
+  function myFunc () {
+    {                   // ✗ 피하세요
+      myOtherFunc()
+    }
+  }
 
-    // bad
-    const isJedi = luke["jedi"];
+  function myFunc () {
+    myOtherFunc()       // ✓ 좋아요
+  }
+  ```
 
-    // good
-    const isJedi = luke.jedi;
-    ```
+* **공백과 탭을 섞어서 사용하지 말아야 합니다.**
 
-  - [12.2](#12.2) <a name='12.2'></a>변수를 사용해 프로퍼티에 억세스하는 경우는 대괄호(`[]`)를 사용한다.
+  eslint: [`no-mixed-spaces-and-tabs`](http://eslint.org/docs/rules/no-mixed-spaces-and-tabs)
 
-    ```javascript
-    const luke = {
-      jedi: true,
-      age: 28,
-    };
+* **들여 쓰기를 제외하고는 여러 공백을 사용하지 말아야 합니다.**
 
-    function getProp(prop) {
-      return luke[prop];
-    }
+  eslint: [`no-multi-spaces`](http://eslint.org/docs/rules/no-multi-spaces)
 
-    const isJedi = getProp("jedi");
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Variables
-> `13.4`, `13.6` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#variables)와 동일합니다.
- 
-  - [13.1](#13.1) <a name='13.1'></a>변수를 선언 할 때는 가급적 `const`나 `let`을 사용한다. 그렇게 하지 않으면 글로벌 변수로 선언된다. eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
-
-    ```javascript
-    // bad
-    superPower = new SuperPower();
-
-    // good
-    const superPower = new SuperPower();
-    ```
-
-  - [13.2](#13.2) <a name='13.2'></a>변수 선언은 변수당 하나씩 사용한다. eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html)
-
-    ```javascript
-    // bad
-    const items = getItems(),
-        goSportsTeam = true,
-        dragonball = "z";
-
-    // bad
-    // (compare to above, and try to spot the mistake)
-    const items = getItems(),
-        goSportsTeam = true;
-        dragonball = "z";
-
-    // good
-    const items = getItems();
-    const goSportsTeam = true;
-    const dragonball = "z";
-    ```
-
-  - [13.3](#13.3) <a name='13.3'></a> 우선 `const` 를 그룹화하고 다음에 `let` 을 그룹화 한다.
-
-    ```javascript
-    // bad
-    let i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
-
-    // bad
-    let i;
-    const items = getItems();
-    let dragonball;
-    const goSportsTeam = true;
-    let len;
-
-    // good
-    const goSportsTeam = true;
-    const items = getItems();
-    let dragonball;
-    let i;
-    let length;
-    ```
-
-  - [13.4](#13.4) <a name='13.4'></a>`let`과 `const`을 사용할 때는 블럭 스코프 이기 때문에, 변수가 사용될 적당한 위치에 변수를 선언한다. 단, `let`과 `const`를 사용할 수 없다면, `var`로 상단에 변수를 선언한다. 
-
-    ```javascript
-    // bad
-    function foo() {
-      var i = 0;
-      if (i > 0) {
-        var j = 0;
-      }
-    }
+  ```js
+  const id =    1234    // ✗ 피하세요
+  const id = 1234       // ✓ 좋아요
+  ```
 
-    // good
-    function foo() {
-      var i = 0;
-      var j = 0;
-      if (i > 0) {
-        j = 0;
-      }
-    }
+* **멀티라인 문자열을 사용하지 말아야 합니다.**
 
-    // bad - 불필요한 함수 호출
-    function checkName(hasName) {
-      const name = getName();
+  eslint: [`no-multi-str`](http://eslint.org/docs/rules/no-multi-str)
 
-      if (hasName === "test") {
-        return false;
-      }
+  ```js
+  const message = 'Hello \
+                   world'     // ✗ 피하세요
+  ```
 
-      if (name === "test") {
-        this.setName('');
-        return false;
-      }
+* **변수에 객체를 대입하지 않고 `new`를 사용하면 안됩니다.**
 
-      return name;
-    }
+  eslint: [`no-new`](http://eslint.org/docs/rules/no-new)
 
-    // good
-    function checkName(hasName) {
-      if (hasName === "test") {
-        return false;
-      }
+  ```js
+  new Character()                     // ✗ 피하세요
+  const character = new Character()   // ✓ 좋아요
+  ```
 
-      const name = getName();
+* **`Function` 생성자를 사용하지 않아야 합니다.**
 
-      if (name === "test") {
-        this.setName("");
-        return false;
-      }
+  eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
 
-      return name;
-    }
-    ```
-
-  - [13.5](#13.5) <a name='13.5'></a>여러 개의 변수를 한 줄에 동일한 값으로 설정하지 않는다. eslint [`no-multi-assign`](http://eslint.org/docs/rules/no-multi-assign)
-
-    ```javascript
-    // bad
-    (function example() {
-      let a = b = c = 1;
-    }());
-
-    // good
-    (function example() {
-      let a = 1;
-      let b = a;
-      let c = a;
-    }());
-    ```
-
-  - [13.6](#13.6) <a name='13.6'></a>++, -- 연산자 사용이 가능하다. 연산자와 피연산자 사이에 공백을 두지 않는다. eslint [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
-
-    ```javascript
-    // bad
-    ++ i;
-    i ++;
-
-    // good
-    ++i;
-    i++;
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Hoisting
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#hoisting)와 동일합니다.
-
-
-  - [14.1](#14.1) <a name='14.1'></a>`var` 선언은 할당 없이 스코프의 선두에 hoist 된다. `const` 와 `let` 선언은[Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let) 라고 불리는 새로운 컨셉의 혜택을 받고 있다.
-    ```javascript
-    // notDefined 가 글로벌변수에 존재하지 않는다고 판정한 경우, 잘 동작하지 않는다.
-    function example() {
-      console.log(notDefined); // => throws a ReferenceError
-    }
+  ```js
+  var sum = new Function('a', 'b', 'return a + b')    // ✗ 피하세요
+  ```
 
-    // 그 변수를 참조하는 코드의 뒤에서 그 변수를 선언한 경우
-    // 변수가 hoist 된 상태에서 동작한다.
-    // 주의：`true` 라는 값 자체는 hoist 되지 않는다.
-    function example() {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
-    }
+* **`Object` 생성자를 사용하지 않아야 합니다.**
 
-    // 인터프리터는 변수선언을 스코프의 선두에 hoist 한다.
-    // 위의 예는 다음과 같이 다시 쓸수 있다.
-    function example() {
-      let declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
-    }
+  eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object)
 
-    // const 와 let 을 이용한 경우
-    function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
-      const declaredButNotAssigned = true;
-    }
-    ```
+  ```js
+  let config = new Object()   // ✗ 피하세요
+  ```
 
-  - [14.2](#14.2) <a name='14.2'></a> 익명 함수의 경우 함수가 할당되기 전의 변수가 hoist 된다.
+* **`new require`를 사용하지 않아야 합니다.**
 
-    ```javascript
-    function example() {
-      console.log(anonymous); // => undefined
+  eslint: [`no-new-require`](http://eslint.org/docs/rules/no-new-require)
 
-      anonymous(); // => TypeError anonymous is not a function
+  ```js
+  const myModule = new require('my-module')    // ✗ 피하세요
+  ```
 
-      var anonymous = function() {
-        console.log('anonymous function expression');
-      };
-    }
-    ```
+* **`Symbol` 생성자를 사용하지 않아야 합니다.**
 
-  - [14.3](#14.3) <a name='14.3'></a> 기명 함수(named function)의 경우도 똑같이 변수가 hoist 된다. 함수명이나 함수본체는 hoist 되지 않는다.
+  eslint: [`no-new-symbol`](http://eslint.org/docs/rules/no-new-symbol)
 
-    ```javascript
-    function example() {
-      console.log(named); // => undefined
+  ```js
+  const foo = new Symbol('foo')   // ✗ 피하세요
+  ```
 
-      named(); // => TypeError named is not a function
+* **원시 래퍼 인스턴스를 사용하지 않아야 합니다.**
 
-      superPower(); // => ReferenceError superPower is not defined
+  eslint: [`no-new-wrappers`](http://eslint.org/docs/rules/no-new-wrappers)
 
-      var named = function superPower() {
-        console.log('Flying');
-      };
-    }
+  ```js
+  const message = new String('hello')   // ✗ 피하세요
+  ```
 
-    // 함수명과 변수명이 같은 경우도 같은 현상이 발생합니다.
-    function example() {
-      console.log(named); // => undefined
+* **전역 개체 속성을 함수로 호출하지 않아야 합니다.**
 
-      named(); // => TypeError named is not a function
+  eslint: [`no-obj-calls`](http://eslint.org/docs/rules/no-obj-calls)
 
-      var named = function named() {
-        console.log("named");
-      }
-    }
-    ```
+  ```js
+  const math = Math()   // ✗ 피하세요
+  ```
 
-  - [14.4](#14.4) <a name='14.4'></a> 함수선언은 함수명과 함수본체가 hoist 된다.
+* **8진수를 사용하지 않습니다.**
 
-    ```javascript
-    function example() {
-      superPower(); // => Flying
+  eslint: [`no-octal`](http://eslint.org/docs/rules/no-octal)
 
-      function superPower() {
-        console.log("Flying");
-      }
-    }
-    ```
+  ```js
+  const num = 042     // ✗ 피하세요
+  const num = '042'   // ✓ 좋아요
+  ```
 
-**[⬆ back to top](#table-of-contents)**
+* **문자열 리터럴에는 8 진수 이스케이프 시퀀스가 없습니다.**
 
-## Comparison Operators & Equality
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#comparison-operators--equality)와 동일합니다.
+  eslint: [`no-octal-escape`](http://eslint.org/docs/rules/no-octal-escape)
 
+  ```js
+  const copyright = 'Copyright \251'  // ✗ 피하세요
+  ```
 
-  - [15.1](#15.1) <a name='15.1'></a>`==` 이나 `!=` 보다 `===` 와 `!==` 을 사용한다.
+* **`__dirname`과 `__filename`을 사용할 때 문자열 연결을 피해야 합니다.**
 
-  - [15.2](#15.2) <a name='15.2'></a>`if` 문과 같은 조건식은 `ToBoolean` 메서드에 의한 강제형변환으로 평가되어 항상 다음과 같은 심플한 룰을 따른다.
-    + **Object** 는 **true** 로 평가된다.
-    + **undefined** 는 **false** 로 평가된다.
-    + **null** 은 **false** 로 평가된다.
-    + **Boolan** 은 **boolean형의 값** 으로 평가된다.
-    + **Number** 는 **true** 로 평가된다. 하지만 **+0, -0, or NaN** 의 경우는 **false** 이다.
-    + **String** 은 **true** 로 평가된다. 하지만 빈문자 `""` 의 경우는 **false** 이다.
+  eslint: [`no-path-concat`](http://eslint.org/docs/rules/no-path-concat)
 
-    ```javascript
-    if ([0]) {
-      // true
-      // 배열은 오브젝트이므로 true 로 평가된다.
-    }
-    ```
+  ```js
+  const pathToFile = __dirname + '/app.js'            // ✗ 피하세요
+  const pathToFile = path.join(__dirname, 'app.js')   // ✓ 좋아요
+  ```
 
-  - [15.3](#15.3) <a name='15.3'></a>Boolen에 대해서는 단축형을 사용한다.
+* **`__proto__` 사용은 피해야 합니다.** 대신에 `getPrototypeOf`를 사용할 수 있습니다.
 
-    ```javascript
-    // bad
-    if (name !== "") {
-      // ...stuff...
-    }
+  eslint: [`no-proto`](http://eslint.org/docs/rules/no-proto)
 
-    // good
-    if (name) {
-      // ...stuff...
-    }
+  ```js
+  const foo = obj.__proto__               // ✗ 피하세요
+  const foo = Object.getPrototypeOf(obj)  // ✓ 좋아요
+  ```
 
-    // bad
-    if (collection.length > 0) {
-      // ...stuff...
-    }
+* **변수를 새로 재정의하지 말아야 합니다.**
 
-    // good
-    if (collection.length) {
-      // ...stuff...
-    }
-    ```
-
-  - [15.4](#15.4) <a name='15.4'></a>비교에 대한 자세한 정보는 [Truth Equality and JavaScript](https://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll. 을 참조한다.
-
-  - [15.5](#15.5) <a name='15.5'></a>`case`, `default` 구문에서 `let`, `const`, `function`, `class`가 사용 되는 경우에는 중괄호(`{}`)를 사용한다. eslint rules: [`no-case-declarations`](http://eslint.org/docs/rules/no-case-declarations.html).
-
-    ```javascript
-    // bad
-    switch (foo) {
-      case 1:
-        let x = 1;
-        break;
-      case 2:
-        const y = 2;
-        break;
-      case 3:
-        function f() {
-          // ...
-        }
-        break;
-      default:
-        class C {}
-    }
+  eslint: [`no-redeclare`](http://eslint.org/docs/rules/no-redeclare)
 
-    // good
-    switch (foo) {
-      case 1: {
-        let x = 1;
-        break;
-      }
-      case 2: {
-        const y = 2;
-        break;
-      }
-      case 3: {
-        function f() {
-          // ...
-        }
-        break;
-      }
-      case 4:
-        bar();
-        break;
-      default: {
-        class C {}
-      }
-    }
-    ```  
+  ```js
+  let name = 'John'
+  let name = 'Jane'     // ✗ 피하세요
 
-  - [15.6](#15.6) <a name='15.6'></a>중첩 3항 연산자는 사용하지 않는다. eslint rules: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary.html).
+  let name = 'John'
+  name = 'Jane'         // ✓ 좋아요
+  ```
 
-    ```javascript
-    // bad
-    const foo = maybe1 > maybe2
-      ? "bar"
-      : value1 > value2 ? "baz" : null;
+* **정규 표현식 리터럴에서는 공백을 피해야 합니다.**
 
-    // better
-    const maybeNull = value1 > value2 ? "baz" : null;
+  eslint: [`no-regex-spaces`](http://eslint.org/docs/rules/no-regex-spaces)
 
-    const foo = maybe1 > maybe2
-      ? "bar"
-      : maybeNull;
+  ```js
+  const regexp = /test   value/   // ✗ 피하세요
 
-    // best
-    const maybeNull = value1 > value2 ? "baz" : null;
+  const regexp = /test {3}value/  // ✓ 좋아요
+  const regexp = /test value/     // ✓ 좋아요
+  ```
 
-    const foo = maybe1 > maybe2 ? "bar" : maybeNull;
-    ```    
+* **반환 내용에 대한 대입 값은 괄호로 묶어야 합니다.**
 
-  - [15.7](#15.7) <a name='15.7'></a>불필요한 3항 연산자는 사용하지 않는다. eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html).
+  eslint: [`no-return-assign`](http://eslint.org/docs/rules/no-return-assign)
 
-    ```javascript
-    // bad
-    const foo = a ? a : b;
-    const bar = c ? true : false;
-    const baz = c ? false : true;
+  ```js
+  function sum (a, b) {
+    return result = a + b     // ✗ 피하세요
+  }
 
-    // good
-    const foo = a || b;
-    const bar = !!c;
-    const baz = !c;
-    ```    
+  function sum (a, b) {
+    return (result = a + b)   // ✓ 좋아요
+  }
+  ```
 
-**[⬆ back to top](#table-of-contents)**
+* **변수 자체에 자기 자신은 할당하지 않아야 합니다.**
 
-## Blocks
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#blocks)와 다른 가이드를 제공합니다.
+  eslint: [`no-self-assign`](http://eslint.org/docs/rules/no-self-assign)
 
-  - [16.1](#16.1) <a name='16.1'></a>중괄호(`{}`)는 클래스, 메서드, 제어문의 블럭을 구분한다. 중괄호는 클래스 선언, 메서드 선언, 조건/반복문/제어문,줄의 마지막에서 시작한다.
+  ```js
+  name = name   // ✗ 피하세요
+  ```
 
-    ```javascript
-    // bad
-    const Empty = function()
-    {
-    }
+* **변수를 자기 자신과 비교하지 말아야 합니다.**
 
-    // good
-    const Empty = function() {
-    }
+  eslint: [`no-self-compare`](http://eslint.org/docs/rules/no-self-compare)
 
-    switch (type) {
-      case 0:
-        break;
-      case 1: {
-        break;
-      }
-      default:
-        common();
-    }
+  ```js
+  if (score === score) {}   // ✗ 피하세요
+  ```
 
-    if (true) {
-      return;
-    } else if (false) {
-      return;
-    } else {
-    }
-    ```
+* **쉼표 연산자를 사용하지 말아야 합니다.**
 
-  - [16.2](#16.2) <a name='16.2'></a>조건/반복문/제어문에 중괄호 사용한다. 조건/반복문/제어문이 한줄로 끝이라도 중괄호를 활용한다. eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html)
+  eslint: [`no-sequences`](http://eslint.org/docs/rules/no-sequences)
 
-    ```javascript
-    // bad
-    if (exp == null) return false;
-    for (var i in obj) if ( i === "key" ) return obj[i];
+  ```js
+  if (doSomething(), !!test) {}   // ✗ 피하세요
+  ```
 
-    // good
-    if (exp == null) {
-      return false;
-    }
+* **제한된 이름을 음영 처리해서는 안됩니다.**
 
-    for (var i in obj) {
-      if ( i === "stop" ) {
-        return obj[i];
-      }
-    }
-    ```
+  eslint: [`no-shadow-restricted-names`](http://eslint.org/docs/rules/no-shadow-restricted-names)
 
-**[⬆ back to top](#table-of-contents)**
+  ```js
+  let undefined = 'value'     // ✗ 피하세요
+  ```
 
-## Comments
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#comments)와 동일합니다.
+* **빈공간 배열은 허용되지 않습니다.**
 
-  - [17.1](#17.1) <a name='17.1'></a>복수행의 코멘트는 `/** ... */` 을 사용한다. 그 안에는 설명과 모든 파라미터, 반환값에 대해 형이나 값을 기술한다.
+  eslint: [`no-sparse-arrays`](http://eslint.org/docs/rules/no-sparse-arrays)
 
-    ```javascript
-    // bad
-    // make() returns a new element
-    // based on the passed in tag name
-    //
-    // @param {String} tag
-    // @return {Element} element
-    function make(tag) {
+  ```js
+  let fruits = ['apple',, 'orange']       // ✗ 피하세요
+  ```
 
-      // ...stuff...
+* **탭을 사용해서는 안됩니다.**
 
-      return element;
-    }
+  eslint: [`no-tabs`](http://eslint.org/docs/rules/no-tabs)
 
-    // good
-    /**
-     * make() returns a new element
-     * based on the passed in tag name
-     *
-     * @param {String} tag
-     * @return {Element} element
-     */
-    function make(tag) {
-
-      // ...stuff...
-
-      return element;
-    }
-    ```
+* **일반 문자열에는 템플릿 리터럴 자리 표시자가 없어야 합니다.**
 
-  - [17.2](#17.2) <a name='17.2'></a>단일행 코멘트에는 `//` 을 사용한다. 코멘트를 추가하고 싶은 코드의 상부에 배치한다. 또한, 코멘트의 앞에 공백을 넣는다.
+  eslint: [`no-template-curly-in-string`](http://eslint.org/docs/rules/no-template-curly-in-string)
 
-    ```javascript
-    // bad
-    const active = true;  // is current tab
+  ```js
+  const message = 'Hello ${name}'   // ✗ 피하세요
+  const message = `Hello ${name}`   // ✓ 좋아요
+  ```
 
-    // good
-    // is current tab
-    const active = true;
+* **`this`를 사용하기 전에 `super()`를 호출해야 합니다.**
 
-    // bad
-    function getType() {
-      console.log("fetching type...");
-      // set the default type to "no type"
-      const type = this._type || "no type";
+  eslint: [`no-this-before-super`](http://eslint.org/docs/rules/no-this-before-super)
 
-      return type;
+  ```js
+  class Dog extends Animal {
+    constructor () {
+      this.legs = 4     // ✗ 피하세요
+      super()
     }
+  }
+  ```
 
-    // good
-    function getType() {
-      console.log("fetching type...");
+* **반드시 `throw`는 `Error` 객체여야 합니다.**
 
-      // set the default type to "no type"
-      const type = this._type || "no type";
+  eslint: [`no-throw-literal`](http://eslint.org/docs/rules/no-throw-literal)
 
-      return type;
-    }
+  ```js
+  throw 'error'               // ✗ 피하세요
+  throw new Error('error')    // ✓ 좋아요
+  ```
 
-    // also good
-    function getType() {
-      // set the default type to "no type"
-      const type = this._type || "no type";
+* **줄 끝에서 공백을 사용할 수 없습니다.**
 
-      return type;
-    }
-    ```
+  eslint: [`no-trailing-spaces`](http://eslint.org/docs/rules/no-trailing-spaces)
 
-  - [17.3](#17.3) <a name='17.3'></a>문제를 지적하고 재고를 촉구하는 경우나 문제의 해결책을 제안하는 경우 등, 코멘트의 앞에  `FIXME` 나 `TODO` 를 붙이는 것으로 다른 개발자가 빠르게 이해할 수 있도록 한다. 이런 것들은 어떤 액션을 따른다는 의미이다.  액션이라는 것은 `FIXME -- 해결이 필요` 또는 `TODO -- 구현이 필요` 를 뜻한다.
+* **'undefined'로 초기화하는 것은 허용되지 않습니다.**
 
-  - [17.4](#17.4) <a name='17.4'></a>문제의 해결이 필요하다는 주석으로써 `// FIXME:` 를 사용한다.
+  eslint: [`no-undef-init`](http://eslint.org/docs/rules/no-undef-init)
 
-    ```javascript
-    class Calculator extends Abacus {
-      constructor() {
-        super();
+  ```js
+  let name = undefined    // ✗ 피하세요
 
-        // FIXME: total은 글로벌 변수를 사용해야한다.
-        total = 0;
-      }
-    }
-    ```
+  let name
+  name = 'value'          // ✓ 좋아요
+  ```
 
-  - [17.5](#17.5) <a name='17.5'></a>구현이 필요하다는 주석으로 `// TODO:` 를 사용한다.
+* **반복문에서 수정될 수 없는 조건이 없어야 합니다.**
 
-    ```javascript
-    class Calculator extends Abacus {
-      constructor() {
-        super();
+  eslint: [`no-unmodified-loop-condition`](http://eslint.org/docs/rules/no-unmodified-loop-condition)
 
-        // TODO: total 은 옵션 파라미터로 설정해야한다.
-        this.total = 0;
-      }
-    }
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Whitespace
-`18.1`, `18.6`, `18. 11 ~ 13` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#whitespace)와 동일합니다.
- 
-  - [18.1](#18.1) <a name='18.1'></a>공백은 탭을 사용한다. eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
-
-    ```javascript
-    // bad
-    function() {
-    ∙∙∙∙var name;
-    }
+  ```js
+  for (let i = 0; i < items.length; j++) {...}    // ✗ 피하세요
+  for (let i = 0; i < items.length; i++) {...}    // ✓ 좋아요
+  ```
 
-    // bad
-    function() {
-    ∙var name;
-    }
+* **더 간단한 대안이 있을 때 삼항연산자를 사용하지 않습니다.**
 
-    // good
-    function() {
-      var name;
-    }
-    ```
+  eslint: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary)
 
+  ```js
+  let score = val ? val : 0     // ✗ 피하세요
+  let score = val || 0          // ✓ 좋아요
+  ```
 
-  - [18.2](#18.2) <a name='18.2'></a>주요 중괄호 ({}) 앞에는 공백을 1개 넣는다. eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html)
+* **`return`,`throw`,`continue`,`break` 문 다음에 도달 할 수없는 코드는 없습니다.**
 
-    ```javascript
-    // bad
-    function test(){
-      console.log("test");
-    }
+  eslint: [`no-unreachable`](http://eslint.org/docs/rules/no-unreachable)
 
-    // good
-    function test() {
-      console.log("test");
-    }
+  ```js
+  function doSomething () {
+    return true
+    console.log('never called')     // ✗ 피하세요
+  }
+  ```
 
-    // bad
-    dog.set("attr",{
-      age: "1 year",
-      breed: "Bernese Mountain Dog",
-    });
-
-    // good
-    dog.set("attr", {
-      age: "1 year",
-      breed: "Bernese Mountain Dog",
-    });
-    ```
-
-  - [18.3](#18.3) <a name='18.3'></a>제어구문 (`if` 문이나 `while` 문 등) 의 소괄호(`()`) 앞에는 공백을 1개 넣는다. 함수선언이나 함수호출시 인수리스트의 앞에는 공백을 넣지 않는다.  eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing.html)
-
-    ```javascript
-    // bad
-    if(isJedi) {
-      fight ();
-    }
+* **`finally` 블록에 흐름을 제어할 수 있는 명령문이 없어야 합니다.**
 
-    // good
-    if (isJedi) {
-      fight();
-    }
+  eslint: [`no-unsafe-finally`](http://eslint.org/docs/rules/no-unsafe-finally)
 
-    // bad
-    function fight () {
-      console.log ("Swooosh!");
-    }
+  ```js
+  try {
+    // ...
+  } catch (e) {
+    // ...
+  } finally {
+    return 42     // ✗ 피하세요
+  }
+  ```
 
-    // good
-    function fight() {
-      console.log("Swooosh!");
-    }
-    ```
-
-  - [18.4](#18.4) <a name='18.4'></a>연산자 사이에는 공백을 넣는다. eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops.html)
-
-    ```javascript
-    // bad
-    const x=y+5;
-
-    // good
-    const x = y + 5;
-    ```
-
-  - [18.5](#18.5) <a name='18.5'></a>파일 끝에는 개행문자를 1개 넣는다. eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md)
-
-    ```javascript
-    // bad
-    (function(global) {
-      // ...stuff...
-    })(this);
-    ```
-
-    ```javascript
-    // bad
-    (function(global) {
-      // ...stuff...
-    })(this);↵
-    ↵
-    ```
-
-    ```javascript
-    // good
-    (function(global) {
-      // ...stuff...
-    })(this);↵
-    ```
-
-  - [18.6](#18.6) <a name='18.6'></a>메서드 체인이 2개를 초과한 경우, 적절히 줄 바꿈을 하여 사용한다. 메서드 체이닝을 하여 줄바꿈을 할 때에는 마침표(.) 다음에 줄 바꿈을 한다. 줄 바꿈 후에는 가독성을 위하여 자동 들여쓰기를 한다. eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
-
-    ```javascript
-    // bad
-    $("#items").find(".selected").highlight().end().find(".open").updateCount();
-
-    // bad
-    $("#items").
-      find(".selected").
-        highlight().
-        end().
-      find(".open").
-        updateCount();
-
-    // good
-    $("#items")
-      .find(".selected")
-        .highlight()
-        .end()
-      .find(".open")
-        .updateCount();
-
-    // bad
-    const leds = stage.selectAll(".led").data(data).enter().append("svg:svg").classed("led", true)
-        .attr("width", (radius + margin) * 2).append("svg:g")
-        .attr("transform", `translate(${radius + margin},${radius + margin})`)
-        .call(tron.led);
-
-    // good
-    const leds = stage.selectAll(".led")
-        .data(data)
-      .enter().append("svg:svg")
-        .classed("led", true)
-        .attr("width", (radius + margin) * 2)
-      .append("svg:g")
-        .attr("transform", `translate(${radius + margin},${radius + margin})`)
-        .call(tron.led);
-
-    // good
-    const leds = stage.selectAll(".led").data(data);
-    ```
-
-  - [18.7](#18.7) <a name='18.7'></a>문의 앞과 블록의 뒤에는 빈행을 남겨둔다.
-
-    ```javascript
-    // bad
-    if (foo) {
-      return bar;
-    }
-    return baz;
-
-    // good
-    if (foo) {
-      return bar;
-    }
+* **관계 연산자의 왼쪽 피연산자를 부정해서는 안됩니다.**
+
+  eslint: [`no-unsafe-negation`](http://eslint.org/docs/rules/no-unsafe-negation)
 
-    return baz;
+  ```js
+  if (!key in obj) {}       // ✗ 피하세요
+  if (!(key in obj)) {}       // ✓ 좋아요
+  ```
 
-    // bad
-    const obj = {
-      foo() {
-      },
-      bar() {
-      },
-    };
-    return obj;
+* **`.call ()`과`.apply ()`를 불필요하게 사용하지 말아야 합니다.**
 
-    // good
-    const obj = {
-      foo() {
-      },
+  eslint: [`no-useless-call`](http://eslint.org/docs/rules/no-useless-call)
 
-      bar() {
-      },
-    };
+  ```js
+  sum.call(null, 1, 2, 3)   // ✗ 피하세요
+  ```
 
-    return obj;
+* **객체에서 불필요하게 계산 된 속성 키를 사용하지 말아야 합니다.**
 
-    // bad
-    const arr = [
-      function foo() {
-      },
-      function bar() {
-      },
-    ];
-    return arr;
+  eslint: [`no-useless-computed-key`](http://eslint.org/docs/rules/no-useless-computed-key)
 
-    // good
-    const arr = [
-      function foo() {
-      },
+  ```js
+  const user = { ['name']: 'John Doe' }   // ✗ 피하세요
+  const user = { name: 'John Doe' }       // ✓ 좋아요
+  ```
 
-      function bar() {
-      },
-    ];
+* **불필요한 생성자가 없어야 합니다**
 
-    return arr;
-    ```
+  eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
 
-  - [18.8](#18.8) <a name='18.8'></a>블록에 빈행을 끼워 넣지 않는다. eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
+  ```js
+  class Car {
+    constructor () {      // ✗ 피하세요
+    }
+  }
+  ```
 
-    ```javascript
-    // bad
-    function bar() {
+* **불필요한 이스케이프가 없어야 합니다.**
 
-      console.log(foo);
+  eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
-    }
+  ```js
+  let message = 'Hell\o'  // ✗ 피하세요
+  ```
 
-    // also bad
-    if (baz) {
+* **import, export 및 소멸된 할당의 이름을 동일한 이름으로 바꾸는 것은 허용되지 않습니다.**
 
-      console.log(qux);
-    } else {
-      console.log(foo);
+  eslint: [`no-useless-rename`](http://eslint.org/docs/rules/no-useless-rename)
 
-    }
+  ```js
+  import { config as config } from './config'     // ✗ 피하세요
+  import { config } from './config'               // ✓ 좋아요
+  ```
 
-    // good
-    function bar() {
-      console.log(foo);
-    }
+* **속성 앞에 공백이 없어야 합니다.**
 
-    // good
-    if (baz) {
-      console.log(qux);
-    } else {
-      console.log(foo);
-    }
-    ```
+  eslint: [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
-  - [18.9](#18.9) <a name='18.9'></a>소괄호(`()`)의 안쪽에 공백을 추가하지 않는다. eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
+  ```js
+  user .name      // ✗ 피하세요
+  user.name       // ✓ 좋아요
+  ```
 
-    ```javascript
-    // bad
-    function bar( foo ) {
-      return foo;
-    }
+* `with`문을 사용하지 않습니다.**
 
-    // good
-    function bar(foo) {
-      return foo;
-    }
+  eslint: [`no-with`](http://eslint.org/docs/rules/no-with)
 
-    // bad
-    if ( foo ) {
-      console.log(foo);
-    }
+  ```js
+  with (val) {...}    // ✗ 피하세요
+  ```
 
-    // good
-    if (foo) {
-      console.log(foo);
-    }
-    ```
+* **객체 속성 간의 일관성을 유지합니다.**
 
-  - [18.10](#18.10) <a name='18.10'></a>대괄호(`[]`)의 안쪽에 공백을 추가하지 않는다. eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html)
+  eslint: [`object-property-newline`](http://eslint.org/docs/rules/object-property-newline)
 
-    ```javascript
-    // bad
-    const foo = [ 1, 2, 3 ];
-    console.log(foo[ 0 ]);
+  ```js
+  const user = {
+    name: 'Jane Doe', age: 30,
+    username: 'jdoe86'            // ✗ 피하세요
+  }
 
-    // good
-    const foo = [1, 2, 3];
-    console.log(foo[0]);
-    ```
+  const user = { name: 'Jane Doe', age: 30, username: 'jdoe86' }    // ✓ 좋아요
 
-  - [18.11](#18.11) <a name='18.11'></a>괄호 안에 공백을 삽입하지 않는다. eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html)
+  const user = {
+    name: 'Jane Doe',
+    age: 30,
+    username: 'jdoe86'
+  }                                                                 // ✓ 좋아요
+  ```
 
-    ```javascript
-    // bad
-    var obj = { };
-    var obj = { "a": 2 };
-    var arr = [ ];
-    var arr = [ 1, 2 ];
-    function foo( a, b ) {
+* **블록 안에 패딩이 없어야 합니다.**
 
-    }
+  eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks)
 
-    // good
-    var obj = {};
-    var obj = {"a": 2};
-    var arr = [];
-    var arr = [1, 2];
-    function foo(a, b) {
+  ```js
+  if (user) {
+                              // ✗ 피하세요
+    const name = getName()
 
-    }
-    ```
-
-  - [18.12](#18.12) <a name='18.12'></a>최대 줄 너비는 `100` 이다. 
-    고해상도 모니터(해상도 1280*1024)사용이 보편화 됨에 따라, 최대 줄 사용 너비는 100자까지 가능하다. eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html)
-
-    ```javascript
-    // bad
-    const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
-
-    // bad
-    $.ajax({ method: "POST", url: "https://triple.guide/", data: { name: "John" } }).done(() => console.log("Congratulations!")).fail(() => console.log("You have failed this city."));
-
-    // good
-    const foo = jsonData &&
-      jsonData.foo &&
-      jsonData.foo.bar &&
-      jsonData.foo.bar.baz &&
-      jsonData.foo.bar.baz.quux &&
-      jsonData.foo.bar.baz.quux.xyzzy;
-    ```
-
- 
-  - [18.13](#18.13) <a name='18.13'></a>연산식의 경우에는 연산자 후에 줄 바꿈을 한다. 상위 레벨의 깊이에 맞게 들여쓰기를 한다
-
-    ```javascript
-    // bad
-    const sum = 100 + 200 + 300 
-    + 400 + 500 + 600 + 700 + 800;
-
-    // good
-    const sum = 100 + 200 + 300 + 
-         400 + 500 + 600 + 700 + 800;
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Commas
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#commas)와 동일합니다.
-
-  - [19.1](#19.1) <a name='19.1'></a>콤마는 뒤에 표기한다. eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html)
-
-    ```javascript
-    // bad
-    const story = [
-        once
-      , upon
-      , aTime
-    ];
-
-    // good
-    const story = [
-      once,
-      upon,
-      aTime,
-    ];
-
-    // bad
-    const hero = {
-        firstName: "Ada"
-      , lastName: "Lovelace"
-      , birthYear: 1815
-      , superPower: "computers"
-    };
-
-    // good
-    const hero = {
-      firstName: "Ada",
-      lastName: "Lovelace",
-      birthYear: 1815,
-      superPower: "computers"
-    };
-    ```
-
-  - [19.2](#19.2) <a name='19.2'></a>끝에 콤마를 넣는다. eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html)
-
-    ```javascript
-    // bad - git diff without trailing comma
-    const hero = {
-         firstName: "Florence",
-    -    lastName: "Nightingale"
-    +    lastName: "Nightingale",
-    +    inventorOf: ["coxcomb graph", "modern nursing"]
-    };
-
-    // good - git diff with trailing comma
-    const hero = {
-         firstName: "Florence",
-         lastName: "Nightingale",
-    +    inventorOf: ["coxcomb chart", "modern nursing"],
-    };
-
-    // bad
-    const hero = {
-      firstName: "Dana",
-      lastName: "Scully"
-    };
-
-    const heroes = [
-      "Batman",
-      "Superman"
-    ];
-
-    // good
-    const hero = {
-      firstName: "Dana",
-      lastName: "Scully",
-    };
-
-    const heroes = [
-      "Batman",
-      "Superman",
-    ];
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Semicolons
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#semicolons)와 동일합니다.
-
-  - [20.1](#20.1) <a name='20.1'></a>`;`은 문장의 끝에 표기한다. eslint: [`semi`](http://eslint.org/docs/rules/semi.html)
-
-    ```javascript
-    // bad
-    (function() {
-      const name = "Skywalker"
-      return name
-    })()
-
-    // good
-    (() => {
-      const name = "Skywalker";
-      return name;
-    })();
-
-    // good
-    ;(() => {
-      const name = "Skywalker";
-      return name;
-    })();
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Type Casting & Coercion
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#type-casting--coercion)와 동일합니다.
-
-  - [21.1](#21.1) <a name='21.1'></a>문의 선두에서 형의 강제를 수행한다.
-
-  - [21.2](#21.2) <a name='21.2'></a>문자열의 경우:
-
-    ```javascript
-    //  => this.reviewScore = 9;
-
-    // bad
-    const totalScore = this.reviewScore + "";
-
-    // good
-    const totalScore = String(this.reviewScore);
-    ```
-
-  - [21.3](#21.3) <a name='21.3'></a>수치의 경우: `Number` 로 형변환하는 경우는 `parseInt` 를 이용하고, 항상 형변환을 위한 기수를 인수로 넘겨 준다. eslint: [`radix`](http://eslint.org/docs/rules/radix)
-
-    ```javascript
-    const inputValue = "4";
-
-    // bad
-    const val = new Number(inputValue);
-
-    // bad
-    const val = +inputValue;
-
-    // bad
-    const val = inputValue >> 0;
-
-    // bad
-    const val = parseInt(inputValue);
-
-    // good
-    const val = Number(inputValue);
-
-    // good
-    const val = parseInt(inputValue, 10);
-    ```
-
-  - [21.4](#21.4) <a name='21.4'></a>`parseInt`를 사용하는 경우 [성능적인 이유](http://jsperf.com/coercion-vs-casting/3)로 문제가 되면, Bitshift를 사용한다. 이때에는 꼭! Bitshift를 사용한 이유를 주석으로 남긴다.
-
-    ```javascript
-    // good
-    /**
-     * parseInt로 인해 느려졌음
-     * Bitshift를 통한 수치로의 문자열 강제 형변환으로 성능을 개선시킴.
-     */
-    const val = inputValue >> 0;
-    ```
-
-  - [21.5](#21.5) <a name='21.5'></a>**주의:** Bitshift를 사용하는 경우의 주의사항. 수치는 [64비트 값](http://es5.github.io/#x4.3.19)으로 표현되어 있으나 bitshift 연산한 경우는 항상 32비트 integer 로 넘겨진다.
-
-    ```javascript
-    2147483647 >> 0 //=> 2147483647
-    2147483648 >> 0 //=> -2147483648
-    2147483649 >> 0 //=> -2147483647
-    ```
-
-  - [21.6](#21.6) <a name='21.6'></a>Boolean의 경우:
-
-    ```javascript
-    const age = 0;
-
-    // bad
-    const hasAge = new Boolean(age);
-
-    // good
-    const hasAge = Boolean(age);
-
-    // good
-    const hasAge = !!age;
-    ```
-
-**[⬆ back to top](#table-of-contents)**
-
-## Naming Conventions
-> `22.2`, `22.4 ~ 5`, `22.10 ~ 15` 항목을 제외하고는 [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#naming-conventions)와 동일합니다.
-
-  - [22.1](#22.1) <a name='22.1'></a>1문자의 이름은 사용하지 않는다. eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
-
-    ```javascript
-    // bad
-    function q() {
-      // ...stuff...
-    }
+  }
 
-    // good
-    function query() {
-      // ..stuff..
-    }
-    ```
-  - [22.2](#22.2) <a name='22.2'></a>네임스페이스, 오브젝트, 함수 그리고 인스턴스에는 camelCase를 사용한다. eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html)  
- 
-
-    ```javascript
-    // bad
-    triple.FOO.bar = function() {};
-    const OBJEcttsssss = {};
-    const this_is_my_object = {};
-    function c() {}
-
-    // good
-    triple.foo.bar = function() {};
-    const thisIsMyObject = {};
-    function thisIsMyFunction() {}
-    ```
-
-  - [22.3](#22.3) <a name='22.3'></a>클래스나 constructor에는 PascalCase 를 사용한다. eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) 
-
-    ```javascript
-    // bad
-    function user(options) {
-      this.name = options.name;
-    }
+  if (user) {
+    const name = getName()    // ✓ 좋아요
+  }
+  ```
 
-    const bad = new user({
-      name: "nope",
-    });
-
-    // good
-    class User {
-      constructor(options) {
-        this.name = options.name;
-      }
-    }
+* **스프레드 연산자와 표현식 사이에 공백이 없어야 합니다.**
 
-    const good = new User({
-      name: "yup",
-    });
-    ```
-
-  - [22.4](#22.4) <a name='22.4'></a>함수명이나 속성명의 앞에 `_`가 있는 경우는 private을 의미한다.  외부에서 접근할 수 있는 경우, 사용하면 안되는 메서드명 또는 속성명은 `_`을 사용한다. 외부에서 접근할 수 없다면, 메서드명 이나 속성명에 `_`을 사용하지 않는다. eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle.html)
-
-    ```javascript
-    // bad - 외부에서 접근할 수 있는 경우, 사용하면 안되는 메서드명 또는 속성명은 `_`을 사용한다.
-    class User({
-       constructor() {
-          privateState: true
-       }
-       privateMethod() {
-       }
-       _publicMethod() {
-       }
-    }
+  eslint: [`rest-spread-spacing`](http://eslint.org/docs/rules/rest-spread-spacing)
 
-    // good - 외부에서 접근할 수 있는 경우, 사용하면 안되는 메서드명 또는 속성명은 `_`을 사용한다.
-    class User({
-       constructor() {
-          _privateState: true
-       }
-       _privateMethod() {
-       }
-       publicMethod() {
-       }
-    }
+  ```js
+  fn(... args)    // ✗ 피하세요
+  fn(...args)     // ✓ 좋아요
+  ```
 
-    // bad -  외부에서 접근할 수 없다면, 메서드명 이나 속성명에 `_`을 사용하지 않는다.
-    (function(){
-       var _privateState = true;
-       function _privateMethod() {
-       }
-       function publicMethod() {
-          _privateMethod();
-       }
-    })();
-
-    // good -  외부에서 접근할 수 없다면, 메서드명 이나 속성명에 `_`을 사용하지 않는다.
-    (function() {
-       var privateState = true;
-       function privateMethod() {
-       }
-       function publicMethod() {
-           privateMethod();
-       }
-    })();
-    ```
-
-  - [22.5](#22.5) <a name='22.5'></a>가능한 this를 캐싱하지 않는다. arrow functions 또는 [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)를 사용한다. jQuery를 사용하는 경우라면, [$.proxy](http://api.jquery.com/jQuery.proxy)를 사용한다.
-  만약, this의 참조를 저장하는 경우라면 self 를 사용한다.
-
-    ```javascript
-    // bad
-    function foo() {
-      const self = this;
-      return function () {
-        console.log(self);
-      };
-    }
+* **세미콜론은 뒤쪽에 공백을 두고 앞쪽에는 공백을 두지 않아야 합니다.**
 
-    // bad
-    function foo() {
-      const that = this;
-      return function () {
-        console.log(that);
-      };
-    }
+  eslint: [`semi-spacing`](http://eslint.org/docs/rules/semi-spacing)
 
-    // good
-    function foo() {
-      return () => {
-        console.log(this);
-      };
-    }
-    ```
+  ```js
+  for (let i = 0 ;i < items.length ;i++) {...}    // ✗ 피하세요
+  for (let i = 0; i < items.length; i++) {...}    // ✓ 좋아요
+  ```
 
-  - [22.6](#22.6) <a name='22.6'></a>파일을 1개의 `클래스`로 export 하는 경우, 파일명은 클래스명과 완전히 일치시킨다.
+* **블록 앞에 공간이 있어야 합니다.**
 
-    ```javascript
-    // file contents
-    class CheckBox {
-      // ...
-    }
-    export default CheckBox;
+  eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
 
-    // in some other file
-    // bad
-    import CheckBox from "./checkBox";
+  ```js
+  if (admin){...}     // ✗ 피하세요
+  if (admin) {...}    // ✓ 좋아요
+  ```
 
-    // bad
-    import CheckBox from "./check_box";
+* **괄호 안에 공백이 없어야 합니다.**
 
-    // good
-    import CheckBox from "./CheckBox";
-    ```
+  eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens)
 
-  - [22.7](#22.7) <a name='22.7'></a>Default export가 `함수`일 경우, camelCase를 이용한다. 파일명은 함수명과 동일해야 한다.
+  ```js
+  getName( name )     // ✗ 피하세요
+  getName(name)       // ✓ 좋아요
+  ```
 
-    ```javascript
-    function makeStyleGuide() {
-    }
+* **단항 연산자 뒤에 공백이 있어야 합니다.**
 
-    export default makeStyleGuide;
-    ```
+  eslint: [`space-unary-ops`](http://eslint.org/docs/rules/space-unary-ops)
 
-  - [22.8](#22.8) <a name='22.8'></a>`Singleton / function library / 빈 오브젝트`를 export 하는 경우에는 PascalCase를 사용한다.
+  ```js
+  typeof!admin        // ✗ 피하세요
+  typeof !admin        // ✓ 좋아요
+  ```
 
-    ```javascript
-    const AirbnbStyleGuide = {
-      es6: {
-      }
-    };
+* **주석 안에는 공백을 사용해야 합니다.**
 
-    export default AirbnbStyleGuide;
-    ```
+  eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
 
-  - [22.9](#22.9) <a name='22.9'></a>약어 및 이니셜은 항상 모두 대문자이거나 모두 소문자이어야 한다.
+  ```js
+  //comment           // ✗ 피하세요
+  // comment          // ✓ 좋아요
 
-    ```javascript
-    // bad
-    import SmsContainer from "./containers/SmsContainer";
+  /*comment*/         // ✗ 피하세요
+  /* comment */       // ✓ 좋아요
+  ```
 
-    // bad
-    const HttpRequests = [
-      // ...
-    ];
+* **템플릿 문자열에는 간격이 없습니다.**
 
-    // good
-    import SMSContainer from "./containers/SMSContainer";
+  eslint: [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing)
 
-    // good
-    const HTTPRequests = [
-      // ...
-    ];
+  ```js
+  const message = `Hello, ${ name }`    // ✗ 피하세요
+  const message = `Hello, ${name}`      // ✓ 좋아요
+  ```
 
-    // best
-    import TextMessageContainer from "./containers/TextMessageContainer";
+* **`NaN`을 검사 할 때 `isNaN()`을 사용하십시오.**
 
-    // best
-    const Requests = [
-      // ...
-    ];
-    ```
+  eslint: [`use-isnan`](http://eslint.org/docs/rules/use-isnan)
 
-  - [22.10](#22.10) <a name='22.10'></a>소스의 변수명, 클래스명 등에는 영문 이외의 언어를 사용하지 않는다.
+  ```js
+  if (price === NaN) { }      // ✗ 피하세요
+  if (isNaN(price)) { }       // ✓ 좋아요
+  ```
 
-  - [22.11](#22.11) <a name='22.11'></a>한글 발음을 그대로 사용하지 않는다.
+* **`typeof`는 유효한 문자열과 비교되어야 합니다.**
 
-    ```javascript
-    // ''무형자산''이라는 의미의 변수를 선언한 예.
-    // bad
-    const moohyungJasan;
+  eslint: [`valid-typeof`](http://eslint.org/docs/rules/valid-typeof)
 
-    // good
-    const intangibleAssets;
-    ```
+  ```js
+  typeof name === 'undefimed'     // ✗ 피하세요
+  typeof name === 'undefined'     // ✓ 좋아요
+  ```
 
-  - [22.12](#22.12) <a name='22.12'></a>클래스, 메서드 등의 이름에는 특수 문자를 사용하지 않는다. jQuery 변수의 경우 `$`을 사용하는 것은 예외사항으로 한다.
+* **즉시 호출 된 함수 식(IIFE)은 줄 바꿈되어야 합니다.**
 
-    ```js
-    // bad
-    funtion $some() {
+  eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife)
 
-    }
-    ```
- 
-  - [22.13](#22.13) <a name='22.13'></a>클래스명과 변수명은 `명사 사용`을 준수한다.
-  - [22.14](#22.14) <a name='22.14'></a>메서드명은 `동사 사용`을 준수한다.
-  - [22.15](#22.15) <a name='22.15'></a>상수명은 대문자를 사용하고, 단어와 단어사이는 _로 연결한다.
+  ```js
+  const getName = function () { }()     // ✗ 피하세요
 
-    ```js
-    // bad
-    const firefox = 1;
-    const is_left = true;
+  const getName = (function () { }())   // ✓ 좋아요
+  const getName = (function () { })()   // ✓ 좋아요
+  ```
 
-    // good
-    const FIREFOX = 1;
-    const IS_LEFT = true;
-    ```
-  
+* **`yield *`표현식의 `*`은 앞뒤에 공백이 있어야 합니다.**
 
-**[⬆ back to top](#table-of-contents)**
+  eslint: [`yield-star-spacing`](http://eslint.org/docs/rules/yield-star-spacing)
 
-## Accessors
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#accessors)와 동일합니다.
+  ```js
+  yield* increment()    // ✗ 피하세요
+  yield * increment()   // ✓ 좋아요
+  ```
 
-  - [23.1](#23.1) <a name='23.1'></a>프로퍼티를 위한 접근자 (Accessor) 함수는 필수가 아니다.
+* **Yoda 조건을 피하십시오.**
 
-  - [23.2](#23.2) <a name='23.2'></a>접근자 함수가 필요한 경우, `getVal()` 이나 `setVal('hello')` 로 한다.
+  eslint: [`yoda`](http://eslint.org/docs/rules/yoda)
 
-    ```javascript
-    // bad
-    dragon.age();
+  ```js
+  if (42 === age) { }    // ✗ 피하세요
+  if (age === 42) { }    // ✓ 좋아요
+  ```
 
-    // good
-    dragon.getAge();
+## 세미콜론
 
-    // bad
-    dragon.age(25);
+* 세미콜론은 사용하지 않습니다.. (볼거리: [1](http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding), [2](http://inimino.org/%7Einimino/blog/javascript_semicolons), [3](https://www.youtube.com/watch?v=gsfbh17Ax9I))
 
-    // good
-    dragon.setAge(25);
-    ```
+  eslint: [`semi`](http://eslint.org/docs/rules/semi)
 
-  - [23.3](#23.3) <a name='23.3'></a>프로퍼티가 `boolean` 인 경우, `isVal()` 이나 `hasVal()` 로 한다.
+  ```js
+  window.alert('hi')   // ✓ 좋아요
+  window.alert('hi');  // ✗ 피하세요
+  ```
 
-    ```javascript
-    // bad
-    if (!dragon.age()) {
-      return false;
-    }
+* `(`, `[`, or `` ` ``를 사용하여 라인을 시작하지 마십시오. 이것은 세미콜론을 생략한 유일한 시도이며 standard는 이 잠재적인 문제로부터 여러분을 보호합니다.
 
-    // good
-    if (!dragon.hasAge()) {
-      return false;
-    }
-    ```
-
-  - [23.4](#23.4) <a name='23.4'></a> 일관된 경우, `get()` 과 `set()` 으로 함수를 작성해도 좋다.
-
-    ```javascript
-    class Jedi {
-      constructor(options = {}) {
-        const lightsaber = options.lightsaber || "blue";
-        this.set('lightsaber', lightsaber);
-      }
-
-      set(key, val) {
-        this[key] = val;
-      }
-
-      get(key) {
-        return this[key];
-      }
-    }
-    ```
+  eslint: [`no-unexpected-multiline`](http://eslint.org/docs/rules/no-unexpected-multiline)
 
-**[⬆ back to top](#table-of-contents)**
+  ```js
+  // ✓ 좋아요
+  ;(function () {
+    window.alert('ok')
+  }())
 
+  // ✗ 피하세요
+  (function () {
+    window.alert('ok')
+  }())
+  ```
 
-## Events
-> [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#events)와 다르게 별도의 가이드를 제공하지 않습니다.
+  ```js
+  // ✓ 좋아요
+  ;[1, 2, 3].forEach(bar)
 
-## jQuery
-> `25.3 ~ 4` 항목을 제외하고는  [Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#jquery)와 동일합니다.
+  // ✗ 피하세요
+  [1, 2, 3].forEach(bar)
+  ```
 
+  ```js
+  // ✓ 좋아요
+  ;`hello`.indexOf('o')
 
-  - [25.1](#25.1) <a name='25.1'></a>jQuery오브젝트의 변수는 선두에 `$` 를 부여한다.
+  // ✗ 피하세요
+  `hello`.indexOf('o')
+  ```
 
-    ```javascript
-    // bad
-    const sidebar = $(".sidebar");
+  참고: 만약 종종 이런 식으로 코드를 작성한다면, 영리해 지려고 노력할지도 모릅니다.
 
-    // good
-    const $sidebar = $(".sidebar");
+  영리한 비글들은 가능할 때마다 명확하고 읽기 쉬운 표현들을 선호한다.
 
-    // good
-    const $sidebarBtn = $(".sidebar-btn");
-    ```
+  다음과 같은 이점이 있습니다.
 
-  - [25.2](#25.2) <a name='25.2'></a>jQuery의 검색결과를 캐시하여 사용한다.
+  ```js
+  ;[1, 2, 3].forEach(bar)
+  ```
 
-    ```javascript
-    // bad
-    function setSidebar() {
-      $('.sidebar').hide();
+  이는 강력하게 선호합니다.
 
-      // ...stuff...
+  ```js
+  var nums = [1, 2, 3]
+  nums.forEach(bar)
+  ```
 
-      $(".sidebar").css({
-        "background-color": "pink"
-      });
-    }
 
-    // good
-    function setSidebar() {
-      const $sidebar = $(".sidebar");
-      $sidebar.hide();
+## 도움될만한 읽을거리
 
-      // ...stuff...
+- [An Open Letter to JavaScript Leaders Regarding Semicolons][1]
+- [JavaScript Semicolon Insertion – Everything you need to know][2]
 
-      $sidebar.css({
-        "background-color": "pink"
-      });
-    }
-    ```
+##### 도움될만한 영상
 
-  - [25.3](#25.3) <a name='25.3'></a>[Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#jquery--queries)와 다르게 `DOM 검색에 대해서`는 별도로 가이드 하지 않는다.
+- [Are Semicolons Necessary in JavaScript? - YouTube][3]
 
-  - [25.4](#25.4) <a name='25.4'></a>[Airbnb](https://github.com/airbnb/javascript/blob/master/README.md#jquery--find)와 다르게 `DOM 검색에 대해서`는 별도로 가이드 하지 않는다.
+현재 사용되는 모든 인기 code minifiers는 AST 기반 축소를 사용하므로 아무런 문제없이 세미콜론이없는 JavaScript를 처리 할 수 있습니다. (JavaScript에서는 세미콜론이 필요하지 않기 때문에)
 
-**[⬆ back to top](#table-of-contents)**
+##### Excerpt from *["An Open Letter to JavaScript Leaders Regarding Semicolons"][1]*:
 
-## Resources
+> [자동 세미콜론 삽입에 의존]은 매우 안전하며 모든 브라우저가 이해할 수있는 완벽하게 유효한 JS입니다. Closure 컴파일러, yuicompressor, packer 및 jsmin은 모두이를 적절히 축소 할 수 있습니다. 어디서나 성능에 영향을 미치지 않습니다.
+>
+> 당신을 교육하는 대신,이 언어 공동체의 지도자들이 거짓말과 두려움을 주셨다는 것을 유감스럽게 생각합니다. 부끄러운 일 이었어. JS에서의 진술이 어떻게 실제로 종료되었는지 (어떤 경우에는 종료되지 않았는지) 배우는 것이 좋습니다. 그래서 당신이 아름답게 찾은 코드를 작성할 수 있습니다.
+>
+> 일반적으로 `\n`은 다음과 같은 경우를 제외하고는 명령문을 끝냅니다 :
+>   1. 명령문은 닫히지 않은 괄호, 배열 리터럴 또는 객체 리터럴을 가지거나 명령문을 종료하는 유효한 방법이 아닌 다른 방법으로 끝납니다. (예 :. 또는,로 끝남)
+>   2. 선은 -- 또는 ++입니다 (이 경우 다음 토큰을 감소/증가시킵니다).
+>   3. { 가 없는 경우 중에서 for(), while(), do, if(), else 입니다.
+>   4. 다음 줄은 [, (, +, *, /, -, ,, ., 또는 단일 표현식에서 두 개의 토큰 사이에서만 발견 될 수있는 다른 이항 연산자로 시작합니다.
+>
+> 첫 번째는 꽤 분명합니다. JSLint조차 JSON과 괄호로 묶인 구조체의 `\n` 문자와 `,`로 끝나는 여러 줄에 걸쳐있는 `var` 문과도 괜찮습니다.
+>
+> 두 번째는 아주 이상합니다. 나는 당신이 'i\n++\nj`라고 쓰고 싶지만, (이런 종류의 대화 밖에서) 파싱 된 사실을 본 적이 없습니다. `i; ++j`가 아니라 `i++;j`입니다.
+>
+> 세 번째는 일반적으로 멸시받는 경우 잘 이해됩니다. `if (x)\ny()`는 `if (x) { y() }`와 같습니다. 구문은 블록이나 명령문에 도달 할 때까지 끝나지 않습니다.
+>
+> `if(x);`는 `if (x) {}` 또는 "If x, nothing do nothing"과 동일합니다. 이것은 일반적으로 루프 체크가 수행되는 루프에 적용됩니다 또한 업데이트 기능입니다. 비정상적이지만 전례가 아닙니다.
+>
+> 네 번째는 일반적으로 "오, 설마, 당신은 세미콜론이 필요합니다!"라는 사례가 있습니다. 하지만, 이전 라인의 연속이 아니더라도 세미콜론으로 *접두어*를 붙이는 것은 쉽습니다. 예를 들어, 다음코드로 대신할 수 있습니다.
+>
+> ```js
+> foo();
+> [1,2,3].forEach(bar);
+> ```
+>
+> 다음과 같이 할 수 있습니다.
+>
+> ```js
+> foo()
+> ;[1,2,3].forEach(bar)
+> ```
+>
+> 장점은 `(` 또는 `[` 없이 세미콜론으로 시작하는 줄을 보지 못한다면 익숙해지기 쉽습니다.
 
-  - [Airbnb 자바스크립트 스타일 가이드 - 영문](https://github.com/airbnb/javascript)
-  - [Airbnb 자바스크립트 스타일 가이드 - 한글](https://github.com/tipjs/javascript-style-guide)
-  
-**[⬆ back to top](#table-of-contents)**
+[1]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
+[2]: http://inimino.org/~inimino/blog/javascript_semicolons
+[3]: https://www.youtube.com/watch?v=gsfbh17Ax9I

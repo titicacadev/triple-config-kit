@@ -20,7 +20,9 @@ class MyApp extends App<MyAppProps> {
   static async getInitialProps({ Component, ctx }: AppContext) {
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
 
-    const userAgent = generateUserAgentValues(ctx.req ? ctx.req.headers['user-agent'] || '' : navigator.userAgent)
+    const userAgent = generateUserAgentValues(
+      ctx.req ? ctx.req.headers['user-agent'] || '' : navigator.userAgent,
+    )
 
     const sessionId = ctx.req ? new Cookies(ctx.req.headers.cookie).get(SESSION_KEY) : undefined
 
@@ -65,18 +67,30 @@ class MyApp extends App<MyAppProps> {
           <meta property="og:type" content="website" />
           <meta property="og:locale" content="ko_KR" />
           <meta property="fb:app_id" content="136540730081853" />
-          <meta property="og:image" content="https://assets.triple.guide/images/default-cover-image.jpg" />
+          <meta
+            property="og:image"
+            content="https://assets.triple.guide/images/default-cover-image.jpg"
+          />
           <meta property="og:description" content="최신 가이드북 제공, 길찾기 탑재, 맛집 추천" />
           <meta property="al:ios:url" content="com.titicacacorp.triple:///" />
           <meta property="al:ios:app_store_id" content="1225499481" />
           <meta property="al:ios:app_name" content="트리플" />
-          <meta name="apple-itunes-app" content="app-id=1225499481, app-argument=com.titicacacorp.triple:///" />
+          <meta
+            name="apple-itunes-app"
+            content="app-id=1225499481, app-argument=com.titicacacorp.triple:///"
+          />
           <meta property="al:android:url" content="triple:///" />
           <meta property="al:android:package" content="com.titicacacorp.triple" />
           <meta property="al:android:app_name" content="트리플" />
           <meta name="msapplication-TileColor" content="#1FC1B6" />
-          <meta name="msapplication-TileImage" content="https://triple.guide/icons/favicon-144x144.png" />
-          <link rel="apple-touch-icon-precomposed" href="https://triple.guide/icons/favicon-152x152.png" />
+          <meta
+            name="msapplication-TileImage"
+            content="https://triple.guide/icons/favicon-144x144.png"
+          />
+          <link
+            rel="apple-touch-icon-precomposed"
+            href="https://triple.guide/icons/favicon-152x152.png"
+          />
           <title>트리플</title>
         </Head>
 
