@@ -4,16 +4,8 @@
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "prelint": "eclint check * rules/* test/*",
     "lint": "eslint .",
-    "pretests-only": "node ./test/requires",
-    "tests-only": "babel-tape-runner ./test/test-*.js",
-    "pretest": "npm run --silent lint",
-    "test": "npm run --silent tests-only",
-    "link:eslint": "cd node_modules/eslint && npm link --production && cd -",
-    "pretravis": "npm run link:eslint && cd ../eslint-config-airbnb-base && npm link eslint && npm install && npm link && cd - && npm link --no-save eslint-config-airbnb-base",
-    "travis": "npm run --silent tests-only",
-    "posttravis": "npm unlink --no-save eslint-config-airbnb-base eslint >/dev/null &"
+    "test": "eslint test/**/*.{js,ts,tsx}"
   },
   "repository": {
     "type": "git",
@@ -45,7 +37,6 @@
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "confusing-browser-globals": "^1.0.8",
-    "eslint": "^6.2.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-find-rules": "^3.4.0",
@@ -53,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-plugin-standard": "^4.0.0",
@@ -64,6 +56,7 @@
     "babel-preset-airbnb": "^4.0.1",
     "babel-tape-runner": "^3.0.0",
     "eclint": "^2.8.1",
+    "eslint": "^6.2.0",
     "in-publish": "^2.0.0",
     "react": "^16.9.0",
     "safe-publish-latest": "^1.1.3",
