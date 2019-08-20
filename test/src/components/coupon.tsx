@@ -76,10 +76,19 @@ interface CouponProps extends CouponItem {
   onClick?: (e: React.SyntheticEvent) => void
 }
 
-function Coupon({ name, description, status, validityPeriod, discountPolicy, onClick }: CouponProps) {
+function Coupon({
+  name,
+  description,
+  status,
+  validityPeriod,
+  discountPolicy,
+  onClick,
+}: CouponProps) {
   const expireDate = new Date(validityPeriod.endAt.replace('[Etc/UTC]', ''))
   const couponValue =
-    discountPolicy.type === 'AMOUNT' ? `${formatNumber(discountPolicy.value)}원` : `${discountPolicy.value}%`
+    discountPolicy.type === 'AMOUNT'
+      ? `${formatNumber(discountPolicy.value)}원`
+      : `${discountPolicy.value}%`
 
   const handleClick = (e: React.SyntheticEvent) => {
     e.preventDefault()
@@ -90,7 +99,8 @@ function Coupon({ name, description, status, validityPeriod, discountPolicy, onC
     }
   }
 
-  const UseConditionButton = status === 'AVAILABLE' ? UseConditionAvailableButton : UseConditionDisabledButton
+  const UseConditionButton =
+    status === 'AVAILABLE' ? UseConditionAvailableButton : UseConditionDisabledButton
 
   return (
     <CouponContainer onClick={handleClick}>
