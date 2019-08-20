@@ -27,24 +27,14 @@ module.exports = {
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
     camelcase: ["error", { properties: "never" }],
-    // "comma-dangle": [
-    //   "error",
-    //   {
-    //     arrays: "never",
-    //     objects: "never",
-    //     imports: "never",
-    //     exports: "never",
-    //     functions: "never"
-    //   }
-    // ],
     "comma-dangle": [
       "error",
       {
-        arrays: "always-multiline",
-        objects: "always-multiline",
-        imports: "always-multiline",
-        exports: "always-multiline",
-        functions: "always-multiline"
+        arrays: "never",
+        objects: "never",
+        imports: "never",
+        exports: "never",
+        functions: "never"
       }
     ],
     "comma-spacing": ["error", { before: false, after: true }],
@@ -189,15 +179,7 @@ module.exports = {
     semi: ["error", "never"],
     "semi-spacing": ["error", { before: false, after: true }],
     "space-before-blocks": ["error", "always"],
-    // "space-before-function-paren": ["error", "always"],
-    "space-before-function-paren": [
-      "error",
-      {
-        anonymous: "never",
-        named: "never",
-        asyncArrow: "always"
-      }
-    ],
+    "space-before-function-paren": ["error", "always"],
     "space-in-parens": ["error", "never"],
     "space-infix-ops": "error",
     "space-unary-ops": ["error", { words: true, nonwords: false }],
