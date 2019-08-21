@@ -7,7 +7,11 @@ const { Provider, Consumer } = createContext('')
 
 export function withUserAgent(Component: React.ElementType) {
   return function UserAgentComponent(props: any) {
-    return <Consumer>{(values: any) => <Component userAgent={values} {...props} />}</Consumer>
+    return (
+      <Consumer>
+        {(values: any) => <Component userAgent={values} {...props} />}
+      </Consumer>
+    )
   }
 }
 

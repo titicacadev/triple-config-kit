@@ -5,8 +5,16 @@ import Cookies from 'universal-cookie'
 import { HistoryProvider } from '@titicaca/triple-react-contexts'
 import * as Sentry from '@sentry/browser'
 
-import { APP_URL_SCHEME, WEB_URL_BASE, SENTRY_DSN, SENTRY_ENV } from '../src/config'
-import { UserAgentProvider, generateUserAgentValues } from '../src/user-agent-context'
+import {
+  APP_URL_SCHEME,
+  WEB_URL_BASE,
+  SENTRY_DSN,
+  SENTRY_ENV,
+} from '../src/config'
+import {
+  UserAgentProvider,
+  generateUserAgentValues,
+} from '../src/user-agent-context'
 
 const SESSION_KEY = 'x-soto-session'
 
@@ -18,13 +26,17 @@ interface MyAppProps extends AppProps {
 
 class MyApp extends App<MyAppProps> {
   static async getInitialProps({ Component, ctx }: AppContext) {
-    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
+    const pageProps = Component.getInitialProps
+      ? await Component.getInitialProps(ctx)
+      : {}
 
     const userAgent = generateUserAgentValues(
       ctx.req ? ctx.req.headers['user-agent'] || '' : navigator.userAgent,
     )
 
-    const sessionId = ctx.req ? new Cookies(ctx.req.headers.cookie).get(SESSION_KEY) : undefined
+    const sessionId = ctx.req
+      ? new Cookies(ctx.req.headers.cookie).get(SESSION_KEY)
+      : undefined
 
     return { sessionId, userAgent, pageProps }
   }
@@ -61,7 +73,10 @@ class MyApp extends App<MyAppProps> {
             name="viewport"
             content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover"
           />
-          <meta name="description" content="최신 가이드북 제공, 길찾기 탑재, 맛집 추천" />
+          <meta
+            name="description"
+            content="최신 가이드북 제공, 길찾기 탑재, 맛집 추천"
+          />
           <meta property="og:title" content="실시간 여행 가이드 - 트리플" />
           <meta property="og:url" content="https://triple.guide/" />
           <meta property="og:type" content="website" />
@@ -71,7 +86,10 @@ class MyApp extends App<MyAppProps> {
             property="og:image"
             content="https://assets.triple.guide/images/default-cover-image.jpg"
           />
-          <meta property="og:description" content="최신 가이드북 제공, 길찾기 탑재, 맛집 추천" />
+          <meta
+            property="og:description"
+            content="최신 가이드북 제공, 길찾기 탑재, 맛집 추천"
+          />
           <meta property="al:ios:url" content="com.titicacacorp.triple:///" />
           <meta property="al:ios:app_store_id" content="1225499481" />
           <meta property="al:ios:app_name" content="트리플" />
@@ -80,7 +98,10 @@ class MyApp extends App<MyAppProps> {
             content="app-id=1225499481, app-argument=com.titicacacorp.triple:///"
           />
           <meta property="al:android:url" content="triple:///" />
-          <meta property="al:android:package" content="com.titicacacorp.triple" />
+          <meta
+            property="al:android:package"
+            content="com.titicacacorp.triple"
+          />
           <meta property="al:android:app_name" content="트리플" />
           <meta name="msapplication-TileColor" content="#1FC1B6" />
           <meta

@@ -51,13 +51,22 @@ export default class Error extends PureComponent<MyErrorProps> {
           <Text bold size={18}>
             아이코!
           </Text>
-          <Text center margin={{ top: 7 }} size="small" lineHeight={1.36} color="gray" alpha={0.5}>
+          <Text
+            center
+            margin={{ top: 7 }}
+            size="small"
+            lineHeight={1.36}
+            color="gray"
+            alpha={0.5}
+          >
             서비스 이용이 원할하지 않습니다.
             <br />
             잠시 후 다시 이용해주세요.
           </Text>
 
-          <Button onClick={isPublic ? Router.back : closeWindow}>돌아가기</Button>
+          <Button onClick={isPublic ? Router.back : closeWindow}>
+            돌아가기
+          </Button>
         </Container>
       </ErrorContainer>
     )

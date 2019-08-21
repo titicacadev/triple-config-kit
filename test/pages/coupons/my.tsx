@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
 import { NextPageContext } from 'next'
 import { Navbar, Text, Footer } from '@titicaca/triple-design-system'
-import { EventTrackingProvider, useHistoryContext } from '@titicaca/triple-react-contexts'
-import { closeWindow, trackScreen, trackEvent, viewItem } from '@titicaca/triple-web-to-native-interfaces'
+import {
+  EventTrackingProvider,
+  useHistoryContext,
+} from '@titicaca/triple-react-contexts'
+import {
+  closeWindow,
+  trackScreen,
+  trackEvent,
+  viewItem,
+} from '@titicaca/triple-web-to-native-interfaces'
 import styled from 'styled-components'
 import { fetchMyCoupons, CouponItem } from '../../src/services/coupons'
 import { fetchAdBanners, InventoryItem } from '../../src/services/banners'
 import Tabs from '../../src/components/tabs'
 import Coupon from '../../src/components/coupon'
 import AdBanner from '../../src/components/ad-banner'
-import UseConditionModal, { getUseConditionModalHash } from '../../src/components/use-condition-modal'
+import UseConditionModal, {
+  getUseConditionModalHash,
+} from '../../src/components/use-condition-modal'
 
 interface CouponBoxProps {
   coupons: CouponItem[]
@@ -33,14 +43,22 @@ const CouponBox = function({ coupons, banners }: CouponBoxProps) {
   const { push } = useHistoryContext()
 
   return (
-    <EventTrackingProvider pageLabel="쿠폰함" trackScreen={trackScreen} trackEvent={trackEvent} viewItem={viewItem}>
+    <EventTrackingProvider
+      pageLabel="쿠폰함"
+      trackScreen={trackScreen}
+      trackEvent={trackEvent}
+      viewItem={viewItem}
+    >
       <Navbar borderless={true}>
         <Navbar.Item icon="back" onClick={closeWindow} />
       </Navbar>
       <Text.Title margin={{ left: 30, top: 30, bottom: 30 }}>쿠폰함</Text.Title>
       <Tabs
         value={tab}
-        options={[{ label: '사용 가능한 쿠폰', value: 'AVAILABLE' }, { label: '지난 쿠폰', value: 'USED' }]}
+        options={[
+          { label: '사용 가능한 쿠폰', value: 'AVAILABLE' },
+          { label: '지난 쿠폰', value: 'USED' },
+        ]}
         onChange={(_, newTab) => setTab(newTab)}
       />
       <CouponList>
@@ -51,9 +69,12 @@ const CouponBox = function({ coupons, banners }: CouponBoxProps) {
               <Coupon
                 key={item.id}
                 {...item}
-                onClick={() => push(getUseConditionModalHash(item.id), { useRouter: true })}
+                onClick={() =>
+                  push(getUseConditionModalHash(item.id), { useRouter: true })
+                }
               />
-              {(index === 2 || (items.length <= 2 && index === items.length - 1)) && (
+              {(index === 2 ||
+                (items.length <= 2 && index === items.length - 1)) && (
                 <BannerHolder key="ad-banner">
                   <AdBanner banners={banners} />
                 </BannerHolder>
