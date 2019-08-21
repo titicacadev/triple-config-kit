@@ -1,10 +1,10 @@
 module.exports = {
-  plugins: ["prettier", "react", "react-hooks"],
   extends: [
     "./recommends/eslint",
     "./recommends/prettier",
     "./recommends/react",
-    "./recommends/standards",
+    "./recommends/standard",
+    "./recommends/react",
     "./rules/style"
   ].map(require.resolve),
   env: {
