@@ -1,5 +1,11 @@
 import React from 'react'
-import Document, { Head, Main, NextScript, DocumentContext, DocumentProps } from 'next/document'
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentProps,
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import '@titicaca/triple-design-system/lib/global-style'
 
@@ -12,7 +18,9 @@ export default class MyDocument extends Document<MyDocumentProps> {
     const initialProps = await Document.getInitialProps(ctx)
     /* pre render styled component */
     const sheet = new ServerStyleSheet()
-    const page = ctx.renderPage((App) => (props) => sheet.collectStyles(<App {...props} />))
+    const page = ctx.renderPage((App) => (props) =>
+      sheet.collectStyles(<App {...props} />),
+    )
     const styleTags = sheet.getStyleElement()
 
     return { ...initialProps, ...page, styleTags }

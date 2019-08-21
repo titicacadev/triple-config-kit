@@ -18,7 +18,8 @@ if (SENTRY_DSN) {
   })
 }
 
-const API_URL_BASE = process.env.API_URI_BASE || 'https://triple-dev.titicaca-corp.com'
+const API_URL_BASE =
+  process.env.API_URI_BASE || 'https://triple-dev.titicaca-corp.com'
 
 async function main() {
   const nextApp = next({ dev })
@@ -51,7 +52,9 @@ async function main() {
   if (SENTRY_DSN) {
     app.on('error', (err, ctx) => {
       Sentry.withScope((scope) => {
-        scope.addEventProcessor(async (event) => Sentry.Handlers.parseRequest(event, ctx.request))
+        scope.addEventProcessor(async (event) =>
+          Sentry.Handlers.parseRequest(event, ctx.request),
+        )
 
         Sentry.captureException(err)
       })

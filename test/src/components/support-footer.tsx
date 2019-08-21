@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Text, Button, GetGlobalColor } from '@titicaca/triple-design-system'
+import {
+  Container,
+  Text,
+  Button,
+  GetGlobalColor,
+} from '@titicaca/triple-design-system'
 import { APP_URL_SCHEME } from '../config'
 
 const SupportContainer = styled(Container)`
@@ -22,7 +27,13 @@ export default function Support() {
           <SupportLink href="tel:1588-2539">1588-2539</SupportLink>
         </Text>
 
-        <Text margin={{ top: 12 }} lineHeight={1.54} color="gray" alpha={0.5} size="tiny">
+        <Text
+          margin={{ top: 12 }}
+          lineHeight={1.54}
+          color="gray"
+          alpha={0.5}
+          size="tiny"
+        >
           해외에서는 +82-2-1588-2539
           <br />
           오전 9시 - 오후 10시 (365일 연중무휴)

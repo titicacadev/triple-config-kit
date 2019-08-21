@@ -10,7 +10,8 @@ const CouponContainer = styled.li`
   position: relative;
   z-index: 1;
   height: 164px;
-  background: url(/benefit/static/images/img-punch@3x.png) no-repeat right center #fff;
+  background: url(/benefit/static/images/img-punch@3x.png) no-repeat right
+    center #fff;
   background-size: 10px 20px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -66,7 +67,9 @@ const UseConditionAvailableButton = styled.button.attrs({ type: 'button' })`
   text-decoration: underline;
   cursor: pointer;
 `
-const UseConditionDisabledButton = styled(UseConditionAvailableButton).attrs({ disabled: true })`
+const UseConditionDisabledButton = styled(UseConditionAvailableButton).attrs({
+  disabled: true,
+})`
   color: ${grayColorByStatus('DISABLED')};
   text-decoration: none;
   cursor: auto;
@@ -100,14 +103,18 @@ function Coupon({
   }
 
   const UseConditionButton =
-    status === 'AVAILABLE' ? UseConditionAvailableButton : UseConditionDisabledButton
+    status === 'AVAILABLE'
+      ? UseConditionAvailableButton
+      : UseConditionDisabledButton
 
   return (
     <CouponContainer onClick={handleClick}>
       <DescriptionContainer>
         <CouponName status={status}>{name}</CouponName>
         <UseCondition status={status}>{description}</UseCondition>
-        <ExpireDate status={status}>{moment(expireDate).format('YY.MM.DD까지')}</ExpireDate>
+        <ExpireDate status={status}>
+          {moment(expireDate).format('YY.MM.DD까지')}
+        </ExpireDate>
       </DescriptionContainer>
 
       <CouponValue status={status}>{couponValue}</CouponValue>
@@ -117,7 +124,9 @@ function Coupon({
 }
 
 function grayColorByStatus(status: CouponStatus, opacity: number = 1) {
-  return `rgba(${GetGlobalColor('gray')}, ${status === 'AVAILABLE' ? opacity : 0.3})`
+  return `rgba(${GetGlobalColor('gray')}, ${
+    status === 'AVAILABLE' ? opacity : 0.3
+  })`
 }
 
 function couponValueColorByStatus(status: CouponStatus) {

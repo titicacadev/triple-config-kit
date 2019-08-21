@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { Navbar } from '@titicaca/triple-design-system'
 import { EventTrackingProvider } from '@titicaca/triple-react-contexts'
-import { trackScreen, trackEvent, viewItem, backOrClose } from '@titicaca/triple-web-to-native-interfaces'
+import {
+  trackScreen,
+  trackEvent,
+  viewItem,
+  backOrClose,
+} from '@titicaca/triple-web-to-native-interfaces'
 import { List, ListItem } from '../../src/components/list'
 import SupportFooter from '../../src/components/support-footer'
 

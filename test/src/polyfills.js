@@ -11,7 +11,10 @@ function addCustomEventPolyfill() {
     return false
   }
 
-  function CustomEvent(event, params = { bubbles: false, cancelable: false, detail: undefined }) {
+  function CustomEvent(
+    event,
+    params = { bubbles: false, cancelable: false, detail: undefined },
+  ) {
     const { bubbles, cancelable, detail } = params
     const customEvent = document.createEvent('CustomEvent')
 

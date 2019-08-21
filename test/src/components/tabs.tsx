@@ -28,7 +28,8 @@ const TabLabel = styled.span<{ active?: boolean }>`
   color: ${({ active }) => (active ? activeColor : inactiveColor)};
   font-size: 14px;
   font-weight: bold;
-  border-bottom: solid 1px ${({ active }) => (active ? activeColor : 'transparent')};
+  border-bottom: solid 1px
+    ${({ active }) => (active ? activeColor : 'transparent')};
   background-color: transparent;
   height: 36px;
   line-height: 36px;

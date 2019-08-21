@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import { Text, Modal, Container, GetGlobalColor } from '@titicaca/triple-design-system'
+import {
+  Text,
+  Modal,
+  Container,
+  GetGlobalColor,
+} from '@titicaca/triple-design-system'
 import { useHistoryContext } from '@titicaca/triple-react-contexts'
 import { List, ListItem } from './list'
 import { CouponItem } from '../services/coupons'
@@ -26,12 +31,16 @@ interface UseConditionModalProps {
   coupons: CouponItem[]
 }
 
-export default function UseConditionModal({ coupons = [] }: UseConditionModalProps) {
+export default function UseConditionModal({
+  coupons = [],
+}: UseConditionModalProps) {
   const [couponItem, setCouponItem] = useState()
   const { uriHash, back, replace } = useHistoryContext()
 
   useEffect(() => {
-    const couponId = getCouponIdFromUriHash(uriHash || location.hash.replace('#', ''))
+    const couponId = getCouponIdFromUriHash(
+      uriHash || location.hash.replace('#', ''),
+    )
     setCouponItem(coupons.find(({ id }) => id === couponId))
   }, [coupons, uriHash])
 
@@ -56,10 +65,14 @@ export default function UseConditionModal({ coupons = [] }: UseConditionModalPro
         )}
         <List>
           <ListItem>
-            &quot;쿠폰할인가&quot;가 표기된 상품을 예약할 때 보유한 쿠폰 중 최대 혜택 쿠폰이 자동 적용됩니다. 쿠폰이
-            사용되면 주문예정금액에서 쿠폰할인이 적용됩니다.
+            &quot;쿠폰할인가&quot;가 표기된 상품을 예약할 때 보유한 쿠폰 중 최대
+            혜택 쿠폰이 자동 적용됩니다. 쿠폰이 사용되면 주문예정금액에서
+            쿠폰할인이 적용됩니다.
           </ListItem>
-          <ListItem>결제 이전에 보유한 다른 쿠폰으로 변경 또는 쿠폰의 사용취소를 할 수 있습니다.</ListItem>
+          <ListItem>
+            결제 이전에 보유한 다른 쿠폰으로 변경 또는 쿠폰의 사용취소를 할 수
+            있습니다.
+          </ListItem>
         </List>
         <Link href="/benefit/coupons/notice">
           <LinkText>쿠폰 유의사항</LinkText>

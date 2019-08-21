@@ -40,8 +40,12 @@ export interface CouponListResponse {
   nextPageToken: string
 }
 
-export async function fetchMyCoupons(req?: IncomingMessage): Promise<CouponItem[]> {
-  const sessionId = req ? new Cookies(req.headers.cookie).get('x-soto-session') : null
+export async function fetchMyCoupons(
+  req?: IncomingMessage,
+): Promise<CouponItem[]> {
+  const sessionId = req
+    ? new Cookies(req.headers.cookie).get('x-soto-session')
+    : null
   const response = await fetch(
     `${req ? API_URI_BASE : ''}/api/benefit/me/coupons?statuses=AVAILABLE`, // @TODO - USED,DISABLE 도 같이 조회해야하나 현재 500오류 노출됨
     sessionId ? { headers: { 'X-Soto-Session': sessionId } } : undefined,

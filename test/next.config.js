@@ -2,8 +2,10 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 const SHORT_SHA = process.env.SHORT_SHA
 const CDN_URL_BASE = process.env.CDN_URL_BASE
-const API_URI_BASE = process.env.API_URI_BASE || 'https://triple-dev.titicaca-corp.com'
-const WEB_URL_BASE = process.env.WEB_URL_BASE || 'https://triple-dev.titicaca-corp.com'
+const API_URI_BASE =
+  process.env.API_URI_BASE || 'https://triple-dev.titicaca-corp.com'
+const WEB_URL_BASE =
+  process.env.WEB_URL_BASE || 'https://triple-dev.titicaca-corp.com'
 const APP_URL_SCHEME = process.env.APP_URL_SCHEME || 'dev-soto'
 const AF_ONELINK_PID = process.env.AF_ONELINK_PID || 'benefit_web'
 const AF_ONELINK_ID = process.env.AF_ONELINK_ID || 'u4VW'
@@ -14,7 +16,9 @@ const SENTRY_DSN = process.env.SENTRY_DSN
 const SENTRY_ENV = process.env.SENTRY_ENV || 'development'
 
 module.exports = {
-  assetPrefix: CDN_URL_BASE ? `${CDN_URL_BASE}/applications/benefit/${SHORT_SHA}` : '/benefit',
+  assetPrefix: CDN_URL_BASE
+    ? `${CDN_URL_BASE}/applications/benefit/${SHORT_SHA}`
+    : '/benefit',
   generateEtags: false,
   publicRuntimeConfig: {
     API_URI_BASE,
@@ -41,7 +45,10 @@ module.exports = {
     config.entry = async () => {
       const entries = await originalEntry()
 
-      if (entries['main.js'] && !entries['main.js'].includes('./src/polyfills.js')) {
+      if (
+        entries['main.js'] &&
+        !entries['main.js'].includes('./src/polyfills.js')
+      ) {
         entries['main.js'].unshift('./src/polyfills.js')
       }
 
