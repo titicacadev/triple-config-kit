@@ -8,7 +8,7 @@ assignees: appear, boxersb, inbeom, luffy-song, polysiya, steve-triple, torres-t
 
 ---
 
-### AS-IS: Standards rule
+### AS-IS: Rule of Standard
 `STYLE_GUIDE.md` 의 특정 rule section을 복사해서 붙여넣으세요.
 
 
