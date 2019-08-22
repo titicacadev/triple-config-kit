@@ -52,11 +52,14 @@
   eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren)
 
   ```js
-  function name (arg) { ... }   // ✓ 좋아요
-  function name(arg) { ... }    // ✗ 피하세요
+  function name(arg) { ... }    // ✓ 좋아요
+  function name (arg) { ... }   // ✗ 피하세요
 
-  run(function () { ... })      // ✓ 좋아요
-  run(function() { ... })       // ✗ 피하세요
+  run(function() { ... })       // ✓ 좋아요
+  run(function () { ... })      // ✗ 피하세요
+
+  const request = async () => { ... }  // ✓ 좋아요
+  const request = async() => { ... }  // ✗ 피하세요
   ```
 
 * **항상** `==` 대신 `===`을 **사용** 합니다.<br>
@@ -269,14 +272,36 @@
     var myVar = 'hello'            // ✓ 좋아요
   ```
 
-* **뒤쪽에 쉼표는 허용하지 않습니다.**
+* **뒤쪽 쉼표는 여러 행에 걸치는 멤버를 서술할때는 반드시 붙여야합니다.**
 
   eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle)
 
   ```js
     var obj = {
-      message: 'hello',   // ✗ 피하세요
-    }
+      message: 'hello',
+      name: 'triple',
+    }    // ✓ 좋아요
+    var obj = {
+      message: 'hello',
+      name: 'triple'
+    }    // ✗ 피하세요
+
+    var obj = { message: 'hello' }    // ✓ 좋아요
+    var obj = { message: 'hello', }   // ✗ 피하세요
+
+    var arr = [1, 2, 3]   // ✓ 좋아요
+    var arr = [1, 2, 3, ]   // ✗ 피하세요
+
+    var arr = [
+      1,
+      2,
+      3,
+    ]  // ✓ 좋아요
+    var arr = [
+      1,
+      2,
+      3
+    ]  // ✗ 피하세요
   ```
 
 * **쉼표를 사용할 경우 현재 행 끝에 있어야 합니다.**
