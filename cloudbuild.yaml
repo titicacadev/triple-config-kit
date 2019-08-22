@@ -12,18 +12,6 @@ steps:
     id: test
     args: ['test']
 
-  - name: 'gcr.io/cloud-builders/npm'
-    id: publish
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        if [[ "${TAG_NAME}" =~ ^release-prod-v[0-9]+$ ]]; then
-          echo //registry.npmjs.org/:_authToken=$$NPM_TOKEN > .npmrc
-          npm publish
-        fi
-    secretEnv: ['NPM_TOKEN']
-
 secrets:
   - kmsKeyName: projects/titicaca-ci/locations/global/keyRings/npm/cryptoKeys/publish_token
     secretEnv:

@@ -1,10 +1,17 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
     id: dependency
-    args: ['ci']
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo //registry.npmjs.org/:_authToken=$$NPM_TOKEN > .npmrc
+        npm ci
+
   - name: 'gcr.io/cloud-builders/npm'
     id: test
     args: ['test']
+
   - name: 'gcr.io/cloud-builders/npm'
     id: publish
     entrypoint: 'bash'
