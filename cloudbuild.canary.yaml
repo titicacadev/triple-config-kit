@@ -29,6 +29,11 @@ steps:
         fi
     secretEnv: ['NPM_TOKEN']
 
+substitutions:
+  _SLACK_NOTIFY_CHANNEL: '#triple-web-dev'
+  _SVC_BASENAME: 'eslint-config-triple'
+  _AUTO_TAGGING_ENABLED: 'false'
+
 secrets:
   - kmsKeyName: projects/titicaca-ci/locations/global/keyRings/npm/cryptoKeys/publish_token
     secretEnv:
