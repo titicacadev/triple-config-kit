@@ -1,0 +1,20 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run-script', 'build']
+  - name: 'gcr.io/cloud-builders/npm'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        if [[ "${TAG_NAME}" =~ ^release-prod-v[0-9]+$ ]]; then
+          echo //registry.npmjs.org/:_authToken=$$NPM_TOKEN > .npmrc
+          npm publish
+        fi
+    secretEnv: ['NPM_TOKEN']
+
+secrets:
+  - kmsKeyName: projects/titicaca-ci/locations/global/keyRings/npm/cryptoKeys/publish_token
+    secretEnv:
+      NPM_TOKEN: CiQA4RDOWdrx+r3ZCMMAYU+kI/+5cDjDG8W1FVmwUe7lA/hCxSkSTQCM5sIB04ZbQUH3FhF1wC9boXezWZCk3x5YEf3IyXZmOuHbMc+mFf6K1RXZH7HsZTpeb/Go9NVVHpfNplcbxiygv8b2Ewa11h1wkbqZ
