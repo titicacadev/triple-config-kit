@@ -1,7 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['install']
+    id: dependency
+    args: ['ci']
   - name: 'gcr.io/cloud-builders/npm'
+    id: test
+    args: ['test']
+  - name: 'gcr.io/cloud-builders/npm'
+    id: publish
     entrypoint: 'bash'
     args:
       - '-c'
