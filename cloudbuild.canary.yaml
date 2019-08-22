@@ -7,10 +7,12 @@ steps:
       - '-c'
       - |
         if [[ "${TAG_NAME}" =~ ^release-canary$ ]]; then
+          PACKAGE_NAME=@titicaca/eslint-config-triple
+          CANARY_VERSION=0.0.0-${SHORT_SHA}
           echo //registry.npmjs.org/:_authToken=$$NPM_TOKEN > .npmrc
-          npm version 0.0.0-${SHORT_SHA} --git-tag-version=false
+          npm version $$_CANARY_VERSION --git-tag-version=false
           npm publish
-          npm dist-tag add @titicaca/eslint-config-triple@0.0.0-${SHORT_SHA} canary
+          npm dist-tag add $$PACKAGE_NAME@$$CANARY_VERSION canary
         fi
     secretEnv: ['NPM_TOKEN']
 
