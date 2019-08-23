@@ -20,10 +20,8 @@ steps:
       - '-c'
       - |
         if [[ "${TAG_NAME}" =~ ^release-prod-v[0-9]+$ ]]; then
-          echo //registry.npmjs.org/:_authToken=$$NPM_TOKEN > .npmrc
           npm publish
         fi
-    secretEnv: ['NPM_TOKEN']
 
 substitutions:
   _SLACK_NOTIFY_CHANNEL: '#triple-web-dev'
