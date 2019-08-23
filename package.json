@@ -38,7 +38,6 @@
     "confusing-browser-globals": "^1.0.8",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^13.0.1",
-    "eslint-find-rules": "^3.4.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-node": "^9.1.0",
@@ -52,7 +51,6 @@
   },
   "devDependencies": {
     "@babel/runtime": "^7.5.5",
-    "eclint": "^2.8.1",
     "eslint": "^6.2.0"
   }
 }
