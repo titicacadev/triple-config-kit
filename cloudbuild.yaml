@@ -14,7 +14,7 @@ steps:
     args: ['test']
 
 substitutions:
-  _SLACK_NOTIFY_CHANNEL: '#triple-web-dev'
+  _SLACK_NOTIFY_CHANNEL: '#triple-web-dev-notifications'
   _SVC_BASENAME: 'eslint-config-triple'
   _AUTO_TAGGING_ENABLED: 'false'
 
