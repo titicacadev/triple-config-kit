@@ -34,7 +34,7 @@ module.exports = {
         ImportDeclaration: 1,
         flatTernaryExpressions: false,
         ignoreComments: false,
-        ignoredNodes: ['ConditionalExpression > ObjectExpression'],
+        ignoredNodes: ['ConditionalExpression > *'],
       },
     ],
   },
