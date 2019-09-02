@@ -1,12 +1,5 @@
 module.exports = {
-  extends: [
-    './recommends/eslint',
-    './recommends/prettier',
-    './recommends/react',
-    './recommends/standard',
-    './recommends/react',
-    './rules/style',
-  ].map(require.resolve),
+  extends: ['./recommends/base', './rules/base'].map(require.resolve),
   env: {
     node: true,
     browser: true,
