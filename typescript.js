@@ -2,8 +2,9 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
-    './index',
+    './recommends/base',
     './recommends/typescript-eslint',
+    './rules/base',
     './rules/typescript',
   ].map(require.resolve),
   env: {
