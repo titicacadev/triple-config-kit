@@ -1,3 +1,7 @@
+interface WithKey {
+  [key: string]: any
+}
+
 const ctx: {
   req?: {
     headers?: {
@@ -14,4 +18,27 @@ const user = ctx.req
     }
   : undefined
 
-export default user
+const conditionA = true
+const conditionB = false
+const valueA: WithKey = {}
+const valueB: WithKey = {}
+const valueC: WithKey = {}
+
+const nestedTernart = conditionA
+  ? {
+      name: valueA.req.headers['x-forwarded-user'],
+      email: valueA.req.headers['x-forwarded-email'],
+      groups: valueA.req.headers['x-forwarded-groups'],
+    }
+  : conditionB
+  ? {
+      name: valueB.req.headers['x-forwarded-user'],
+      email: valueB.req.headers['x-forwarded-email'],
+      groups: valueB.req.headers['x-forwarded-groups'],
+    }
+  : valueC
+
+export default {
+  user,
+  nestedTernart,
+}
