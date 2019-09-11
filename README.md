@@ -1,17 +1,19 @@
-# Triple Javascript Coding Conventions
-- eslint-config-triple은 트리플의 자바스크립트 코딩컨벤션을 지원하는 [eslint](http://eslint.org/) 룰 셋입니다.
+# Triple Frontend Style Configs
+> `eslint-config-triple` 은 [eslint](http://eslint.org/) 룰 셋을 기본으로 트리플 frontend 개발 스타일 전반의 설정을 제공합니다.
 
-> ### eslint-config-triple은 2개의 룰 셋을 제공합니다.
-> - ES6+ 룰 셋 : `@titicaca/eslint-config-triple`
-> - Typescript 룰 셋 : `@titicaca/eslint-config-triple/typescript`
+- `eslint-config-triple`는 아래의 룰 셋을 제공합니다.
+  - eslint es6+ : `@titicaca/eslint-config-triple`
+  - eslint typescript : `@titicaca/eslint-config-triple/typescript`
+  - prettier : `@titicaca/eslint-config-triple/prettierrc`
 
 ## Install
 ```
-#npm install @titicaca/eslint-config-triple
+> npm install @titicaca/eslint-config-triple
 ```
 
 ## Usage
-### ES6+ 룰 셋을 사용하는 경우
+### eslint
+* ES6+ 룰 셋을 사용하는 경우
 ```
 // .eslintrc 파일
 {
@@ -22,7 +24,7 @@
 }
 ```
 
-### Typescript 룰 셋을 사용하는 경우
+* Typescript 룰 셋을 사용하는 경우
 ```
 // .eslintrc 파일
 {
@@ -30,6 +32,22 @@
   "rules": {
     // 프로젝트별 적용할 Rules
   }
+}
+```
+
+### prettier
+* `.prettierrc` 파일
+```js
+"@titicaca/eslint-config-triple/prettierrc"
+```
+
+* `package.json` 파일
+```js
+{
+  "name": "@titicaca/unicorn-project",
+  "version": "0.0.1",
+  "prettier": "@titicaca/eslint-config-triple/prettierrc"
+  ...
 }
 ```
 
