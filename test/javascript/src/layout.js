@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Menu } from 'semantic-ui-react'
 import MenuItems from './menu-items'
+import PropTypes from 'prop-types'
 
 export default function Layout({ children }) {
   return (
@@ -18,4 +19,8 @@ export default function Layout({ children }) {
       </div>
     </Container>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
