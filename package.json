@@ -4,7 +4,7 @@
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "test": "concurrently \"eslint 'test/javascript/*.{js,jsx}'\" \"eslint 'test/typescript/*.{ts,tsx}'\""
+    "test": "concurrently \"eslint 'test/javascript/**/*.{js,jsx}'\" \"eslint 'test/typescript/**/*.{ts,tsx}'\""
   },
   "repository": {
     "type": "git",
