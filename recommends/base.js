@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['./eslint', './prettier', './standard', './react'].map(
+  extends: ['./eslint', './standard', './prettier', './react'].map(
     require.resolve,
   ),
 }
