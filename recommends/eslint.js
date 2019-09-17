@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'babel-eslint',
   rules: {
     'constructor-super': 'error',
     'for-direction': 'error',
