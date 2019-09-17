@@ -4,7 +4,7 @@
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
-    "test": "concurrently \"npm run test:js\" \"npm run test:ts\"",
+    "test": "concurrently \"npm run test:js\" \"npm run test:ts\" --kill-others-on-fail",
     "test:js": "eslint 'test/javascript/**/*.{js,jsx}'",
     "test:ts": "eslint 'test/typescript/**/*.{ts,tsx}'"
   },
