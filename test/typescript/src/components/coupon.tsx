@@ -79,6 +79,10 @@ interface CouponProps extends CouponItem {
   onClick?: (e: React.SyntheticEvent) => void
 }
 
+export function ExpireDateHolder({ availability, children }) {
+  return <ExpireDate availability={availability}>{children}</ExpireDate>
+}
+
 function Coupon({
   name,
   description,

@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['./style', './variables'].map(require.resolve),
+  extends: ['./style', './variables', './react'].map(require.resolve),
 }
