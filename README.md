@@ -8,8 +8,26 @@
 
 ## Install
 ```
-> npm install @titicaca/eslint-config-triple
+> npm install @titicaca/eslint-config-triple --save-dev
 ```
+
+`eslint-config-triple` 에서는 아래의 패키지들을 함께 설치합니다.  
+- `@typescript-eslint/eslint-plugin`
+- `@typescript-eslint/parser`
+- `babel-eslint`
+- `eslint`
+- `eslint-plugin-import`
+- `eslint-plugin-jsx-a11y`
+- `eslint-plugin-node`
+- `eslint-plugin-prettier`
+- `eslint-plugin-promise`
+- `eslint-plugin-react`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-standard`
+- `prettier`
+
+따라서, `eslint-config-triple` 를 설치한 프로젝트에서는 해당 패키지들의 다른버전이 중복 설치되지 않도록,
+의존성 목록을 수정해주시는것이 좋습니다.
 
 ## Usage
 ### eslint
