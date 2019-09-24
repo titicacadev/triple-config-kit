@@ -11,7 +11,7 @@
 > npm install @titicaca/eslint-config-triple --save-dev
 ```
 
-`eslint-config-triple` 에서는 아래의 [패키지들](https://github.com/titicacadev/eslint-config-triple/blob/feature/peer-deps/package.json#L37-L51)을 함께 설치합니다.  
+`eslint-config-triple` 에서는 아래의 [패키지들](https://github.com/titicacadev/eslint-config-triple/blob/master/package.json#L37)을 함께 설치합니다.  
 - `@typescript-eslint/eslint-plugin`
 - `@typescript-eslint/parser`
 - `babel-eslint`
