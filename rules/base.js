@@ -1,3 +1,5 @@
 module.exports = {
-  extends: ['./style', './variables', './react'].map(require.resolve),
+  extends: ['./style', './variables', './react', './react-hooks'].map(
+    require.resolve,
+  ),
 }
