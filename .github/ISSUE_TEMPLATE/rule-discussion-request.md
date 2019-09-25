@@ -4,7 +4,7 @@ about: 현재 Rule 에 대한 이의를 제기하고, rule 수정을 제안한�
 title: "[Rule] "
 labels: discussion
 assignees: appear, boxersb, inbeom, luffy-song, polysiya, steve-triple, torres-triple,
-  yceffort
+  yceffort, zprime0920
 
 ---
 
