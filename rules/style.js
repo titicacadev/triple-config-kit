@@ -5,8 +5,8 @@ module.exports = {
       {
         arrays: 'always-multiline',
         objects: 'always-multiline',
-        imports: 'always-multiline',
-        exports: 'always-multiline',
+        imports: 'never',
+        exports: 'never',
         functions: 'always-multiline',
       },
     ],
