@@ -77,7 +77,7 @@
 ## Bug 
 
 #### 2019.11.12 
-- prettier 1.19.1 에서 printWidth 가 제대로 동작하지 않는 문제가 있어 1.18.2 로 버젼 고정 
+- prettier 1.19.1 에서 printWidth 가 제대로 동작하지 않는 문제가 있어 1.18.2 로 버젼 고정 [#6889](https://github.com/prettier/prettier/issues/6899)
 - vscode 에서 prettier 와 eslint 설정충돌이 있어 code formatting 이 되지 않는 문제가 있어 prettier 플러그인과 설정 제거 `"eslint.autoFixOnSave": "true"` 설정만 추가
 
 
