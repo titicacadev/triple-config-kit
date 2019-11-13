@@ -1,3 +1,5 @@
 module.exports = {
-  rules: {},
+  rules: {
+    camelcase: ['error', { properties: 'always' }],
+  },
 }

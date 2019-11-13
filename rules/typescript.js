@@ -14,5 +14,7 @@ module.exports = {
       'error',
       { functions: false, classes: true },
     ],
+    camelcase: 'off',
+    '@typescript-eslint/camelcase': ['error', { properties: 'always' }],
   },
 }
