@@ -1,5 +1,6 @@
 import React from 'react'
 import App from 'next/app'
+
 import Layout from '../src/layout'
 
 export default class MyApp extends App {

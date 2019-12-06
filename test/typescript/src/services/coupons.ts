@@ -1,7 +1,10 @@
+import { IncomingMessage } from 'http'
+
 import fetch from 'isomorphic-fetch'
 import Cookies from 'universal-cookie'
-import { IncomingMessage } from 'http'
+
 import { API_URI_BASE } from '../config'
+
 import CouponFixtures from './coupon-fixtures'
 
 export type CouponStatus = 'AVAILABLE' | 'USED' | 'DISABLED'

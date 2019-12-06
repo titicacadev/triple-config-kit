@@ -1,5 +1,7 @@
-import fetch from 'isomorphic-fetch'
 import { IncomingMessage } from 'http'
+
+import fetch from 'isomorphic-fetch'
+
 import { API_URI_BASE } from '../config'
 
 export interface InventoryItem {

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container, Menu } from 'semantic-ui-react'
-import MenuItems from './menu-items'
 import PropTypes from 'prop-types'
+
+import MenuItems from './menu-items'
 
 export default function Layout({ children }) {
   return (

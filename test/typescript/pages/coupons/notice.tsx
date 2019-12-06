@@ -8,6 +8,7 @@ import {
   viewItem,
   backOrClose,
 } from '@titicaca/triple-web-to-native-interfaces'
+
 import { List, ListItem } from '../../src/components/list'
 import SupportFooter from '../../src/components/support-footer'
 

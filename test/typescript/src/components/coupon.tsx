@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 import { GetGlobalColor } from '@titicaca/triple-design-system'
 import { formatNumber } from '@titicaca/triple-design-system/lib/utilities'
+
 import { CouponStatus, CouponItem } from '../services/coupons'
 
 const CouponContainer = styled.li`
