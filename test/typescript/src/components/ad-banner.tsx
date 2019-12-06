@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import PagerCarousel from 'nuka-carousel'
+
 import { fetchAdBanners, InventoryItem } from '../services/banners'
 
 interface AdBannerProps {

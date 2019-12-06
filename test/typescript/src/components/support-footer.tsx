@@ -6,6 +6,7 @@ import {
   Button,
   GetGlobalColor,
 } from '@titicaca/triple-design-system'
+
 import { APP_URL_SCHEME } from '../config'
 
 const SupportContainer = styled(Container)`

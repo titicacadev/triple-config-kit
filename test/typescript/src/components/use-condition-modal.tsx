@@ -8,8 +8,10 @@ import {
   GetGlobalColor,
 } from '@titicaca/triple-design-system'
 import { useHistoryContext } from '@titicaca/triple-react-contexts'
-import { List, ListItem } from './list'
+
 import { CouponItem } from '../services/coupons'
+
+import { List, ListItem } from './list'
 
 const LinkText = styled.a`
   display: block;
