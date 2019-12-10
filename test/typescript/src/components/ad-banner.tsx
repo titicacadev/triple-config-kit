@@ -18,7 +18,9 @@ export default function AdBanner({ banners = [] }: AdBannerProps) {
   const [data, setData] = useState(banners)
 
   useEffect(() => {
-    if (banners.length) return
+    if (banners.length) {
+      return
+    }
 
     fetchAdBanners().then((fetchedBanners) => {
       setData(fetchedBanners)
