@@ -16,5 +16,6 @@ module.exports = {
     ],
     camelcase: 'off',
     '@typescript-eslint/camelcase': ['error', { properties: 'always' }],
+    '@typescript-eslint/no-empty-function': 'off',
   },
 }
