@@ -76,7 +76,7 @@
 
 ### stylelint
 
-- `stylelintrc` 파일
+- `.stylelintrc` 파일
 
 ```:json
 {
