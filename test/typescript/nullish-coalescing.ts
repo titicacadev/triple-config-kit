@@ -10,30 +10,30 @@
 
 interface AppConfiguration {
   // Default: "(no name)"; empty string IS valid
-  name:  string;
+  name: string
 
   // Default: -1; 0 is valid
-  items:  number;
+  items: number
 
   // Default: true
-  active: boolean;
+  active: boolean
 }
 
-function updateApp(config: Partial<AppConfiguration>) {
+export function updateApp(config: Partial<AppConfiguration>) {
   // With null-coalescing operator
-  config.name = config.name ?? "(no name)";
-  config.items = config.items ?? -1;
-  config.active = config.active ?? true;
+  config.name = config.name ?? '(no name)'
+  config.items = config.items ?? -1
+  config.active = config.active ?? true
 
   // Current solution
-  config.name = typeof config.name === "string" ? config.name : "(no name)";
-  config.items = typeof config.items === "number" ? config.items : -1;
-  config.active = typeof config.active === "boolean" ? config.active : true;
+  config.name = typeof config.name === 'string' ? config.name : '(no name)'
+  config.items = typeof config.items === 'number' ? config.items : -1
+  config.active = typeof config.active === 'boolean' ? config.active : true
 
   // Using || operator which could give bad data
-  config.name = config.name || "(no name)"; // does not allow for "" input
-  config.items = config.items || -1; // does not allow for 0 input
-  config.active = config.active || true; // really bad, always true
+  config.name = config.name || '(no name)' // does not allow for "" input
+  config.items = config.items || -1 // does not allow for 0 input
+  config.active = config.active || true // really bad, always true
 }
 
 // You can read more about nullish coalescing in the 3.7 blog post:
