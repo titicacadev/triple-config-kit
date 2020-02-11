@@ -16,18 +16,18 @@ type AlbumAPIResponse = {
     bio?: string
     previousAlbums?: string[]
   }
-};
+}
 
-declare const album: AlbumAPIResponse;
+declare const album: AlbumAPIResponse
 
 // With optional chaining, you can write
 // code like this:
 
-const artistBio = album?.artist?.bio;
+export const artistBio = album?.artist?.bio
 
 // Instead of:
 
-const maybeArtistBio = album.artist && album.artist.bio;
+export const maybeArtistBio = album.artist && album.artist.bio
 
 // In this case ?. acts differently than the &&s since &&
 // will act differently on "falsy" values (e.g. an empty string,
@@ -41,9 +41,9 @@ const maybeArtistBio = album.artist && album.artist.bio;
 // Property access is via the . operator, the optional chaining
 // also works with the [] operators when accessing elements.
 
-const maybeArtistBioElement = album?.["artist"]?.["bio"];
+export const maybeArtistBioElement = album?.['artist']?.['bio']
 
-const maybeFirstPreviousAlbum = album?.artist?.previousAlbums?.[0];
+export const maybeFirstPreviousAlbum = album?.artist?.previousAlbums?.[0]
 
 // Optional Calls
 
@@ -55,13 +55,30 @@ const maybeFirstPreviousAlbum = album?.artist?.previousAlbums?.[0];
 // For example here's an optional call to the callback from
 // an API request:
 
-const callUpdateMetadata = (metadata: any) => Promise.resolve(metadata); // Fake API call
+const callUpdateMetadata = (metadata: any) => Promise.resolve(metadata) // Fake API call
 
-const updateAlbumMetadata = async (metadata: any, callback?: () => void) => {
-  await callUpdateMetadata(metadata);
+export const updateAlbumMetadata = async (
+  metadata: any,
+  callback?: () => void,
+) => {
+  await callUpdateMetadata(metadata)
 
-  callback?.();
-};
+  callback?.()
+}
+
+export async function makeRequest(url: string, log?: (msg: string) => void) {
+  log?.(`Request started at ${new Date().toISOString()}`)
+  // roughly equivalent to
+  //   if (log != null) {
+  //       log(`Request started at ${new Date().toISOString()}`);
+  //   }
+
+  const result = (await fetch(url)).json()
+
+  log?.(`Request finished at at ${new Date().toISOString()}`)
+
+  return result
+}
 
 // You can read more about optional chaining in the 3.7 blog post:
 //
