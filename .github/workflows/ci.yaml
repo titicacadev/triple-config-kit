@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+        matrix: 
+          node-version: [12.x]
+    steps:
+      - name: Git checkout@v2
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+      - name: Cache .npm
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+      - name: Install dependencies and run test
+        run: |
+          npm ci
+          npm test
+        env: 
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Tag canary version and publish to npm
+        run: |
+          npm version 0.0.0-${GITHUB_SHA} --git-tag-version=false
+          npm publish --tag canary
+        env: 
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
