@@ -1,10 +1,9 @@
 name: CI
 
 on:
-  push:
+  pull_request:
     branches:
-      - '**'
-      - '!master'
+      - 'master'
     tags-ignore:
       - '**'
 
@@ -17,6 +16,17 @@ jobs:
     steps:
       - name: Git checkout@v2
         uses: actions/checkout@v2
+
+      - name: Notify build start to slack
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: Build WORKING
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -35,6 +45,39 @@ jobs:
           npm test
         env: 
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Notify build and test success to slack
+        if: success()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: ${{ ':tada:' }} Build SUCCESS
+
+      - name: Notify build and test fail to slack
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: warning
+          SLACK_TITLE: ${{ ':x:' }} Build FAIL
+      
+      - name: Notify deploy start to slack
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: Canary release deploy WORKING
+
       - name: Tag canary version and publish to npm
         run: |
           VERSION="v$(node -p -e 'require(`./package.json`).version')"
@@ -42,3 +85,25 @@ jobs:
           npm publish --tag canary
         env: 
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Notify deploy success to slack
+        if: success()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: ${{ ':tada:' }} Canary release deploy SUCCESS
+
+      - name: Notify deploy fail to slack
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: warning
+          SLACK_TITLE: ${{ ':x:' }} Canary release deploy FAIL
