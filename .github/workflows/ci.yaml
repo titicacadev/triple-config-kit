@@ -17,6 +17,12 @@ jobs:
       - name: Git checkout@v2
         uses: actions/checkout@v2
 
+      - name: Define variables
+        run: |
+          HEAD_COMMIT_SHA="${{ github.event.pull_request.head.sha }}"
+          VERSION="v$(node -p -e 'require(`./package.json`).version')-${HEAD_COMMIT_SHA:0:7}"
+          echo ::set-env name=DEPLOY_VERSION::$VERSION
+
       - name: Notify build start to slack
         uses: rtCamp/action-slack-notify@v2.0.0
         env:
@@ -26,6 +32,7 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: good
           SLACK_TITLE: Build WORKING
+          SLACK_MESSAGE: ${{ github.event.pull_request.title }}
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -56,6 +63,7 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: good
           SLACK_TITLE: ${{ ':tada:' }} Build SUCCESS
+          SLACK_MESSAGE: ${{ github.event.pull_request.title }}
 
       - name: Notify build and test fail to slack
         if: failure()
@@ -67,6 +75,7 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: warning
           SLACK_TITLE: ${{ ':x:' }} Build FAIL
+          SLACK_MESSAGE: ${{ github.event.pull_request.title }}
       
       - name: Notify deploy start to slack
         uses: rtCamp/action-slack-notify@v2.0.0
@@ -77,11 +86,12 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: good
           SLACK_TITLE: Canary release deploy WORKING
+          SLACK_MESSAGE: ${{ env.DEPLOY_VERSION }}
 
       - name: Tag canary version and publish to npm
         run: |
-          VERSION="v$(node -p -e 'require(`./package.json`).version')"
-          npm version $VERSION-${GITHUB_SHA::8} --git-tag-version=false
+          VERSION="${{ env.DEPLOY_VERSION }}"
+          npm version $VERSION --git-tag-version=false
           npm publish --tag canary
         env: 
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -96,6 +106,7 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: good
           SLACK_TITLE: ${{ ':tada:' }} Canary release deploy SUCCESS
+          SLACK_MESSAGE: ${{ env.DEPLOY_VERSION }}
 
       - name: Notify deploy fail to slack
         if: failure()
@@ -107,3 +118,4 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: warning
           SLACK_TITLE: ${{ ':x:' }} Canary release deploy FAIL
+          SLACK_MESSAGE: ${{ env.DEPLOY_VERSION }}
