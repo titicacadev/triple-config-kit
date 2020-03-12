@@ -17,6 +17,11 @@ jobs:
       - name: Git checkout@v2
         uses: actions/checkout@v2
 
+      - name: Define variables
+        run: |
+          HEAD_COMMIT_SHA="${{ github.event.pull_request.head.sha }}"
+          VERSION="v$(node -p -e 'require(`./package.json`).version')"
+          echo ::set-env name=DEPLOY_VERSION::$VERSION
       - name: Notify build start to slack
         uses: rtCamp/action-slack-notify@v2.0.0
         env:
@@ -77,6 +82,7 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: good
           SLACK_TITLE: Deploy WORKING
+          SLACK_MESSAGE: ${{ env.DEPLOY_VERSION }}
 
       - name: Publish to npm
         run: |
@@ -94,6 +100,7 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: good
           SLACK_TITLE: ${{ ':tada:' }} Deploy SUCCESS
+          SLACK_MESSAGE: ${{ env.DEPLOY_VERSION }}
   
       - name: Notify deploy fail to slack
         if: failure()
@@ -105,3 +112,4 @@ jobs:
           SLACK_ICON_EMOJI: ':gear:'
           SLACK_COLOR: warning
           SLACK_TITLE: ${{ ':x:' }} Deploy FAIL
+          SLACK_MESSAGE: ${{ env.DEPLOY_VERSION }}
