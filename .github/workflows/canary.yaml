@@ -1,0 +1,151 @@
+name: canary
+
+on:
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  build:
+    if: contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, 'canary publish')
+    runs-on: ubuntu-latest
+    strategy:
+        matrix: 
+          node-version: [12.x]
+    steps:
+      - name: Recognize head sha of pull request
+        run: |
+          curl -v \
+            --url https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.issue.number }} \
+            -H "Accept: application/vnd.github.sailor-v-preview+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" > pr.json
+
+          PR_SHA=$(cat ./pr.json | jq '.head.sha' | sed 's/\"//g')
+          echo ::set-env name=PR_SHA::$PR_SHA
+          echo ::set-env name=PR_SHORT_SHA::${PR_SHA:0:7}
+          echo ::set-env name=PR_TITLE::$(cat ./pr.json | jq '.title' | sed 's/\"//g')
+      
+      - name: Reaction
+        run: |
+          curl -v \
+            --url https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.squirrel-girl-preview+json" \
+            -H "Content-Type: application/json" \
+            -f --request POST \
+            -d "{\"content\":\"+1\"}"
+          curl -v \
+            --url https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -f --request POST \
+            -d "{\"body\":\":rocket: I got it!\"}"
+
+      - name: Git checkout@v2
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ env.PR_SHA }}
+
+      - name: Define canary version
+        run: |
+          echo ::set-env name=CANARY_VERSION::v$(cat package.json | jq '.version' | sed 's/\"//g')-${{ env.PR_SHORT_SHA }}
+
+      - name: Notify build start to slack
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: Canary build WORKING
+          SLACK_MESSAGE: ${{ env.PR_TITLE }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Cache .npm
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+
+      - name: Build
+        run: |
+          npm ci
+          npm test
+        env: 
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Notify build success to slack
+        if: success()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: ${{ ':tada:' }} Canary build SUCCESS
+          SLACK_MESSAGE: ${{ env.PR_TITLE }}
+
+      - name: Notify build fail to slack
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: warning
+          SLACK_TITLE: ${{ ':x:' }} Canary build FAIL
+          SLACK_MESSAGE: $${{ env.PR_TITLE }}
+      
+      - name: Notify deploy start to slack
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: Canary release deploy WORKING
+          SLACK_MESSAGE: ${{ env.CANARY_VERSION }}
+
+      - name: Tag canary version and publish to npm
+        run: |
+          VERSION="${{ env.CANARY_VERSION }}"
+          npm version $VERSION --git-tag-version=false
+          npm publish --tag canary
+        env: 
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Notify deploy success to slack
+        if: success()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: good
+          SLACK_TITLE: ${{ ':tada:' }} Canary release deploy SUCCESS
+          SLACK_MESSAGE: ${{ env.CANARY_VERSION }}
+
+      - name: Notify deploy fail to slack
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_CHANNEL: CMSJHHMA4
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: GHA Notifications
+          SLACK_ICON_EMOJI: ':gear:'
+          SLACK_COLOR: warning
+          SLACK_TITLE: ${{ ':x:' }} Canary release deploy FAIL
+          SLACK_MESSAGE: ${{ env.CANARY_VERSION }}
