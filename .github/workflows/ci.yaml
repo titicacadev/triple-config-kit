@@ -13,6 +13,20 @@ jobs:
     strategy:
         matrix: 
           node-version: [12.x]
+    env:
+      SLACK_CHANNEL: "@BoxeR"
+      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      SLACK_USERNAME: "Github Actions Bot"
+      SLACK_ICON_EMOJI: ":gg:"
+      SLACK_COLOR: "#36a64f"
+      SLACK_FOOTER: "Triple Frontend"
+      SLACK_TOPIC: ${{ github.event.pull_request.title }}
+      TRIGGER_USER: ${{ github.event.pull_request.user.login }}
+      TRIGGER_USER_AVATAR: "${{ github.event.pull_request.user.avatar_url }}"
+      GITHUB_REF: "$GITHUB_REF"
+      GITHUB_EVENT_NAME: "$GITHUB_EVENT_NAME"
+      GITHUB_ACTIONS_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
     steps:
       - name: Git checkout@v2
         uses: actions/checkout@v2
@@ -22,23 +36,20 @@ jobs:
           HEAD_COMMIT_SHA="${{ github.event.pull_request.head.sha }}"
           VERSION="v$(node -p -e 'require(`./package.json`).version')-${HEAD_COMMIT_SHA:0:7}"
           echo ::set-env name=DEPLOY_VERSION::$VERSION
-
+    
       - name: Notify build start to slack
-        uses: rtCamp/action-slack-notify@v2.0.0
         env:
-          SLACK_CHANNEL: CMSJHHMA4
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: GHA Notifications
-          SLACK_ICON_EMOJI: ':gear:'
-          SLACK_COLOR: good
-          SLACK_TITLE: Build WORKING
-          SLACK_MESSAGE: ${{ github.event.pull_request.title }}
+          SLACK_TITLE: ":rocket: Build Started"
+        run: |
+          PAYLOAD=`node ./slack.js`
+          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
+
       - name: Cache .npm
         uses: actions/cache@v1
         with:
@@ -46,6 +57,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
+
       - name: Build
         run: |
           npm ci
@@ -55,24 +67,17 @@ jobs:
 
       - name: Notify build and test success to slack
         if: success()
-        uses: rtCamp/action-slack-notify@v2.0.0
         env:
-          SLACK_CHANNEL: CMSJHHMA4
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: GHA Notifications
-          SLACK_ICON_EMOJI: ':gear:'
-          SLACK_COLOR: good
-          SLACK_TITLE: ${{ ':tada:' }} Build SUCCESS
-          SLACK_MESSAGE: ${{ github.event.pull_request.title }}
+          SLACK_TITLE: "Build Succeed"
+        run: |
+          PAYLOAD=`node ./slack.js`
+          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
 
       - name: Notify build and test fail to slack
         if: failure()
-        uses: rtCamp/action-slack-notify@v2.0.0
         env:
-          SLACK_CHANNEL: CMSJHHMA4
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: GHA Notifications
-          SLACK_ICON_EMOJI: ':gear:'
-          SLACK_COLOR: warning
-          SLACK_TITLE: ${{ ':x:' }} Build FAIL
-          SLACK_MESSAGE: ${{ github.event.pull_request.title }}
+          SLACK_TITLE: "Build Failed"
+          SLACK_COLOR: "#fd2e69"
+        run: |
+          PAYLOAD=`node ./slack.js`
+          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
