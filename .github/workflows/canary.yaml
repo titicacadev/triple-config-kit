@@ -7,8 +7,8 @@ on:
     types: [created]
 
 jobs:
-  build:
-    if: contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, 'canary publish')
+  canary:
+    if: github.event.issue.state == 'open' && contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, 'canary publish')
     runs-on: ubuntu-latest
     strategy:
         matrix: 
