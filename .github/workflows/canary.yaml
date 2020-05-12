@@ -11,14 +11,14 @@ jobs:
     if: github.event.issue.state == 'open' && contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, 'canary publish')
     runs-on: ubuntu-latest
     strategy:
-        matrix: 
+        matrix:
           node-version: [12.x]
     env:
       SLACK_CHANNEL: "#triple-web-dev-notifications"
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       SLACK_USERNAME: "ESLint Config Triple"
       SLACK_ICON_EMOJI: ":eslint:"
-      SLACK_COLOR: "#3a3a3a"
+      SLACK_COLOR: gray
       SLACK_FOOTER: "Triple Frontend"
       GITHUB_REF: "$GITHUB_REF"
       GITHUB_EVENT_NAME: "$GITHUB_EVENT_NAME"
@@ -41,7 +41,7 @@ jobs:
           echo ::set-env name=SLACK_AUTHOR_NAME::$(cat ./pr.json | jq '.user.login\' | sed 's/\"//g')
           echo ::set-env name=SLACK_AUTHOR_ICON::$(cat ./pr.json | jq '.user.avatar_url\' | sed 's/\"//g')
 
-      
+
       - name: Reaction
         run: |
           curl -v \
@@ -56,7 +56,7 @@ jobs:
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
             -f --request POST \
-            -d "{\"body\":\":rocket: I got it!\"}"
+            -d "{\"body\":\"@${{ github.event.comment.user.login }} I got it! :rocket: \"}"
 
       - name: Git checkout@v2
         uses: actions/checkout@v2
@@ -71,8 +71,7 @@ jobs:
         env:
           SLACK_TITLE: ":rocket: Build Started"
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -92,59 +91,54 @@ jobs:
         run: |
           npm ci
           npm test
-        env: 
+        env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Notify build and test success to slack
         if: success()
         env:
           SLACK_TITLE: ":tada: Build Succeed"
-          SLACK_COLOR: "#36a64f"
+          SLACK_COLOR: success
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js
 
       - name: Notify build and test fail to slack
         if: failure()
         env:
           SLACK_TITLE: ":x: Build Failed"
-          SLACK_COLOR: "#fd2e69"
+          SLACK_COLOR: fail
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
-      
+          node ./.github/workflows/notifier.js
+
       - name: Notify deploy start to slack
         env:
           SLACK_TITLE: ":rocket: Deploy Started"
           SLACK_TOPIC: "Publishing `${{ env.CANARY_VERSION}}`"
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js
 
       - name: Tag canary version and publish to npm
         run: |
           VERSION="${{ env.CANARY_VERSION }}"
           npm version $VERSION --git-tag-version=false
           npm publish --tag canary
-        env: 
+        env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Notify deploy success to slack
         if: success()
         env:
           SLACK_TITLE: ":tada: Publish Succeed"
-          SLACK_COLOR: "#36a64f"
+          SLACK_COLOR: success
           SLACK_TOPIC: "`${{ env.CANARY_VERSION}}`"
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js
 
       - name: Notify deploy fail to slack
         if: failure()
         env:
           SLACK_TITLE: ":x: Publish Failed"
-          SLACK_COLOR: "#fd2e69"
+          SLACK_COLOR: fail
           SLACK_TOPIC: "`${{ env.CANARY_VERSION}}`"
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js

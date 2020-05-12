@@ -18,7 +18,7 @@ jobs:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       SLACK_USERNAME: "ESLint Config Triple"
       SLACK_ICON_EMOJI: ":eslint:"
-      SLACK_COLOR: "#3a3a3a"
+      SLACK_COLOR: gray
       SLACK_FOOTER: "Triple Frontend"
       SLACK_TOPIC: ${{ github.event.pull_request.title }}
       SLACK_AUTHOR_NAME: ${{ github.event.pull_request.user.login }}
@@ -42,8 +42,7 @@ jobs:
         env:
           SLACK_TITLE: ":rocket: Build Started"
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -70,16 +69,14 @@ jobs:
         if: success()
         env:
           SLACK_TITLE: ":tada: Build Succeed"
-          SLACK_COLOR: "#36a64f"
+          SLACK_COLOR: success
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js
 
       - name: Notify build and test fail to slack
         if: failure()
         env:
           SLACK_TITLE: ":x: Build Failed"
-          SLACK_COLOR: "#fd2e69"
+          SLACK_COLOR: fail
         run: |
-          PAYLOAD=`node ./slack.js`
-          curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK
+          node ./.github/workflows/notifier.js
