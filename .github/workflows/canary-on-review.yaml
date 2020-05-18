@@ -1,14 +1,12 @@
-name: CD
+name: canary-on-review
 
 on:
-  push:
-    branches-ignore:
-      - '**'
-    tags:
-      - 'release-prod-*'
+  pull_request_review:
+    types: [submitted]
 
 jobs:
-  build:
+  canary:
+    if: github.event.review.state == 'commented' && contains(github.event.review.body, 'canary publish')
     runs-on: ubuntu-latest
     strategy:
         matrix:
@@ -21,28 +19,46 @@ jobs:
       SLACK_ICON_EMOJI: ":eslint:"
       SLACK_COLOR: gray
       SLACK_FOOTER: "Triple Frontend"
-      SLACK_TOPIC:
       SLACK_AUTHOR_NAME: ${{ github.event.sender.login }}
       SLACK_AUTHOR_ICON: "${{ github.event.sender.avatar_url }}"
-      SLACK_GITHUB_REF: "${{ github.event.ref }}"
       SLACK_GITHUB_EVENT_NAME: "${{ github.event_name }}"
-      SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
+      SLACK_GITHUB_REPOSITORY: "${{ github.repository }}"
       SLACK_DETAIL_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
     steps:
-      - name: Git checkout@v2
-        uses: actions/checkout@v2
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Define variables
+      - name: Recognize head sha of pull request
         run: |
-          VERSION="v$(cat ./package.json | jq -r '.version')"
-          echo ::set-env name=DEPLOY_VERSION::$VERSION
+          PR_SHA=${{ github.event.pull_request.head.sha }}
+          PR_REF=${{ github.event.pull_request.head.ref }}
+          echo ::set-env name=PR_NUMBER::${{ github.event.pull_request.number }}
+          echo ::set-env name=PR_SHA::$PR_SHA
+          echo ::set-env name=PR_REF::$PR_REF
+          echo ::set-env name=SLACK_GITHUB_REF::$PR_REF
+          echo ::set-env name=PR_SHORT_SHA::${PR_SHA:0:7}
+          echo ::set-env name=PR_TITLE::${{ github.event.pull_request.title }}
+          echo ::set-env name=SLACK_TOPIC::${{ github.event.pull_request.title }}
+
+      - name: Reaction
+        run: |
+          curl -v \
+            --url https://api.github.com/repos/${{ github.repository }}/issues/${{ env.PR_NUMBER }}/comments \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -f --request POST \
+            -d "{\"body\":\"@${{ github.event.sender.login}} I got it! :rocket: \"}"
+
+      - name: Git checkout@v2
+        uses: actions/checkout@v2
+
+      - name: Define canary version
+        run: |
+          echo ::set-env name=CANARY_VERSION::v$(cat package.json | jq -r '.version')-${{ env.PR_SHORT_SHA }}
 
       - name: Notify build start to slack
         env:
@@ -78,8 +94,8 @@ jobs:
       - name: Notify build and test fail to slack
         if: failure()
         env:
-          SLACK_TITLE: ":pleading: Build Failed"
-          SLACK_COLOR: fail
+          SLACK_TITLE: ":x: Build Failed"
+          SLACK_COLOR: success
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
           npx @titicaca/gha-tools notify
@@ -87,23 +103,24 @@ jobs:
       - name: Notify deploy start to slack
         env:
           SLACK_TITLE: ":rocket: Deploy Started"
-          SLACK_TOPIC: "`${{ env.DEPLOY_VERSION }}`"
+          SLACK_TOPIC: "Publishing `${{ env.CANARY_VERSION}}`"
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
           npx @titicaca/gha-tools notify
 
-      - name: Publish to npm
+      - name: Tag canary version and publish to npm
         run: |
-          npm publish
+          npm version ${{ env.CANARY_VERSION }} --git-tag-version=false
+          npm publish --tag canary
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Notify deploy success to slack
         if: success()
         env:
-          SLACK_TITLE: ":tada: Deploy Succeed"
+          SLACK_TITLE: ":tada: Publish Succeed"
           SLACK_COLOR: success
-          SLACK_TOPIC: "`${{ env.DEPLOY_VERSION }}`"
+          SLACK_TOPIC: "`${{ env.CANARY_VERSION}}`"
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
           npx @titicaca/gha-tools notify
@@ -111,9 +128,9 @@ jobs:
       - name: Notify deploy fail to slack
         if: failure()
         env:
-          SLACK_TITLE: ":pleading: Deploy Failed"
+          SLACK_TITLE: ":x: Publish Failed"
           SLACK_COLOR: fail
-          SLACK_TOPIC: "`${{ env.DEPLOY_VERSION }}`"
+          SLACK_TOPIC: "`${{ env.CANARY_VERSION}}`"
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
           npx @titicaca/gha-tools notify

@@ -13,6 +13,7 @@ jobs:
     strategy:
         matrix:
           node-version: [12.x]
+
     env:
       SLACK_CHANNEL: "#triple-web-dev-notifications"
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -20,27 +21,34 @@ jobs:
       SLACK_ICON_EMOJI: ":eslint:"
       SLACK_COLOR: gray
       SLACK_FOOTER: "Triple Frontend"
-      GITHUB_REF: "$GITHUB_REF"
-      GITHUB_EVENT_NAME: "$GITHUB_EVENT_NAME"
-      GITHUB_REPOSITORY: ${{ github.repository }}
-      GITHUB_ACTIONS_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      SLACK_AUTHOR_NAME: ${{ github.event.sender.login }}
+      SLACK_AUTHOR_ICON: "${{ github.event.sender.avatar_url }}"
+      SLACK_GITHUB_EVENT_NAME: "${{ github.event_name }}"
+      SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
+      SLACK_DETAIL_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
     steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
       - name: Recognize head sha of pull request
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          curl -v \
-            --url https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.issue.number }} \
-            -H "Accept: application/vnd.github.sailor-v-preview+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" > pr.json
+          npx @titicaca/gha-tools pr=${{ github.event.issue.number }}
 
-          PR_SHA=$(cat ./pr.json | jq '.head.sha' | sed 's/\"//g')
+          PR_SHA=$(cat ./pr.json | jq -r '.head.sha')
+          PR_REF=$(cat ./pr.json | jq -r '.head.ref')
+          echo ::set-env name=PR_NUMBER::${{ github.event.issue.number }}
           echo ::set-env name=PR_SHA::$PR_SHA
+          echo ::set-env name=PR_REF::$PR_REF
+          echo ::set-env name=SLACK_GITHUB_REF::$PR_REF
           echo ::set-env name=PR_SHORT_SHA::${PR_SHA:0:7}
-          echo ::set-env name=PR_TITLE::$(cat ./pr.json | jq '.title' | sed 's/\"//g')
-          echo ::set-env name=SLACK_TOPIC::$(cat ./pr.json | jq '.title' | sed 's/\"//g')
-          echo ::set-env name=SLACK_AUTHOR_NAME::$(cat ./pr.json | jq '.user.login\' | sed 's/\"//g')
-          echo ::set-env name=SLACK_AUTHOR_ICON::$(cat ./pr.json | jq '.user.avatar_url\' | sed 's/\"//g')
-
+          echo ::set-env name=PR_TITLE::$(cat ./pr.json | jq -r '.title')
+          echo ::set-env name=SLACK_TOPIC::$(cat ./pr.json | jq -r '.title')
 
       - name: Reaction
         run: |
@@ -65,19 +73,14 @@ jobs:
 
       - name: Define canary version
         run: |
-          echo ::set-env name=CANARY_VERSION::v$(cat package.json | jq '.version' | sed 's/\"//g')-${{ env.PR_SHORT_SHA }}
+          echo ::set-env name=CANARY_VERSION::v$(cat package.json | jq -r '.version')-${{ env.PR_SHORT_SHA }}
 
       - name: Notify build start to slack
         env:
           SLACK_TITLE: ":rocket: Build Started"
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          node ./.github/workflows/notifier.js
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
+          npx @titicaca/gha-tools notify
 
       - name: Cache .npm
         uses: actions/cache@v1
@@ -99,28 +102,30 @@ jobs:
         env:
           SLACK_TITLE: ":tada: Build Succeed"
           SLACK_COLOR: success
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          node ./.github/workflows/notifier.js
+          npx @titicaca/gha-tools notify
 
       - name: Notify build and test fail to slack
         if: failure()
         env:
           SLACK_TITLE: ":x: Build Failed"
-          SLACK_COLOR: fail
+          SLACK_COLOR: success
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          node ./.github/workflows/notifier.js
+          npx @titicaca/gha-tools notify
 
       - name: Notify deploy start to slack
         env:
           SLACK_TITLE: ":rocket: Deploy Started"
           SLACK_TOPIC: "Publishing `${{ env.CANARY_VERSION}}`"
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          node ./.github/workflows/notifier.js
+          npx @titicaca/gha-tools notify
 
       - name: Tag canary version and publish to npm
         run: |
-          VERSION="${{ env.CANARY_VERSION }}"
-          npm version $VERSION --git-tag-version=false
+          npm version ${{ env.CANARY_VERSION }} --git-tag-version=false
           npm publish --tag canary
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -131,8 +136,9 @@ jobs:
           SLACK_TITLE: ":tada: Publish Succeed"
           SLACK_COLOR: success
           SLACK_TOPIC: "`${{ env.CANARY_VERSION}}`"
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          node ./.github/workflows/notifier.js
+          npx @titicaca/gha-tools notify
 
       - name: Notify deploy fail to slack
         if: failure()
@@ -140,5 +146,6 @@ jobs:
           SLACK_TITLE: ":x: Publish Failed"
           SLACK_COLOR: fail
           SLACK_TOPIC: "`${{ env.CANARY_VERSION}}`"
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          node ./.github/workflows/notifier.js
+          npx @titicaca/gha-tools notify
