@@ -26,7 +26,6 @@ jobs:
       SLACK_GITHUB_EVENT_NAME: "${{ github.event_name }}"
       SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
       SLACK_DETAIL_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Use Node.js ${{ matrix.node-version }}
@@ -37,7 +36,8 @@ jobs:
 
       - name: Recognize head sha of pull request
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools pr=${{ github.event.issue.number }}
 
