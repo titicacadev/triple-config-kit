@@ -26,6 +26,7 @@ jobs:
       SLACK_GITHUB_EVENT_NAME: "${{ github.event_name }}"
       SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
       SLACK_DETAIL_URL: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Use Node.js ${{ matrix.node-version }}
