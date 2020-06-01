@@ -39,7 +39,7 @@ const BannerHolder = styled.li`
     margin: 0;
   }
 `
-const CouponBox = function({ coupons, banners }: CouponBoxProps) {
+const CouponBox = function ({ coupons, banners }: CouponBoxProps) {
   const [tab, setTab] = useState('AVAILABLE')
   const { push } = useHistoryContext()
 
@@ -90,7 +90,7 @@ const CouponBox = function({ coupons, banners }: CouponBoxProps) {
   )
 }
 
-CouponBox.getInitialProps = async function({ req }: NextPageContext) {
+CouponBox.getInitialProps = async function ({ req }: NextPageContext) {
   const coupons = await fetchMyCoupons(req)
   const banners = await fetchAdBanners(req)
 

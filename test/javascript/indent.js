@@ -7,11 +7,7 @@ function DateTimeInput({ value, onChange }) {
     <input
       type="datetime-local"
       value={
-        value
-          ? moment(value)
-              .tz('Asia/Seoul')
-              .format('YYYY-MM-DDTHH:mm')
-          : ''
+        value ? moment(value).tz('Asia/Seoul').format('YYYY-MM-DDTHH:mm') : ''
       }
       onChange={({ target: { value } }) =>
         onChange(moment(value).toISOString())
