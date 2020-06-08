@@ -1,4 +1,5 @@
 # Triple Frontend Style Configs
+
 > `eslint-config-triple` 은 [eslint](http://eslint.org/) 룰 셋을 기본으로 트리플 frontend 개발 스타일 전반의 설정을 제공합니다.
 
 - `eslint-config-triple`는 아래의 룰 셋을 제공합니다.
@@ -8,11 +9,13 @@
   - stylelint : `@titicaca/eslint-config-triple/stylelint`
 
 ## Install
-```
+
+```bash
 > npm install @titicaca/eslint-config-triple --save-dev
 ```
 
 `eslint-config-triple` 에서는 아래의 [패키지들](https://github.com/titicacadev/eslint-config-triple/blob/master/package.json#L37)을 함께 설치합니다.
+
 - `@typescript-eslint/eslint-plugin`
 - `@typescript-eslint/parser`
 - `babel-eslint`
@@ -35,6 +38,7 @@
 의존성 목록을 수정해주시는것이 좋습니다.
 
 ## Usage
+
 ### eslint
 
 `package.json`에 다음 스크립트를 추가해주세요.
@@ -46,8 +50,9 @@
 }
 ```
 
-* ES6+ 룰 셋을 사용하는 경우
-```
+- ES6+ 룰 셋을 사용하는 경우
+
+```json
 // .eslintrc 파일
 {
   "extends": "@titicaca/eslint-config-triple",
@@ -57,8 +62,9 @@
 }
 ```
 
-* Typescript 룰 셋을 사용하는 경우
-```
+- Typescript 룰 셋을 사용하는 경우
+
+```json
 // .eslintrc 파일
 {
   "extends": "@titicaca/eslint-config-triple/typescript",
@@ -81,13 +87,15 @@
 
 js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 파일(`.json`, `.yaml`, `.md`)만 검사합니다.
 
-* `.prettierrc` 파일
+- `.prettierrc` 파일로 규칙을 관리할 때
+
 ```js
 "@titicaca/eslint-config-triple/prettierrc"
 ```
 
-* `package.json` 파일
-```js
+- `package.json` 파일로 규칙을 관리할 때
+
+```json
 {
   "name": "@titicaca/unicorn-project",
   "version": "0.0.1",
@@ -111,7 +119,7 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
 
 - `.stylelintrc` 파일
 
-```:json
+```json
 {
   "extends": [
     "@titicaca/eslint-config-triple/stylelint"
@@ -120,21 +128,23 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
 ```
 
 ## Triple JavaScript Style Guilde
+
 상세한 내용은 다음의 JavaScript 스타일 가이드를 참조하세요
 
 ### [Triple JavaScript Style Guilde](STYLE_GUIDE.md)
 
 ## Bug
 
-#### 2019.11.12
+### 2019.11.12
+
 - prettier 1.19.1 에서 printWidth 가 제대로 동작하지 않는 문제가 있어 1.18.2 로 버젼 고정 [#6889](https://github.com/prettier/prettier/issues/6899)
 - vscode 에서 prettier 와 eslint 설정충돌이 있어 code formatting 이 되지 않는 문제가 있어 prettier 플러그인과 설정 제거 `"eslint.autoFixOnSave": "true"` 설정만 추가
 
-
 ## License
+
 `eslint-config-triple` is released under the [MIT license](LICENSE).
 
-```
+```text
 Copyright (c) 2019 TRIPLE Corp.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
