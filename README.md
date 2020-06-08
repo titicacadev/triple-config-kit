@@ -110,8 +110,7 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
 
 ```json
 {
-  "lint:style": "stylelint './**/*.{js,ts,tsx}'",
-  "lint:style:fix": "stylelint './**/*.{js,ts,tsx}'"
+  "lint:style": "stylelint './**/*.{js,ts,tsx}'"
 }
 ```
 
