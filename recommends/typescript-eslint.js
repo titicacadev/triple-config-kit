@@ -4,14 +4,53 @@ module.exports = {
   parserOptions: { sourceType: 'module' },
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
-    '@typescript-eslint/ban-ts-ignore': 'error',
-    '@typescript-eslint/ban-types': 'error',
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        'ts-expect-error': true,
+        'ts-ignore': true,
+        'ts-nocheck': true,
+        'ts-check': false,
+        minimumDescriptionLength: 3,
+      }
+    ],
     camelcase: 'off',
-    '@typescript-eslint/camelcase': 'error',
-    '@typescript-eslint/class-name-casing': 'error',
+    '@typescript-eslint/naming-convention': [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "memberLike",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "require"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "function",
+        "format": ["camelCase", "PascalCase"]
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+      }
+    ],
     '@typescript-eslint/consistent-type-assertions': 'error',
     '@typescript-eslint/explicit-function-return-type': 'warn',
-    '@typescript-eslint/interface-name-prefix': 'error',
     '@typescript-eslint/member-delimiter-style': 'off',
     'no-array-constructor': 'off',
     '@typescript-eslint/no-array-constructor': 'error',
