@@ -36,6 +36,16 @@
 
 ## Usage
 ### eslint
+
+`package.json`에 다음 스크립트를 추가해주세요.
+
+```json
+{
+  "lint:es": "eslint '**/*.{js,ts,tsx}'",
+  "lint:es:fix": "npm run lint:es -- --fix"
+}
+```
+
 * ES6+ 룰 셋을 사용하는 경우
 ```
 // .eslintrc 파일
@@ -59,6 +69,18 @@
 ```
 
 ### prettier
+
+`package.json`에 다음 스크립트를 추가해주세요.
+
+```json
+{
+  "lint:etc": "prettier '**/*.{json,yaml,md}' --check",
+  "lint:etc:fix": "prettier '**/*.{json,yaml,md}' --write"
+}
+```
+
+js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 파일(`.json`, `.yaml`, `.md`)만 검사합니다.
+
 * `.prettierrc` 파일
 ```js
 "@titicaca/eslint-config-triple/prettierrc"
@@ -75,6 +97,17 @@
 ```
 
 ### stylelint
+
+`package.json`에 다음 스크립트를 추가해주세요.
+
+```json
+{
+  "lint:style": "stylelint './**/*.{js,ts,tsx}'",
+  "lint:style:fix": "stylelint './**/*.{js,ts,tsx}'"
+}
+```
+
+만약 css 파일을 별도로 관리하는 프로젝트라면 `css`를 추가해주세요.
 
 - `.stylelintrc` 파일
 
