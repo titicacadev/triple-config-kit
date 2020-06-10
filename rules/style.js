@@ -6,6 +6,6 @@ module.exports = {
       groups: ["builtin", "external", ["parent", "sibling", "index"]],
       'newlines-between': 'always'
     }],
-    'no-unused-vars': ['error', { ignoreRestSiblings: true }],
+    'no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: "^_+$" }],
   },
 }
