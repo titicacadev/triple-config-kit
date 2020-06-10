@@ -25,7 +25,46 @@ module.exports = {
         allowTaggedTemplates: true,
       },
     ],
-    'no-unused-vars': ['error', { ignoreRestSiblings: true }],
-    '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
+    'no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: "^_+$" }],
+    '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: "^_+$" }],
+    '@typescript-eslint/naming-convention': [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "variableLike",
+        "format": ["camelCase", "UPPER_CASE"],
+      },
+      {
+        "selector": "memberLike",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "function",
+        "format": ["camelCase", "PascalCase"]
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "enumMember",
+        "format": ["UPPER_CASE", "PascalCase", "camelCase"]
+      }
+    ],
   },
 }
