@@ -1,3 +1,14 @@
+
+const excludes = [
+  '__html',
+  'Provider',
+  'Consumer',
+  'Component',
+  'Content-Type',
+  'X-Soto-Session'
+]
+const regex = `^(${excludes.join('|')})$`
+
 module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
@@ -32,11 +43,15 @@ module.exports = {
       {
         "selector": "default",
         "format": ["camelCase"],
-        "leadingUnderscore": "allow"
+        "leadingUnderscore": "allow",
+        "filter": {
+          regex,
+          "match": false,
+        }
       },
       {
-        "selector": "variableLike",
-        "format": ["camelCase", "UPPER_CASE"],
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
       },
       {
         "selector": "memberLike",
@@ -58,12 +73,16 @@ module.exports = {
         "format": ["camelCase", "PascalCase"]
       },
       {
-        "selector": "property",
-        "format": ["camelCase", "UPPER_CASE"]
-      },
-      {
         "selector": "enumMember",
         "format": ["UPPER_CASE", "PascalCase", "camelCase"]
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "UPPER_CASE"],
+        "filter": {
+          regex,
+          "match": false,
+        }
       }
     ],
   },
