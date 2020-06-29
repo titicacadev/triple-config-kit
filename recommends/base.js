@@ -1,9 +1,12 @@
 module.exports = {
   extends: [
-    './eslint',
-    './standard',
-    './prettier',
-    './react',
-    './react-hooks',
-  ].map(require.resolve),
+    'standard',
+    ...([
+      './eslint',
+      // './standard',
+      './prettier',
+      './react',
+      './react-hooks',
+    ].map(require.resolve)),
+  ]
 }
