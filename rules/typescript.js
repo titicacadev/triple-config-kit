@@ -39,51 +39,68 @@ module.exports = {
     'no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: "^_+$" }],
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: "^_+$" }],
     '@typescript-eslint/naming-convention': [
-      "error",
+      'error',
       {
-        "selector": "default",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow",
-        "filter": {
+        selector: 'default',
+        format: ['camelCase'],
+        leadingUnderscore: 'allow',
+        filter: {
           regex,
-          "match": false,
-        }
+          match: false,
+        },
       },
       {
-        "selector": "variable",
-        "format": ["camelCase", "UPPER_CASE", "PascalCase"],
-      },
-      {
-        "selector": "memberLike",
-        "modifiers": ["private"],
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "typeLike",
-        "format": ["PascalCase"]
-      },
-      {
-        "selector": "parameter",
-        "format": ["camelCase", "PascalCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "function",
-        "format": ["camelCase", "PascalCase"]
-      },
-      {
-        "selector": "enumMember",
-        "format": ["UPPER_CASE", "PascalCase", "camelCase"]
-      },
-      {
-        "selector": "property",
-        "format": ["camelCase", "UPPER_CASE"],
-        "filter": {
+        selector: 'memberLike',
+        modifiers: ['private'],
+        format: ['camelCase', 'UPPER_CASE'],
+        leadingUnderscore: 'allow',
+        filter: {
           regex,
-          "match": false,
-        }
-      }
+          match: false,
+        },
+      },
+      {
+        selector: 'typeLike',
+        format: ['PascalCase'],
+      },
+      {
+        selector: 'variable',
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+        filter: {
+          regex,
+          match: false,
+        },
+      },
+      {
+        selector: 'parameter',
+        format: ['camelCase', 'PascalCase'],
+        leadingUnderscore: 'allow',
+        filter: {
+          regex,
+          match: false,
+        },
+      },
+      {
+        selector: 'property',
+        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+        leadingUnderscore: 'allow',
+        filter: {
+          regex,
+          match: false,
+        },
+      },
+      {
+        selector: 'function',
+        format: ['camelCase', 'PascalCase'],
+        filter: {
+          regex,
+          match: false,
+        },
+      },
+      {
+        selector: 'enumMember',
+        format: ['UPPER_CASE', 'PascalCase', 'camelCase'],
+      },
     ],
   },
 }
