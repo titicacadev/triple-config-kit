@@ -1,5 +1,6 @@
 
 const excludes = [
+  '_*',
   '__html',
   'Provider',
   'Consumer',
