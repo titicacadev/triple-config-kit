@@ -51,7 +51,6 @@
 ```
 
 - ES6+ 룰 셋을 사용하는 경우
-
 ```json
 // .eslintrc 파일
 {
@@ -63,16 +62,45 @@
 ```
 
 - Typescript 룰 셋을 사용하는 경우
-
 ```json
 // .eslintrc 파일
 {
-  "extends": "@titicaca/eslint-config-triple/typescript",
+  "extends": [
+    "@titicaca/eslint-config-triple/typescript",
+    "./eslintrc.naming-convention"
+    ...
+  ],
   "rules": {
     // 프로젝트별 적용할 Rules
   }
 }
 ```
+- `eslintrc.naming-convention.js` 에서 [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md) 커스터 마이징
+```js
+const namingConvention = require('@titicaca/eslint-config-triple/rules/typescript/naming-convention')
+const excludes = [
+  ...namingConvention.commonExcludes,
+  // my excludes
+  '(banner|region|trip|event)_id',
+  'filter_(id|value|layover_types|stop_points|airline|outbound_departure_time|inbound_departure_time)',
+]
+const regex = `^(${excludes.join('|')})$`
+
+module.exports = {
+  rules: {
+    '@typescript-eslint/naming-convention': namingConvention.getRules({
+      // rules to extend
+      rules: [{
+        selector: 'parameter',
+        format: ['camelCase', 'PascalCase', 'snake_case']
+      }],
+      // custom exclude pattern
+      regex
+    }),
+  },
+}
+```
+eslint-config-triple 에서 정의하는 naming-convention 을 확장하고 싶을때 사용합니다.
 
 ### prettier
 
@@ -132,19 +160,12 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
 
 ### [Triple JavaScript Style Guilde](STYLE_GUIDE.md)
 
-## Bug
-
-### 2019.11.12
-
-- prettier 1.19.1 에서 printWidth 가 제대로 동작하지 않는 문제가 있어 1.18.2 로 버젼 고정 [#6889](https://github.com/prettier/prettier/issues/6899)
-- vscode 에서 prettier 와 eslint 설정충돌이 있어 code formatting 이 되지 않는 문제가 있어 prettier 플러그인과 설정 제거 `"eslint.autoFixOnSave": "true"` 설정만 추가
-
 ## License
 
 `eslint-config-triple` is released under the [MIT license](LICENSE).
 
-```text
-Copyright (c) 2019 TRIPLE Corp.
+```
+Copyright (c) 2020 TRIPLE Corp.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
