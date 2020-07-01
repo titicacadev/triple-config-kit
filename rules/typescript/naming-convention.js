@@ -51,11 +51,13 @@ const rules = [
 module.exports = {
   rules,
   commonExcludes,
-  getRules(regex = '') {
+  getRules({ regex = '', rules: customRules = [] }) {
+    const baseRules = [...rules, ...customRules]
+
     if (!regex) {
-      return rules
+      return baseRules
     } else {
-      return rules.map((item) =>
+      return baseRules.map((item) =>
         typeof item !== 'string'
           ? {
               ...item,
