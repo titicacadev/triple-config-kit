@@ -39,6 +39,6 @@ module.exports = {
       'error',
       { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
     ],
-    '@typescript-eslint/naming-convention': getNamingConvention(regex),
+    '@typescript-eslint/naming-convention': getNamingConvention({ regex }),
   },
 }
