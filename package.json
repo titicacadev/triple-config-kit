@@ -1,6 +1,6 @@
 {
   "name": "@titicaca/eslint-config-triple",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
