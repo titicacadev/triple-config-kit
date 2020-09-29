@@ -96,7 +96,7 @@ jobs:
         run: |
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
 
       - name: Notify deploy success to slack
         if: success()
