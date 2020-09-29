@@ -16,7 +16,7 @@ jobs:
 
     env:
       SLACK_CHANNEL: "#triple-web-dev-notifications"
-      SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      SLACK_WEBHOOK: ${{ secrets.FRONTEND_NOTIFICATIONS_WEBHOOK_URL }}
       SLACK_USERNAME: "ESLint Config Triple"
       SLACK_ICON_EMOJI: ":eslint:"
       SLACK_COLOR: gray
@@ -47,7 +47,7 @@ jobs:
       - name: Notify build start to slack
         env:
           SLACK_TITLE: ":rocket: Build Started"
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools notify
 
@@ -64,14 +64,14 @@ jobs:
           npm ci
           npm test
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
 
       - name: Notify build and test success to slack
         if: success()
         env:
           SLACK_TITLE: ":tada: Build Succeed"
           SLACK_COLOR: success
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools notify
 
@@ -80,7 +80,7 @@ jobs:
         env:
           SLACK_TITLE: ":pleading: Build Failed"
           SLACK_COLOR: fail
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools notify
 
@@ -88,7 +88,7 @@ jobs:
         env:
           SLACK_TITLE: ":rocket: Deploy Started"
           SLACK_TOPIC: "`${{ env.DEPLOY_VERSION }}`"
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools notify
 
@@ -96,7 +96,7 @@ jobs:
         run: |
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
 
       - name: Notify deploy success to slack
         if: success()
@@ -104,7 +104,7 @@ jobs:
           SLACK_TITLE: ":tada: Deploy Succeed"
           SLACK_COLOR: success
           SLACK_TOPIC: "`${{ env.DEPLOY_VERSION }}`"
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools notify
 
@@ -114,6 +114,6 @@ jobs:
           SLACK_TITLE: ":pleading: Deploy Failed"
           SLACK_COLOR: fail
           SLACK_TOPIC: "`${{ env.DEPLOY_VERSION }}`"
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools notify
