@@ -4,6 +4,7 @@ import fetch from 'isomorphic-fetch'
 import Cookies from 'universal-cookie'
 
 import { API_URI_BASE } from '../config'
+
 import CouponFixtures from './coupon-fixtures'
 
 export type CouponStatus = 'AVAILABLE' | 'USED' | 'DISABLED'
