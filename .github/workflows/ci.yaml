@@ -39,12 +39,12 @@ jobs:
         run: |
           PR_SHA=${{ github.event.pull_request.head.sha }}
           PR_SHORT_SHA=${PR_SHA:0:7}
-          echo ::set-env name=PR_SHA::$PR_SHA
-          echo ::set-env name=PR_SHORT_SHA::$PR_SHORT_SHA
-          echo ::set-env name=PR_TITLE::${{ github.event.pull_request.title }}
+          echo "PR_SHA=$PR_SHA" >> $GITHUB_ENV
+          echo "PR_SHORT_SHA=$PR_SHORT_SHA" >> $GITHUB_ENV
+          echo "PR_TITLE=${{ github.event.pull_request.title }}" >> $GITHUB_ENV
 
           VERSION="v$(cat ./package.json | jq -r '.version')-$PR_SHORT_SHA"
-          echo ::set-env name=DEPLOY_VERSION::$VERSION
+          echo "DEPLOY_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Notify build start to slack
         env:
