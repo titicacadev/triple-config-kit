@@ -39,7 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx @titicaca/gha-tools pr=${{ github.event.issue.number }}
+          npx @titicaca/gha-tools fetch-github-pr ${{ github.event.issue.number }}
 
           PR_SHA=$(cat ./pr.json | jq -r '.head.sha')
           PR_REF=$(cat ./pr.json | jq -r '.head.ref')
