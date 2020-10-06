@@ -42,7 +42,7 @@ jobs:
       - name: Define variables
         run: |
           VERSION="v$(cat ./package.json | jq -r '.version')"
-          echo ::set-env name=DEPLOY_VERSION::$VERSION
+          echo "DEPLOY_VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Notify build start to slack
         env:

@@ -43,13 +43,13 @@ jobs:
 
           PR_SHA=$(cat ./pr.json | jq -r '.head.sha')
           PR_REF=$(cat ./pr.json | jq -r '.head.ref')
-          echo ::set-env name=PR_NUMBER::${{ github.event.issue.number }}
-          echo ::set-env name=PR_SHA::$PR_SHA
-          echo ::set-env name=PR_REF::$PR_REF
-          echo ::set-env name=SLACK_GITHUB_REF::$PR_REF
-          echo ::set-env name=PR_SHORT_SHA::${PR_SHA:0:7}
-          echo ::set-env name=PR_TITLE::$(cat ./pr.json | jq -r '.title')
-          echo ::set-env name=SLACK_TOPIC::$(cat ./pr.json | jq -r '.title')
+          echo "PR_NUMBER=${{ github.event.issue.number }}" >> $GITHUB_ENV
+          echo "PR_SHA=$PR_SHA" >> $GITHUB_ENV
+          echo "PR_REF=$PR_REF" >> $GITHUB_ENV
+          echo "SLACK_GITHUB_REF=$PR_REF" >> $GITHUB_ENV
+          echo "PR_SHORT_SHA=${PR_SHA:0:7}" >> $GITHUB_ENV
+          echo "PR_TITLE=$(cat ./pr.json | jq -r '.title')" >> $GITHUB_ENV
+          echo "SLACK_TOPIC=$(cat ./pr.json | jq -r '.title')" >> $GITHUB_ENV
 
       - name: Reaction
         run: |
@@ -74,7 +74,7 @@ jobs:
 
       - name: Define canary version
         run: |
-          echo ::set-env name=CANARY_VERSION::v$(cat package.json | jq -r '.version')-${{ env.PR_SHORT_SHA }}
+          echo "CANARY_VERSION=v$(cat package.json | jq -r '.version')-${{ env.PR_SHORT_SHA }}" >> $GITHUB_ENV
 
       - name: Notify build start to slack
         env:
