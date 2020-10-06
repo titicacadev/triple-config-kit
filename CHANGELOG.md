@@ -46,7 +46,7 @@
 ## v0.3.1
 
 prettier 와 충돌이 발생하는 comma-dangle 과 space-before-function-paren 룰 off
-import('some-long-named-package`) 와 같은 lazy import 시 comma-dangle rule 오류 발생
+import('some-long-named-package') 와 같은 lazy import 시 comma-dangle rule 오류 발생
 prettier 가 모두 handle 하도록합니다.
 
 thanks @appear
