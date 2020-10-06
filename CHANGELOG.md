@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v2.2.0
+
+### New Features
+
+* import/order 설정 추가 ([#78](https://github.com/titicacadev/eslint-config-triple/pull/78))
+
 ## v2.0.0
 
 * eslint@7, prettier@2 및 typescript@3.9 지원
