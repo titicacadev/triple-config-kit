@@ -8,7 +8,7 @@ on:
 
 jobs:
   canary:
-    if: github.event.issue.state == 'open' && contains(github.event.comment.html_url, '/pull/') && contains(github.event.comment.body, 'canary publish')
+    if: github.event.issue.state == 'open' && contains(github.event.comment.html_url, '/pull/') && (endsWith(github.event.comment.body, 'canary publish') || endsWith(github.event.comment.body, 'canary release'))
     runs-on: ubuntu-latest
     strategy:
         matrix:
