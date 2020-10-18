@@ -56,6 +56,6 @@
   "devDependencies": {
     "concurrently": "^4.1.2",
     "react": "^16.9.0",
-    "typescript": "^3.9.3"
+    "typescript": "^4.0.3"
   }
 }
