@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v2.2.1
+
+* [#80](https://github.com/titicacadev/eslint-config-triple/pull/80): feat(canary): pr 서브 커맨드 fetch-github-pr 로 변경
+* [#82](https://github.com/titicacadev/eslint-config-triple/pull/82): [#81] typescript peerDependency 제거 및 typescript 4 사용
+
 ## v2.2.0
 
 ### New Features
