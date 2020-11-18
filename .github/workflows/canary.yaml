@@ -37,7 +37,7 @@ jobs:
       - name: Recognize head sha of pull request
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools fetch-github-pr ${{ github.event.issue.number }}
 
