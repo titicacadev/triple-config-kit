@@ -53,6 +53,7 @@ module.exports = {
     'no-useless-catch': 'error',
     'no-useless-escape': 'error',
     'no-with': 'error',
+    'object-shorthand': ['error', 'always'],
     'require-atomic-updates': 'error',
     'require-yield': 'error',
     'use-isnan': 'error',
