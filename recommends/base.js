@@ -5,5 +5,5 @@ module.exports = {
     './prettier',
     './react',
     './react-hooks',
-  ].map(require.resolve)
+  ].map(require.resolve),
 }

@@ -2,7 +2,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
   },
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
@@ -14,7 +14,7 @@ module.exports = {
         'ts-nocheck': true,
         'ts-check': false,
         minimumDescriptionLength: 3,
-      }
+      },
     ],
     camelcase: 'off',
     '@typescript-eslint/consistent-type-assertions': 'error',
