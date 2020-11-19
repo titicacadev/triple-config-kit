@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v2.3.0
+
+### New Features
+
+* [#86](https://github.com/titicacadev/eslint-config-triple/pull/86): object shorthand 규칙을 추가합니다.
+
+### Other Changes
+
+* [#84](https://github.com/titicacadev/eslint-config-triple/pull/84): CODEOWNERS를 A서클로 변경합니다.
+* [#87](https://github.com/titicacadev/eslint-config-triple/pull/87): npm token 참조 변경
+
 ## v2.2.1
 
 * [#80](https://github.com/titicacadev/eslint-config-triple/pull/80): feat(canary): pr 서브 커맨드 fetch-github-pr 로 변경
