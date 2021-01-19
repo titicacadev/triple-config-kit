@@ -3,8 +3,7 @@ name: Rule discussion request
 about: 현재 Rule 에 대한 이의를 제기하고, rule 수정을 제안한다.
 title: "[Rule] "
 labels: discussion
-assignees: appear, boxersb, inbeom, luffy-song, polysiya, steve-triple, torres-triple,
-  yceffort, zprime0920
+assignees: rhiokim, inbeom, polysiya, zprime0920, dddeok, pgs787, torres-triple, steve-triple
 
 ---
 
