@@ -13,7 +13,7 @@ jobs:
           node-version: [12.x]
 
     env:
-      SLACK_CHANNEL: "#triple-web-dev-notifications"
+      SLACK_CHANNEL: "#a-dev-notifications"
       SLACK_WEBHOOK: ${{ secrets.FRONTEND_NOTIFICATIONS_WEBHOOK_URL }}
       SLACK_USERNAME: "ESLint Config Triple"
       SLACK_ICON_EMOJI: ":eslint:"
