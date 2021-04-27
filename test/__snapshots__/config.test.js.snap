@@ -158,6 +158,9 @@ Object {
     "import/first": Array [
       "error",
     ],
+    "import/newline-after-import": Array [
+      "error",
+    ],
     "import/no-duplicates": Array [
       "error",
     ],
@@ -1348,6 +1351,9 @@ Object {
       "error",
     ],
     "import/first": Array [
+      "error",
+    ],
+    "import/newline-after-import": Array [
       "error",
     ],
     "import/no-duplicates": Array [
