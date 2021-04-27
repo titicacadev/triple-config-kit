@@ -7,11 +7,8 @@
     "lint": "eslint './recommends/**/*.js' './rules/**/*.js'",
     "lint:fix": "npm run lint -- --fix",
     "update-snapshot": "jest -u",
-    "test:snapshot": "jest",
-    "test:snapshot:watch": "jest --watch",
-    "test": "concurrently 'npm run test:js' 'npm run test:ts' 'npm:test:snapshot' --kill-others-on-fail",
-    "test:js": "eslint 'test/javascript/**/*.{js,jsx}'",
-    "test:ts": "eslint 'test/typescript/**/*.{ts,tsx}'"
+    "test:watch": "jest --watch",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
