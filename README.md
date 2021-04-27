@@ -160,6 +160,28 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
 
 ### [Triple JavaScript Style Guilde](STYLE_GUIDE.md)
 
+## 개발하기
+
+### eslint 개발하기
+
+eslint의 최종 설정을 스냅샷으로 기록합니다.
+
+```bash
+npm run test:snapshot
+```
+
+새로운 rule을 추가하여 스냅샷이 깨졌다면, 스냅샷을 업데이트해주세요.
+
+```bash
+npm run update-snapshot
+```
+
+개발중 스냅샷 테스트를 계속 수행하고 싶다면, watch 옵션을 사용하세요.
+
+```bash
+npm run test:snapshot:watch
+```
+
 ## License
 
 `eslint-config-triple` is released under the [MIT license](LICENSE).
