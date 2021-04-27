@@ -15,7 +15,7 @@ Object {
   },
   "ignorePatterns": Array [],
   "noInlineConfig": undefined,
-  "parser": "/Users/gwpark/Developer/eslint-config-triple/node_modules/babel-eslint/lib/index.js",
+  "parser": StringMatching /babel-eslint/,
   "parserOptions": Object {
     "ecmaFeatures": Object {
       "jsx": true,
@@ -1006,7 +1006,7 @@ Object {
   },
   "ignorePatterns": Array [],
   "noInlineConfig": undefined,
-  "parser": "/Users/gwpark/Developer/eslint-config-triple/node_modules/@typescript-eslint/parser/dist/index.js",
+  "parser": StringMatching /@typescript-eslint/,
   "parserOptions": Object {
     "ecmaFeatures": Object {
       "jsx": true,
