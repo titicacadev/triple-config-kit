@@ -14,5 +14,6 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['builtin'],
       },
     ],
+    'import/newline-after-import': 'error',
   },
 }
