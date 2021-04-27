@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint './recommends/**/*.js' './rules/**/*.js'",
     "lint:fix": "npm run lint -- --fix",
+    "update-snapshot": "jest -u",
     "test:snapshot": "jest",
     "test": "concurrently 'npm run test:js' 'npm run test:ts' 'npm:test:snapshot' --kill-others-on-fail",
     "test:js": "eslint 'test/javascript/**/*.{js,jsx}'",
