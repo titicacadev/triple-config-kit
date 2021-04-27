@@ -2,6 +2,7 @@ const {
   commonExcludes,
   getRules: getNamingConvention,
 } = require('./naming-convention')
+
 const regex = `^(${commonExcludes.join('|')})$`
 
 module.exports = {
