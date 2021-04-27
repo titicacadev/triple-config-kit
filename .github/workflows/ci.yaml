@@ -65,9 +65,11 @@ jobs:
         run: |
           npm ci
           npm run lint
-          npm test
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+
+      - name: Test
+        run: npm test
 
       - name: Notify build and test success to slack
         if: success()
