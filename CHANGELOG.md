@@ -4,19 +4,19 @@
 
 ### New Features
 
-* [#94](https://github.com/titicacadev/eslint-config-triple/pull/94): react/self-closing-comp 규칙 추가
-* [#101](https://github.com/titicacadev/eslint-config-triple/pull/101): import/newline-after-import 규칙을 추가합니다.
+- [#94](https://github.com/titicacadev/eslint-config-triple/pull/94): react/self-closing-comp 규칙 추가
+- [#101](https://github.com/titicacadev/eslint-config-triple/pull/101): import/newline-after-import 규칙을 추가합니다.
 
 ### Other Changes
 
-* [#89](https://github.com/titicacadev/eslint-config-triple/pull/89): ⬆️ Bump ini from 1.3.5 to 1.3.8
-* [#91](https://github.com/titicacadev/eslint-config-triple/pull/91): Rule discussion template에서 assignee 업데이트
-* [#95](https://github.com/titicacadev/eslint-config-triple/pull/95): 👥 스티브의 새로운 깃헙 계정으로 변경
-* [#96](https://github.com/titicacadev/eslint-config-triple/pull/96): 슬랙 알림 채널 변경
-* [#97](https://github.com/titicacadev/eslint-config-triple/pull/97): ⬆️ Bump y18n from 4.0.0 to 4.0.1
-* [#99](https://github.com/titicacadev/eslint-config-triple/pull/99): ESLint 최종 설정을 스냅샷으로 저장합니다.
-* [#100](https://github.com/titicacadev/eslint-config-triple/pull/100): Prettier 설정을 추가합니다.
-* [#102](https://github.com/titicacadev/eslint-config-triple/pull/102): 🔧 npm 패키지에 들어가는 파일 목록 명시
+- [#89](https://github.com/titicacadev/eslint-config-triple/pull/89): ⬆️ Bump ini from 1.3.5 to 1.3.8
+- [#91](https://github.com/titicacadev/eslint-config-triple/pull/91): Rule discussion template에서 assignee 업데이트
+- [#95](https://github.com/titicacadev/eslint-config-triple/pull/95): 👥 스티브의 새로운 깃헙 계정으로 변경
+- [#96](https://github.com/titicacadev/eslint-config-triple/pull/96): 슬랙 알림 채널 변경
+- [#97](https://github.com/titicacadev/eslint-config-triple/pull/97): ⬆️ Bump y18n from 4.0.0 to 4.0.1
+- [#99](https://github.com/titicacadev/eslint-config-triple/pull/99): ESLint 최종 설정을 스냅샷으로 저장합니다.
+- [#100](https://github.com/titicacadev/eslint-config-triple/pull/100): Prettier 설정을 추가합니다.
+- [#102](https://github.com/titicacadev/eslint-config-triple/pull/102): 🔧 npm 패키지에 들어가는 파일 목록 명시
 
 ## v2.3.0
 
