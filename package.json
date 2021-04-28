@@ -3,6 +3,14 @@
   "version": "2.3.0",
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
+  "files": [
+    "recommends",
+    "rules",
+    "index.js",
+    "prettierrc.js",
+    "stylelint.js",
+    "typescript.js"
+  ],
   "scripts": {
     "lint:es": "eslint './recommends/**/*.js' './rules/**/*.js'",
     "lint:es:fix": "npm run lint:es -- --fix",
