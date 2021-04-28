@@ -51,6 +51,7 @@
 ```
 
 - ES6+ 룰 셋을 사용하는 경우
+
 ```json
 // .eslintrc 파일
 {
@@ -62,6 +63,7 @@
 ```
 
 - Typescript 룰 셋을 사용하는 경우
+
 ```json
 // .eslintrc 파일
 {
@@ -75,7 +77,9 @@
   }
 }
 ```
+
 - `eslintrc.naming-convention.js` 에서 [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md) 커스터 마이징
+
 ```js
 const namingConvention = require('@titicaca/eslint-config-triple/rules/typescript/naming-convention')
 const excludes = [
@@ -90,16 +94,19 @@ module.exports = {
   rules: {
     '@typescript-eslint/naming-convention': namingConvention.getRules({
       // rules to extend
-      rules: [{
-        selector: 'parameter',
-        format: ['camelCase', 'PascalCase', 'snake_case']
-      }],
+      rules: [
+        {
+          selector: 'parameter',
+          format: ['camelCase', 'PascalCase', 'snake_case'],
+        },
+      ],
       // custom exclude pattern
-      regex
+      regex,
     }),
   },
 }
 ```
+
 eslint-config-triple 에서 정의하는 naming-convention 을 확장하고 싶을때 사용합니다.
 
 ### prettier
@@ -118,7 +125,7 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
 - `.prettierrc` 파일로 규칙을 관리할 때
 
 ```js
-"@titicaca/eslint-config-triple/prettierrc"
+'@titicaca/eslint-config-triple/prettierrc'
 ```
 
 - `package.json` 파일로 규칙을 관리할 때
@@ -148,9 +155,7 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
 
 ```json
 {
-  "extends": [
-    "@titicaca/eslint-config-triple/stylelint"
-  ]
+  "extends": ["@titicaca/eslint-config-triple/stylelint"]
 }
 ```
 
