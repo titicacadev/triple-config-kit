@@ -4,6 +4,8 @@
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
   "scripts": {
+    "prettier": "prettier '**/*.{json,yaml,md}' --check",
+    "prettier:fix": "prettier '**/*.{json,yaml,md}' --write",
     "lint": "eslint './recommends/**/*.js' './rules/**/*.js'",
     "lint:fix": "npm run lint -- --fix",
     "update-snapshot": "jest -u",
