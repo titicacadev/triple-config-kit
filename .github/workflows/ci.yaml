@@ -64,9 +64,11 @@ jobs:
       - name: Build
         run: |
           npm ci
-          npm run lint
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+
+      - name: Lint
+        run: npm run lint
 
       - name: Test
         run: npm test
