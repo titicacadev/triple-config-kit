@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint:es": "eslint './recommends/**/*.js' './rules/**/*.js'",
-    "lint:es:fix": "npm run lint -- --fix",
+    "lint:es:fix": "npm run lint:es -- --fix",
     "prettier": "prettier '**/*.{json,yaml,md}' --check",
     "prettier:fix": "prettier '**/*.{json,yaml,md}' --write",
     "lint": "npm run lint:es; npm run prettier",
