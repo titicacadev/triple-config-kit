@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [15.x]
 
     env:
       SLACK_CHANNEL: '#a-dev-notifications'
