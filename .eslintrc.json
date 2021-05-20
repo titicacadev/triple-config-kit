@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "./index"
-  ],
+  "extends": ["./index"],
   "parserOptions": {
     "requireConfigFile": false
   }
