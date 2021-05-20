@@ -15,7 +15,7 @@ Object {
   },
   "ignorePatterns": Array [],
   "noInlineConfig": undefined,
-  "parser": StringMatching /babel-eslint/,
+  "parser": StringMatching /@babel\\\\/eslint-parser/,
   "parserOptions": Object {
     "ecmaFeatures": Object {
       "jsx": true,
