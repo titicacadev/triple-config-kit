@@ -11,12 +11,9 @@ module.exports = {
     require.resolve('./rules/react'),
     'plugin:react-hooks/recommended',
     require.resolve('./rules/react-hooks'),
-    ...[
-      './recommends/standard',
-      './recommends/typescript-eslint',
-      './rules/typescript',
-      './custom-rules',
-    ].map(require.resolve),
+    ...['./recommends/standard', './rules/typescript', './custom-rules'].map(
+      require.resolve,
+    ),
     'plugin:prettier/recommended',
     require.resolve('./recommends/prettier'),
   ],
