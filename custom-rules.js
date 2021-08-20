@@ -1,5 +1,33 @@
 module.exports = {
   rules: {
+    'no-console': 'error',
+    'object-shorthand': ['error', 'always'],
+    'require-atomic-updates': 'error',
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'parent',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+      },
+    ],
+    'import/newline-after-import': 'error',
+    'react/prop-types': 0, // See issue #28
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: true,
+      },
+    ],
+    'react-hooks/exhaustive-deps': 'error',
+
     // eslint:recommended에서 새로 추가된 규칙
     'no-dupe-else-if': ['off'],
     'no-import-assign': ['off'],

@@ -3,14 +3,10 @@ module.exports = {
   plugins: ['@typescript-eslint', 'standard', 'promise', 'node'],
   extends: [
     'eslint:recommended',
-    require.resolve('./recommends/eslint'),
     'plugin:import/errors',
     'plugin:import/warnings',
-    require.resolve('./rules/import'),
     'plugin:react/recommended',
-    require.resolve('./rules/react'),
     'plugin:react-hooks/recommended',
-    require.resolve('./rules/react-hooks'),
     ...['./recommends/standard', './rules/typescript', './custom-rules'].map(
       require.resolve,
     ),
