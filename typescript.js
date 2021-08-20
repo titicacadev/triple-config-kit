@@ -7,7 +7,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    ...['./rules/standard', './rules/typescript', './custom-rules'].map(
+    ...['./rules/standard', './rules/typescript', './rules/custom/common'].map(
       require.resolve,
     ),
     'plugin:prettier/recommended',

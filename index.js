@@ -9,7 +9,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     ...[
       './rules/standard',
-      './custom-rules',
+      './rules/custom/common',
     ].map(require.resolve),
     'plugin:prettier/recommended',
     require.resolve('./rules/prettier'),
