@@ -7,9 +7,12 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    ...['./rules/standard', './rules/typescript', './rules/custom/common'].map(
-      require.resolve,
-    ),
+    ...[
+      './rules/standard',
+      './rules/typescript',
+      './rules/custom/common',
+      './rules/custom/typescript',
+    ].map(require.resolve),
     'plugin:prettier/recommended',
     require.resolve('./rules/prettier'),
   ],
@@ -42,11 +45,5 @@ module.exports = {
   rules: {
     // prettier 맨 뒤로 옮기면서 생긴 불일치
     curly: ['error'],
-
-    // typescript 관련 규칙이 뒤로 가면서 생긴 불일치
-    'no-use-before-define': ['error'],
-
-    // standard를 가장 마지막으로 옮기며 생긴 불일치 보정
-    camelcase: ['off'],
   },
 }
