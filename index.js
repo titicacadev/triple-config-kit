@@ -10,6 +10,7 @@ module.exports = {
     './rules/react',
     './rules/react-hooks',
     './rules/import',
+    './custom-rules',
   ].map(require.resolve),
   env: {
     node: true,
