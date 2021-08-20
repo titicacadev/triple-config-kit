@@ -3,21 +3,21 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
+    require.resolve('./recommends/eslint'),
     'plugin:import/errors',
     'plugin:import/warnings',
+    require.resolve('./rules/import'),
     'plugin:react/recommended',
+    require.resolve('./recommends/react'),
+    require.resolve('./rules/react'),
     'plugin:react-hooks/recommended',
+    require.resolve('./recommends/react-hooks'),
+    require.resolve('./rules/react-hooks'),
     ...[
-      './recommends/eslint',
       './recommends/standard',
-      './recommends/react',
-      './recommends/react-hooks',
-      './recommends/typescript-eslint',
       './rules/style',
       './rules/variables',
-      './rules/react',
-      './rules/react-hooks',
-      './rules/import',
+      './recommends/typescript-eslint',
       './rules/typescript',
       './custom-rules',
     ].map(require.resolve),
@@ -47,5 +47,8 @@ module.exports = {
   rules: {
     // prettier 맨 뒤로 옮기면서 생긴 불일치
     curly: ['error'],
+
+    // typescript 관련 규칙이 뒤로 가면서 생긴 불일치
+    'no-use-before-define': ['error'],
   },
 }
