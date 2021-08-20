@@ -3,6 +3,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
+    'plugin:react/recommended',
     ...[
       './recommends/eslint',
       './recommends/standard',
