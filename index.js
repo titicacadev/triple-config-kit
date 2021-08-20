@@ -14,9 +14,9 @@ module.exports = {
     require.resolve('./recommends/react-hooks'),
     require.resolve('./rules/react-hooks'),
     ...[
-      './recommends/standard',
       './rules/style',
       './rules/variables',
+      './recommends/standard',
       './custom-rules',
     ].map(require.resolve),
     'plugin:prettier/recommended',
@@ -51,5 +51,11 @@ module.exports = {
   rules: {
     // prettier 맨 뒤로 옮기면서 생긴 불일치
     curly: ['error'],
+
+    // standard를 가장 마지막으로 옮기며 생긴 불일치 보정
+    'no-unused-vars': [
+      'error',
+      { argsIgnorePattern: '^_+$', ignoreRestSiblings: true },
+    ],
   },
 }
