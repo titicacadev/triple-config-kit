@@ -8,11 +8,11 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     ...[
-      './recommends/standard',
+      './rules/standard',
       './custom-rules',
     ].map(require.resolve),
     'plugin:prettier/recommended',
-    require.resolve('./recommends/prettier'),
+    require.resolve('./rules/prettier'),
   ],
   env: {
     node: true,
