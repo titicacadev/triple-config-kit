@@ -5,11 +5,9 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:prettier/recommended',
     ...[
       './recommends/eslint',
       './recommends/standard',
-      './recommends/prettier',
       './recommends/react',
       './recommends/react-hooks',
       './rules/style',
@@ -19,6 +17,8 @@ module.exports = {
       './rules/import',
       './custom-rules',
     ].map(require.resolve),
+    'plugin:prettier/recommended',
+    require.resolve('./recommends/prettier'),
   ],
   env: {
     node: true,
@@ -40,5 +40,8 @@ module.exports = {
       // It will default to "detect" in the future
     },
   },
-  rules: {},
+  rules: {
+    // prettier 맨 뒤로 옮기면서 생긴 불일치
+    curly: ['error'],
+  },
 }

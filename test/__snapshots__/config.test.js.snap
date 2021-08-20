@@ -28,9 +28,9 @@ Object {
     "promise",
     "node",
     "import",
-    "prettier",
     "react",
     "react-hooks",
+    "prettier",
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
@@ -1264,9 +1264,9 @@ Object {
     "promise",
     "node",
     "import",
-    "prettier",
     "react",
     "react-hooks",
+    "prettier",
     "@typescript-eslint",
   ],
   "reportUnusedDisableDirectives": undefined,
@@ -1503,7 +1503,7 @@ Object {
       "error",
     ],
     "@typescript-eslint/type-annotation-spacing": Array [
-      "error",
+      "off",
     ],
     "accessor-pairs": Array [
       "error",
