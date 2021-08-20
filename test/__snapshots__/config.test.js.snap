@@ -34,6 +34,57 @@ Object {
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
+    "@babel/object-curly-spacing": Array [
+      "off",
+    ],
+    "@babel/semi": Array [
+      "off",
+    ],
+    "@typescript-eslint/brace-style": Array [
+      "off",
+    ],
+    "@typescript-eslint/comma-dangle": Array [
+      "off",
+    ],
+    "@typescript-eslint/comma-spacing": Array [
+      "off",
+    ],
+    "@typescript-eslint/func-call-spacing": Array [
+      "off",
+    ],
+    "@typescript-eslint/indent": Array [
+      "off",
+    ],
+    "@typescript-eslint/keyword-spacing": Array [
+      "off",
+    ],
+    "@typescript-eslint/member-delimiter-style": Array [
+      "off",
+    ],
+    "@typescript-eslint/no-extra-parens": Array [
+      "off",
+    ],
+    "@typescript-eslint/no-extra-semi": Array [
+      "off",
+    ],
+    "@typescript-eslint/object-curly-spacing": Array [
+      "off",
+    ],
+    "@typescript-eslint/quotes": Array [
+      0,
+    ],
+    "@typescript-eslint/semi": Array [
+      "off",
+    ],
+    "@typescript-eslint/space-before-function-paren": Array [
+      "off",
+    ],
+    "@typescript-eslint/space-infix-ops": Array [
+      "off",
+    ],
+    "@typescript-eslint/type-annotation-spacing": Array [
+      "off",
+    ],
     "accessor-pairs": Array [
       "error",
     ],
@@ -59,6 +110,15 @@ Object {
         "after": true,
         "before": true,
       },
+    ],
+    "babel/object-curly-spacing": Array [
+      "off",
+    ],
+    "babel/quotes": Array [
+      0,
+    ],
+    "babel/semi": Array [
+      "off",
     ],
     "block-spacing": Array [
       "off",
@@ -119,6 +179,39 @@ Object {
       Object {
         "null": "ignore",
       },
+    ],
+    "flowtype/boolean-style": Array [
+      "off",
+    ],
+    "flowtype/delimiter-dangle": Array [
+      "off",
+    ],
+    "flowtype/generic-spacing": Array [
+      "off",
+    ],
+    "flowtype/object-type-curly-spacing": Array [
+      "off",
+    ],
+    "flowtype/object-type-delimiter": Array [
+      "off",
+    ],
+    "flowtype/quotes": Array [
+      "off",
+    ],
+    "flowtype/semi": Array [
+      "off",
+    ],
+    "flowtype/space-after-type-colon": Array [
+      "off",
+    ],
+    "flowtype/space-before-generic-bracket": Array [
+      "off",
+    ],
+    "flowtype/space-before-type-colon": Array [
+      "off",
+    ],
+    "flowtype/union-intersection-spacing": Array [
+      "off",
     ],
     "for-direction": Array [
       "error",
@@ -777,6 +870,9 @@ Object {
     "react/jsx-max-props-per-line": Array [
       "off",
     ],
+    "react/jsx-newline": Array [
+      "off",
+    ],
     "react/jsx-no-comment-textnodes": Array [
       2,
     ],
@@ -985,6 +1081,15 @@ Object {
       "off",
       "never",
     ],
+    "unicorn/empty-brace-spaces": Array [
+      "off",
+    ],
+    "unicorn/no-nested-ternary": Array [
+      "off",
+    ],
+    "unicorn/number-literal-case": Array [
+      "off",
+    ],
     "use-isnan": Array [
       "error",
     ],
@@ -993,6 +1098,114 @@ Object {
       Object {
         "requireStringLiterals": true,
       },
+    ],
+    "vue/array-bracket-newline": Array [
+      "off",
+    ],
+    "vue/array-bracket-spacing": Array [
+      "off",
+    ],
+    "vue/arrow-spacing": Array [
+      "off",
+    ],
+    "vue/block-spacing": Array [
+      "off",
+    ],
+    "vue/block-tag-newline": Array [
+      "off",
+    ],
+    "vue/brace-style": Array [
+      "off",
+    ],
+    "vue/comma-dangle": Array [
+      "off",
+    ],
+    "vue/comma-spacing": Array [
+      "off",
+    ],
+    "vue/comma-style": Array [
+      "off",
+    ],
+    "vue/dot-location": Array [
+      "off",
+    ],
+    "vue/func-call-spacing": Array [
+      "off",
+    ],
+    "vue/html-closing-bracket-newline": Array [
+      "off",
+    ],
+    "vue/html-closing-bracket-spacing": Array [
+      "off",
+    ],
+    "vue/html-end-tags": Array [
+      "off",
+    ],
+    "vue/html-indent": Array [
+      "off",
+    ],
+    "vue/html-quotes": Array [
+      "off",
+    ],
+    "vue/html-self-closing": Array [
+      0,
+    ],
+    "vue/key-spacing": Array [
+      "off",
+    ],
+    "vue/keyword-spacing": Array [
+      "off",
+    ],
+    "vue/max-attributes-per-line": Array [
+      "off",
+    ],
+    "vue/max-len": Array [
+      0,
+    ],
+    "vue/multiline-html-element-content-newline": Array [
+      "off",
+    ],
+    "vue/mustache-interpolation-spacing": Array [
+      "off",
+    ],
+    "vue/no-extra-parens": Array [
+      "off",
+    ],
+    "vue/no-multi-spaces": Array [
+      "off",
+    ],
+    "vue/no-spaces-around-equal-signs-in-attribute": Array [
+      "off",
+    ],
+    "vue/object-curly-newline": Array [
+      "off",
+    ],
+    "vue/object-curly-spacing": Array [
+      "off",
+    ],
+    "vue/object-property-newline": Array [
+      "off",
+    ],
+    "vue/operator-linebreak": Array [
+      "off",
+    ],
+    "vue/script-indent": Array [
+      "off",
+    ],
+    "vue/singleline-html-element-content-newline": Array [
+      "off",
+    ],
+    "vue/space-in-parens": Array [
+      "off",
+    ],
+    "vue/space-infix-ops": Array [
+      "off",
+    ],
+    "vue/space-unary-ops": Array [
+      "off",
+    ],
+    "vue/template-curly-spacing": Array [
+      "off",
     ],
     "wrap-iife": Array [
       "off",
@@ -1058,6 +1271,12 @@ Object {
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
+    "@babel/object-curly-spacing": Array [
+      "off",
+    ],
+    "@babel/semi": Array [
+      "off",
+    ],
     "@typescript-eslint/adjacent-overload-signatures": Array [
       "error",
     ],
@@ -1070,6 +1289,15 @@ Object {
         "ts-ignore": true,
         "ts-nocheck": true,
       },
+    ],
+    "@typescript-eslint/brace-style": Array [
+      "off",
+    ],
+    "@typescript-eslint/comma-dangle": Array [
+      "off",
+    ],
+    "@typescript-eslint/comma-spacing": Array [
+      "off",
     ],
     "@typescript-eslint/consistent-type-assertions": Array [
       "error",
@@ -1087,6 +1315,9 @@ Object {
       "off",
     ],
     "@typescript-eslint/indent": Array [
+      "off",
+    ],
+    "@typescript-eslint/keyword-spacing": Array [
       "off",
     ],
     "@typescript-eslint/member-delimiter-style": Array [
@@ -1206,6 +1437,9 @@ Object {
     "@typescript-eslint/no-extra-parens": Array [
       "off",
     ],
+    "@typescript-eslint/no-extra-semi": Array [
+      "off",
+    ],
     "@typescript-eslint/no-inferrable-types": Array [
       "off",
     ],
@@ -1247,10 +1481,22 @@ Object {
     "@typescript-eslint/no-var-requires": Array [
       "off",
     ],
+    "@typescript-eslint/object-curly-spacing": Array [
+      "off",
+    ],
     "@typescript-eslint/prefer-namespace-keyword": Array [
       "error",
     ],
+    "@typescript-eslint/quotes": Array [
+      0,
+    ],
     "@typescript-eslint/semi": Array [
+      "off",
+    ],
+    "@typescript-eslint/space-before-function-paren": Array [
+      "off",
+    ],
+    "@typescript-eslint/space-infix-ops": Array [
       "off",
     ],
     "@typescript-eslint/triple-slash-reference": Array [
@@ -1284,6 +1530,15 @@ Object {
         "after": true,
         "before": true,
       },
+    ],
+    "babel/object-curly-spacing": Array [
+      "off",
+    ],
+    "babel/quotes": Array [
+      0,
+    ],
+    "babel/semi": Array [
+      "off",
     ],
     "block-spacing": Array [
       "off",
@@ -1344,6 +1599,39 @@ Object {
       Object {
         "null": "ignore",
       },
+    ],
+    "flowtype/boolean-style": Array [
+      "off",
+    ],
+    "flowtype/delimiter-dangle": Array [
+      "off",
+    ],
+    "flowtype/generic-spacing": Array [
+      "off",
+    ],
+    "flowtype/object-type-curly-spacing": Array [
+      "off",
+    ],
+    "flowtype/object-type-delimiter": Array [
+      "off",
+    ],
+    "flowtype/quotes": Array [
+      "off",
+    ],
+    "flowtype/semi": Array [
+      "off",
+    ],
+    "flowtype/space-after-type-colon": Array [
+      "off",
+    ],
+    "flowtype/space-before-generic-bracket": Array [
+      "off",
+    ],
+    "flowtype/space-before-type-colon": Array [
+      "off",
+    ],
+    "flowtype/union-intersection-spacing": Array [
+      "off",
     ],
     "for-direction": Array [
       "error",
@@ -2014,6 +2302,9 @@ Object {
     "react/jsx-max-props-per-line": Array [
       "off",
     ],
+    "react/jsx-newline": Array [
+      "off",
+    ],
     "react/jsx-no-comment-textnodes": Array [
       2,
     ],
@@ -2222,6 +2513,15 @@ Object {
       "off",
       "never",
     ],
+    "unicorn/empty-brace-spaces": Array [
+      "off",
+    ],
+    "unicorn/no-nested-ternary": Array [
+      "off",
+    ],
+    "unicorn/number-literal-case": Array [
+      "off",
+    ],
     "use-isnan": Array [
       "error",
     ],
@@ -2230,6 +2530,114 @@ Object {
       Object {
         "requireStringLiterals": true,
       },
+    ],
+    "vue/array-bracket-newline": Array [
+      "off",
+    ],
+    "vue/array-bracket-spacing": Array [
+      "off",
+    ],
+    "vue/arrow-spacing": Array [
+      "off",
+    ],
+    "vue/block-spacing": Array [
+      "off",
+    ],
+    "vue/block-tag-newline": Array [
+      "off",
+    ],
+    "vue/brace-style": Array [
+      "off",
+    ],
+    "vue/comma-dangle": Array [
+      "off",
+    ],
+    "vue/comma-spacing": Array [
+      "off",
+    ],
+    "vue/comma-style": Array [
+      "off",
+    ],
+    "vue/dot-location": Array [
+      "off",
+    ],
+    "vue/func-call-spacing": Array [
+      "off",
+    ],
+    "vue/html-closing-bracket-newline": Array [
+      "off",
+    ],
+    "vue/html-closing-bracket-spacing": Array [
+      "off",
+    ],
+    "vue/html-end-tags": Array [
+      "off",
+    ],
+    "vue/html-indent": Array [
+      "off",
+    ],
+    "vue/html-quotes": Array [
+      "off",
+    ],
+    "vue/html-self-closing": Array [
+      0,
+    ],
+    "vue/key-spacing": Array [
+      "off",
+    ],
+    "vue/keyword-spacing": Array [
+      "off",
+    ],
+    "vue/max-attributes-per-line": Array [
+      "off",
+    ],
+    "vue/max-len": Array [
+      0,
+    ],
+    "vue/multiline-html-element-content-newline": Array [
+      "off",
+    ],
+    "vue/mustache-interpolation-spacing": Array [
+      "off",
+    ],
+    "vue/no-extra-parens": Array [
+      "off",
+    ],
+    "vue/no-multi-spaces": Array [
+      "off",
+    ],
+    "vue/no-spaces-around-equal-signs-in-attribute": Array [
+      "off",
+    ],
+    "vue/object-curly-newline": Array [
+      "off",
+    ],
+    "vue/object-curly-spacing": Array [
+      "off",
+    ],
+    "vue/object-property-newline": Array [
+      "off",
+    ],
+    "vue/operator-linebreak": Array [
+      "off",
+    ],
+    "vue/script-indent": Array [
+      "off",
+    ],
+    "vue/singleline-html-element-content-newline": Array [
+      "off",
+    ],
+    "vue/space-in-parens": Array [
+      "off",
+    ],
+    "vue/space-infix-ops": Array [
+      "off",
+    ],
+    "vue/space-unary-ops": Array [
+      "off",
+    ],
+    "vue/template-curly-spacing": Array [
+      "off",
     ],
     "wrap-iife": Array [
       "off",

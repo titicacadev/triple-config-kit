@@ -5,6 +5,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
     ...[
       './recommends/eslint',
       './recommends/standard',
