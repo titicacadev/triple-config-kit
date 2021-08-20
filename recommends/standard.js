@@ -1,25 +1,4 @@
 module.exports = {
-  parserOptions: {
-    ecmaVersion: 2019,
-    ecmaFeatures: {
-      jsx: true,
-    },
-    sourceType: 'module',
-  },
-
-  env: {
-    es6: true,
-    node: true,
-  },
-
-  plugins: ['import', 'node', 'promise', 'standard'],
-
-  globals: {
-    document: 'readonly',
-    navigator: 'readonly',
-    window: 'readonly',
-  },
-
   rules: {
     'accessor-pairs': 'error',
     'array-bracket-spacing': ['error', 'never'],

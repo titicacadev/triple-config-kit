@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'standard', 'promise', 'node'],
   extends: [
     'eslint:recommended',
     require.resolve('./recommends/eslint'),
@@ -28,6 +28,12 @@ module.exports = {
     node: true,
     browser: true,
     jest: true,
+    es6: true,
+  },
+  globals: {
+    document: 'readonly',
+    navigator: 'readonly',
+    window: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2019,

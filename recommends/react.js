@@ -1,11 +1,4 @@
 module.exports = {
-  parser: '@babel/eslint-parser',
-  plugins: ['react'],
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
   rules: {
     'react/display-name': 2,
     'react/jsx-key': 2,

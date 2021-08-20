@@ -1,5 +1,4 @@
 module.exports = {
-  plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
     // The following rules can be used in some cases. See the README for more

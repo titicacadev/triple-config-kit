@@ -6,7 +6,6 @@ const {
 const regex = `^(${commonExcludes.join('|')})$`
 
 module.exports = {
-  plugins: ['@typescript-eslint'],
   rules: {
     'no-var': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',

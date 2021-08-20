@@ -1,4 +1,6 @@
 module.exports = {
+  parser: '@babel/eslint-parser',
+  plugins: ['standard', 'promise', 'node'],
   extends: [
     'eslint:recommended',
     require.resolve('./recommends/eslint'),
@@ -24,6 +26,12 @@ module.exports = {
     node: true,
     browser: true,
     jest: true,
+    es6: true,
+  },
+  globals: {
+    document: 'readonly',
+    navigator: 'readonly',
+    window: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2019,
