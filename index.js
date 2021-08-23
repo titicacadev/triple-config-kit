@@ -13,7 +13,6 @@ module.exports = {
       './rules/custom/javascript',
     ].map(require.resolve),
     'plugin:prettier/recommended',
-    require.resolve('./rules/prettier'),
   ],
   env: {
     node: true,

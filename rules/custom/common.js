@@ -3,6 +3,8 @@ module.exports = {
     'no-console': 'error',
     'object-shorthand': ['error', 'always'],
     'require-atomic-updates': 'error',
+    'arrow-body-style': 0,
+    'prefer-arrow-callback': 0,
     'import/order': [
       'error',
       {
