@@ -726,38 +726,8 @@ Object {
     "react/display-name": Array [
       2,
     ],
-    "react/jsx-child-element-spacing": Array [
-      "off",
-    ],
-    "react/jsx-closing-bracket-location": Array [
-      "off",
-    ],
-    "react/jsx-closing-tag-location": Array [
-      "off",
-    ],
-    "react/jsx-curly-newline": Array [
-      "off",
-    ],
-    "react/jsx-curly-spacing": Array [
-      "off",
-    ],
-    "react/jsx-equals-spacing": Array [
-      "off",
-    ],
-    "react/jsx-first-prop-new-line": Array [
-      "off",
-    ],
-    "react/jsx-indent": Array [
-      "off",
-    ],
-    "react/jsx-indent-props": Array [
-      "off",
-    ],
     "react/jsx-key": Array [
       2,
-    ],
-    "react/jsx-max-props-per-line": Array [
-      "off",
     ],
     "react/jsx-no-comment-textnodes": Array [
       2,
@@ -771,26 +741,11 @@ Object {
     "react/jsx-no-undef": Array [
       2,
     ],
-    "react/jsx-one-expression-per-line": Array [
-      "off",
-    ],
-    "react/jsx-props-no-multi-spaces": Array [
-      "off",
-    ],
-    "react/jsx-space-before-closing": Array [
-      "off",
-    ],
-    "react/jsx-tag-spacing": Array [
-      "off",
-    ],
     "react/jsx-uses-react": Array [
       2,
     ],
     "react/jsx-uses-vars": Array [
       2,
-    ],
-    "react/jsx-wrap-multilines": Array [
-      "off",
     ],
     "react/no-children-prop": Array [
       2,
@@ -1945,38 +1900,8 @@ Object {
     "react/display-name": Array [
       2,
     ],
-    "react/jsx-child-element-spacing": Array [
-      "off",
-    ],
-    "react/jsx-closing-bracket-location": Array [
-      "off",
-    ],
-    "react/jsx-closing-tag-location": Array [
-      "off",
-    ],
-    "react/jsx-curly-newline": Array [
-      "off",
-    ],
-    "react/jsx-curly-spacing": Array [
-      "off",
-    ],
-    "react/jsx-equals-spacing": Array [
-      "off",
-    ],
-    "react/jsx-first-prop-new-line": Array [
-      "off",
-    ],
-    "react/jsx-indent": Array [
-      "off",
-    ],
-    "react/jsx-indent-props": Array [
-      "off",
-    ],
     "react/jsx-key": Array [
       2,
-    ],
-    "react/jsx-max-props-per-line": Array [
-      "off",
     ],
     "react/jsx-no-comment-textnodes": Array [
       2,
@@ -1990,26 +1915,11 @@ Object {
     "react/jsx-no-undef": Array [
       2,
     ],
-    "react/jsx-one-expression-per-line": Array [
-      "off",
-    ],
-    "react/jsx-props-no-multi-spaces": Array [
-      "off",
-    ],
-    "react/jsx-space-before-closing": Array [
-      "off",
-    ],
-    "react/jsx-tag-spacing": Array [
-      "off",
-    ],
     "react/jsx-uses-react": Array [
       2,
     ],
     "react/jsx-uses-vars": Array [
       2,
-    ],
-    "react/jsx-wrap-multilines": Array [
-      "off",
     ],
     "react/no-children-prop": Array [
       2,
