@@ -25,12 +25,12 @@ Object {
   },
   "plugins": Array [
     "react",
+    "react-hooks",
     "standard",
     "promise",
     "node",
     "import",
     "prettier",
-    "react-hooks",
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
@@ -985,12 +985,12 @@ Object {
   },
   "plugins": Array [
     "react",
+    "react-hooks",
     "standard",
     "promise",
     "node",
     "import",
     "prettier",
-    "react-hooks",
     "@typescript-eslint",
   ],
   "reportUnusedDisableDirectives": undefined,
