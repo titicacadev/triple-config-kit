@@ -1,5 +1,6 @@
 module.exports = {
   parser: 'babel-eslint',
+  extends: ['eslint:recommended'],
   rules: {
     'constructor-super': 'error',
     'for-direction': 'error',
@@ -58,5 +59,10 @@ module.exports = {
     'require-yield': 'error',
     'use-isnan': 'error',
     'valid-typeof': 'error',
+
+    // eslint:recommended에서 새로 추가된 규칙은 비활성화
+    'no-dupe-else-if': ['off'],
+    'no-import-assign': ['off'],
+    'no-setter-return': ['off'],
   },
 }

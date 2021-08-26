@@ -321,6 +321,9 @@ Object {
     "no-dupe-class-members": Array [
       "error",
     ],
+    "no-dupe-else-if": Array [
+      "off",
+    ],
     "no-dupe-keys": Array [
       "error",
     ],
@@ -372,6 +375,9 @@ Object {
     ],
     "no-implied-eval": Array [
       "error",
+    ],
+    "no-import-assign": Array [
+      "off",
     ],
     "no-inner-declarations": Array [
       "error",
@@ -507,6 +513,9 @@ Object {
     ],
     "no-sequences": Array [
       "error",
+    ],
+    "no-setter-return": Array [
+      "off",
     ],
     "no-shadow-restricted-names": Array [
       "error",
@@ -1519,6 +1528,9 @@ Object {
     "no-dupe-class-members": Array [
       "error",
     ],
+    "no-dupe-else-if": Array [
+      "off",
+    ],
     "no-dupe-keys": Array [
       "error",
     ],
@@ -1573,6 +1585,9 @@ Object {
     ],
     "no-implied-eval": Array [
       "error",
+    ],
+    "no-import-assign": Array [
+      "off",
     ],
     "no-inner-declarations": Array [
       "error",
@@ -1708,6 +1723,9 @@ Object {
     ],
     "no-sequences": Array [
       "error",
+    ],
+    "no-setter-return": Array [
+      "off",
     ],
     "no-shadow-restricted-names": Array [
       "error",
