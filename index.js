@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'babel-eslint',
   extends: [
     'eslint:recommended',
     ...['./recommends/base', './rules/base'].map(require.resolve),
