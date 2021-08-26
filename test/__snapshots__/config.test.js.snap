@@ -185,6 +185,7 @@ Object {
         "pathGroupsExcludedImportTypes": Array [
           "builtin",
         ],
+        "warnOnUnassignedImports": false,
       },
     ],
     "indent": Array [
@@ -1347,6 +1348,7 @@ Object {
         "pathGroupsExcludedImportTypes": Array [
           "builtin",
         ],
+        "warnOnUnassignedImports": false,
       },
     ],
     "indent": Array [
