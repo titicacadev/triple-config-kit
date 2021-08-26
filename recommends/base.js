@@ -1,5 +1,3 @@
 module.exports = {
-  extends: ['./standard', './prettier', './react-hooks'].map(
-    require.resolve,
-  ),
+  extends: ['./standard', './prettier'].map(require.resolve),
 }
