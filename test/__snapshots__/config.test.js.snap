@@ -27,7 +27,6 @@ Object {
   "plugins": Array [
     "react",
     "react-hooks",
-    "standard",
     "promise",
     "node",
     "import",
@@ -1086,7 +1085,6 @@ Object {
   "plugins": Array [
     "react",
     "react-hooks",
-    "standard",
     "promise",
     "node",
     "import",
