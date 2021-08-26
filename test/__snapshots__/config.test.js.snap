@@ -75,6 +75,7 @@ Object {
       "error",
       Object {
         "ignoreDestructuring": false,
+        "ignoreGlobals": false,
         "ignoreImports": false,
         "properties": "always",
       },
@@ -567,6 +568,7 @@ Object {
         "allowShortCircuit": true,
         "allowTaggedTemplates": true,
         "allowTernary": true,
+        "enforceForJSX": false,
       },
     ],
     "no-unused-labels": Array [
@@ -1198,6 +1200,7 @@ Object {
         "allowShortCircuit": true,
         "allowTaggedTemplates": true,
         "allowTernary": true,
+        "enforceForJSX": false,
       },
     ],
     "@typescript-eslint/no-unused-vars": Array [
@@ -1270,6 +1273,7 @@ Object {
       "off",
       Object {
         "ignoreDestructuring": false,
+        "ignoreGlobals": false,
         "ignoreImports": false,
         "properties": "always",
       },
@@ -1765,6 +1769,7 @@ Object {
         "allowShortCircuit": true,
         "allowTaggedTemplates": true,
         "allowTernary": true,
+        "enforceForJSX": false,
       },
     ],
     "no-unused-labels": Array [
