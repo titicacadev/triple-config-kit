@@ -13,7 +13,7 @@ module.exports = {
     es2021: false,
   },
 
-  plugins: ['import', 'node', 'promise', 'standard'],
+  plugins: ['import', 'node', 'promise'],
   extends: ['standard'],
 
   globals: {
