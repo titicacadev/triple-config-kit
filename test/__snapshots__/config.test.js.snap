@@ -731,7 +731,7 @@ Object {
       "^(err|error)$",
     ],
     "node/no-callback-literal": Array [
-      "off",
+      "error",
     ],
     "node/no-deprecated-api": Array [
       "error",
@@ -1012,9 +1012,6 @@ Object {
           ],
         },
       },
-    ],
-    "standard/no-callback-literal": Array [
-      "error",
     ],
     "switch-colon-spacing": Array [
       "off",
@@ -2012,7 +2009,7 @@ Object {
       "^(err|error)$",
     ],
     "node/no-callback-literal": Array [
-      "off",
+      "error",
     ],
     "node/no-deprecated-api": Array [
       "error",
@@ -2299,9 +2296,6 @@ Object {
           ],
         },
       },
-    ],
-    "standard/no-callback-literal": Array [
-      "error",
     ],
     "switch-colon-spacing": Array [
       "off",
