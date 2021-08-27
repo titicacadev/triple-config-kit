@@ -2,6 +2,7 @@ module.exports = {
   parser: 'babel-eslint',
   extends: [
     'eslint:recommended',
+    'plugin:react/recommended',
     ...['./recommends/base', './rules/base'].map(require.resolve),
   ],
   env: {
