@@ -279,7 +279,7 @@ Object {
       "off",
     ],
     "import/default": Array [
-      "off",
+      2,
     ],
     "import/export": Array [
       "error",
@@ -288,10 +288,10 @@ Object {
       "error",
     ],
     "import/named": Array [
-      "off",
+      2,
     ],
     "import/namespace": Array [
-      "off",
+      2,
     ],
     "import/newline-after-import": Array [
       "error",
@@ -308,16 +308,16 @@ Object {
       "error",
     ],
     "import/no-named-as-default": Array [
-      "off",
+      1,
     ],
     "import/no-named-as-default-member": Array [
-      "off",
+      1,
     ],
     "import/no-named-default": Array [
       "error",
     ],
     "import/no-unresolved": Array [
-      "off",
+      2,
     ],
     "import/no-webpack-loader-syntax": Array [
       "error",
@@ -2131,7 +2131,7 @@ Object {
       "off",
     ],
     "import/default": Array [
-      "off",
+      2,
     ],
     "import/export": Array [
       "error",
@@ -2140,10 +2140,10 @@ Object {
       "error",
     ],
     "import/named": Array [
-      "off",
+      2,
     ],
     "import/namespace": Array [
-      "off",
+      2,
     ],
     "import/newline-after-import": Array [
       "error",
@@ -2160,16 +2160,16 @@ Object {
       "error",
     ],
     "import/no-named-as-default": Array [
-      "off",
+      1,
     ],
     "import/no-named-as-default-member": Array [
-      "off",
+      1,
     ],
     "import/no-named-default": Array [
       "error",
     ],
     "import/no-unresolved": Array [
-      "off",
+      2,
     ],
     "import/no-webpack-loader-syntax": Array [
       "error",
