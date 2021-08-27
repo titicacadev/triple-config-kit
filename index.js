@@ -31,4 +31,24 @@ module.exports = {
     },
   },
   rules: {},
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:import/typescript',
+        ...['./rules/typescript', './rules/prettier'].map(require.resolve),
+      ],
+      rules: {
+        // prettier 추천 설정 사용으로 어긋난 규칙 보정
+        '@typescript-eslint/type-annotation-spacing': 'error',
+
+        // overrides 전환으로 어긋난 규칙 보정
+        'no-unused-vars': 'error',
+        'no-var': 'off',
+      },
+    },
+  ],
 }
