@@ -11,9 +11,7 @@ module.exports = {
     ...['./recommends/base', './rules/base'].map(require.resolve),
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    ...['./recommends/typescript-eslint', './rules/typescript'].map(
-      require.resolve,
-    ),
+    ...['./rules/typescript'].map(require.resolve),
   ],
   env: {
     node: true,
