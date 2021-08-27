@@ -7,7 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'standard',
-    ...['./recommends/base', './rules/base'].map(require.resolve),
+    ...['./rules/base'].map(require.resolve),
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     ...['./rules/typescript'].map(require.resolve),
