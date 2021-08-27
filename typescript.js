@@ -7,6 +7,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'standard',
     ...[
       './recommends/base',
       './recommends/typescript-eslint',
