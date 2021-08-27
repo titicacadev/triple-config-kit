@@ -1657,7 +1657,7 @@ Object {
       "error",
     ],
     "@typescript-eslint/await-thenable": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/ban-ts-comment": Array [
       "error",
@@ -1670,7 +1670,7 @@ Object {
       },
     ],
     "@typescript-eslint/ban-types": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/brace-style": Array [
       "off",
@@ -1691,7 +1691,7 @@ Object {
       },
     ],
     "@typescript-eslint/explicit-module-boundary-types": Array [
-      "off",
+      "warn",
     ],
     "@typescript-eslint/func-call-spacing": Array [
       "off",
@@ -1817,7 +1817,7 @@ Object {
       "off",
     ],
     "@typescript-eslint/no-extra-non-null-assertion": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-extra-parens": Array [
       "off",
@@ -1826,13 +1826,13 @@ Object {
       "off",
     ],
     "@typescript-eslint/no-floating-promises": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-for-in-array": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-implied-eval": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-inferrable-types": Array [
       "off",
@@ -1841,13 +1841,13 @@ Object {
       "error",
     ],
     "@typescript-eslint/no-misused-promises": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-namespace": Array [
       "error",
     ],
     "@typescript-eslint/no-non-null-asserted-optional-chain": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-non-null-assertion": Array [
       "warn",
@@ -1856,19 +1856,19 @@ Object {
       "error",
     ],
     "@typescript-eslint/no-unnecessary-type-assertion": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-unsafe-assignment": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-unsafe-call": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-unsafe-member-access": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-unsafe-return": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-unused-expressions": Array [
       "error",
@@ -1900,25 +1900,25 @@ Object {
       "off",
     ],
     "@typescript-eslint/prefer-as-const": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/prefer-namespace-keyword": Array [
       "error",
     ],
     "@typescript-eslint/prefer-regexp-exec": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/quotes": Array [
       0,
     ],
     "@typescript-eslint/require-await": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/restrict-plus-operands": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/restrict-template-expressions": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/semi": Array [
       "off",
@@ -1936,7 +1936,7 @@ Object {
       "error",
     ],
     "@typescript-eslint/unbound-method": Array [
-      "off",
+      "error",
     ],
     "accessor-pairs": Array [
       "error",
@@ -2034,7 +2034,7 @@ Object {
       },
     ],
     "constructor-super": Array [
-      "error",
+      "off",
     ],
     "curly": Array [
       "error",
@@ -2121,7 +2121,7 @@ Object {
       },
     ],
     "getter-return": Array [
-      "error",
+      "off",
     ],
     "handle-callback-err": Array [
       "error",
@@ -2559,7 +2559,7 @@ Object {
       "error",
     ],
     "no-const-assign": Array [
-      "error",
+      "off",
     ],
     "no-constant-condition": Array [
       "error",
@@ -2577,16 +2577,16 @@ Object {
       "error",
     ],
     "no-dupe-args": Array [
-      "error",
+      "off",
     ],
     "no-dupe-class-members": Array [
-      "error",
+      "off",
     ],
     "no-dupe-else-if": Array [
       "error",
     ],
     "no-dupe-keys": Array [
-      "error",
+      "off",
     ],
     "no-duplicate-case": Array [
       "error",
@@ -2635,13 +2635,13 @@ Object {
       "off",
     ],
     "no-func-assign": Array [
-      "error",
+      "off",
     ],
     "no-global-assign": Array [
       "error",
     ],
     "no-implied-eval": Array [
-      "error",
+      "off",
     ],
     "no-import-assign": Array [
       "off",
@@ -2732,13 +2732,13 @@ Object {
       "error",
     ],
     "no-new-symbol": Array [
-      "error",
+      "off",
     ],
     "no-new-wrappers": Array [
       "error",
     ],
     "no-obj-calls": Array [
-      "error",
+      "off",
     ],
     "no-octal": Array [
       "error",
@@ -2756,7 +2756,7 @@ Object {
       "error",
     ],
     "no-redeclare": Array [
-      "error",
+      "off",
       Object {
         "builtinGlobals": false,
       },
@@ -2808,7 +2808,7 @@ Object {
       "error",
     ],
     "no-this-before-super": Array [
-      "error",
+      "off",
     ],
     "no-throw-literal": Array [
       "error",
@@ -2817,7 +2817,7 @@ Object {
       "off",
     ],
     "no-undef": Array [
-      "error",
+      "off",
     ],
     "no-undef-init": Array [
       "error",
@@ -2835,7 +2835,7 @@ Object {
       },
     ],
     "no-unreachable": Array [
-      "error",
+      "off",
     ],
     "no-unreachable-loop": Array [
       "error",
@@ -2844,7 +2844,7 @@ Object {
       "error",
     ],
     "no-unsafe-negation": Array [
-      "error",
+      "off",
     ],
     "no-unused-expressions": Array [
       "off",
@@ -3333,7 +3333,7 @@ Object {
       },
     ],
     "valid-typeof": Array [
-      "error",
+      "off",
       Object {
         "requireStringLiterals": true,
       },
