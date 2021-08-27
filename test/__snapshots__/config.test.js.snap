@@ -2866,7 +2866,7 @@ Object {
       },
     ],
     "no-use-before-define": Array [
-      "error",
+      "off",
       Object {
         "classes": true,
         "functions": false,
