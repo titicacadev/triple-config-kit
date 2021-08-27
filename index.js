@@ -6,6 +6,7 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'standard',
     ...['./recommends/base', './rules/base'].map(require.resolve),
   ],
   env: {
