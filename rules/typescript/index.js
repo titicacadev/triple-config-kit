@@ -7,8 +7,6 @@ const regex = `^(${commonExcludes.join('|')})$`
 
 module.exports = {
   rules: {
-    'no-var': 'off',
-
     '@typescript-eslint/ban-ts-comment': [
       'error',
       {
@@ -20,7 +18,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/consistent-type-assertions': 'error',
-    '@typescript-eslint/type-annotation-spacing': 'error',
     '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-member-accessibility': [
