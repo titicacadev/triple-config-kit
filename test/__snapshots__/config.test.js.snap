@@ -742,7 +742,7 @@ Object {
     "no-empty": Array [
       "error",
       Object {
-        "allowEmptyCatch": false,
+        "allowEmptyCatch": true,
       },
     ],
     "no-empty-character-class": Array [
@@ -1464,7 +1464,7 @@ Object {
     "use-isnan": Array [
       "error",
       Object {
-        "enforceForIndexOf": false,
+        "enforceForIndexOf": true,
         "enforceForSwitchCase": true,
       },
     ],
@@ -2594,7 +2594,7 @@ Object {
     "no-empty": Array [
       "error",
       Object {
-        "allowEmptyCatch": false,
+        "allowEmptyCatch": true,
       },
     ],
     "no-empty-character-class": Array [
@@ -3328,7 +3328,7 @@ Object {
     "use-isnan": Array [
       "error",
       Object {
-        "enforceForIndexOf": false,
+        "enforceForIndexOf": true,
         "enforceForSwitchCase": true,
       },
     ],

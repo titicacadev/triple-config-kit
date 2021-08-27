@@ -22,12 +22,5 @@ module.exports = {
     ],
     'object-shorthand': ['error', 'always'],
     'require-atomic-updates': 'error',
-
-    // standard 추천 규칙 모음을 사용하면서 변경된 규칙설정 보정
-    'no-empty': ['error', { allowEmptyCatch: false }],
-    'use-isnan': [
-      'error',
-      { enforceForIndexOf: false, enforceForSwitchCase: true },
-    ],
   },
 }
