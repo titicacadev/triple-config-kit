@@ -94,7 +94,13 @@ Object {
     ],
     "comma-dangle": Array [
       "off",
-      "always-multiline",
+      Object {
+        "arrays": "never",
+        "exports": "never",
+        "functions": "never",
+        "imports": "never",
+        "objects": "never",
+      },
     ],
     "comma-spacing": Array [
       "off",
@@ -110,6 +116,9 @@ Object {
     "computed-property-spacing": Array [
       "off",
       "never",
+      Object {
+        "enforceForClassMembers": true,
+      },
     ],
     "constructor-super": Array [
       "error",
@@ -259,7 +268,26 @@ Object {
         "VariableDeclarator": 1,
         "flatTernaryExpressions": false,
         "ignoreComments": false,
-        "offsetTernaryExpressions": false,
+        "ignoredNodes": Array [
+          "TemplateLiteral *",
+          "JSXElement",
+          "JSXElement > *",
+          "JSXAttribute",
+          "JSXIdentifier",
+          "JSXNamespacedName",
+          "JSXMemberExpression",
+          "JSXSpreadAttribute",
+          "JSXExpressionContainer",
+          "JSXOpeningElement",
+          "JSXClosingElement",
+          "JSXFragment",
+          "JSXOpeningFragment",
+          "JSXClosingFragment",
+          "JSXText",
+          "JSXEmptyExpression",
+          "JSXSpreadChild",
+        ],
+        "offsetTernaryExpressions": true,
         "outerIIFEBody": 1,
       },
     ],
@@ -434,7 +462,6 @@ Object {
     ],
     "no-inner-declarations": Array [
       "error",
-      "functions",
     ],
     "no-invalid-regexp": Array [
       "error",
@@ -807,7 +834,7 @@ Object {
       0,
       "single",
       Object {
-        "allowTemplateLiterals": true,
+        "allowTemplateLiterals": false,
         "avoidEscape": true,
       },
     ],
@@ -926,7 +953,7 @@ Object {
     ],
     "space-before-function-paren": Array [
       "off",
-      "never",
+      "always",
     ],
     "space-before-function-parentheses": Array [
       "off",
@@ -986,17 +1013,8 @@ Object {
         },
       },
     ],
-    "standard/array-bracket-even-spacing": Array [
-      "off",
-    ],
-    "standard/computed-property-even-spacing": Array [
-      "off",
-    ],
     "standard/no-callback-literal": Array [
       "error",
-    ],
-    "standard/object-curly-even-spacing": Array [
-      "off",
     ],
     "switch-colon-spacing": Array [
       "off",
@@ -1354,7 +1372,13 @@ Object {
     ],
     "comma-dangle": Array [
       "off",
-      "always-multiline",
+      Object {
+        "arrays": "never",
+        "exports": "never",
+        "functions": "never",
+        "imports": "never",
+        "objects": "never",
+      },
     ],
     "comma-spacing": Array [
       "off",
@@ -1370,6 +1394,9 @@ Object {
     "computed-property-spacing": Array [
       "off",
       "never",
+      Object {
+        "enforceForClassMembers": true,
+      },
     ],
     "constructor-super": Array [
       "error",
@@ -1519,7 +1546,26 @@ Object {
         "VariableDeclarator": 1,
         "flatTernaryExpressions": false,
         "ignoreComments": false,
-        "offsetTernaryExpressions": false,
+        "ignoredNodes": Array [
+          "TemplateLiteral *",
+          "JSXElement",
+          "JSXElement > *",
+          "JSXAttribute",
+          "JSXIdentifier",
+          "JSXNamespacedName",
+          "JSXMemberExpression",
+          "JSXSpreadAttribute",
+          "JSXExpressionContainer",
+          "JSXOpeningElement",
+          "JSXClosingElement",
+          "JSXFragment",
+          "JSXOpeningFragment",
+          "JSXClosingFragment",
+          "JSXText",
+          "JSXEmptyExpression",
+          "JSXSpreadChild",
+        ],
+        "offsetTernaryExpressions": true,
         "outerIIFEBody": 1,
       },
     ],
@@ -1697,7 +1743,6 @@ Object {
     ],
     "no-inner-declarations": Array [
       "error",
-      "functions",
     ],
     "no-invalid-regexp": Array [
       "error",
@@ -2076,7 +2121,7 @@ Object {
       0,
       "single",
       Object {
-        "allowTemplateLiterals": true,
+        "allowTemplateLiterals": false,
         "avoidEscape": true,
       },
     ],
@@ -2195,7 +2240,7 @@ Object {
     ],
     "space-before-function-paren": Array [
       "off",
-      "never",
+      "always",
     ],
     "space-before-function-parentheses": Array [
       "off",
@@ -2255,17 +2300,8 @@ Object {
         },
       },
     ],
-    "standard/array-bracket-even-spacing": Array [
-      "off",
-    ],
-    "standard/computed-property-even-spacing": Array [
-      "off",
-    ],
     "standard/no-callback-literal": Array [
       "error",
-    ],
-    "standard/object-curly-even-spacing": Array [
-      "off",
     ],
     "switch-colon-spacing": Array [
       "off",
