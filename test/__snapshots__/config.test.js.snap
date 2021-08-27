@@ -27,6 +27,7 @@ Object {
   "plugins": Array [
     "react",
     "react-hooks",
+    "jsx-a11y",
     "promise",
     "node",
     "import",
@@ -386,6 +387,240 @@ Object {
     ],
     "indent-legacy": Array [
       "off",
+    ],
+    "jsx-a11y/accessible-emoji": Array [
+      "error",
+    ],
+    "jsx-a11y/alt-text": Array [
+      "error",
+    ],
+    "jsx-a11y/anchor-has-content": Array [
+      "error",
+    ],
+    "jsx-a11y/anchor-is-valid": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-activedescendant-has-tabindex": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-props": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-proptypes": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-role": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-unsupported-elements": Array [
+      "error",
+    ],
+    "jsx-a11y/autocomplete-valid": Array [
+      "error",
+    ],
+    "jsx-a11y/click-events-have-key-events": Array [
+      "error",
+    ],
+    "jsx-a11y/control-has-associated-label": Array [
+      "off",
+      Object {
+        "ignoreElements": Array [
+          "audio",
+          "canvas",
+          "embed",
+          "input",
+          "textarea",
+          "tr",
+          "video",
+        ],
+        "ignoreRoles": Array [
+          "grid",
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "row",
+          "tablist",
+          "toolbar",
+          "tree",
+          "treegrid",
+        ],
+        "includeRoles": Array [
+          "alert",
+          "dialog",
+        ],
+      },
+    ],
+    "jsx-a11y/heading-has-content": Array [
+      "error",
+    ],
+    "jsx-a11y/html-has-lang": Array [
+      "error",
+    ],
+    "jsx-a11y/iframe-has-title": Array [
+      "error",
+    ],
+    "jsx-a11y/img-redundant-alt": Array [
+      "error",
+    ],
+    "jsx-a11y/interactive-supports-focus": Array [
+      "error",
+      Object {
+        "tabbable": Array [
+          "button",
+          "checkbox",
+          "link",
+          "searchbox",
+          "spinbutton",
+          "switch",
+          "textbox",
+        ],
+      },
+    ],
+    "jsx-a11y/label-has-associated-control": Array [
+      "error",
+    ],
+    "jsx-a11y/label-has-for": Array [
+      "off",
+    ],
+    "jsx-a11y/media-has-caption": Array [
+      "error",
+    ],
+    "jsx-a11y/mouse-events-have-key-events": Array [
+      "error",
+    ],
+    "jsx-a11y/no-access-key": Array [
+      "error",
+    ],
+    "jsx-a11y/no-autofocus": Array [
+      "error",
+    ],
+    "jsx-a11y/no-distracting-elements": Array [
+      "error",
+    ],
+    "jsx-a11y/no-interactive-element-to-noninteractive-role": Array [
+      "error",
+      Object {
+        "tr": Array [
+          "none",
+          "presentation",
+        ],
+      },
+    ],
+    "jsx-a11y/no-noninteractive-element-interactions": Array [
+      "error",
+      Object {
+        "alert": Array [
+          "onKeyUp",
+          "onKeyDown",
+          "onKeyPress",
+        ],
+        "body": Array [
+          "onError",
+          "onLoad",
+        ],
+        "dialog": Array [
+          "onKeyUp",
+          "onKeyDown",
+          "onKeyPress",
+        ],
+        "handlers": Array [
+          "onClick",
+          "onError",
+          "onLoad",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp",
+        ],
+        "iframe": Array [
+          "onError",
+          "onLoad",
+        ],
+        "img": Array [
+          "onError",
+          "onLoad",
+        ],
+      },
+    ],
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": Array [
+      "error",
+      Object {
+        "li": Array [
+          "menuitem",
+          "option",
+          "row",
+          "tab",
+          "treeitem",
+        ],
+        "ol": Array [
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "tablist",
+          "tree",
+          "treegrid",
+        ],
+        "table": Array [
+          "grid",
+        ],
+        "td": Array [
+          "gridcell",
+        ],
+        "ul": Array [
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "tablist",
+          "tree",
+          "treegrid",
+        ],
+      },
+    ],
+    "jsx-a11y/no-noninteractive-tabindex": Array [
+      "error",
+      Object {
+        "allowExpressionValues": true,
+        "roles": Array [
+          "tabpanel",
+        ],
+        "tags": Array [],
+      },
+    ],
+    "jsx-a11y/no-onchange": Array [
+      "error",
+    ],
+    "jsx-a11y/no-redundant-roles": Array [
+      "error",
+    ],
+    "jsx-a11y/no-static-element-interactions": Array [
+      "error",
+      Object {
+        "allowExpressionValues": true,
+        "handlers": Array [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp",
+        ],
+      },
+    ],
+    "jsx-a11y/role-has-required-aria-props": Array [
+      "error",
+    ],
+    "jsx-a11y/role-supports-aria-props": Array [
+      "error",
+    ],
+    "jsx-a11y/scope": Array [
+      "error",
+    ],
+    "jsx-a11y/tabindex-no-positive": Array [
+      "error",
     ],
     "jsx-quotes": Array [
       "off",
@@ -1367,6 +1602,7 @@ Object {
   "plugins": Array [
     "react",
     "react-hooks",
+    "jsx-a11y",
     "promise",
     "node",
     "import",
@@ -1967,6 +2203,240 @@ Object {
     ],
     "indent-legacy": Array [
       "off",
+    ],
+    "jsx-a11y/accessible-emoji": Array [
+      "error",
+    ],
+    "jsx-a11y/alt-text": Array [
+      "error",
+    ],
+    "jsx-a11y/anchor-has-content": Array [
+      "error",
+    ],
+    "jsx-a11y/anchor-is-valid": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-activedescendant-has-tabindex": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-props": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-proptypes": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-role": Array [
+      "error",
+    ],
+    "jsx-a11y/aria-unsupported-elements": Array [
+      "error",
+    ],
+    "jsx-a11y/autocomplete-valid": Array [
+      "error",
+    ],
+    "jsx-a11y/click-events-have-key-events": Array [
+      "error",
+    ],
+    "jsx-a11y/control-has-associated-label": Array [
+      "off",
+      Object {
+        "ignoreElements": Array [
+          "audio",
+          "canvas",
+          "embed",
+          "input",
+          "textarea",
+          "tr",
+          "video",
+        ],
+        "ignoreRoles": Array [
+          "grid",
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "row",
+          "tablist",
+          "toolbar",
+          "tree",
+          "treegrid",
+        ],
+        "includeRoles": Array [
+          "alert",
+          "dialog",
+        ],
+      },
+    ],
+    "jsx-a11y/heading-has-content": Array [
+      "error",
+    ],
+    "jsx-a11y/html-has-lang": Array [
+      "error",
+    ],
+    "jsx-a11y/iframe-has-title": Array [
+      "error",
+    ],
+    "jsx-a11y/img-redundant-alt": Array [
+      "error",
+    ],
+    "jsx-a11y/interactive-supports-focus": Array [
+      "error",
+      Object {
+        "tabbable": Array [
+          "button",
+          "checkbox",
+          "link",
+          "searchbox",
+          "spinbutton",
+          "switch",
+          "textbox",
+        ],
+      },
+    ],
+    "jsx-a11y/label-has-associated-control": Array [
+      "error",
+    ],
+    "jsx-a11y/label-has-for": Array [
+      "off",
+    ],
+    "jsx-a11y/media-has-caption": Array [
+      "error",
+    ],
+    "jsx-a11y/mouse-events-have-key-events": Array [
+      "error",
+    ],
+    "jsx-a11y/no-access-key": Array [
+      "error",
+    ],
+    "jsx-a11y/no-autofocus": Array [
+      "error",
+    ],
+    "jsx-a11y/no-distracting-elements": Array [
+      "error",
+    ],
+    "jsx-a11y/no-interactive-element-to-noninteractive-role": Array [
+      "error",
+      Object {
+        "tr": Array [
+          "none",
+          "presentation",
+        ],
+      },
+    ],
+    "jsx-a11y/no-noninteractive-element-interactions": Array [
+      "error",
+      Object {
+        "alert": Array [
+          "onKeyUp",
+          "onKeyDown",
+          "onKeyPress",
+        ],
+        "body": Array [
+          "onError",
+          "onLoad",
+        ],
+        "dialog": Array [
+          "onKeyUp",
+          "onKeyDown",
+          "onKeyPress",
+        ],
+        "handlers": Array [
+          "onClick",
+          "onError",
+          "onLoad",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp",
+        ],
+        "iframe": Array [
+          "onError",
+          "onLoad",
+        ],
+        "img": Array [
+          "onError",
+          "onLoad",
+        ],
+      },
+    ],
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": Array [
+      "error",
+      Object {
+        "li": Array [
+          "menuitem",
+          "option",
+          "row",
+          "tab",
+          "treeitem",
+        ],
+        "ol": Array [
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "tablist",
+          "tree",
+          "treegrid",
+        ],
+        "table": Array [
+          "grid",
+        ],
+        "td": Array [
+          "gridcell",
+        ],
+        "ul": Array [
+          "listbox",
+          "menu",
+          "menubar",
+          "radiogroup",
+          "tablist",
+          "tree",
+          "treegrid",
+        ],
+      },
+    ],
+    "jsx-a11y/no-noninteractive-tabindex": Array [
+      "error",
+      Object {
+        "allowExpressionValues": true,
+        "roles": Array [
+          "tabpanel",
+        ],
+        "tags": Array [],
+      },
+    ],
+    "jsx-a11y/no-onchange": Array [
+      "error",
+    ],
+    "jsx-a11y/no-redundant-roles": Array [
+      "error",
+    ],
+    "jsx-a11y/no-static-element-interactions": Array [
+      "error",
+      Object {
+        "allowExpressionValues": true,
+        "handlers": Array [
+          "onClick",
+          "onMouseDown",
+          "onMouseUp",
+          "onKeyPress",
+          "onKeyDown",
+          "onKeyUp",
+        ],
+      },
+    ],
+    "jsx-a11y/role-has-required-aria-props": Array [
+      "error",
+    ],
+    "jsx-a11y/role-supports-aria-props": Array [
+      "error",
+    ],
+    "jsx-a11y/scope": Array [
+      "error",
+    ],
+    "jsx-a11y/tabindex-no-positive": Array [
+      "error",
     ],
     "jsx-quotes": Array [
       "off",
