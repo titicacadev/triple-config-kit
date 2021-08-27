@@ -4,6 +4,7 @@ exports[`eslint javascript config 1`] = `
 Object {
   "env": Object {
     "browser": true,
+    "es2021": false,
     "es6": true,
     "jest": true,
     "node": true,
@@ -36,6 +37,11 @@ Object {
   "rules": Object {
     "accessor-pairs": Array [
       "error",
+      Object {
+        "enforceForClassMembers": true,
+        "getWithoutSet": false,
+        "setWithoutGet": true,
+      },
     ],
     "array-bracket-newline": Array [
       "off",
@@ -43,6 +49,13 @@ Object {
     "array-bracket-spacing": Array [
       "off",
       "never",
+    ],
+    "array-callback-return": Array [
+      "off",
+      Object {
+        "allowImplicit": false,
+        "checkForEach": false,
+      },
     ],
     "array-element-newline": Array [
       "off",
@@ -106,9 +119,19 @@ Object {
       "error",
       "all",
     ],
+    "default-case-last": Array [
+      "off",
+    ],
     "dot-location": Array [
       "off",
       "property",
+    ],
+    "dot-notation": Array [
+      "off",
+      Object {
+        "allowKeywords": true,
+        "allowPattern": "",
+      },
     ],
     "eol-last": Array [
       "off",
@@ -170,6 +193,14 @@ Object {
     ],
     "import/newline-after-import": Array [
       "error",
+    ],
+    "import/no-absolute-path": Array [
+      "off",
+      Object {
+        "amd": false,
+        "commonjs": true,
+        "esmodule": true,
+      },
     ],
     "import/no-duplicates": Array [
       "error",
@@ -268,6 +299,7 @@ Object {
     ],
     "multiline-ternary": Array [
       "off",
+      "always-multiline",
     ],
     "new-cap": Array [
       "error",
@@ -351,6 +383,9 @@ Object {
     ],
     "no-empty": Array [
       "error",
+      Object {
+        "allowEmptyCatch": false,
+      },
     ],
     "no-empty-character-class": Array [
       "error",
@@ -420,6 +455,9 @@ Object {
     ],
     "no-lone-blocks": Array [
       "error",
+    ],
+    "no-loss-of-precision": Array [
+      "off",
     ],
     "no-misleading-character-class": Array [
       "error",
@@ -526,6 +564,9 @@ Object {
     ],
     "no-self-assign": Array [
       "error",
+      Object {
+        "props": true,
+      },
     ],
     "no-self-compare": Array [
       "error",
@@ -584,6 +625,9 @@ Object {
     "no-unreachable": Array [
       "error",
     ],
+    "no-unreachable-loop": Array [
+      "off",
+    ],
     "no-unsafe-finally": Array [
       "error",
     ],
@@ -617,6 +661,9 @@ Object {
         "variables": true,
       },
     ],
+    "no-useless-backreference": Array [
+      "off",
+    ],
     "no-useless-call": Array [
       "error",
     ],
@@ -638,6 +685,9 @@ Object {
     "no-useless-return": Array [
       "error",
     ],
+    "no-var": Array [
+      "off",
+    ],
     "no-void": Array [
       "error",
     ],
@@ -650,8 +700,24 @@ Object {
     "no-wrap-func": Array [
       "off",
     ],
+    "node/handle-callback-err": Array [
+      "off",
+      "^(err|error)$",
+    ],
+    "node/no-callback-literal": Array [
+      "off",
+    ],
     "node/no-deprecated-api": Array [
       "error",
+    ],
+    "node/no-exports-assign": Array [
+      "off",
+    ],
+    "node/no-new-require": Array [
+      "off",
+    ],
+    "node/no-path-concat": Array [
+      "off",
     ],
     "node/process-exit-as-throw": Array [
       "error",
@@ -661,6 +727,10 @@ Object {
     ],
     "object-curly-newline": Array [
       "off",
+      Object {
+        "consistent": true,
+        "multiline": true,
+      },
     ],
     "object-curly-spacing": Array [
       "off",
@@ -717,6 +787,12 @@ Object {
     ],
     "prefer-promise-reject-errors": Array [
       "error",
+    ],
+    "prefer-regex-literals": Array [
+      "off",
+      Object {
+        "disallowRedundantWrapping": true,
+      },
     ],
     "prettier/prettier": Array [
       "error",
@@ -943,6 +1019,10 @@ Object {
     ],
     "use-isnan": Array [
       "error",
+      Object {
+        "enforceForIndexOf": false,
+        "enforceForSwitchCase": true,
+      },
     ],
     "valid-typeof": Array [
       "error",
@@ -983,6 +1063,7 @@ exports[`eslint typescript config 1`] = `
 Object {
   "env": Object {
     "browser": true,
+    "es2021": false,
     "es6": true,
     "jest": true,
     "node": true,
@@ -1217,6 +1298,11 @@ Object {
     ],
     "accessor-pairs": Array [
       "error",
+      Object {
+        "enforceForClassMembers": true,
+        "getWithoutSet": false,
+        "setWithoutGet": true,
+      },
     ],
     "array-bracket-newline": Array [
       "off",
@@ -1224,6 +1310,13 @@ Object {
     "array-bracket-spacing": Array [
       "off",
       "never",
+    ],
+    "array-callback-return": Array [
+      "off",
+      Object {
+        "allowImplicit": false,
+        "checkForEach": false,
+      },
     ],
     "array-element-newline": Array [
       "off",
@@ -1287,9 +1380,19 @@ Object {
       "error",
       "all",
     ],
+    "default-case-last": Array [
+      "off",
+    ],
     "dot-location": Array [
       "off",
       "property",
+    ],
+    "dot-notation": Array [
+      "off",
+      Object {
+        "allowKeywords": true,
+        "allowPattern": "",
+      },
     ],
     "eol-last": Array [
       "off",
@@ -1351,6 +1454,14 @@ Object {
     ],
     "import/newline-after-import": Array [
       "error",
+    ],
+    "import/no-absolute-path": Array [
+      "off",
+      Object {
+        "amd": false,
+        "commonjs": true,
+        "esmodule": true,
+      },
     ],
     "import/no-duplicates": Array [
       "error",
@@ -1449,6 +1560,7 @@ Object {
     ],
     "multiline-ternary": Array [
       "off",
+      "always-multiline",
     ],
     "new-cap": Array [
       "error",
@@ -1532,6 +1644,9 @@ Object {
     ],
     "no-empty": Array [
       "error",
+      Object {
+        "allowEmptyCatch": false,
+      },
     ],
     "no-empty-character-class": Array [
       "error",
@@ -1604,6 +1719,9 @@ Object {
     ],
     "no-lone-blocks": Array [
       "error",
+    ],
+    "no-loss-of-precision": Array [
+      "off",
     ],
     "no-misleading-character-class": Array [
       "error",
@@ -1710,6 +1828,9 @@ Object {
     ],
     "no-self-assign": Array [
       "error",
+      Object {
+        "props": true,
+      },
     ],
     "no-self-compare": Array [
       "error",
@@ -1768,6 +1889,9 @@ Object {
     "no-unreachable": Array [
       "error",
     ],
+    "no-unreachable-loop": Array [
+      "off",
+    ],
     "no-unsafe-finally": Array [
       "error",
     ],
@@ -1800,6 +1924,9 @@ Object {
         "functions": false,
         "variables": true,
       },
+    ],
+    "no-useless-backreference": Array [
+      "off",
     ],
     "no-useless-call": Array [
       "error",
@@ -1837,8 +1964,24 @@ Object {
     "no-wrap-func": Array [
       "off",
     ],
+    "node/handle-callback-err": Array [
+      "off",
+      "^(err|error)$",
+    ],
+    "node/no-callback-literal": Array [
+      "off",
+    ],
     "node/no-deprecated-api": Array [
       "error",
+    ],
+    "node/no-exports-assign": Array [
+      "off",
+    ],
+    "node/no-new-require": Array [
+      "off",
+    ],
+    "node/no-path-concat": Array [
+      "off",
     ],
     "node/process-exit-as-throw": Array [
       "error",
@@ -1848,6 +1991,10 @@ Object {
     ],
     "object-curly-newline": Array [
       "off",
+      Object {
+        "consistent": true,
+        "multiline": true,
+      },
     ],
     "object-curly-spacing": Array [
       "off",
@@ -1904,6 +2051,12 @@ Object {
     ],
     "prefer-promise-reject-errors": Array [
       "error",
+    ],
+    "prefer-regex-literals": Array [
+      "off",
+      Object {
+        "disallowRedundantWrapping": true,
+      },
     ],
     "prefer-rest-params": Array [
       "error",
@@ -2136,6 +2289,10 @@ Object {
     ],
     "use-isnan": Array [
       "error",
+      Object {
+        "enforceForIndexOf": false,
+        "enforceForSwitchCase": true,
+      },
     ],
     "valid-typeof": Array [
       "error",

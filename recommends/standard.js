@@ -10,9 +10,11 @@ module.exports = {
   env: {
     es6: true,
     node: true,
+    es2021: false,
   },
 
   plugins: ['import', 'node', 'promise', 'standard'],
+  extends: ['standard'],
 
   globals: {
     document: 'readonly',
@@ -21,6 +23,29 @@ module.exports = {
   },
 
   rules: {
+    // 추천 규칙 모음을 사용하면서 새로 추가된 규칙 비활성화
+    'array-callback-return': 'off',
+    'default-case-last': 'off',
+    'dot-notation': 'off',
+    'import/no-absolute-path': 'off',
+    'no-loss-of-precision': 'off',
+    'no-unreachable-loop': 'off',
+    'no-useless-backreference': 'off',
+    'no-var': 'off',
+    'node/handle-callback-err': 'off',
+    'node/no-callback-literal': 'off',
+    'node/no-exports-assign': 'off',
+    'node/no-new-require': 'off',
+    'node/no-path-concat': 'off',
+    'prefer-regex-literals': 'off',
+
+    // 추천 규칙 모음을 사용하면서 변경된 규칙설정 보정
+    'no-empty': ['error', { allowEmptyCatch: false }],
+    'use-isnan': [
+      'error',
+      { enforceForIndexOf: false, enforceForSwitchCase: true },
+    ],
+
     'accessor-pairs': 'error',
     'array-bracket-spacing': ['error', 'never'],
     'arrow-spacing': ['error', { before: true, after: true }],
@@ -221,7 +246,6 @@ module.exports = {
     'template-curly-spacing': ['error', 'never'],
     'template-tag-spacing': ['error', 'never'],
     'unicode-bom': ['error', 'never'],
-    'use-isnan': 'error',
     'valid-typeof': ['error', { requireStringLiterals: true }],
     'wrap-iife': ['error', 'any', { functionPrototypeMethods: true }],
     'yield-star-spacing': ['error', 'both'],
