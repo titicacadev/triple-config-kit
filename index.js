@@ -41,10 +41,7 @@ module.exports = {
         'plugin:import/typescript',
         ...['./rules/typescript', './rules/prettier'].map(require.resolve),
       ],
-      rules: {
-        // prettier 추천 설정 사용으로 어긋난 규칙 보정
-        '@typescript-eslint/type-annotation-spacing': 'error',
-      },
+      rules: {},
     },
   ],
 }
