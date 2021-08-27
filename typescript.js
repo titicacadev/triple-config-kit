@@ -3,6 +3,8 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     ...[

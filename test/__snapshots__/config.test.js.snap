@@ -153,11 +153,20 @@ Object {
     "implicit-arrow-linebreak": Array [
       "off",
     ],
+    "import/default": Array [
+      "off",
+    ],
     "import/export": Array [
       "error",
     ],
     "import/first": Array [
       "error",
+    ],
+    "import/named": Array [
+      "off",
+    ],
+    "import/namespace": Array [
+      "off",
     ],
     "import/newline-after-import": Array [
       "error",
@@ -165,8 +174,17 @@ Object {
     "import/no-duplicates": Array [
       "error",
     ],
+    "import/no-named-as-default": Array [
+      "off",
+    ],
+    "import/no-named-as-default-member": Array [
+      "off",
+    ],
     "import/no-named-default": Array [
       "error",
+    ],
+    "import/no-unresolved": Array [
+      "off",
     ],
     "import/no-webpack-loader-syntax": Array [
       "error",
@@ -1316,11 +1334,20 @@ Object {
     "implicit-arrow-linebreak": Array [
       "off",
     ],
+    "import/default": Array [
+      "off",
+    ],
     "import/export": Array [
       "error",
     ],
     "import/first": Array [
       "error",
+    ],
+    "import/named": Array [
+      "off",
+    ],
+    "import/namespace": Array [
+      "off",
     ],
     "import/newline-after-import": Array [
       "error",
@@ -1328,8 +1355,17 @@ Object {
     "import/no-duplicates": Array [
       "error",
     ],
+    "import/no-named-as-default": Array [
+      "off",
+    ],
+    "import/no-named-as-default-member": Array [
+      "off",
+    ],
     "import/no-named-default": Array [
       "error",
+    ],
+    "import/no-unresolved": Array [
+      "off",
     ],
     "import/no-webpack-loader-syntax": Array [
       "error",
