@@ -728,7 +728,7 @@ Object {
       "error",
     ],
     "no-dupe-else-if": Array [
-      "off",
+      "error",
     ],
     "no-dupe-keys": Array [
       "error",
@@ -786,7 +786,7 @@ Object {
       "error",
     ],
     "no-import-assign": Array [
-      "off",
+      "error",
     ],
     "no-inner-declarations": Array [
       "error",
@@ -929,7 +929,7 @@ Object {
       "error",
     ],
     "no-setter-return": Array [
-      "off",
+      "error",
     ],
     "no-shadow-restricted-names": Array [
       "error",
@@ -2577,7 +2577,7 @@ Object {
       "error",
     ],
     "no-dupe-else-if": Array [
-      "off",
+      "error",
     ],
     "no-dupe-keys": Array [
       "error",
