@@ -19,7 +19,7 @@ test('eslint javascript config', async () => {
 test('eslint typescript config', async () => {
   const eslint = new ESLint({
     extensions: ['ts', 'tsx'],
-    overrideConfigFile: path.resolve(__dirname, '../typescript.js'),
+    overrideConfigFile: path.resolve(__dirname, '../index.js'),
     useEslintrc: false,
   })
 
