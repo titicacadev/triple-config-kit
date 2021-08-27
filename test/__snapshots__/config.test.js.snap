@@ -1933,7 +1933,7 @@ Object {
       "error",
     ],
     "@typescript-eslint/type-annotation-spacing": Array [
-      "error",
+      "off",
     ],
     "@typescript-eslint/unbound-method": Array [
       "error",
