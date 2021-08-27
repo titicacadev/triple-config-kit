@@ -62,6 +62,15 @@
 }
 ```
 
+> 프로젝트에서 babel을 사용하지 않으면 Babel 설정을 찾을 수 없다는 파싱 에러가 발생합니다.
+> 다음을 .eslintrc.json에 추가해주세요.
+>
+> ```json
+> "parserOptions": {
+>   "requireConfigFile": false
+> }
+> ```
+
 - Typescript 룰 셋을 사용하는 경우
 
 ```json
