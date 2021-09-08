@@ -8,12 +8,12 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'standard',
-    ...[
-      './recommends/base',
-      './recommends/typescript-eslint',
-      './rules/base',
-      './rules/typescript',
-    ].map(require.resolve),
+    ...['./recommends/base', './rules/base'].map(require.resolve),
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    ...['./recommends/typescript-eslint', './rules/typescript'].map(
+      require.resolve,
+    ),
   ],
   env: {
     node: true,
