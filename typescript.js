@@ -1,6 +1,5 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
