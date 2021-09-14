@@ -102,7 +102,7 @@ Object {
       "never",
     ],
     "array-callback-return": Array [
-      "off",
+      "error",
       Object {
         "allowImplicit": false,
         "checkForEach": false,
@@ -189,14 +189,14 @@ Object {
       "all",
     ],
     "default-case-last": Array [
-      "off",
+      "error",
     ],
     "dot-location": Array [
       "off",
       "property",
     ],
     "dot-notation": Array [
-      "off",
+      "error",
       Object {
         "allowKeywords": true,
         "allowPattern": "",
@@ -297,7 +297,7 @@ Object {
       "error",
     ],
     "import/no-absolute-path": Array [
-      "off",
+      "error",
       Object {
         "amd": false,
         "commonjs": true,
@@ -814,7 +814,7 @@ Object {
       "error",
     ],
     "no-loss-of-precision": Array [
-      "off",
+      "error",
     ],
     "no-misleading-character-class": Array [
       "error",
@@ -983,7 +983,7 @@ Object {
       "error",
     ],
     "no-unreachable-loop": Array [
-      "off",
+      "error",
     ],
     "no-unsafe-finally": Array [
       "error",
@@ -1019,7 +1019,7 @@ Object {
       },
     ],
     "no-useless-backreference": Array [
-      "off",
+      "error",
     ],
     "no-useless-call": Array [
       "error",
@@ -1043,7 +1043,7 @@ Object {
       "error",
     ],
     "no-var": Array [
-      "off",
+      "warn",
     ],
     "no-void": Array [
       "error",
@@ -1058,7 +1058,7 @@ Object {
       "off",
     ],
     "node/handle-callback-err": Array [
-      "off",
+      "error",
       "^(err|error)$",
     ],
     "node/no-callback-literal": Array [
@@ -1068,13 +1068,13 @@ Object {
       "error",
     ],
     "node/no-exports-assign": Array [
-      "off",
+      "error",
     ],
     "node/no-new-require": Array [
-      "off",
+      "error",
     ],
     "node/no-path-concat": Array [
-      "off",
+      "error",
     ],
     "node/process-exit-as-throw": Array [
       "error",
@@ -1146,7 +1146,7 @@ Object {
       "error",
     ],
     "prefer-regex-literals": Array [
-      "off",
+      "error",
       Object {
         "disallowRedundantWrapping": true,
       },
@@ -1954,7 +1954,7 @@ Object {
       "never",
     ],
     "array-callback-return": Array [
-      "off",
+      "error",
       Object {
         "allowImplicit": false,
         "checkForEach": false,
@@ -2041,14 +2041,14 @@ Object {
       "all",
     ],
     "default-case-last": Array [
-      "off",
+      "error",
     ],
     "dot-location": Array [
       "off",
       "property",
     ],
     "dot-notation": Array [
-      "off",
+      "error",
       Object {
         "allowKeywords": true,
         "allowPattern": "",
@@ -2149,7 +2149,7 @@ Object {
       "error",
     ],
     "import/no-absolute-path": Array [
-      "off",
+      "error",
       Object {
         "amd": false,
         "commonjs": true,
@@ -2669,7 +2669,7 @@ Object {
       "error",
     ],
     "no-loss-of-precision": Array [
-      "off",
+      "error",
     ],
     "no-misleading-character-class": Array [
       "error",
@@ -2838,7 +2838,7 @@ Object {
       "error",
     ],
     "no-unreachable-loop": Array [
-      "off",
+      "error",
     ],
     "no-unsafe-finally": Array [
       "error",
@@ -2874,7 +2874,7 @@ Object {
       },
     ],
     "no-useless-backreference": Array [
-      "off",
+      "error",
     ],
     "no-useless-call": Array [
       "error",
@@ -2913,7 +2913,7 @@ Object {
       "off",
     ],
     "node/handle-callback-err": Array [
-      "off",
+      "error",
       "^(err|error)$",
     ],
     "node/no-callback-literal": Array [
@@ -2923,13 +2923,13 @@ Object {
       "error",
     ],
     "node/no-exports-assign": Array [
-      "off",
+      "error",
     ],
     "node/no-new-require": Array [
-      "off",
+      "error",
     ],
     "node/no-path-concat": Array [
-      "off",
+      "error",
     ],
     "node/process-exit-as-throw": Array [
       "error",
@@ -3001,7 +3001,7 @@ Object {
       "error",
     ],
     "prefer-regex-literals": Array [
-      "off",
+      "error",
       Object {
         "disallowRedundantWrapping": true,
       },
