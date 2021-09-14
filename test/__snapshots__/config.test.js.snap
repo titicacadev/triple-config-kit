@@ -1151,8 +1151,41 @@ Object {
     "prettier/prettier": Array [
       "error",
     ],
+    "promise/always-return": Array [
+      "error",
+    ],
+    "promise/avoid-new": Array [
+      "off",
+    ],
+    "promise/catch-or-return": Array [
+      "error",
+    ],
+    "promise/no-callback-in-promise": Array [
+      "warn",
+    ],
+    "promise/no-native": Array [
+      "off",
+    ],
+    "promise/no-nesting": Array [
+      "warn",
+    ],
+    "promise/no-new-statics": Array [
+      "error",
+    ],
+    "promise/no-promise-in-callback": Array [
+      "warn",
+    ],
+    "promise/no-return-in-finally": Array [
+      "warn",
+    ],
+    "promise/no-return-wrap": Array [
+      "error",
+    ],
     "promise/param-names": Array [
       "error",
+    ],
+    "promise/valid-params": Array [
+      "warn",
     ],
     "quote-props": Array [
       "off",
@@ -2976,8 +3009,41 @@ Object {
     "prettier/prettier": Array [
       "error",
     ],
+    "promise/always-return": Array [
+      "error",
+    ],
+    "promise/avoid-new": Array [
+      "off",
+    ],
+    "promise/catch-or-return": Array [
+      "error",
+    ],
+    "promise/no-callback-in-promise": Array [
+      "warn",
+    ],
+    "promise/no-native": Array [
+      "off",
+    ],
+    "promise/no-nesting": Array [
+      "warn",
+    ],
+    "promise/no-new-statics": Array [
+      "error",
+    ],
+    "promise/no-promise-in-callback": Array [
+      "warn",
+    ],
+    "promise/no-return-in-finally": Array [
+      "warn",
+    ],
+    "promise/no-return-wrap": Array [
+      "error",
+    ],
     "promise/param-names": Array [
       "error",
+    ],
+    "promise/valid-params": Array [
+      "warn",
     ],
     "quote-props": Array [
       "off",
