@@ -7,8 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'standard',
-    ...['./rules/base'].map(require.resolve),
-    require.resolve('./rules/prettier'),
+    ...['./rules/base', './rules/prettier'].map(require.resolve),
   ],
   env: {
     node: true,
