@@ -8,6 +8,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'standard',
     ...['./recommends/base', './rules/base'].map(require.resolve),
+    'plugin:prettier/recommended',
   ],
   env: {
     node: true,
@@ -29,5 +30,8 @@ module.exports = {
       // It will default to "detect" in the future
     },
   },
-  rules: {},
+  rules: {
+    // prettier 추천 설정 사용으로 어긋난 규칙 보정
+    curly: 'error',
+  },
 }

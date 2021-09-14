@@ -11,6 +11,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     ...['./rules/typescript'].map(require.resolve),
+    'plugin:prettier/recommended',
   ],
   env: {
     node: true,
@@ -32,5 +33,9 @@ module.exports = {
       // It will default to "detect" in the future
     },
   },
-  rules: {},
+  rules: {
+    // prettier 추천 설정 사용으로 어긋난 규칙 보정
+    '@typescript-eslint/type-annotation-spacing': 'error',
+    curly: 'error',
+  },
 }
