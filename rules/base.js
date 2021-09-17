@@ -7,7 +7,6 @@ module.exports = {
   rules: {
     camelcase: ['error', { properties: 'always' }],
     'handle-callback-err': ['error', '^(err|error)$'],
-    'lines-between-class-members': ['error', 'always'],
     'no-console': 'error',
     'no-negated-in-lhs': 'error',
     'no-new-require': 'error',

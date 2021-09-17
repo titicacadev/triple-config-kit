@@ -648,6 +648,9 @@ Object {
     "lines-between-class-members": Array [
       "error",
       "always",
+      Object {
+        "exceptAfterSingleLine": true,
+      },
     ],
     "max-len": Array [
       0,
@@ -2497,6 +2500,9 @@ Object {
     "lines-between-class-members": Array [
       "error",
       "always",
+      Object {
+        "exceptAfterSingleLine": true,
+      },
     ],
     "max-len": Array [
       0,
