@@ -2140,7 +2140,7 @@ Object {
       "error",
     ],
     "import/named": Array [
-      "error",
+      "off",
     ],
     "import/namespace": Array [
       "error",
@@ -3466,6 +3466,35 @@ Object {
     ],
   },
   "settings": Object {
+    "import/extensions": Array [
+      ".ts",
+      ".tsx",
+      ".d.ts",
+      ".js",
+      ".jsx",
+    ],
+    "import/external-module-folders": Array [
+      "node_modules",
+      "node_modules/@types",
+    ],
+    "import/parsers": Object {
+      "@typescript-eslint/parser": Array [
+        ".ts",
+        ".tsx",
+        ".d.ts",
+      ],
+    },
+    "import/resolver": Object {
+      "node": Object {
+        "extensions": Array [
+          ".ts",
+          ".tsx",
+          ".d.ts",
+          ".js",
+          ".jsx",
+        ],
+      },
+    },
     "react": Object {
       "createClass": "createReactClass",
       "pragma": "React",
