@@ -44,9 +44,6 @@ module.exports = {
       rules: {
         // prettier 추천 설정 사용으로 어긋난 규칙 보정
         '@typescript-eslint/type-annotation-spacing': 'error',
-
-        // overrides 전환으로 어긋난 규칙 보정
-        'no-var': 'off',
       },
     },
   ],
