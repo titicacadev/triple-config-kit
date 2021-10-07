@@ -2898,7 +2898,7 @@ Object {
       "error",
     ],
     "no-var": Array [
-      "off",
+      "error",
     ],
     "no-void": Array [
       "error",
