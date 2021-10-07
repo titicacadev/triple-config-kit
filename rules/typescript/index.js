@@ -30,7 +30,6 @@ module.exports = {
       'error',
       { functions: false, classes: true },
     ],
-    camelcase: 'off',
     '@typescript-eslint/no-empty-function': 'off',
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': [
@@ -45,6 +44,7 @@ module.exports = {
       'error',
       { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
     ],
+    camelcase: 'off',
     '@typescript-eslint/naming-convention': getNamingConvention({ regex }),
   },
 }
