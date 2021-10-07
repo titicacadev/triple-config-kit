@@ -2859,7 +2859,7 @@ Object {
       "error",
     ],
     "no-unused-vars": Array [
-      "error",
+      "off",
       Object {
         "argsIgnorePattern": "^_+$",
         "ignoreRestSiblings": true,

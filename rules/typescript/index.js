@@ -41,10 +41,6 @@ module.exports = {
         allowTaggedTemplates: true,
       },
     ],
-    'no-unused-vars': [
-      'error',
-      { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
-    ],
     '@typescript-eslint/no-unused-vars': [
       'error',
       { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },

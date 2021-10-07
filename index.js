@@ -46,7 +46,6 @@ module.exports = {
         '@typescript-eslint/type-annotation-spacing': 'error',
 
         // overrides 전환으로 어긋난 규칙 보정
-        'no-unused-vars': 'error',
         'no-var': 'off',
       },
     },
