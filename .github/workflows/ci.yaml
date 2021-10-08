@@ -28,9 +28,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Git checkout@v2
-        uses: actions/checkout@v2
-
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
@@ -44,6 +41,8 @@ jobs:
           SLACK_TITLE: ':rocket: Build WORKING'
           SLACK_TOPIC: ''
         run: npx @titicaca/gha-tools notify
+
+      - uses: actions/checkout@v2
 
       - name: Cache dependencies
         uses: actions/cache@v2
