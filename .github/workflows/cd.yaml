@@ -8,28 +8,27 @@ on:
       - 'release-prod-*'
       - 'release-canary'
 
+env:
+  SLACK_CHANNEL: '#a-dev-notifications'
+  SLACK_WEBHOOK: ${{ secrets.FRONTEND_NOTIFICATIONS_WEBHOOK_URL }}
+  SLACK_USERNAME: 'ESLint Config Triple'
+  SLACK_ICON_EMOJI: ':eslint:'
+  SLACK_COLOR: gray
+  SLACK_FOOTER: 'Triple Frontend'
+  SLACK_TOPIC:
+  SLACK_AUTHOR_NAME: ${{ github.event.sender.login }}
+  SLACK_AUTHOR_ICON: '${{ github.event.sender.avatar_url }}'
+  SLACK_GITHUB_REF: '${{ github.event.ref }}'
+  SLACK_GITHUB_EVENT_NAME: '${{ github.event_name }}'
+  SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
+  SLACK_DETAIL_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [15.x]
-
-    env:
-      SLACK_CHANNEL: '#a-dev-notifications'
-      SLACK_WEBHOOK: ${{ secrets.FRONTEND_NOTIFICATIONS_WEBHOOK_URL }}
-      SLACK_USERNAME: 'ESLint Config Triple'
-      SLACK_ICON_EMOJI: ':eslint:'
-      SLACK_COLOR: gray
-      SLACK_FOOTER: 'Triple Frontend'
-      SLACK_TOPIC:
-      SLACK_AUTHOR_NAME: ${{ github.event.sender.login }}
-      SLACK_AUTHOR_ICON: '${{ github.event.sender.avatar_url }}'
-      SLACK_GITHUB_REF: '${{ github.event.ref }}'
-      SLACK_GITHUB_EVENT_NAME: '${{ github.event_name }}'
-      SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
-      SLACK_DETAIL_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
-
     steps:
       - name: Git checkout@v2
         uses: actions/checkout@v2
