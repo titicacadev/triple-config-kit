@@ -64,17 +64,14 @@ jobs:
             ${{ runner.OS }}-build-${{ env.cache-name }}-
             ${{ runner.OS }}-build-
 
-      - name: Build
-        run: |
-          npm ci
+      - name: Install dependencies
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+        run: npm ci
 
-      - name: Lint
-        run: npm run lint
+      - run: npm run lint
 
-      - name: Test
-        run: npm test
+      - run: npm run test
 
       - name: Notify build and test success to slack
         if: success()
