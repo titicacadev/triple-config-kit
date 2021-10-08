@@ -55,13 +55,14 @@ jobs:
         run: |
           npx @titicaca/gha-tools notify
 
-      - name: Cache .npm
-        uses: actions/cache@v1
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-build-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
 
       - name: Build
         run: |
