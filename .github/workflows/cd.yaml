@@ -68,7 +68,10 @@ jobs:
         run: node -e 'process.exit(1)'
 
   release:
+    needs: wait-for-ci
+    if: github.event.ref != 'refs/tags/release-canary'
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [15.x]
@@ -160,3 +163,69 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
         run: |
           npx @titicaca/gha-tools notify
+
+  canary-release:
+    needs: wait-for-ci
+    if: github.event.ref == 'refs/tags/release-canary'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: ${{ env.NPM_REGISTRY_URL }}
+
+      - uses: actions/checkout@v2
+
+      - name: Define canary release version
+        run: |
+          echo "DEPLOY_VERSION=v0.0.0-${GITHUB_SHA:0:7}" >> $GITHUB_ENV
+      - name: Notify release start to Slack
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+          SLACK_COLOR: gray
+          SLACK_TITLE: ':rocket: Release WORKING'
+          SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
+        run: npx @titicaca/gha-tools notify
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-build-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+      - name: Install dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+        run: npm ci
+
+      - run: npm run build
+
+      - name: Update to defined version
+        run: npm version $DEPLOY_VERSION --git-tag-version=false
+
+      - name: Publish as canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
+        run: npm publish --tag canary
+
+      - name: Notify release success to Slack
+        if: success()
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+          SLACK_COLOR: success
+          SLACK_TITLE: ':tada: Release SUCCESS'
+          SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
+        run: npx @titicaca/gha-tools notify
+
+      - name: Notify release failure to Slack
+        if: failure()
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+          SLACK_COLOR: fail
+          SLACK_TITLE: ':pleading: Release FAILURE'
+          SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
+        run: npx @titicaca/gha-tools notify
