@@ -9,19 +9,22 @@ on:
       - 'release-canary'
 
 env:
-  SLACK_CHANNEL: '#a-dev-notifications'
-  SLACK_WEBHOOK: ${{ secrets.FRONTEND_NOTIFICATIONS_WEBHOOK_URL }}
-  SLACK_USERNAME: 'ESLint Config Triple'
-  SLACK_ICON_EMOJI: ':eslint:'
-  SLACK_COLOR: gray
-  SLACK_FOOTER: 'Triple Frontend'
-  SLACK_TOPIC:
-  SLACK_AUTHOR_NAME: ${{ github.event.sender.login }}
-  SLACK_AUTHOR_ICON: '${{ github.event.sender.avatar_url }}'
-  SLACK_GITHUB_REF: '${{ github.event.ref }}'
-  SLACK_GITHUB_EVENT_NAME: '${{ github.event_name }}'
-  SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
+  GITHUB_API_URL_BASE: https://api.github.com/repos/${{ github.repository }}
+  # Node.js
+  NODE_VERSION: '16.x'
+  NPM_REGISTRY_URL: 'https://registry.npmjs.org'
+  # Slack Notifications
+  SLACK_WEBHOOK: ${{ secrets.GHA_NOTIFICATIONS_WEBHOOK_URL }}
+  SLACK_CHANNEL: '#a-dev-notifications' # 메시지 보낼 채널
+  SLACK_USERNAME: 'ESLint Config Triple' # 메시지를 보내는 계정 이름
+  SLACK_ICON_EMOJI: ':triple_new:'
   SLACK_DETAIL_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+  SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
+  SLACK_AUTHOR_NAME: ${{ github.event.sender.login }}
+  SLACK_AUTHOR_ICON: ${{ github.event.sender.avatar_url }}
+  SLACK_FOOTER: ${{ github.repository }}
+  SLACK_GITHUB_REF: ${{ github.event.ref }} # 메시지에 ref로 표시되는 값
+  SLACK_GITHUB_EVENT_NAME: ${{ github.event_name }} # 메시지에 Event로 표시되는 값
 
 jobs:
   build:
