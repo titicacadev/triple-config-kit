@@ -48,12 +48,13 @@ jobs:
           VERSION="v$(cat ./package.json | jq -r '.version')-$PR_SHORT_SHA"
           echo "DEPLOY_VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Notify build start to slack
+      - name: Notify build start to Slack
         env:
-          SLACK_TITLE: ':rocket: Build Started'
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-        run: |
-          npx @titicaca/gha-tools notify
+          SLACK_COLOR: gray
+          SLACK_TITLE: ':rocket: Build WORKING'
+          SLACK_TOPIC: ''
+        run: npx @titicaca/gha-tools notify
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -73,20 +74,20 @@ jobs:
 
       - run: npm run test
 
-      - name: Notify build and test success to slack
+      - name: Notify build success to Slack
         if: success()
         env:
-          SLACK_TITLE: ':tada: Build Succeed'
-          SLACK_COLOR: success
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-        run: |
-          npx @titicaca/gha-tools notify
+          SLACK_COLOR: success
+          SLACK_TITLE: ':tada: Build SUCCESS'
+          SLACK_TOPIC: ''
+        run: npx @titicaca/gha-tools notify
 
-      - name: Notify build and test fail to slack
+      - name: Notify build failure to Slack
         if: failure()
         env:
-          SLACK_TITLE: ':x: Build Failed'
-          SLACK_COLOR: fail
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-        run: |
-          npx @titicaca/gha-tools notify
+          SLACK_COLOR: fail
+          SLACK_TITLE: ':pleading: Build FAILURE'
+          SLACK_TOPIC: ''
+        run: npx @titicaca/gha-tools notify
