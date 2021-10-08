@@ -27,6 +27,45 @@ env:
   SLACK_GITHUB_EVENT_NAME: ${{ github.event_name }} # 메시지에 Event로 표시되는 값
 
 jobs:
+  wait-for-ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: ${{ env.NPM_REGISTRY_URL }}
+
+      - name: Wait for CI
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-ci
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: build
+          ref: ${{ github.event.head }}
+
+      - name: Notify checking CI timeout
+        if: steps.wait-for-ci.outputs.conclusion == 'timed_out'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+          SLACK_COLOR: fail
+          SLACK_TITLE: ':pleading: CI Waiting timeout'
+          SLACK_TOPIC: 'CI workflow가 시작되었는지, 기다리는 job의 이름이 CI job과 일치하는지, 확인해주세요.'
+        run: npx @titicaca/gha-tools notify
+
+      - name: Notify checking CI failure
+        if: steps.wait-for-ci.outputs.conclusion == 'failure'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
+          SLACK_COLOR: fail
+          SLACK_TITLE: ':pleading: CI FAILURE'
+          SLACK_TOPIC: '배포를 중단합니다.'
+        run: npx @titicaca/gha-tools notify
+
+      - name: Shutdown workflow
+        if: steps.wait-for-ci.outputs.conclusion != 'success'
+        run: node -e 'process.exit(1)'
   build:
     runs-on: ubuntu-latest
     strategy:
