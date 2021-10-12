@@ -860,9 +860,6 @@ Object {
         "maxEOF": 0,
       },
     ],
-    "no-negated-in-lhs": Array [
-      "error",
-    ],
     "no-new": Array [
       "error",
     ],
@@ -2710,9 +2707,6 @@ Object {
         "max": 1,
         "maxEOF": 0,
       },
-    ],
-    "no-negated-in-lhs": Array [
-      "error",
     ],
     "no-new": Array [
       "error",
