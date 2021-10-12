@@ -1743,9 +1743,6 @@ Object {
     "@typescript-eslint/explicit-member-accessibility": Array [
       "error",
     ],
-    "@typescript-eslint/explicit-module-boundary-types": Array [
-      "warn",
-    ],
     "@typescript-eslint/func-call-spacing": Array [
       "off",
     ],
@@ -1890,6 +1887,9 @@ Object {
     "@typescript-eslint/no-inferrable-types": Array [
       "error",
     ],
+    "@typescript-eslint/no-loss-of-precision": Array [
+      "error",
+    ],
     "@typescript-eslint/no-misused-new": Array [
       "error",
     ],
@@ -1909,6 +1909,12 @@ Object {
       "error",
     ],
     "@typescript-eslint/no-unnecessary-type-assertion": Array [
+      "error",
+    ],
+    "@typescript-eslint/no-unnecessary-type-constraint": Array [
+      "error",
+    ],
+    "@typescript-eslint/no-unsafe-argument": Array [
       "error",
     ],
     "@typescript-eslint/no-unsafe-assignment": Array [
@@ -1955,9 +1961,6 @@ Object {
       "error",
     ],
     "@typescript-eslint/prefer-namespace-keyword": Array [
-      "error",
-    ],
-    "@typescript-eslint/prefer-regexp-exec": Array [
       "error",
     ],
     "@typescript-eslint/quotes": Array [
@@ -2718,7 +2721,7 @@ Object {
       "error",
     ],
     "no-loss-of-precision": Array [
-      "error",
+      "off",
     ],
     "no-misleading-character-class": Array [
       "error",
