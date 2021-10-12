@@ -30,6 +30,9 @@ module.exports = {
       'error',
       { functions: false, classes: true },
     ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/issues/45
+     */
     '@typescript-eslint/no-empty-function': 'off',
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': [
@@ -40,6 +43,9 @@ module.exports = {
         allowTaggedTemplates: true,
       },
     ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/issues/55
+     */
     '@typescript-eslint/no-unused-vars': [
       'error',
       { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
