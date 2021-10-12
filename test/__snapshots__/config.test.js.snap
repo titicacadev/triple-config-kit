@@ -869,9 +869,6 @@ Object {
     "no-new-object": Array [
       "error",
     ],
-    "no-new-require": Array [
-      "error",
-    ],
     "no-new-symbol": Array [
       "error",
     ],
@@ -2715,9 +2712,6 @@ Object {
       "error",
     ],
     "no-new-object": Array [
-      "error",
-    ],
-    "no-new-require": Array [
       "error",
     ],
     "no-new-symbol": Array [
