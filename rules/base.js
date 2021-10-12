@@ -9,7 +9,6 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/issues/37
      */
     camelcase: ['error', { properties: 'always' }],
-    'handle-callback-err': ['error', '^(err|error)$'],
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/74
      */
