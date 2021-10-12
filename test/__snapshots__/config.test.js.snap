@@ -884,9 +884,6 @@ Object {
     "no-octal-escape": Array [
       "error",
     ],
-    "no-path-concat": Array [
-      "error",
-    ],
     "no-proto": Array [
       "error",
     ],
@@ -2727,9 +2724,6 @@ Object {
       "error",
     ],
     "no-octal-escape": Array [
-      "error",
-    ],
-    "no-path-concat": Array [
       "error",
     ],
     "no-proto": Array [
