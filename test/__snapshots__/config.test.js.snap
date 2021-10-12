@@ -271,10 +271,6 @@ Object {
     "getter-return": Array [
       "error",
     ],
-    "handle-callback-err": Array [
-      "error",
-      "^(err|error)$",
-    ],
     "implicit-arrow-linebreak": Array [
       "off",
     ],
@@ -2125,10 +2121,6 @@ Object {
     ],
     "getter-return": Array [
       "off",
-    ],
-    "handle-callback-err": Array [
-      "error",
-      "^(err|error)$",
     ],
     "implicit-arrow-linebreak": Array [
       "off",
