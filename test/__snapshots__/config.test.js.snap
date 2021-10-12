@@ -748,6 +748,9 @@ Object {
     "no-empty-character-class": Array [
       "error",
     ],
+    "no-empty-function": Array [
+      "off",
+    ],
     "no-empty-pattern": Array [
       "error",
     ],
@@ -1209,7 +1212,7 @@ Object {
       "error",
     ],
     "react/display-name": Array [
-      2,
+      "error",
     ],
     "react/jsx-child-element-spacing": Array [
       "off",
@@ -3070,7 +3073,7 @@ Object {
       "error",
     ],
     "react/display-name": Array [
-      2,
+      "error",
     ],
     "react/jsx-child-element-spacing": Array [
       "off",

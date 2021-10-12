@@ -1,5 +1,9 @@
 module.exports = {
   rules: {
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/issues/43
+     * https://github.com/titicacadev/eslint-config-triple/issues/75
+     */
     'import/order': [
       'error',
       {
@@ -14,6 +18,9 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['builtin'],
       },
     ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/issues/98
+     */
     'import/newline-after-import': 'error',
   },
 }
