@@ -1366,7 +1366,9 @@ var location = env.development ?
 
   ```js
   // ✓ 좋아요
-  ;`hello`.indexOf('o') // ✗ 피하세요
+  ;`hello`.indexOf(
+    'o',
+  ) // ✗ 피하세요
   `hello`.indexOf('o')
   ```
 
