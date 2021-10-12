@@ -8,8 +8,7 @@
     "rules",
     "index.js",
     "prettierrc.js",
-    "stylelint.js",
-    "typescript.js"
+    "stylelint.js"
   ],
   "scripts": {
     "lint:es": "eslint './recommends/**/*.js' './rules/**/*.js'",
