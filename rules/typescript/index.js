@@ -1,3 +1,5 @@
+const { rules: baseRules } = require('../base')
+
 const {
   commonExcludes,
   getRules: getNamingConvention,
@@ -32,7 +34,8 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
     'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': ['error', { functions: false }],
+    '@typescript-eslint/no-use-before-define':
+      baseRules['no-use-before-define'],
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/45
      */
@@ -41,22 +44,13 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
     'no-unused-expressions': 'off',
-    '@typescript-eslint/no-unused-expressions': [
-      'error',
-      {
-        allowShortCircuit: true,
-        allowTernary: true,
-        allowTaggedTemplates: true,
-      },
-    ],
+    '@typescript-eslint/no-unused-expressions':
+      baseRules['no-unused-expressions'],
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/55
      */
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
-    ],
+    '@typescript-eslint/no-unused-vars': baseRules['no-unused-vars'],
     camelcase: 'off',
     '@typescript-eslint/naming-convention': getNamingConvention({ regex }),
   },
