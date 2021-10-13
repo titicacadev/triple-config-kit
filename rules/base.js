@@ -17,6 +17,9 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/issues/45
      */
     'no-empty-function': 'off',
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
     'no-return-await': 'error',
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
