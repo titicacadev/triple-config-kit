@@ -1649,13 +1649,6 @@ Object {
     ],
     "@typescript-eslint/ban-ts-comment": Array [
       "error",
-      Object {
-        "minimumDescriptionLength": 3,
-        "ts-check": false,
-        "ts-expect-error": true,
-        "ts-ignore": true,
-        "ts-nocheck": true,
-      },
     ],
     "@typescript-eslint/ban-types": Array [
       "error",

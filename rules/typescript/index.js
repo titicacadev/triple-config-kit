@@ -9,16 +9,10 @@ const regex = `^(${commonExcludes.join('|')})$`
 
 module.exports = {
   rules: {
-    '@typescript-eslint/ban-ts-comment': [
-      'error',
-      {
-        'ts-expect-error': true,
-        'ts-ignore': true,
-        'ts-nocheck': true,
-        'ts-check': false,
-        minimumDescriptionLength: 3,
-      },
-    ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
+    '@typescript-eslint/ban-ts-comment': 'error',
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
