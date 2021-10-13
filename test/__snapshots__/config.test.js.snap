@@ -1802,7 +1802,7 @@ Object {
       "error",
     ],
     "@typescript-eslint/no-explicit-any": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-extra-non-null-assertion": Array [
       "error",
