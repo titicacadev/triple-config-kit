@@ -54,6 +54,9 @@ module.exports = {
      */
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': baseRules['no-unused-vars'],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/70
+     */
     camelcase: 'off',
     '@typescript-eslint/naming-convention': getNamingConvention({ regex }),
   },
