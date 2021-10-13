@@ -1823,7 +1823,7 @@ Object {
       "error",
     ],
     "@typescript-eslint/no-inferrable-types": Array [
-      "off",
+      "error",
     ],
     "@typescript-eslint/no-misused-new": Array [
       "error",
