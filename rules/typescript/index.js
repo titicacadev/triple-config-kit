@@ -19,6 +19,9 @@ module.exports = {
         minimumDescriptionLength: 3,
       },
     ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
     '@typescript-eslint/consistent-type-assertions': 'error',
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
@@ -29,6 +32,9 @@ module.exports = {
       'error',
       { accessibility: 'no-public' },
     ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
     '@typescript-eslint/no-var-requires': 'off',
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
