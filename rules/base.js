@@ -47,6 +47,9 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/issues/85
      */
     'object-shorthand': ['error', 'always'],
-    'require-atomic-updates': 'error',
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
+    'require-atomic-updates': 'off',
   },
 }
