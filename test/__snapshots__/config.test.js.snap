@@ -1318,7 +1318,7 @@ Object {
       },
     ],
     "require-atomic-updates": Array [
-      "error",
+      "off",
     ],
     "require-yield": Array [
       "error",
@@ -3153,7 +3153,7 @@ Object {
       },
     ],
     "require-atomic-updates": Array [
-      "error",
+      "off",
     ],
     "require-await": Array [
       "off",
