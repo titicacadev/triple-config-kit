@@ -25,10 +25,10 @@ module.exports = {
       'error',
       { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
     ],
-    'no-use-before-define': [
-      'error',
-      { functions: false, classes: true, variables: true },
-    ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
+    'no-use-before-define': ['error', { functions: false }],
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/85
      */
