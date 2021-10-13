@@ -1588,8 +1588,6 @@ Object {
   },
   "settings": Object {
     "react": Object {
-      "createClass": "createReactClass",
-      "pragma": "React",
       "version": "detect",
     },
   },
@@ -3452,8 +3450,6 @@ Object {
       },
     },
     "react": Object {
-      "createClass": "createReactClass",
-      "pragma": "React",
       "version": "detect",
     },
   },
