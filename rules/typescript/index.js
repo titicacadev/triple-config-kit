@@ -27,11 +27,11 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
     '@typescript-eslint/no-inferrable-types': 'error',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/explicit-member-accessibility': [
-      'error',
-      { accessibility: 'no-public' },
-    ],
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/explicit-member-accessibility': 'error',
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
