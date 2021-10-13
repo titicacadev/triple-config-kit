@@ -10,10 +10,6 @@ module.exports = {
     'standard',
     ...['./rules/base', './rules/prettier'].map(require.resolve),
   ],
-  parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: 'module',
-  },
   settings: {
     react: {
       createClass: 'createReactClass', // Regex for Component Factory to use,
