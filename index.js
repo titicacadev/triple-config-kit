@@ -10,11 +10,6 @@ module.exports = {
     'standard',
     ...['./rules/base', './rules/prettier'].map(require.resolve),
   ],
-  env: {
-    node: true,
-    browser: true,
-    jest: true,
-  },
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: 'module',
