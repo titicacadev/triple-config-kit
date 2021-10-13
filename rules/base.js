@@ -19,6 +19,17 @@ module.exports = {
     'no-empty-function': 'off',
     'no-return-await': 'error',
     /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
+      },
+    ],
+    /**
      * https://github.com/titicacadev/eslint-config-triple/issues/55
      */
     'no-unused-vars': [
