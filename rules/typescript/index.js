@@ -52,6 +52,7 @@ module.exports = {
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/55
      */
+    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
