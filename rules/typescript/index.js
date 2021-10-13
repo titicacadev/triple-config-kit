@@ -37,6 +37,9 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/issues/45
      */
     '@typescript-eslint/no-empty-function': 'off',
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': [
       'error',
