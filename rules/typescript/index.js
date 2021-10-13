@@ -18,7 +18,10 @@ module.exports = {
       },
     ],
     '@typescript-eslint/consistent-type-assertions': 'error',
-    '@typescript-eslint/no-inferrable-types': 'off',
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
+    '@typescript-eslint/no-inferrable-types': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-member-accessibility': [
       'error',
