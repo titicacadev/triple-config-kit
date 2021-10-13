@@ -8,6 +8,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:promise/recommended',
     'standard',
+    'standard-jsx',
     ...['./rules/base', './rules/prettier'].map(require.resolve),
   ],
   env: {
