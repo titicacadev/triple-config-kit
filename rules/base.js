@@ -1,9 +1,5 @@
 module.exports = {
   extends: ['./react', './react-hooks', './import'].map(require.resolve),
-  env: {
-    es6: true,
-    es2021: false,
-  },
   rules: {
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/37

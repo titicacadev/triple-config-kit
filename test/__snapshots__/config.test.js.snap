@@ -3,10 +3,7 @@
 exports[`eslint javascript config 1`] = `
 Object {
   "env": Object {
-    "browser": true,
-    "es2021": false,
-    "es6": true,
-    "jest": true,
+    "es2021": true,
     "node": true,
   },
   "globals": Object {
@@ -1602,10 +1599,7 @@ Object {
 exports[`eslint typescript config 1`] = `
 Object {
   "env": Object {
-    "browser": true,
-    "es2021": false,
-    "es6": true,
-    "jest": true,
+    "es2021": true,
     "node": true,
   },
   "globals": Object {
