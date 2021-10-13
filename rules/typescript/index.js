@@ -25,11 +25,11 @@ module.exports = {
       { accessibility: 'no-public' },
     ],
     '@typescript-eslint/no-var-requires': 'off',
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
     'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': [
-      'error',
-      { functions: false, classes: true },
-    ],
+    '@typescript-eslint/no-use-before-define': ['error', { functions: false }],
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/45
      */
