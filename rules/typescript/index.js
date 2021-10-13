@@ -31,6 +31,9 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
     '@typescript-eslint/no-explicit-any': 'error',
+    /**
+     * https://github.com/titicacadev/eslint-config-triple/pull/136
+     */
     '@typescript-eslint/explicit-member-accessibility': 'error',
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
