@@ -1286,6 +1286,8 @@ Object {
       "error",
       Object {
         "enforceDynamicLinks": "always",
+        "forms": false,
+        "links": true,
       },
     ],
     "react/jsx-no-undef": Array [
@@ -3202,6 +3204,8 @@ Object {
       "error",
       Object {
         "enforceDynamicLinks": "always",
+        "forms": false,
+        "links": true,
       },
     ],
     "react/jsx-no-undef": Array [
@@ -3589,7 +3593,6 @@ Object {
     "import/extensions": Array [
       ".ts",
       ".tsx",
-      ".d.ts",
       ".js",
       ".jsx",
     ],
@@ -3601,7 +3604,6 @@ Object {
       "@typescript-eslint/parser": Array [
         ".ts",
         ".tsx",
-        ".d.ts",
       ],
     },
     "import/resolver": Object {
@@ -3609,7 +3611,6 @@ Object {
         "extensions": Array [
           ".ts",
           ".tsx",
-          ".d.ts",
           ".js",
           ".jsx",
         ],
