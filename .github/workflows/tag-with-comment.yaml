@@ -52,7 +52,7 @@ jobs:
           echo "PR_TITLE=$(cat ./pr.json | jq -r '.title')" >> $GITHUB_ENV
       - name: Leave reaction to comment
         run: |
-          curl -v \
+          curl \
             --url https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.squirrel-girl-preview+json" \
@@ -158,7 +158,6 @@ jobs:
           DEPLOY_VERSION="v0.0.0-${PR_SHA:0:7}"
           curl --url $GITHUB_API_URL_BASE/issues/${{ env.PR_NUMBER }}/comments \
             -f --request POST \
-            -v \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d "{\"body\":\"$DEPLOY_VERSION has been published!\"}"
