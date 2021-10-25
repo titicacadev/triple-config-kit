@@ -39,6 +39,8 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
     'no-use-before-define': ['error', { functions: false }],
+
+    'no-void': ['error', { allowAsStatement: true }],
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/85
      */
