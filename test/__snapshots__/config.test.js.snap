@@ -1151,6 +1151,9 @@ Object {
     ],
     "promise/catch-or-return": Array [
       "error",
+      Object {
+        "allowFinally": true,
+      },
     ],
     "promise/no-callback-in-promise": Array [
       "warn",
@@ -3072,6 +3075,9 @@ Object {
     ],
     "promise/catch-or-return": Array [
       "error",
+      Object {
+        "allowFinally": true,
+      },
     ],
     "promise/no-callback-in-promise": Array [
       "warn",
