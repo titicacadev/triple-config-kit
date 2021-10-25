@@ -25,4 +25,15 @@ function createConfig({ project, allowedNames = [] } = {}) {
   }
 }
 
-module.exports = { createConfig }
+function withTypeCheckingRules(config, { project }) {
+  return {
+    ...config,
+    extends: [
+      ...config.extends,
+      'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    ],
+    parserOptions: { ...config.parserOptions, project },
+  }
+}
+
+module.exports = { createConfig, withTypeCheckingRules }
