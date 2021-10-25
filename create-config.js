@@ -14,7 +14,6 @@ function createConfig({ project, allowedNames = [] } = {}) {
     overrides: [
       {
         files: ['*.ts', '*.tsx'],
-        parserOptions: { project },
         settings: { 'import/resolver': { typescript: { project } } },
         rules: {
           '@typescript-eslint/naming-convention': getRules({
