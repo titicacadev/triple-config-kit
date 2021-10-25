@@ -1033,6 +1033,9 @@ Object {
     ],
     "no-void": Array [
       "error",
+      Object {
+        "allowAsStatement": true,
+      },
     ],
     "no-whitespace-before-property": Array [
       "off",
@@ -2945,6 +2948,9 @@ Object {
     ],
     "no-void": Array [
       "error",
+      Object {
+        "allowAsStatement": true,
+      },
     ],
     "no-whitespace-before-property": Array [
       "off",
