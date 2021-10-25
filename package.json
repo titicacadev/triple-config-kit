@@ -20,7 +20,7 @@
     "update-snapshot": "jest -u",
     "test:watch": "jest --watch",
     "test": "jest",
-    "prepare": "[ $PREPARE_HUSKY_DISABLED ] || husky install"
+    "prepare": "[ $CI ] || husky install"
   },
   "repository": {
     "type": "git",
