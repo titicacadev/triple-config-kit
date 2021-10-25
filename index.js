@@ -26,6 +26,11 @@ module.exports = {
         'plugin:import/typescript',
         ...['./rules/typescript', './rules/prettier'].map(require.resolve),
       ],
+      settings: {
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+      },
     },
   ],
 }
