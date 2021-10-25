@@ -16,7 +16,6 @@ module.exports = {
       version: 'detect',
     },
   },
-  rules: {},
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -27,7 +26,6 @@ module.exports = {
         'plugin:import/typescript',
         ...['./rules/typescript', './rules/prettier'].map(require.resolve),
       ],
-      rules: {},
     },
   ],
 }
