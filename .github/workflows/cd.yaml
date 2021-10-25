@@ -95,8 +95,7 @@ jobs:
         run: npx @titicaca/gha-tools notify
 
       - name: Publish to npm
-        run: |
-          PREPARE_HUSKY_DISABLED=true npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
 
