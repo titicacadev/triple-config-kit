@@ -1727,9 +1727,6 @@ Object {
     "@typescript-eslint/adjacent-overload-signatures": Array [
       "error",
     ],
-    "@typescript-eslint/await-thenable": Array [
-      "error",
-    ],
     "@typescript-eslint/ban-ts-comment": Array [
       "error",
     ],
@@ -1883,15 +1880,6 @@ Object {
     "@typescript-eslint/no-extra-semi": Array [
       "off",
     ],
-    "@typescript-eslint/no-floating-promises": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-for-in-array": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-implied-eval": Array [
-      "error",
-    ],
     "@typescript-eslint/no-inferrable-types": Array [
       "error",
     ],
@@ -1899,9 +1887,6 @@ Object {
       "error",
     ],
     "@typescript-eslint/no-misused-new": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-misused-promises": Array [
       "error",
     ],
     "@typescript-eslint/no-namespace": Array [
@@ -1916,25 +1901,7 @@ Object {
     "@typescript-eslint/no-this-alias": Array [
       "error",
     ],
-    "@typescript-eslint/no-unnecessary-type-assertion": Array [
-      "error",
-    ],
     "@typescript-eslint/no-unnecessary-type-constraint": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-argument": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-assignment": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-call": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-member-access": Array [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-return": Array [
       "error",
     ],
     "@typescript-eslint/no-unused-expressions": Array [
@@ -1974,15 +1941,6 @@ Object {
     "@typescript-eslint/quotes": Array [
       0,
     ],
-    "@typescript-eslint/require-await": Array [
-      "error",
-    ],
-    "@typescript-eslint/restrict-plus-operands": Array [
-      "error",
-    ],
-    "@typescript-eslint/restrict-template-expressions": Array [
-      "error",
-    ],
     "@typescript-eslint/semi": Array [
       "off",
     ],
@@ -1997,9 +1955,6 @@ Object {
     ],
     "@typescript-eslint/type-annotation-spacing": Array [
       "off",
-    ],
-    "@typescript-eslint/unbound-method": Array [
-      "error",
     ],
     "accessor-pairs": Array [
       "error",
@@ -2701,7 +2656,7 @@ Object {
       "error",
     ],
     "no-implied-eval": Array [
-      "off",
+      "error",
     ],
     "no-import-assign": Array [
       "off",
@@ -3327,9 +3282,6 @@ Object {
       },
     ],
     "require-atomic-updates": Array [
-      "off",
-    ],
-    "require-await": Array [
       "off",
     ],
     "require-yield": Array [
