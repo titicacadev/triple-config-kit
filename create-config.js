@@ -19,24 +19,24 @@ function createConfig({ allowedNames = [], project } = {}) {
             regex: namingConventionIgnoreRegEx,
           }),
         },
+        /**
+         * import plugin with Typescript configuration
+         * https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
+         */
+        ...(project
+          ? {
+              settings: {
+                'import/resolver': {
+                  typescript: {
+                    alwaysTryTypes: true,
+                    project,
+                  },
+                },
+              },
+            }
+          : {}),
       },
     ],
-    /**
-     * import plugin with Typescript configuration
-     * https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
-     */
-    ...(project
-      ? {
-          settings: {
-            'import/resolver': {
-              typescript: {
-                alwaysTryTypes: true,
-                project,
-              },
-            },
-          },
-        }
-      : {}),
   }
 }
 
