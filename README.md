@@ -50,7 +50,7 @@
 }
 ```
 
-`.eslitrc.js` 파일을 만들어 주세요.
+`.eslintrc.js` 파일을 만들어 주세요.
 
 ```js
 const createConfig = require('@titicaca/eslint-config-triple/create-config')
