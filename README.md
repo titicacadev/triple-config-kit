@@ -50,73 +50,51 @@
 }
 ```
 
-- ES6+ 룰 셋을 사용하는 경우
+`.eslitrc.js` 파일을 만들어 주세요.
 
-```json
-// .eslintrc 파일
-{
-  "extends": "@titicaca/eslint-config-triple",
-  "rules": {
-    // 프로젝트별 적용할 Rules
+```js
+const createConfig = require('@titicaca/eslint-config-triple/create-config')
+
+module.exports = createConfig()
+```
+
+Typescript를 사용하고 있다면 사용할 수 있는 변수 이름을 넣어 줄 수 있습니다.
+
+```js
+const createConfig = require('@titicaca/eslint-config-triple/create-config')
+
+const allowedNames = ['__DISASTER__CALLBACK', '_triple_no_navbar']
+module.exports = createConfig({ allowedNames })
+```
+
+자체 설정을 추가하고 싶다면 다음과 같이 해주세요.
+
+```js
+const { extends, overrides } = createConfig()
+
+module.exports = {
+  extends: [
+    ...extends,
+    // 확장할 규칙 이름...
+  ],
+  overrides: [
+    ...overrides,
+    // 특정 파일 대상 규칙...
+  ],
+  rules: {
+    // 개별 규칙
   }
 }
 ```
 
 > 프로젝트에서 babel을 사용하지 않으면 Babel 설정을 찾을 수 없다는 파싱 에러가 발생합니다.
-> 다음을 .eslintrc.json에 추가해주세요.
+> 다음을 설정을 추가해주세요.
 >
 > ```json
 > "parserOptions": {
 >   "requireConfigFile": false
 > }
 > ```
-
-- Typescript 룰 셋을 사용하는 경우
-
-```json
-// .eslintrc 파일
-{
-  "extends": [
-    "@titicaca/eslint-config-triple/typescript",
-    "./eslintrc.naming-convention"
-    ...
-  ],
-  "rules": {
-    // 프로젝트별 적용할 Rules
-  }
-}
-```
-
-- `eslintrc.naming-convention.js` 에서 [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/naming-convention.md) 커스터 마이징
-
-```js
-const namingConvention = require('@titicaca/eslint-config-triple/rules/typescript/naming-convention')
-const excludes = [
-  ...namingConvention.commonExcludes,
-  // my excludes
-  '(banner|region|trip|event)_id',
-  'filter_(id|value|layover_types|stop_points|airline|outbound_departure_time|inbound_departure_time)',
-]
-const regex = `^(${excludes.join('|')})$`
-
-module.exports = {
-  rules: {
-    '@typescript-eslint/naming-convention': namingConvention.getRules({
-      // rules to extend
-      rules: [
-        {
-          selector: 'parameter',
-          format: ['camelCase', 'PascalCase', 'snake_case'],
-        },
-      ],
-      // custom exclude pattern
-      regex,
-    }),
-  },
-}
-```
-
-eslint-config-triple 에서 정의하는 naming-convention 을 확장하고 싶을때 사용합니다.
 
 ### prettier
 
