@@ -43,15 +43,6 @@ const createConfig = require('@titicaca/eslint-config-triple/create-config')
 module.exports = createConfig()
 ```
 
-Typescript를 사용하고 있다면 사용할 수 있는 변수 이름을 넣어 줄 수 있습니다.
-
-```js
-const createConfig = require('@titicaca/eslint-config-triple/create-config')
-
-const allowedNames = ['__DISASTER__CALLBACK', '_triple_no_navbar']
-module.exports = createConfig({ allowedNames })
-```
-
 자체 설정을 추가하고 싶다면 다음과 같이 해주세요.
 
 ```js
@@ -80,6 +71,23 @@ module.exports = {
 >   "requireConfigFile": false
 > }
 > ```
+
+#### typescript
+
+`tsconfig.json` 파일을 eslint에게 알려줘야 module alias를 해석하는 규칙을 사용할 수 있습니다.
+
+```js
+module.exports = createConfig({ project: './tsconfig.json' })
+```
+
+naming-convention 규칙에 어긋나지만 사용하려는 이름을 추가할 수 있습니다.
+
+```js
+const createConfig = require('@titicaca/eslint-config-triple/create-config')
+
+const allowedNames = ['__DISASTER__CALLBACK', '_triple_no_navbar']
+module.exports = createConfig({ allowedNames })
+```
 
 ### Prettier
 
