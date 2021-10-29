@@ -17,9 +17,9 @@ npm install @titicaca/eslint-config-triple
 파일 타입과 내용 기준으로, 3종류의 라이브러리가 Formatter 및 Linter 역할을 나누어
 가집니다.
 
-  - `.js`, `.ts`, `tsx`: ESLint
-  - `.json`, `.yaml`, `.md`: Prettier
-  - Stylesheet: Stylelint
+- `.js`, `.ts`, `tsx`: ESLint
+- `.json`, `.yaml`, `.md`: Prettier
+- Stylesheet: Stylelint
 
 ESLint, Pretter 등 에디터 플러그인을 사용한다면, 플러그인의 파일 분류 기준이 위와
 같도록 설정해야 합니다.
