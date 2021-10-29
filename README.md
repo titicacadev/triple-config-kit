@@ -1,4 +1,7 @@
-# eslint-config-triple
+# eslint-config-triple [![CI][ci-image]][ci-url]
+
+[ci-image]: https://github.com/titicacadev/eslint-config-triple/actions/workflows/ci.yaml/badge.svg?branch=main
+[ci-url]: https://github.com/titicacadev/eslint-config-triple/actions/workflows/ci.yaml
 
 트리플에서 작성하는 [JavaScript/TypeScript 작성 가이드](STYLE_GUIDE.md)에 맞는
 규칙을 정의한 [ESLint Sharable config](https://eslint.org/docs/developer-guide/shareable-configs)입니다.
