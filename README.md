@@ -1,12 +1,7 @@
-# Triple Frontend Style Configs
+# eslint-config-triple
 
-> `eslint-config-triple` 은 [eslint](http://eslint.org/) 룰 셋을 기본으로 트리플 frontend 개발 스타일 전반의 설정을 제공합니다.
-
-- `eslint-config-triple`는 아래의 룰 셋을 제공합니다.
-  - eslint es6+ : `@titicaca/eslint-config-triple`
-  - eslint typescript : `@titicaca/eslint-config-triple/typescript`
-  - prettier : `@titicaca/eslint-config-triple/prettierrc`
-  - stylelint : `@titicaca/eslint-config-triple/stylelint`
+트리플에서 작성하는 [JavaScript/TypeScript 작성 가이드](STYLE_GUIDE.md)에 맞는
+규칙을 정의한 [ESLint Sharable config](https://eslint.org/docs/developer-guide/shareable-configs)입니다.
 
 ## Install
 
@@ -145,12 +140,6 @@ js, ts 파일은 `eslint-plugin-prettier`이 검사하므로 prettier는 기타 
   "extends": ["@titicaca/eslint-config-triple/stylelint"]
 }
 ```
-
-## Triple JavaScript Style Guilde
-
-상세한 내용은 다음의 JavaScript 스타일 가이드를 참조하세요
-
-### [Triple JavaScript Style Guilde](STYLE_GUIDE.md)
 
 ## 개발하기
 
