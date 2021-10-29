@@ -21,13 +21,6 @@ function createConfig({ allowedNames = [], project, enableTypeCheck } = {}) {
         },
         ...(project
           ? {
-              ...(enableTypeCheck
-                ? {
-                    extends:
-                      'plugin:@typescript-eslint/recommended-requiring-type-checking',
-                    parserOptions: { project },
-                  }
-                : {}),
               /**
                * import plugin with Typescript configuration
                * https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
@@ -40,6 +33,13 @@ function createConfig({ allowedNames = [], project, enableTypeCheck } = {}) {
                   },
                 },
               },
+              ...(enableTypeCheck
+                ? {
+                    extends:
+                      'plugin:@typescript-eslint/recommended-requiring-type-checking',
+                    parserOptions: { project },
+                  }
+                : {}),
             }
           : {}),
       },
