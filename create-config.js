@@ -3,7 +3,7 @@ const {
   commonExcludes,
 } = require('./rules/typescript/naming-convention')
 
-function createConfig({ allowedNames = [], project } = {}) {
+function createConfig({ allowedNames = [], project, enableTypeCheck } = {}) {
   const namingConventionIgnoreRegEx = `^(${[
     ...commonExcludes,
     ...allowedNames,
@@ -21,9 +21,13 @@ function createConfig({ allowedNames = [], project } = {}) {
         },
         ...(project
           ? {
-              extends:
-                'plugin:@typescript-eslint/recommended-requiring-type-checking',
-              parserOptions: { project },
+              ...(enableTypeCheck
+                ? {
+                    extends:
+                      'plugin:@typescript-eslint/recommended-requiring-type-checking',
+                    parserOptions: { project },
+                  }
+                : {}),
               /**
                * import plugin with Typescript configuration
                * https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
