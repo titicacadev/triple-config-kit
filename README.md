@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-npm install @titicaca/eslint-config-triple
+npm install @titicaca/eslint-config-triple --save-dev
 ```
 
 ## Usage
