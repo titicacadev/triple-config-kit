@@ -19,12 +19,15 @@ function createConfig({ allowedNames = [], project } = {}) {
             regex: namingConventionIgnoreRegEx,
           }),
         },
-        /**
-         * import plugin with Typescript configuration
-         * https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
-         */
         ...(project
           ? {
+              extends:
+                'plugin:@typescript-eslint/recommended-requiring-type-checking',
+              parserOptions: { project },
+              /**
+               * import plugin with Typescript configuration
+               * https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
+               */
               settings: {
                 'import/resolver': {
                   typescript: {
