@@ -2,5 +2,13 @@
   "extends": ["./index"],
   "parserOptions": {
     "requireConfigFile": false
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }
