@@ -12,7 +12,7 @@
     "create-config.js"
   ],
   "scripts": {
-    "lint:es": "eslint './recommends/**/*.js' './rules/**/*.js'",
+    "lint:es": "eslint '**/*.{js,ts,tsx}'",
     "lint:es:fix": "npm run lint:es -- --fix",
     "prettier": "prettier '**/*.{json,yaml,md}' --check",
     "prettier:fix": "prettier '**/*.{json,yaml,md}' --write",
