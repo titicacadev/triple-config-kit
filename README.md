@@ -4,7 +4,11 @@
 [ci-url]: https://github.com/titicacadev/eslint-config-triple/actions/workflows/ci.yaml
 
 트리플에서 작성하는 [JavaScript/TypeScript 작성 가이드](STYLE_GUIDE.md)에 맞는
-규칙을 정의한 [ESLint Sharable config](https://eslint.org/docs/developer-guide/shareable-configs)입니다.
+규칙을 정의한 Linter/Formatter Configuration의 모읍입니다.
+
+- [ESLint Sharable config](https://eslint.org/docs/developer-guide/shareable-configs)
+- [Prettier config](https://prettier.io/docs/en/configuration.html)
+- [Stylelint config](https://stylelint.io/user-guide/configure/)
 
 ## Installation
 
