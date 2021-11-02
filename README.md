@@ -6,9 +6,9 @@
 트리플에서 작성하는 [JavaScript/TypeScript 작성 가이드](STYLE_GUIDE.md)에 맞는
 규칙을 정의한 Linter/Formatter Configuration의 모음입니다.
 
-- [ESLint Sharable config](https://eslint.org/docs/developer-guide/shareable-configs)
-- [Prettier config](https://prettier.io/docs/en/configuration.html)
-- [Stylelint config](https://stylelint.io/user-guide/configure/)
+- [ESLint Sharable Config](https://eslint.org/docs/developer-guide/shareable-configs)
+- [Prettier Config](https://prettier.io/docs/en/configuration.html)
+- [Stylelint Config](https://stylelint.io/user-guide/configure/)
 
 ## Installation
 
