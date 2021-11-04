@@ -1,6 +1,6 @@
 # Triple JavaScript Style Guide
 
-트리플 자바스크립트 스타일 가이드는 [Javascript Standard Style](https://standardjs.com/rules-kokr.html)을 기준으로 작성되었습니다.
+트리플 자바스크립트 스타일 가이드는 [JavaScript Standard Style](https://standardjs.com/rules-kokr.html)을 기준으로 작성되었습니다.
 
 ---
 
