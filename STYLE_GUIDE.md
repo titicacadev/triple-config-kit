@@ -90,8 +90,8 @@
 
   ```js
   // ✗ 피하세요
-  var x = 2
-  var message = 'hello, ' + name + '!'
+  var x=2
+  var message = 'hello, '+name+'!'
   ```
 
 - **쉽표 뒤에 공백** 이 있어야 합니다.
@@ -127,7 +127,8 @@
   // ✗ 피하세요
   if (condition) {
     // ...
-  } else {
+  }
+  else {
     // ...
   }
   ```
@@ -196,9 +197,11 @@
   ```js
   // ✗ 피하세요
   var value = 'hello world'
+  // blank line
+  // blank line
+  console.log(value)
   ```
 
-console.log(value)
 
 ````
 
@@ -1273,7 +1276,7 @@ var location = env.development ?
   eslint: [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing)
 
   ```js
-  const message = `Hello, ${name}` // ✗ 피하세요
+  const message = `Hello, ${ name }` // ✗ 피하세요
   const message = `Hello, ${name}` // ✓ 좋아요
   ```
 
@@ -1304,7 +1307,7 @@ var location = env.development ?
   ```js
   const getName = (function () {})() // ✗ 피하세요
 
-  const getName = (function () {})() // ✓ 좋아요
+  const getName = (function () {}()) // ✓ 좋아요
   const getName = (function () {})() // ✓ 좋아요
   ```
 
@@ -1313,7 +1316,7 @@ var location = env.development ?
   eslint: [`yield-star-spacing`](http://eslint.org/docs/rules/yield-star-spacing)
 
   ```js
-  yield * increment() // ✗ 피하세요
+  yield* increment() // ✗ 피하세요
   yield * increment() // ✓ 좋아요
   ```
 
