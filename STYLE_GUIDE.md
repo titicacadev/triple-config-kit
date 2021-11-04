@@ -48,7 +48,7 @@
   if(condition) { ... }    // ✗ 피하세요
   ```
 
-- **함수 선언 괄호 앞에 공백을 추가합니다.**
+- **함수 선언 괄호 앞에 공백을 추가합니다.** (단, 함수명이 바로 붙어있는 경우는 공백을 넣지 않습니다.)
 
   eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren)
 
@@ -132,13 +132,15 @@
   }
   ```
 
-- **여러줄의 if문을 사용할 경우** 중괄호를 사용해야합니다.
+- **if문을 사용할 경우** 중괄호를 사용해야합니다.
 
   eslint: [`curly`](http://eslint.org/docs/rules/curly)
 
   ```js
   // ✓ 좋아요
-  if (options.quiet !== true) console.log('done')
+  if (options.quiet !== true) {
+    console.log('done')
+  }
   ```
 
   ```js
