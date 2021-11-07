@@ -127,7 +127,8 @@ module.exports = createConfig({ allowedNames })
 
 ```json
 {
-  "lint:style": "stylelint './**/*.{js,ts,tsx}'"
+  "lint:style": "stylelint './**/*.{js,ts,tsx}'",
+  "lint:style:fix": "stylelint './**/*.{js,ts,tsx}' --fix"
 }
 ```
 
