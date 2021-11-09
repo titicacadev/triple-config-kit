@@ -3,26 +3,15 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:import/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
     'plugin:promise/recommended',
     'standard',
-    'standard-jsx',
     ...[
       './rules/base',
-      './rules/react',
-      './rules/react-hooks',
       './rules/import',
       './rules/promise',
       './rules/prettier',
     ].map(require.resolve),
   ],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
