@@ -9,7 +9,14 @@ module.exports = {
     'plugin:promise/recommended',
     'standard',
     'standard-jsx',
-    ...['./rules/base', './rules/prettier'].map(require.resolve),
+    ...[
+      './rules/base',
+      './rules/react',
+      './rules/react-hooks',
+      './rules/import',
+      './rules/promise',
+      './rules/prettier',
+    ].map(require.resolve),
   ],
   settings: {
     react: {
