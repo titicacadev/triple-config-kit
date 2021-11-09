@@ -1207,7 +1207,7 @@ Object {
       },
     ],
     "react-hooks/exhaustive-deps": Array [
-      "error",
+      "warn",
     ],
     "react-hooks/rules-of-hooks": Array [
       "error",
@@ -3098,7 +3098,7 @@ Object {
       },
     ],
     "react-hooks/exhaustive-deps": Array [
-      "error",
+      "warn",
     ],
     "react-hooks/rules-of-hooks": Array [
       "error",
