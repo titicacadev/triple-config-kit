@@ -3,7 +3,13 @@ const {
   commonExcludes,
 } = require('./rules/typescript/naming-convention')
 
+const extendCandidates = {
+  frontend: ['.', './frontend'].map(require.resolve),
+  node: ['.'].map(require.resolve),
+}
+
 function createConfig({
+  type = 'node',
   allowedNames = [],
   project,
   tsconfigRootDir,
@@ -15,7 +21,7 @@ function createConfig({
   ].join('|')})$`
 
   return {
-    extends: require.resolve('.'),
+    extends: extendCandidates[type] || extendCandidates.node,
     overrides: [
       {
         files: ['*.ts', '*.tsx'],
