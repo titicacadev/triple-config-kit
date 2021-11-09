@@ -29,3 +29,15 @@ test('eslint typescript config', async () => {
     parser: expect.stringMatching(/@typescript-eslint/),
   })
 })
+
+test('eslint frontend config', async () => {
+  const eslint = new ESLint({
+    extensions: ['ts', 'tsx'],
+    overrideConfigFile: path.resolve(__dirname, '../frontend.js'),
+    useEslintrc: false,
+  })
+
+  const config = await eslint.calculateConfigForFile('./mock.tsx')
+
+  expect(config).toMatchSnapshot()
+})
