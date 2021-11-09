@@ -1,7 +1,4 @@
 module.exports = {
-  extends: ['./react', './react-hooks', './import', './promise'].map(
-    require.resolve,
-  ),
   rules: {
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/37
