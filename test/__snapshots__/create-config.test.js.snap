@@ -782,6 +782,18 @@ Object {
     "no-global-assign": Array [
       "error",
     ],
+    "no-implicit-coercion": Array [
+      "error",
+      Object {
+        "allow": Array [
+          "!!",
+        ],
+        "boolean": true,
+        "disallowTemplateShorthand": false,
+        "number": true,
+        "string": true,
+      },
+    ],
     "no-implied-eval": Array [
       "error",
     ],
@@ -2701,6 +2713,18 @@ Object {
     ],
     "no-global-assign": Array [
       "error",
+    ],
+    "no-implicit-coercion": Array [
+      "error",
+      Object {
+        "allow": Array [
+          "!!",
+        ],
+        "boolean": true,
+        "disallowTemplateShorthand": false,
+        "number": true,
+        "string": true,
+      },
     ],
     "no-implied-eval": Array [
       "off",
