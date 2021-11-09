@@ -93,6 +93,26 @@ const allowedNames = ['__DISASTER__CALLBACK', '_triple_no_navbar']
 module.exports = createConfig({ allowedNames })
 ```
 
+#### frontend
+
+프론트엔드 프로젝트라면 `@titicaca/eslint-config-triple/frontend` 규칙 모음을 추가하세요.
+`createConfig` 함수의 `type` 파라미터를 "frontend"로 지정하세요.
+
+```js
+module.exports = createConfig({ type: 'frontend' })
+```
+
+또는,
+
+```json
+{
+  "extends": [
+    "@titicaca/eslint-config-triple",
+    "@titicaca/eslint-config-triple/frontend"
+  ]
+}
+```
+
 ### Prettier
 
 `package.json`에 다음 스크립트를 추가해주세요.
