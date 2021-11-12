@@ -59,5 +59,10 @@ module.exports = {
      */
     camelcase: 'off',
     '@typescript-eslint/naming-convention': getNamingConvention({ regex }),
+
+    'import/named': 'off',
+    'import/namespace': 'off',
+    'import/default': 'off',
+    'import/no-named-as-default-member': 'off',
   },
 }
