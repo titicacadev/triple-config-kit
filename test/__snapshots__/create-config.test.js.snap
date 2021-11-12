@@ -1796,7 +1796,7 @@ Object {
       "off",
     ],
     "import/default": Array [
-      "error",
+      "off",
     ],
     "import/export": Array [
       "error",
@@ -1808,7 +1808,7 @@ Object {
       "off",
     ],
     "import/namespace": Array [
-      "error",
+      "off",
     ],
     "import/newline-after-import": Array [
       "error",
@@ -1828,7 +1828,7 @@ Object {
       "warn",
     ],
     "import/no-named-as-default-member": Array [
-      "warn",
+      "off",
     ],
     "import/no-named-default": Array [
       "error",
