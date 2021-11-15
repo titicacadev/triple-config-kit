@@ -4,6 +4,7 @@ const createConfig = require('../create-config')
 
 test('eslint createConfig javascript', async () => {
   const overrideConfig = createConfig({
+    type: 'node',
     allowedNames: ['_triple_mock_value'],
   })
   const eslint = new ESLint({
@@ -21,6 +22,7 @@ test('eslint createConfig javascript', async () => {
 
 test('eslint createConfig typescript', async () => {
   const overrideConfig = createConfig({
+    type: 'node',
     allowedNames: ['_triple_mock_value'],
     project: './tsconfig.json',
     tsconfigRootDir: '~/mock-dir-name',
