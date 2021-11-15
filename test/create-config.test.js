@@ -40,3 +40,24 @@ test('eslint createConfig typescript', async () => {
     parser: expect.stringMatching(/@typescript-eslint/),
   })
 })
+
+test('eslint createConfig frontend type', async () => {
+  const overrideConfig = createConfig({
+    type: 'frontend',
+    allowedNames: ['_triple_mock_value'],
+    project: './tsconfig.json',
+    tsconfigRootDir: '~/mock-dir-name',
+    enableTypeCheck: true,
+  })
+  const eslint = new ESLint({
+    extensions: ['ts', 'tsx'],
+    overrideConfig,
+    useEslintrc: false,
+  })
+
+  const config = await eslint.calculateConfigForFile('./mock.ts')
+
+  expect(config).toMatchSnapshot({
+    parser: expect.stringMatching(/@typescript-eslint/),
+  })
+})
