@@ -9,12 +9,16 @@ const extendCandidates = {
 }
 
 function createConfig({
-  type = 'node',
+  type,
   allowedNames = [],
   project,
   tsconfigRootDir,
   enableTypeCheck,
 } = {}) {
+  if (type === undefined) {
+    throw new Error('type 파라미터가 없습니다. ("frontend" | "node")')
+  }
+
   const namingConventionIgnoreRegEx = `^(${[
     ...commonExcludes,
     ...allowedNames,
