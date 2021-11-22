@@ -70,7 +70,7 @@ module.exports = {
 #### babel을 사용하지 않는 프로젝트
 
 Babel을 사용하지 않는 프로젝트에서 Babel 설정을 찾을 수 없다는 파싱 에러가 발생합니다.
-다음을 설정을 추가해주세요.
+다음을 설정에 추가해주세요.
 
 ```js
 module.exports = {
