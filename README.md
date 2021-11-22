@@ -67,14 +67,31 @@ module.exports = {
 }
 ```
 
-> 프로젝트에서 babel을 사용하지 않으면 Babel 설정을 찾을 수 없다는 파싱 에러가 발생합니다.
-> 다음을 설정을 추가해주세요.
->
-> ```json
-> "parserOptions": {
->   "requireConfigFile": false
-> }
-> ```
+#### babel을 사용하지 않는 프로젝트
+
+Babel을 사용하지 않는 프로젝트에서 Babel 설정을 찾을 수 없다는 파싱 에러가 발생합니다.
+다음을 설정을 추가해주세요.
+
+```js
+module.exports = {
+  ...createConfig({ type: 'node' }),
+
+  parserOptions: {
+    requireConfigFile: false,
+  },
+}
+```
+
+또는,
+
+```json
+{
+  "extends": "@titicaca/eslint-config-triple",
+  "parserOptions": {
+    "requireConfigFile": false
+  }
+}
+```
 
 #### typescript
 
