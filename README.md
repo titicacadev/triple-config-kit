@@ -50,11 +50,11 @@ module.exports = createConfig({ type: 'node' })
 자체 설정을 추가하고 싶다면 다음과 같이 해주세요.
 
 ```js
-const { extends, overrides } = createConfig({ type: 'node' })
+const { extends: extendConfigs, overrides } = createConfig({ type: 'node' })
 
 module.exports = {
   extends: [
-    ...extends,
+    ...extendConfigs,
     // 확장할 규칙 이름...
   ],
   overrides: [
@@ -63,7 +63,7 @@ module.exports = {
   ],
   rules: {
     // 개별 규칙
-  }
+  },
 }
 ```
 
