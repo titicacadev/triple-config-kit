@@ -1396,6 +1396,12 @@ Object {
     "promise/param-names": Array [
       "error",
     ],
+    "promise/prefer-await-to-callbacks": Array [
+      "error",
+    ],
+    "promise/prefer-await-to-then": Array [
+      "error",
+    ],
     "promise/valid-params": Array [
       "warn",
     ],
@@ -2895,6 +2901,12 @@ Object {
     "promise/param-names": Array [
       "error",
     ],
+    "promise/prefer-await-to-callbacks": Array [
+      "error",
+    ],
+    "promise/prefer-await-to-then": Array [
+      "error",
+    ],
     "promise/valid-params": Array [
       "warn",
     ],
@@ -4390,6 +4402,12 @@ Object {
       "error",
     ],
     "promise/param-names": Array [
+      "error",
+    ],
+    "promise/prefer-await-to-callbacks": Array [
+      "error",
+    ],
+    "promise/prefer-await-to-then": Array [
       "error",
     ],
     "promise/valid-params": Array [
