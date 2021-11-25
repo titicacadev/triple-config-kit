@@ -1821,7 +1821,7 @@ Object {
     ],
     "object-shorthand": Array [
       "error",
-      "always",
+      "properties",
     ],
     "one-var": Array [
       "error",
@@ -3308,7 +3308,7 @@ Object {
     ],
     "object-shorthand": Array [
       "error",
-      "always",
+      "properties",
     ],
     "one-var": Array [
       "error",
