@@ -59,7 +59,7 @@
 
 ## 비동기 처리
 
-- 콜백보다 promise, promise보다 async/await 문법을 선호합니다. [prefer-await-to-callbacks](https://github.com/xjamundx/eslint-plugin-promise/blob/development/docs/rules/prefer-await-to-callbacks.md), [prefer-await-to-then](https://github.com/xjamundx/eslint-plugin-promise/blob/485509660ccc1901fd30040cf4e75c88922c6255/docs/rules/prefer-await-to-then.md)
+- 콜백보다 promise, promise보다 async/await 문법을 선호합니다. [promise/prefer-await-to-callbacks](https://github.com/xjamundx/eslint-plugin-promise/blob/development/docs/rules/prefer-await-to-callbacks.md), [promise/prefer-await-to-then](https://github.com/xjamundx/eslint-plugin-promise/blob/485509660ccc1901fd30040cf4e75c88922c6255/docs/rules/prefer-await-to-then.md)
 - `forEach`의 콜백 함수로 비동기 함수를 넘기지 마세요.
 
 ## 코드 품질
