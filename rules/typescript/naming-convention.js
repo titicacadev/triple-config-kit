@@ -7,9 +7,7 @@ const commonExcludes = [
   'Content-Type',
   'X-Soto-Session',
 ]
-/**
- * https://github.com/titicacadev/eslint-config-triple/issues/37
- */
+
 const rules = [
   'error',
   {
