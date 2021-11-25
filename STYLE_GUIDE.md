@@ -93,6 +93,7 @@
 
 - JSX에서 children이 없으면 닫는 태그를 따로 두지 않습니다. [react/self-closing-comp](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md)
 - JSX를 조건부 렌더링할 때 삼항 연산자를 사용합니다. short-circuit을 사용했을 때 조건식에 boolean이 아닌 값이 들어가면 해당 값이 렌더링되는 문제가 생깁니다.
+- 자식이 하나 뿐인 Fragment를 사용하지 마세요. [react/jsx-no-useless-fragment](https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/docs/rules/jsx-no-useless-fragment.md)
 - 컴포넌트의 이름을 명시하세요. [react/dislay-name](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md)
 - prop-types를 사용하지 않습니다. TypeScript를 대신 사용합니다. [react/prop-types](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md)
 - 함수 컴포넌트를 사용합니다. 에러 경게 컴포넌트를 만들 때에만 클래스 컴포넌트를 사용합니다.
