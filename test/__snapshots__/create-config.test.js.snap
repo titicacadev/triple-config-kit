@@ -1529,6 +1529,12 @@ Object {
         "allowGlobals": true,
       },
     ],
+    "react/jsx-no-useless-fragment": Array [
+      "error",
+      Object {
+        "allowExpressions": true,
+      },
+    ],
     "react/jsx-one-expression-per-line": Array [
       "off",
     ],
