@@ -51,10 +51,11 @@
 - 본인만의 줄임말은 쓰지 마세요. 널리 알려진 단어나 사내 도메인 언어로 활용하는 줄임말은 사용합니다.
 - 줄임말을 대문자화할 때 한 단어로 보고 첫 글자만 대문자로 표시합니다. 예를 들어, "usePOI" 대신 "usePoi"를 사용합니다.
 - 변수는 명사형, 함수는 동사형으로 지어주세요.
-- 함수, 변수, 속성 이름은 camelCase를 사용합니다. [camelCase](https://eslint.org/docs/rules/camelcase), [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md)
+- 기본적으로 camelCase를 사용합니다. [camelCase](https://eslint.org/docs/rules/camelcase), [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md)
 - file 단위의 상수는 BIG_SNAKE_CASE를 사용합니다.
 - 클래스, 인터페이스, 타입 이름은 PascalCase를 사용합니다. [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md)
-- 열거형의 이름과 멤버 모두 PascalCase를 사용합니다.
+- 열거형의 이름과 멤버 모두 PascalCase를 사용합니다. [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md)
+- 리액트 컴포넌트는 PascalCase를 사용합니다.
 
 ## 비동기 처리
 
