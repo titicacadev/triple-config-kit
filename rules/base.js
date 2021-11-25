@@ -45,7 +45,7 @@ module.exports = {
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/85
      */
-    'object-shorthand': ['error', 'always'],
+    'object-shorthand': ['error', 'properties'],
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
