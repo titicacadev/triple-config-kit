@@ -4,6 +4,7 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/issues/37
      */
     camelcase: ['error', { properties: 'always' }],
+    'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     /**
      * https://github.com/titicacadev/eslint-config-triple/issues/74
      */

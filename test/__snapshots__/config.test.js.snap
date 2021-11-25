@@ -1195,6 +1195,13 @@ Object {
       "off",
       "never",
     ],
+    "func-style": Array [
+      "error",
+      "declaration",
+      Object {
+        "allowArrowFunctions": true,
+      },
+    ],
     "function-call-argument-newline": Array [
       "off",
     ],
@@ -2674,6 +2681,13 @@ Object {
     "func-call-spacing": Array [
       "off",
       "never",
+    ],
+    "func-style": Array [
+      "error",
+      "declaration",
+      Object {
+        "allowArrowFunctions": true,
+      },
     ],
     "function-call-argument-newline": Array [
       "off",
