@@ -88,72 +88,10 @@ Object {
           "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
         },
         "format": Array [
-          "camelCase",
+          "strictCamelCase",
         ],
         "leadingUnderscore": "allow",
         "selector": "default",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "UPPER_CASE",
-        ],
-        "leadingUnderscore": "allow",
-        "modifiers": Array [
-          "private",
-        ],
-        "selector": "memberLike",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "PascalCase",
-        ],
-        "selector": "typeLike",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "UPPER_CASE",
-          "PascalCase",
-        ],
-        "selector": "variable",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "PascalCase",
-        ],
-        "leadingUnderscore": "allow",
-        "selector": "parameter",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "PascalCase",
-          "UPPER_CASE",
-        ],
-        "leadingUnderscore": "allow",
-        "selector": "property",
       },
       Object {
         "filter": Object {
@@ -172,9 +110,28 @@ Object {
           "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
         },
         "format": Array [
-          "UPPER_CASE",
           "PascalCase",
-          "camelCase",
+        ],
+        "selector": "typeLike",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+        },
+        "format": Array [
+          "PascalCase",
         ],
         "selector": "enumMember",
       },
@@ -3362,72 +3319,10 @@ Object {
           "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
         },
         "format": Array [
-          "camelCase",
+          "strictCamelCase",
         ],
         "leadingUnderscore": "allow",
         "selector": "default",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "UPPER_CASE",
-        ],
-        "leadingUnderscore": "allow",
-        "modifiers": Array [
-          "private",
-        ],
-        "selector": "memberLike",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "PascalCase",
-        ],
-        "selector": "typeLike",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "UPPER_CASE",
-          "PascalCase",
-        ],
-        "selector": "variable",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "PascalCase",
-        ],
-        "leadingUnderscore": "allow",
-        "selector": "parameter",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "PascalCase",
-          "UPPER_CASE",
-        ],
-        "leadingUnderscore": "allow",
-        "selector": "property",
       },
       Object {
         "filter": Object {
@@ -3446,9 +3341,28 @@ Object {
           "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
         },
         "format": Array [
-          "UPPER_CASE",
           "PascalCase",
-          "camelCase",
+        ],
+        "selector": "typeLike",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+        },
+        "format": Array [
+          "PascalCase",
         ],
         "selector": "enumMember",
       },

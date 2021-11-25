@@ -14,31 +14,7 @@ const rules = [
   'error',
   {
     selector: 'default',
-    format: ['camelCase'],
-    leadingUnderscore: 'allow',
-  },
-  {
-    selector: 'memberLike',
-    modifiers: ['private'],
-    format: ['camelCase', 'UPPER_CASE'],
-    leadingUnderscore: 'allow',
-  },
-  {
-    selector: 'typeLike',
-    format: ['PascalCase'],
-  },
-  {
-    selector: 'variable',
-    format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
-  },
-  {
-    selector: 'parameter',
-    format: ['camelCase', 'PascalCase'],
-    leadingUnderscore: 'allow',
-  },
-  {
-    selector: 'property',
-    format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+    format: ['strictCamelCase'],
     leadingUnderscore: 'allow',
   },
   {
@@ -46,8 +22,16 @@ const rules = [
     format: ['camelCase', 'PascalCase'],
   },
   {
+    selector: 'typeLike',
+    format: ['PascalCase'],
+  },
+  {
+    selector: 'variable',
+    format: ['strictCamelCase', 'UPPER_CASE'],
+  },
+  {
     selector: 'enumMember',
-    format: ['UPPER_CASE', 'PascalCase', 'camelCase'],
+    format: ['PascalCase'],
   },
 ]
 
