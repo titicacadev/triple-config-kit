@@ -17,6 +17,7 @@ module.exports = {
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */
     '@typescript-eslint/consistent-type-assertions': 'error',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
     /**
      * https://github.com/titicacadev/eslint-config-triple/pull/136
      */

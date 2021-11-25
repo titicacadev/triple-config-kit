@@ -78,7 +78,7 @@
 
 ## TypeScript
 
-- 인터페이스를 쓰는 것을 원칙으로 하고 타입이 필요한 경우에만 타입을 사용하세요.
+- 인터페이스를 쓰는 것을 원칙으로 하고 타입이 필요한 경우에만 타입을 사용하세요. [consistent-type-definitions](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/consistent-type-definitions.md)
   - 타입이 필요한 경우:
     - Union Type을 사용할 때
 - 객체의 타입을 정의할 때 단축 형태의 메서드를 사용하지 않습니다.

@@ -2311,6 +2311,10 @@ Object {
     "@typescript-eslint/consistent-type-assertions": Array [
       "error",
     ],
+    "@typescript-eslint/consistent-type-definitions": Array [
+      "error",
+      "interface",
+    ],
     "@typescript-eslint/explicit-member-accessibility": Array [
       "error",
     ],
