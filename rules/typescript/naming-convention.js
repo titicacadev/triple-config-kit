@@ -7,34 +7,34 @@ function createNamingConventionConfig({ allowedNames } = {}) {
 function createOptions({ allowedNames = [] }) {
   const filter = createFilter({ allowedNames })
 
-  return [
+  const commonProps = { filter }
+
+  const addCommonProps = (options) =>
+    options.map((option) => ({ ...option, ...commonProps }))
+
+  return addCommonProps([
     {
       selector: 'default',
       format: ['strictCamelCase'],
       leadingUnderscore: 'allow',
-      filter,
     },
     {
       selector: 'function',
       format: ['camelCase', 'PascalCase'],
-      filter,
     },
     {
       selector: 'typeLike',
       format: ['PascalCase'],
-      filter,
     },
     {
       selector: 'variable',
       format: ['strictCamelCase', 'UPPER_CASE', 'PascalCase'],
-      filter,
     },
     {
       selector: 'enumMember',
       format: ['PascalCase'],
-      filter,
     },
-  ]
+  ])
 }
 
 function createFilter({ allowedNames: customAllowedNames }) {
