@@ -31,7 +31,7 @@ function createConfig({
             options:
               type === 'frontend'
                 ? addReactComponentNamingConvention(
-                    createNamingConventionOptions({ allowedNames }),
+                    createNamingConventionOptions(),
                   )
                 : undefined,
           }),

@@ -5,13 +5,9 @@ module.exports = {
 }
 
 function createNamingConventionConfig({
-  allowedNames,
-  options = createOptions({ allowedNames }),
+  allowedNames = [],
+  options = createOptions(),
 } = {}) {
-  return ['error', ...options]
-}
-
-function createOptions({ allowedNames = [] } = {}) {
   const filter = createFilter({ allowedNames })
 
   const commonProps = { filter }
@@ -19,7 +15,11 @@ function createOptions({ allowedNames = [] } = {}) {
   const addCommonProps = (options) =>
     options.map((option) => ({ ...option, ...commonProps }))
 
-  return addCommonProps([
+  return ['error', ...addCommonProps(options)]
+}
+
+function createOptions() {
+  return [
     {
       selector: 'default',
       format: ['strictCamelCase', 'PascalCase', 'UPPER_CASE'],
@@ -57,7 +57,7 @@ function createOptions({ allowedNames = [] } = {}) {
       format: ['strictCamelCase', 'PascalCase'],
       leadingUnderscore: 'allow',
     },
-  ])
+  ]
 }
 
 function addReactComponentNamingConvention(options) {

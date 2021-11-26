@@ -161,6 +161,10 @@ Object {
         "selector": "parameter",
       },
       Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
         "format": Array [
           "strictCamelCase",
           "PascalCase",

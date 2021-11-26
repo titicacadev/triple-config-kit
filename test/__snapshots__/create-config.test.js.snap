@@ -196,6 +196,10 @@ Object {
         "selector": "parameter",
       },
       Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
         "format": Array [
           "strictCamelCase",
           "PascalCase",
