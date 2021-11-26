@@ -93,20 +93,11 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
+          "PascalCase",
+          "UPPER_CASE",
         ],
         "leadingUnderscore": "allow",
         "selector": "default",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "PascalCase",
-        ],
-        "selector": "function",
       },
       Object {
         "filter": Object {
@@ -125,10 +116,8 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
-          "UPPER_CASE",
-          "PascalCase",
         ],
-        "selector": "variable",
+        "selector": "memberLike",
       },
       Object {
         "filter": Object {
@@ -139,6 +128,67 @@ Object {
           "PascalCase",
         ],
         "selector": "enumMember",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+        ],
+        "selector": "function",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+        ],
+        "leadingUnderscore": "allow",
+        "modifiers": Array [
+          "unused",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+        ],
+        "selector": "parameter",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "PascalCase",
+        ],
+        "leadingUnderscore": "allow",
+        "modifiers": Array [
+          "unused",
+        ],
+        "selector": "parameter",
       },
     ],
     "@typescript-eslint/no-array-constructor": Array [
@@ -3347,20 +3397,11 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
+          "PascalCase",
+          "UPPER_CASE",
         ],
         "leadingUnderscore": "allow",
         "selector": "default",
-      },
-      Object {
-        "filter": Object {
-          "match": false,
-          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
-        },
-        "format": Array [
-          "camelCase",
-          "PascalCase",
-        ],
-        "selector": "function",
       },
       Object {
         "filter": Object {
@@ -3379,10 +3420,8 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
-          "UPPER_CASE",
-          "PascalCase",
         ],
-        "selector": "variable",
+        "selector": "memberLike",
       },
       Object {
         "filter": Object {
@@ -3393,6 +3432,67 @@ Object {
           "PascalCase",
         ],
         "selector": "enumMember",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+        ],
+        "selector": "function",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+        ],
+        "leadingUnderscore": "allow",
+        "modifiers": Array [
+          "unused",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+        ],
+        "selector": "parameter",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "PascalCase",
+        ],
+        "leadingUnderscore": "allow",
+        "modifiers": Array [
+          "unused",
+        ],
+        "selector": "parameter",
       },
     ],
     "@typescript-eslint/no-array-constructor": Array [
