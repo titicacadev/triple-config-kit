@@ -58,7 +58,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
-          "PascalCase",
+          "StrictPascalCase",
           "UPPER_CASE",
         ],
         "leadingUnderscore": "allow",
@@ -70,7 +70,7 @@ Object {
           "regex": "^(__html|Provider|Consumer|Component)$",
         },
         "format": Array [
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "typeLike",
       },
@@ -90,7 +90,7 @@ Object {
           "regex": "^(__html|Provider|Consumer|Component)$",
         },
         "format": Array [
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "enumMember",
       },
@@ -101,7 +101,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "function",
       },
@@ -113,7 +113,7 @@ Object {
         "format": Array [
           "strictCamelCase",
           "UPPER_CASE",
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "variable",
       },
@@ -125,7 +125,7 @@ Object {
         "format": Array [
           "strictCamelCase",
           "UPPER_CASE",
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "leadingUnderscore": "allow",
         "modifiers": Array [
@@ -140,7 +140,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "parameter",
       },
@@ -152,7 +152,7 @@ Object {
         "format": Array [
           "strictCamelCase",
           "PascalCase",
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "leadingUnderscore": "allow",
         "modifiers": Array [
@@ -167,7 +167,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "typeProperty",
       },
@@ -2468,7 +2468,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
-          "PascalCase",
+          "StrictPascalCase",
           "UPPER_CASE",
         ],
         "leadingUnderscore": "allow",
@@ -2480,7 +2480,7 @@ Object {
           "regex": "^(__html|Provider|Consumer|Component)$",
         },
         "format": Array [
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "typeLike",
       },
@@ -2500,7 +2500,7 @@ Object {
           "regex": "^(__html|Provider|Consumer|Component)$",
         },
         "format": Array [
-          "PascalCase",
+          "StrictPascalCase",
         ],
         "selector": "enumMember",
       },
