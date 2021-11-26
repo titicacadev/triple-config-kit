@@ -160,6 +160,13 @@ Object {
         ],
         "selector": "parameter",
       },
+      Object {
+        "format": Array [
+          "strictCamelCase",
+          "PascalCase",
+        ],
+        "selector": "typeProperty",
+      },
     ],
     "@typescript-eslint/no-extra-parens": Array [
       "off",
