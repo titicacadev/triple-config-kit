@@ -1,11 +1,6 @@
 const { rules: baseRules } = require('../base')
 
-const {
-  commonExcludes,
-  getRules: getNamingConvention,
-} = require('./naming-convention')
-
-const regex = `^(${commonExcludes.join('|')})$`
+const createNamingConventionConfig = require('./naming-convention')
 
 module.exports = {
   rules: {
@@ -26,7 +21,7 @@ module.exports = {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': baseRules['no-unused-vars'],
     camelcase: 'off',
-    '@typescript-eslint/naming-convention': getNamingConvention({ regex }),
+    '@typescript-eslint/naming-convention': createNamingConventionConfig(),
 
     'import/named': 'off',
     'import/namespace': 'off',

@@ -1,7 +1,4 @@
-const {
-  getRules,
-  commonExcludes,
-} = require('./rules/typescript/naming-convention')
+const createNamingConventionConfig = require('./rules/typescript/naming-convention')
 
 const extendCandidates = {
   frontend: ['.', './frontend'].map(require.resolve),
@@ -19,19 +16,14 @@ function createConfig({
     throw new Error('type 파라미터가 없습니다. ("frontend" | "node")')
   }
 
-  const namingConventionIgnoreRegEx = `^(${[
-    ...commonExcludes,
-    ...allowedNames,
-  ].join('|')})$`
-
   return {
     extends: extendCandidates[type] || extendCandidates.node,
     overrides: [
       {
         files: ['*.ts', '*.tsx'],
         rules: {
-          '@typescript-eslint/naming-convention': getRules({
-            regex: namingConventionIgnoreRegEx,
+          '@typescript-eslint/naming-convention': createNamingConventionConfig({
+            allowedNames,
           }),
         },
         ...(project

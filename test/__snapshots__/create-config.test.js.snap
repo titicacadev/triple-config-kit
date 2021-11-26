@@ -89,7 +89,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "strictCamelCase",
@@ -100,7 +100,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "camelCase",
@@ -111,7 +111,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "PascalCase",
@@ -121,7 +121,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "strictCamelCase",
@@ -133,7 +133,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "PascalCase",
@@ -3343,7 +3343,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "strictCamelCase",
@@ -3354,7 +3354,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "camelCase",
@@ -3365,7 +3365,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "PascalCase",
@@ -3375,7 +3375,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "strictCamelCase",
@@ -3387,7 +3387,7 @@ Object {
       Object {
         "filter": Object {
           "match": false,
-          "regex": "^(_*|__html|Provider|Consumer|Component|Content-Type|X-Soto-Session|_triple_mock_value)$",
+          "regex": "^(__html|Provider|Consumer|Component|_triple_mock_value)$",
         },
         "format": Array [
           "PascalCase",
