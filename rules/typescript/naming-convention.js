@@ -15,24 +15,40 @@ function createOptions({ allowedNames = [] }) {
   return addCommonProps([
     {
       selector: 'default',
-      format: ['strictCamelCase'],
+      format: ['strictCamelCase', 'PascalCase', 'UPPER_CASE'],
       leadingUnderscore: 'allow',
     },
-    {
-      selector: 'function',
-      format: ['camelCase', 'PascalCase'],
-    },
+
     {
       selector: 'typeLike',
       format: ['PascalCase'],
     },
-    {
-      selector: 'variable',
-      format: ['strictCamelCase', 'UPPER_CASE', 'PascalCase'],
-    },
+
+    { selector: 'memberLike', format: ['strictCamelCase'] },
     {
       selector: 'enumMember',
       format: ['PascalCase'],
+    },
+
+    { selector: 'function', format: ['strictCamelCase'] },
+
+    {
+      selector: 'variable',
+      format: ['strictCamelCase', 'UPPER_CASE'],
+    },
+    {
+      selector: 'variable',
+      modifiers: ['unused'],
+      format: ['strictCamelCase', 'UPPER_CASE'],
+      leadingUnderscore: 'allow',
+    },
+
+    { selector: 'parameter', format: ['strictCamelCase'] },
+    {
+      selector: 'parameter',
+      modifiers: ['unused'],
+      format: ['strictCamelCase', 'PascalCase'],
+      leadingUnderscore: 'allow',
     },
   ])
 }
