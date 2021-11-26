@@ -1,6 +1,6 @@
 const { rules: baseRules } = require('../base')
 
-const createNamingConventionConfig = require('./naming-convention')
+const { createNamingConventionConfig } = require('./naming-convention')
 
 module.exports = {
   rules: {

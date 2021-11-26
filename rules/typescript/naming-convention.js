@@ -1,10 +1,17 @@
-module.exports = createNamingConventionConfig
-
-function createNamingConventionConfig({ allowedNames } = {}) {
-  return ['error', ...createOptions({ allowedNames })]
+module.exports = {
+  createNamingConventionConfig,
+  createNamingConventionOptions: createOptions,
+  addReactComponentNamingConvention,
 }
 
-function createOptions({ allowedNames = [] }) {
+function createNamingConventionConfig({
+  allowedNames,
+  options = createOptions({ allowedNames }),
+} = {}) {
+  return ['error', ...options]
+}
+
+function createOptions({ allowedNames = [] } = {}) {
   const filter = createFilter({ allowedNames })
 
   const commonProps = { filter }
@@ -51,6 +58,17 @@ function createOptions({ allowedNames = [] }) {
       leadingUnderscore: 'allow',
     },
   ])
+}
+
+function addReactComponentNamingConvention(options) {
+  return options.map((option) =>
+    ['function', 'variable', 'parameter'].includes(option.selector)
+      ? {
+          ...option,
+          format: [...option.format, 'PascalCase'],
+        }
+      : option,
+  )
 }
 
 function createFilter({ allowedNames: customAllowedNames }) {

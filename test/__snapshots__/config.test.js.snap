@@ -49,6 +49,118 @@ Object {
     "@typescript-eslint/member-delimiter-style": Array [
       "off",
     ],
+    "@typescript-eslint/naming-convention": Array [
+      "error",
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "PascalCase",
+          "UPPER_CASE",
+        ],
+        "leadingUnderscore": "allow",
+        "selector": "default",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "PascalCase",
+        ],
+        "selector": "typeLike",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+        ],
+        "selector": "memberLike",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "PascalCase",
+        ],
+        "selector": "enumMember",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "PascalCase",
+        ],
+        "selector": "function",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+          "PascalCase",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "UPPER_CASE",
+          "PascalCase",
+        ],
+        "leadingUnderscore": "allow",
+        "modifiers": Array [
+          "unused",
+        ],
+        "selector": "variable",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "PascalCase",
+        ],
+        "selector": "parameter",
+      },
+      Object {
+        "filter": Object {
+          "match": false,
+          "regex": "^(__html|Provider|Consumer|Component)$",
+        },
+        "format": Array [
+          "strictCamelCase",
+          "PascalCase",
+          "PascalCase",
+        ],
+        "leadingUnderscore": "allow",
+        "modifiers": Array [
+          "unused",
+        ],
+        "selector": "parameter",
+      },
+    ],
     "@typescript-eslint/no-extra-parens": Array [
       "off",
     ],

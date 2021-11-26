@@ -136,6 +136,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
+          "PascalCase",
         ],
         "selector": "function",
       },
@@ -147,6 +148,7 @@ Object {
         "format": Array [
           "strictCamelCase",
           "UPPER_CASE",
+          "PascalCase",
         ],
         "selector": "variable",
       },
@@ -158,6 +160,7 @@ Object {
         "format": Array [
           "strictCamelCase",
           "UPPER_CASE",
+          "PascalCase",
         ],
         "leadingUnderscore": "allow",
         "modifiers": Array [
@@ -172,6 +175,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
+          "PascalCase",
         ],
         "selector": "parameter",
       },
@@ -182,6 +186,7 @@ Object {
         },
         "format": Array [
           "strictCamelCase",
+          "PascalCase",
           "PascalCase",
         ],
         "leadingUnderscore": "allow",
