@@ -126,6 +126,7 @@ Object {
         "format": Array [
           "strictCamelCase",
           "UPPER_CASE",
+          "PascalCase",
         ],
         "selector": "variable",
       },
@@ -3379,6 +3380,7 @@ Object {
         "format": Array [
           "strictCamelCase",
           "UPPER_CASE",
+          "PascalCase",
         ],
         "selector": "variable",
       },
