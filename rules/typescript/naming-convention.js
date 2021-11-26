@@ -22,19 +22,19 @@ function createOptions() {
   return [
     {
       selector: 'default',
-      format: ['strictCamelCase', 'PascalCase', 'UPPER_CASE'],
+      format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE'],
       leadingUnderscore: 'allow',
     },
 
     {
       selector: 'typeLike',
-      format: ['PascalCase'],
+      format: ['StrictPascalCase'],
     },
 
     { selector: 'memberLike', format: ['strictCamelCase'] },
     {
       selector: 'enumMember',
-      format: ['PascalCase'],
+      format: ['StrictPascalCase'],
     },
 
     { selector: 'function', format: ['strictCamelCase'] },
@@ -66,13 +66,13 @@ function addReactComponentNamingConvention(options) {
       ['function', 'variable', 'parameter'].includes(option.selector)
         ? {
             ...option,
-            format: [...option.format, 'PascalCase'],
+            format: [...option.format, 'StrictPascalCase'],
           }
         : option,
     ),
     {
       selector: 'typeProperty',
-      format: ['strictCamelCase', 'PascalCase'],
+      format: ['strictCamelCase', 'StrictPascalCase'],
     },
   ]
 }
