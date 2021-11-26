@@ -61,14 +61,20 @@ function createOptions({ allowedNames = [] } = {}) {
 }
 
 function addReactComponentNamingConvention(options) {
-  return options.map((option) =>
-    ['function', 'variable', 'parameter'].includes(option.selector)
-      ? {
-          ...option,
-          format: [...option.format, 'PascalCase'],
-        }
-      : option,
-  )
+  return [
+    ...options.map((option) =>
+      ['function', 'variable', 'parameter'].includes(option.selector)
+        ? {
+            ...option,
+            format: [...option.format, 'PascalCase'],
+          }
+        : option,
+    ),
+    {
+      selector: 'typeProperty',
+      format: ['strictCamelCase', 'PascalCase'],
+    },
+  ]
 }
 
 function createFilter({ allowedNames: customAllowedNames }) {
