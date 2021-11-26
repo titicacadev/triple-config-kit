@@ -1,3 +1,9 @@
+const {
+  createNamingConventionOptions,
+  createNamingConventionConfig,
+  addReactComponentNamingConvention,
+} = require('./rules/typescript/naming-convention')
+
 module.exports = {
   extends: [
     'plugin:react/recommended',
@@ -13,4 +19,16 @@ module.exports = {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/naming-convention': createNamingConventionConfig({
+          options: addReactComponentNamingConvention(
+            createNamingConventionOptions(),
+          ),
+        }),
+      },
+    },
+  ],
 }

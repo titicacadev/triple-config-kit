@@ -1,4 +1,8 @@
-const createNamingConventionConfig = require('./rules/typescript/naming-convention')
+const {
+  createNamingConventionConfig,
+  createNamingConventionOptions,
+  addReactComponentNamingConvention,
+} = require('./rules/typescript/naming-convention')
 
 const extendCandidates = {
   frontend: ['.', './frontend'].map(require.resolve),
@@ -24,6 +28,12 @@ function createConfig({
         rules: {
           '@typescript-eslint/naming-convention': createNamingConventionConfig({
             allowedNames,
+            options:
+              type === 'frontend'
+                ? addReactComponentNamingConvention(
+                    createNamingConventionOptions({ allowedNames }),
+                  )
+                : undefined,
           }),
         },
         ...(project
