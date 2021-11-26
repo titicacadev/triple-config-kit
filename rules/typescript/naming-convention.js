@@ -25,7 +25,7 @@ const rules = [
   },
   {
     selector: 'variable',
-    format: ['strictCamelCase', 'UPPER_CASE'],
+    format: ['strictCamelCase', 'UPPER_CASE', 'PascalCase'],
   },
   {
     selector: 'enumMember',
