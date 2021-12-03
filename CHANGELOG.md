@@ -1,5 +1,42 @@
 # CHANGELOG
 
+## v3.0.0
+
+### 주요 변경 사항
+
+- 트리플 JavaScript 스타일 가이드 작성
+- 의존하는 플러그인의 추천 규칙 사용
+- stylelint 최신 버전 사용 및 설정 개선
+- ESLint 설정을 해주는 `createConfig` 함수 추가
+
+### 세부 변경 사항
+
+- `@babel/eslint-parser`를 사용합니다. [#109](https://github.com/titicacadev/eslint-config-triple/pull/109)
+- eslint 버전을 올립니다. [#113](https://github.com/titicacadev/eslint-config-triple/pull/113)
+- ESLint 추천 규칙을 사용합니다. [#113](https://github.com/titicacadev/eslint-config-triple/pull/113), [#129](https://github.com/titicacadev/eslint-config-triple/pull/129)
+- `import` 플러그인 버전을 올립니다. [#115](https://github.com/titicacadev/eslint-config-triple/pull/115)
+- `import` 플러그인의 추천 규칙 모음을 사용합니다. [#115](https://github.com/titicacadev/eslint-config-triple/pull/115), [#130](https://github.com/titicacadev/eslint-config-triple/pull/130)
+- `standard`의 추천 규칙 모음을 사용합니다. [#117](https://github.com/titicacadev/eslint-config-triple/pull/117), [#132](https://github.com/titicacadev/eslint-config-triple/pull/132)
+- TypeScript 관련 최신 패키지를 사용합니다. [#120](https://github.com/titicacadev/eslint-config-triple/pull/120), [#133](https://github.com/titicacadev/eslint-config-triple/pull/133)
+- `typescript-eslint`의 추천 규칙을 사용합니다. [#120](https://github.com/titicacadev/eslint-config-triple/pull/120)
+- `prettier` 플러그인의 추천 규칙을 사용합니다. [#125](https://github.com/titicacadev/eslint-config-triple/pull/125)
+- `jsx-a11y` 플러그인의 추천 규칙을 사용합니다. [#127](https://github.com/titicacadev/eslint-config-triple/pull/127)
+- `promise` 플러그인의 추천 규칙을 사용합니다. [#128](https://github.com/titicacadev/eslint-config-triple/pull/128)
+- TypeScript 파일을 `overrides` 옵션을 통해 검사하도록 변경합니다. [#133](https://github.com/titicacadev/eslint-config-triple/pull/133)
+- prettier 버전을 올립니다. [#135](https://github.com/titicacadev/eslint-config-triple/pull/135)
+- `standard-jsx`의 추천 규칙 모음을 사용합니다. [#137](https://github.com/titicacadev/eslint-config-triple/pull/137)
+- 불필요한 자체 규칙 정의를 제거합니다. [#138](https://github.com/titicacadev/eslint-config-triple/pull/138)
+- 설정 생성 함수를 추가합니다. [#145](https://github.com/titicacadev/eslint-config-triple/pull/145), [#167](https://github.com/titicacadev/eslint-config-triple/pull/167)
+- `import` 플러그인이 TypeScript 모듈 alias를 인식할 수 있게 개선합니다.[#646](https://github.com/titicacadev/eslint-config-triple/pull/146)
+- stylelint 버전을 올립니다. [#158](https://github.com/titicacadev/eslint-config-triple/pull/158)
+- stylelint 설정을 개선합니다. [#158](https://github.com/titicacadev/eslint-config-triple/pull/158)
+- `no-implicit-coercion` 규칙 활성화 [#161](https://github.com/titicacadev/eslint-config-triple/pull/161)
+- `react-hooks/exhaustive-deps` 규칙을 워닝으로 변경합니다. [#162](https://github.com/titicacadev/eslint-config-triple/pull/162)
+- frontend 규칙 모음을 분리합니다. [#163](https://github.com/titicacadev/eslint-config-triple/pull/163)
+- `eslint-typescript`에서 추천하지 않는 import 규칙을 비활성화합니다. [#164](https://github.com/titicacadev/eslint-config-triple/pull/164)
+- 스타일 가이드를 작성합니다. [#169](https://github.com/titicacadev/eslint-config-triple/pull/169)
+- 가이드에 최대한 맞게 naming-convention 예외를 추가합니다. [#170](https://github.com/titicacadev/eslint-config-triple/pull/170)
+
 ## v2.4.0
 
 ### New Features
