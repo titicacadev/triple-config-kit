@@ -1,3 +1,5 @@
+const { readdirSync } = require('fs')
+
 const {
   createNamingConventionConfig,
   createNamingConventionOptions,
@@ -20,8 +22,11 @@ function createConfig({
     throw new Error('type 파라미터가 없습니다. ("frontend" | "node")')
   }
 
+  const hasBabel = checkBabelExist()
+
   return {
     extends: extendCandidates[type] || extendCandidates.node,
+    parser: hasBabel ? '@babel/eslint-parser' : undefined,
     overrides: [
       {
         files: ['*.ts', '*.tsx'],
@@ -65,3 +70,18 @@ function createConfig({
 }
 
 module.exports = createConfig
+
+function checkBabelExist({ cwd = process.cwd() } = {}) {
+  const files = readdirSync(cwd)
+
+  const babelrcWithoutExtension = /\.babelrc$/
+  const babelrcWithExtension = /\.babelrc\.(json|js|cjs|mjs)$/
+  const babelConfig = /babel\.config\.(json|js|cjs|mjs)$/
+
+  return files.some(
+    (file) =>
+      babelrcWithoutExtension.test(file) ||
+      babelrcWithExtension.test(file) ||
+      babelConfig.test(file),
+  )
+}
