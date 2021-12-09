@@ -11,9 +11,7 @@ test('eslint javascript config', async () => {
 
   const config = await eslint.calculateConfigForFile('./mock.js')
 
-  expect(config).toMatchSnapshot({
-    parser: expect.stringMatching(/@babel\/eslint-parser/),
-  })
+  expect(config).toMatchSnapshot()
 })
 
 test('eslint typescript config', async () => {
