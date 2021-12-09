@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v3.0.1
+
+- 기본 파서로 ESLint의 파서를 사용 [#176](https://github.com/titicacadev/eslint-config-triple/pull/176)
+- babel을 사용하는 프로젝트인지 확인하고 `@babel/eslint-parser`를 사용하는 기능 추가 [#176](https://github.com/titicacadev/eslint-config-triple/pull/176)
+
 ## v3.0.0
 
 ### 주요 변경 사항
