@@ -121,6 +121,7 @@ module.exports = createConfig({ type: 'frontend' })
 
 - `.prettierrc` 파일로 규칙을 관리할 때
 
+<!-- prettier-ignore -->
 ```js
 "@titicaca/eslint-config-triple/prettierrc"
 ```
