@@ -17,12 +17,11 @@ function createConfig({
   project,
   tsconfigRootDir,
   enableTypeCheck,
+  hasBabel = checkBabelExist(),
 } = {}) {
   if (type === undefined) {
     throw new Error('type 파라미터가 없습니다. ("frontend" | "node")')
   }
-
-  const hasBabel = checkBabelExist()
 
   return {
     extends: extendCandidates[type] || extendCandidates.node,
