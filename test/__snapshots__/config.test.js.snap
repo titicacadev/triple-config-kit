@@ -2379,7 +2379,18 @@ Object {
       "never",
     ],
   },
-  "settings": Object {},
+  "settings": Object {
+    "import/resolver": Object {
+      "node": Object {
+        "extensions": Array [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx",
+        ],
+      },
+    },
+  },
 }
 `;
 
