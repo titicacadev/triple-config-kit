@@ -6,11 +6,6 @@ const {
   addReactComponentNamingConvention,
 } = require('./rules/typescript/naming-convention')
 
-const extendCandidates = {
-  frontend: ['.', './frontend'].map(require.resolve),
-  node: ['.'].map(require.resolve),
-}
-
 function createConfig({
   type,
   allowedNames = [],
@@ -23,10 +18,13 @@ function createConfig({
     throw new Error('type 파라미터가 없습니다. ("frontend" | "node")')
   }
 
+  const { overrides, ...restConfig } = getBaseConfig(type)
+
   return {
-    extends: extendCandidates[type] || extendCandidates.node,
+    ...restConfig,
     parser: hasBabel ? '@babel/eslint-parser' : undefined,
     overrides: [
+      ...overrides,
       {
         files: ['*.ts', '*.tsx'],
         rules: {
@@ -83,4 +81,23 @@ function checkBabelExist({ cwd = process.cwd() } = {}) {
       babelrcWithExtension.test(file) ||
       babelConfig.test(file),
   )
+}
+
+function getBaseConfig(type) {
+  const base = require('.')
+
+  if (type === 'frontend') {
+    const frontend = require('./frontend')
+
+    return {
+      ...base,
+      ...frontend,
+      extends: [...base.extends, ...frontend.extends],
+      overrides: [...base.overrides, ...frontend.overrides],
+    }
+  }
+
+  return {
+    ...base,
+  }
 }
