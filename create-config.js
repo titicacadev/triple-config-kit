@@ -89,12 +89,17 @@ function getBaseConfig(type) {
   if (type === 'frontend') {
     const frontend = require('./frontend')
 
-    return {
-      ...base,
-      ...frontend,
-      extends: [...base.extends, ...frontend.extends],
-      overrides: [...base.overrides, ...frontend.overrides],
-    }
+    return Object.keys(base).reduce(
+      (obj, key) => ({
+        ...obj,
+        [key]: Array.isArray(base[key])
+          ? [...base[key], ...frontend[key]]
+          : typeof base[key] === 'object' && base[key] !== null
+          ? { ...base[key], ...frontend[key] }
+          : base[key],
+      }),
+      {},
+    )
   }
 
   return {
