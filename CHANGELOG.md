@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v3.0.2
+
+- TypeScript 파일을 babel 파서로 파싱하는 문제 수정 [#183](https://github.com/titicacadev/eslint-config-triple/pull/183)
+- JavaScript 파일에서 import 플러그인의 resolver가 js, jsx, ts, tsx 파일을 모두 참조할 수 있도록 설정 [#184](https://github.com/titicacadev/eslint-config-triple/pull/184)
+- `stylelint` minor 업그레이드 [#180](https://github.com/titicacadev/eslint-config-triple/pull/180)
+- `@typescript-eslint/parser`, `@typescript-eslint/eslint-plugin` minor 업그레이드 [#181](https://github.com/titicacadev/eslint-config-triple/pull/181)
+- prettier 사용법 문서에서 잘못된 예시 수정 [#178](https://github.com/titicacadev/eslint-config-triple/pull/178), [#179](https://github.com/titicacadev/eslint-config-triple/pull/179)
+
 ## v3.0.1
 
 - 기본 파서로 ESLint의 파서를 사용 [#176](https://github.com/titicacadev/eslint-config-triple/pull/176)
