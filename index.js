@@ -11,6 +11,13 @@ module.exports = {
       './rules/prettier',
     ].map(require.resolve),
   ],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
