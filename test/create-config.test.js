@@ -59,3 +59,25 @@ test('eslint createConfig frontend type', async () => {
     parser: expect.stringMatching(/@typescript-eslint/),
   })
 })
+
+test('babel 파서를 사용하더라도 타입스크립트 파일은 타입스크립트 파서를 사용합니다.', async () => {
+  const runTest = async (type) => {
+    const overrideConfig = createConfig({
+      type,
+      enableTypeCheck: false,
+      hasBabel: true,
+    })
+    const eslint = new ESLint({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      overrideConfig,
+      useEslintrc: false,
+    })
+
+    const { parser } = await eslint.calculateConfigForFile('./foo.ts')
+
+    expect(parser).toEqual(expect.stringMatching(/@typescript-eslint\//))
+  }
+
+  await runTest('node')
+  await runTest('frontend')
+})
