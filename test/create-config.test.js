@@ -81,3 +81,40 @@ test('babel 파서를 사용하더라도 타입스크립트 파일은 타입스�
   await runTest('node')
   await runTest('frontend')
 })
+
+test.each([
+  ['frontend', '.js'],
+  ['frontend', '.jsx'],
+  ['frontend', '.ts'],
+  ['frontend', '.tsx'],
+  ['node', '.js'],
+  ['node', '.jsx'],
+  ['node', '.ts'],
+  ['node', '.tsx'],
+])(
+  'import/resolver가 js, jsx, ts, tsx 모듈 임포트를 처리할 수 있어야 합니다. %s, %s',
+  async (type, extension) => {
+    const overrideConfig = createConfig({
+      type,
+      enableTypeCheck: false,
+      hasBabel: false,
+    })
+    const eslint = new ESLint({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      overrideConfig,
+      useEslintrc: false,
+    })
+
+    const {
+      settings: {
+        'import/resolver': {
+          node: { extensions },
+        },
+      },
+    } = await eslint.calculateConfigForFile(`./foo${extension}`)
+
+    expect(extensions).toEqual(
+      expect.arrayContaining(['.js', '.jsx', '.ts', '.tsx']),
+    )
+  },
+)
