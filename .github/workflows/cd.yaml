@@ -15,7 +15,7 @@ env:
   NPM_REGISTRY_URL: 'https://registry.npmjs.org'
   # Slack Notifications
   SLACK_WEBHOOK: ${{ secrets.GHA_NOTIFICATIONS_WEBHOOK_URL }}
-  SLACK_CHANNEL: '#a-dev-notifications' # 메시지 보낼 채널
+  SLACK_CHANNEL: '#eslint-config-triple' # 메시지 보낼 채널
   SLACK_USERNAME: 'ESLint Config Triple' # 메시지를 보내는 계정 이름
   SLACK_ICON_EMOJI: ':triple_new:'
   SLACK_DETAIL_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
