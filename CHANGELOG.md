@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v3.0.3
+
+- CD 알림 슬랙 채널 변경 [#186](https://github.com/titicacadev/eslint-config-triple/pull/186)
+- jsx에서 stylelint 작동하지 않는 문제 해결 [#187](https://github.com/titicacadev/eslint-config-triple/pull/187)
+
 ## v3.0.2
 
 - TypeScript 파일을 babel 파서로 파싱하는 문제 수정 [#183](https://github.com/titicacadev/eslint-config-triple/pull/183)
