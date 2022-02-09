@@ -12,6 +12,7 @@ Object {
       "jsx": true,
     },
     "ecmaVersion": 2021,
+    "jsxPragma": null,
     "sourceType": "module",
   },
   "plugins": Array [
@@ -859,7 +860,7 @@ Object {
       0,
     ],
     "react/react-in-jsx-scope": Array [
-      2,
+      0,
     ],
     "react/require-render-return": Array [
       "error",
