@@ -7,10 +7,10 @@ const {
 module.exports = {
   extends: [
     'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'standard-jsx',
+    'plugin:react/jsx-runtime',
     ...['./rules/react', './rules/react-hooks', './rules/prettier'].map(
       require.resolve,
     ),
