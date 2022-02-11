@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v3.1.0
+
+- react/jsx-runtime 플러그인을 사용합니다 [#190](https://github.com/titicacadev/eslint-config-triple/pull/190)
+
 ## v3.0.3
 
 - CD 알림 슬랙 채널 변경 [#186](https://github.com/titicacadev/eslint-config-triple/pull/186)
