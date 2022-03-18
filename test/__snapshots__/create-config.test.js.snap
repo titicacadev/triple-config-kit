@@ -31,7 +31,6 @@ Object {
     "react-hooks",
     "jsx-a11y",
     "react",
-    "prettier",
     "@typescript-eslint",
   ],
   "reportUnusedDisableDirectives": undefined,
@@ -370,9 +369,6 @@ Object {
       },
     ],
     "array-element-newline": Array [
-      "off",
-    ],
-    "arrow-body-style": Array [
       "off",
     ],
     "arrow-parens": Array [
@@ -1404,9 +1400,6 @@ Object {
         "switches": "never",
       },
     ],
-    "prefer-arrow-callback": Array [
-      "off",
-    ],
     "prefer-const": Array [
       "error",
       Object {
@@ -1427,9 +1420,6 @@ Object {
       "error",
     ],
     "prefer-spread": Array [
-      "error",
-    ],
-    "prettier/prettier": Array [
       "error",
     ],
     "promise/always-return": Array [
@@ -2044,7 +2034,6 @@ Object {
     "promise",
     "node",
     "import",
-    "prettier",
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
@@ -2122,9 +2111,6 @@ Object {
       },
     ],
     "array-element-newline": Array [
-      "off",
-    ],
-    "arrow-body-style": Array [
       "off",
     ],
     "arrow-parens": Array [
@@ -2921,9 +2907,6 @@ Object {
         "switches": "never",
       },
     ],
-    "prefer-arrow-callback": Array [
-      "off",
-    ],
     "prefer-const": Array [
       "error",
       Object {
@@ -2939,9 +2922,6 @@ Object {
       Object {
         "disallowRedundantWrapping": true,
       },
-    ],
-    "prettier/prettier": Array [
-      "error",
     ],
     "promise/always-return": Array [
       "error",
@@ -3362,7 +3342,6 @@ Object {
     "promise",
     "node",
     "import",
-    "prettier",
     "@typescript-eslint",
   ],
   "reportUnusedDisableDirectives": undefined,
@@ -3685,9 +3664,6 @@ Object {
       },
     ],
     "array-element-newline": Array [
-      "off",
-    ],
-    "arrow-body-style": Array [
       "off",
     ],
     "arrow-parens": Array [
@@ -4484,9 +4460,6 @@ Object {
         "switches": "never",
       },
     ],
-    "prefer-arrow-callback": Array [
-      "off",
-    ],
     "prefer-const": Array [
       "error",
       Object {
@@ -4507,9 +4480,6 @@ Object {
       "error",
     ],
     "prefer-spread": Array [
-      "error",
-    ],
-    "prettier/prettier": Array [
       "error",
     ],
     "promise/always-return": Array [

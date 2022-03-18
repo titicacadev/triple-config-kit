@@ -19,7 +19,6 @@ Object {
     "react-hooks",
     "jsx-a11y",
     "react",
-    "prettier",
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
@@ -204,9 +203,6 @@ Object {
       "off",
     ],
     "array-element-newline": Array [
-      "off",
-    ],
-    "arrow-body-style": Array [
       "off",
     ],
     "arrow-parens": Array [
@@ -645,12 +641,6 @@ Object {
     ],
     "padded-blocks": Array [
       "off",
-    ],
-    "prefer-arrow-callback": Array [
-      "off",
-    ],
-    "prettier/prettier": Array [
-      "error",
     ],
     "quote-props": Array [
       "off",
@@ -1104,7 +1094,6 @@ Object {
     "promise",
     "node",
     "import",
-    "prettier",
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
@@ -1182,9 +1171,6 @@ Object {
       },
     ],
     "array-element-newline": Array [
-      "off",
-    ],
-    "arrow-body-style": Array [
       "off",
     ],
     "arrow-parens": Array [
@@ -1981,9 +1967,6 @@ Object {
         "switches": "never",
       },
     ],
-    "prefer-arrow-callback": Array [
-      "off",
-    ],
     "prefer-const": Array [
       "error",
       Object {
@@ -1999,9 +1982,6 @@ Object {
       Object {
         "disallowRedundantWrapping": true,
       },
-    ],
-    "prettier/prettier": Array [
-      "error",
     ],
     "promise/always-return": Array [
       "error",
@@ -2421,7 +2401,6 @@ Object {
     "node",
     "import",
     "@typescript-eslint",
-    "prettier",
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": Object {
@@ -2698,9 +2677,6 @@ Object {
       },
     ],
     "array-element-newline": Array [
-      "off",
-    ],
-    "arrow-body-style": Array [
       "off",
     ],
     "arrow-parens": Array [
@@ -3497,9 +3473,6 @@ Object {
         "switches": "never",
       },
     ],
-    "prefer-arrow-callback": Array [
-      "off",
-    ],
     "prefer-const": Array [
       "error",
       Object {
@@ -3520,9 +3493,6 @@ Object {
       "error",
     ],
     "prefer-spread": Array [
-      "error",
-    ],
-    "prettier/prettier": Array [
       "error",
     ],
     "promise/always-return": Array [
