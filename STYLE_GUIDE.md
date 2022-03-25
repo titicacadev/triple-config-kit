@@ -56,6 +56,7 @@
 - 클래스, 인터페이스, 타입 이름은 PascalCase를 사용합니다. [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md)
 - 열거형의 이름과 멤버 모두 PascalCase를 사용합니다. [@typescript-eslint/naming-convention](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md)
 - 리액트 컴포넌트는 PascalCase를 사용합니다.
+- 소스 파일 이름은 kebab-case를 사용합니다.
 
 ## 비동기 처리
 
