@@ -30,7 +30,7 @@ ESLint, Pretter 등 에디터 플러그인을 사용한다면, 플러그인의 �
 
 ### ESLint
 
-`package.json`의 script 속성에 다음을 추가해주세요.
+`package.json`의 scripts 속성에 다음을 추가해주세요.
 
 ```json
 {
@@ -110,7 +110,7 @@ module.exports = createConfig({ type: 'frontend' })
 
 ### Prettier
 
-`package.json`의 script 속성에 다음을 추가해주세요.
+`package.json`의 scripts 속성에 다음을 추가해주세요.
 
 ```json
 {
@@ -139,7 +139,7 @@ module.exports = createConfig({ type: 'frontend' })
 
 ### Stylelint
 
-`package.json`의 script 속성에 다음을 추가해주세요.
+`package.json`의 scripts 속성에 다음을 추가해주세요.
 
 ```json
 {
