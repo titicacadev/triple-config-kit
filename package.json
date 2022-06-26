@@ -75,6 +75,7 @@
     "stylelint": "*"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
     "eslint": "^8.18.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.0",
@@ -82,7 +83,7 @@
     "husky": "^7.0.2",
     "jest": "^27.3.1",
     "lint-staged": "^11.2.3",
-    "typescript": "^4.4.4"
+    "typescript": "^4.7.4"
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [

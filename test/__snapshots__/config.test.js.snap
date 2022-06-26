@@ -11,7 +11,7 @@ Object {
     "ecmaFeatures": Object {
       "jsx": true,
     },
-    "ecmaVersion": 2021,
+    "ecmaVersion": 2022,
     "jsxPragma": null,
     "sourceType": "module",
   },
@@ -187,6 +187,9 @@ Object {
     "@typescript-eslint/semi": Array [
       "off",
     ],
+    "@typescript-eslint/space-before-blocks": Array [
+      "off",
+    ],
     "@typescript-eslint/space-before-function-paren": Array [
       "off",
     ],
@@ -305,9 +308,6 @@ Object {
     "indent-legacy": Array [
       "off",
     ],
-    "jsx-a11y/accessible-emoji": Array [
-      "error",
-    ],
     "jsx-a11y/alt-text": Array [
       "error",
     ],
@@ -418,6 +418,9 @@ Object {
     "jsx-a11y/no-interactive-element-to-noninteractive-role": Array [
       "error",
       Object {
+        "canvas": Array [
+          "img",
+        ],
         "tr": Array [
           "none",
           "presentation",
@@ -464,6 +467,10 @@ Object {
     "jsx-a11y/no-noninteractive-element-to-interactive-role": Array [
       "error",
       Object {
+        "fieldset": Array [
+          "radiogroup",
+          "presentation",
+        ],
         "li": Array [
           "menuitem",
           "option",
@@ -506,9 +513,6 @@ Object {
         ],
         "tags": Array [],
       },
-    ],
-    "jsx-a11y/no-onchange": Array [
-      "error",
     ],
     "jsx-a11y/no-redundant-roles": Array [
       "error",
@@ -687,11 +691,12 @@ Object {
     "react/jsx-curly-spacing": Array [
       "off",
       Object {
-        "allowMultiline": true,
         "attributes": Object {
+          "allowMultiline": true,
           "when": "never",
         },
         "children": Object {
+          "allowMultiline": true,
           "when": "never",
         },
       },
@@ -728,6 +733,7 @@ Object {
       Object {
         "checkFragmentShorthand": true,
         "checkKeyMustBeforeSpread": false,
+        "warnOnDuplicates": false,
       },
     ],
     "react/jsx-max-props-per-line": Array [
@@ -1030,6 +1036,9 @@ Object {
     "vue/operator-linebreak": Array [
       "off",
     ],
+    "vue/quote-props": Array [
+      "off",
+    ],
     "vue/script-indent": Array [
       "off",
     ],
@@ -1087,12 +1096,12 @@ Object {
     "ecmaFeatures": Object {
       "jsx": true,
     },
-    "ecmaVersion": 2021,
+    "ecmaVersion": 2022,
     "sourceType": "module",
   },
   "plugins": Array [
     "promise",
-    "node",
+    "n",
     "import",
   ],
   "reportUnusedDisableDirectives": undefined,
@@ -1137,6 +1146,9 @@ Object {
       0,
     ],
     "@typescript-eslint/semi": Array [
+      "off",
+    ],
+    "@typescript-eslint/space-before-blocks": Array [
       "off",
     ],
     "@typescript-eslint/space-before-function-paren": Array [
@@ -1487,6 +1499,28 @@ Object {
       "off",
       "always-multiline",
     ],
+    "n/handle-callback-err": Array [
+      "error",
+      "^(err|error)$",
+    ],
+    "n/no-callback-literal": Array [
+      "error",
+    ],
+    "n/no-deprecated-api": Array [
+      "error",
+    ],
+    "n/no-exports-assign": Array [
+      "error",
+    ],
+    "n/no-new-require": Array [
+      "error",
+    ],
+    "n/no-path-concat": Array [
+      "error",
+    ],
+    "n/process-exit-as-throw": Array [
+      "error",
+    ],
     "new-cap": Array [
       "error",
       Object {
@@ -1719,6 +1753,9 @@ Object {
     "no-new-wrappers": Array [
       "error",
     ],
+    "no-nonoctal-decimal-escape": Array [
+      "error",
+    ],
     "no-obj-calls": Array [
       "error",
     ],
@@ -1825,6 +1862,9 @@ Object {
     "no-unsafe-negation": Array [
       "error",
     ],
+    "no-unsafe-optional-chaining": Array [
+      "error",
+    ],
     "no-unused-expressions": Array [
       "error",
       Object {
@@ -1891,28 +1931,6 @@ Object {
     ],
     "no-wrap-func": Array [
       "off",
-    ],
-    "node/handle-callback-err": Array [
-      "error",
-      "^(err|error)$",
-    ],
-    "node/no-callback-literal": Array [
-      "error",
-    ],
-    "node/no-deprecated-api": Array [
-      "error",
-    ],
-    "node/no-exports-assign": Array [
-      "error",
-    ],
-    "node/no-new-require": Array [
-      "error",
-    ],
-    "node/no-path-concat": Array [
-      "error",
-    ],
-    "node/process-exit-as-throw": Array [
-      "error",
     ],
     "nonblock-statement-body-position": Array [
       "off",
@@ -2323,6 +2341,9 @@ Object {
     "vue/operator-linebreak": Array [
       "off",
     ],
+    "vue/quote-props": Array [
+      "off",
+    ],
     "vue/script-indent": Array [
       "off",
     ],
@@ -2393,12 +2414,12 @@ Object {
     "ecmaFeatures": Object {
       "jsx": true,
     },
-    "ecmaVersion": 2021,
+    "ecmaVersion": 2022,
     "sourceType": "module",
   },
   "plugins": Array [
     "promise",
-    "node",
+    "n",
     "import",
     "@typescript-eslint",
   ],
@@ -2640,6 +2661,9 @@ Object {
       0,
     ],
     "@typescript-eslint/semi": Array [
+      "off",
+    ],
+    "@typescript-eslint/space-before-blocks": Array [
       "off",
     ],
     "@typescript-eslint/space-before-function-paren": Array [
@@ -2993,6 +3017,28 @@ Object {
       "off",
       "always-multiline",
     ],
+    "n/handle-callback-err": Array [
+      "error",
+      "^(err|error)$",
+    ],
+    "n/no-callback-literal": Array [
+      "error",
+    ],
+    "n/no-deprecated-api": Array [
+      "error",
+    ],
+    "n/no-exports-assign": Array [
+      "error",
+    ],
+    "n/no-new-require": Array [
+      "error",
+    ],
+    "n/no-path-concat": Array [
+      "error",
+    ],
+    "n/process-exit-as-throw": Array [
+      "error",
+    ],
     "new-cap": Array [
       "error",
       Object {
@@ -3225,6 +3271,9 @@ Object {
     "no-new-wrappers": Array [
       "error",
     ],
+    "no-nonoctal-decimal-escape": Array [
+      "error",
+    ],
     "no-obj-calls": Array [
       "off",
     ],
@@ -3331,6 +3380,9 @@ Object {
     "no-unsafe-negation": Array [
       "off",
     ],
+    "no-unsafe-optional-chaining": Array [
+      "error",
+    ],
     "no-unused-expressions": Array [
       "off",
       Object {
@@ -3397,28 +3449,6 @@ Object {
     ],
     "no-wrap-func": Array [
       "off",
-    ],
-    "node/handle-callback-err": Array [
-      "error",
-      "^(err|error)$",
-    ],
-    "node/no-callback-literal": Array [
-      "error",
-    ],
-    "node/no-deprecated-api": Array [
-      "error",
-    ],
-    "node/no-exports-assign": Array [
-      "error",
-    ],
-    "node/no-new-require": Array [
-      "error",
-    ],
-    "node/no-path-concat": Array [
-      "error",
-    ],
-    "node/process-exit-as-throw": Array [
-      "error",
     ],
     "nonblock-statement-body-position": Array [
       "off",
@@ -3833,6 +3863,9 @@ Object {
       "off",
     ],
     "vue/operator-linebreak": Array [
+      "off",
+    ],
+    "vue/quote-props": Array [
       "off",
     ],
     "vue/script-indent": Array [
