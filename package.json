@@ -57,7 +57,6 @@
     "eslint-config-standard": "16.0.3",
     "eslint-config-standard-jsx": "10.0.0",
     "eslint-import-resolver-typescript": "2.5.0",
-    "eslint-plugin-promise": "5.1.0",
     "eslint-plugin-react": "7.26.1",
     "eslint-plugin-react-hooks": "4.2.0",
     "postcss-syntax": "0.36.2",
@@ -73,6 +72,7 @@
     "eslint-plugin-import": "2.25.2",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.1.0",
     "husky": "^7.0.2",
     "jest": "^27.3.1",
     "lint-staged": "^11.2.3",
@@ -83,7 +83,8 @@
     "eslint": "^7.0.0",
     "eslint-plugin-import": "^2.25.0",
     "eslint-plugin-jsx-a11y": "^6.4.0",
-    "eslint-plugin-node": "^11.1.0"
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
