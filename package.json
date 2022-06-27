@@ -14,8 +14,8 @@
   "scripts": {
     "lint:es": "eslint '**/*.js'",
     "lint:es:fix": "npm run lint:es -- --fix",
-    "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,yaml,md}' --check",
-    "prettier:fix": "prettier '**/*.{js,jsx,ts,tsx,json,yaml,md}' --write",
+    "prettier": "prettier '**/*' --check",
+    "prettier:fix": "prettier '**/*' --write",
     "lint": "npm run lint:es; npm run prettier",
     "lint:fix": "npm run lint:es:fix; npm run prettier:fix",
     "update-snapshot": "jest -u",
@@ -82,7 +82,7 @@
     "**/*.{js,ts,tsx}": [
       "eslint"
     ],
-    "**/*.{js,ts,tsx,json,yaml,md}": [
+    "**/*": [
       "prettier --check"
     ]
   }
