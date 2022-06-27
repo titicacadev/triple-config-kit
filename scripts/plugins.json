@@ -1,0 +1,38 @@
+[
+  {
+    "name": "promise",
+    "config": "plugin:promise/recommended"
+  },
+  {
+    "name": "import",
+    "config": "plugin:import/recommended"
+  },
+  {
+    "name": "import-typescript",
+    "config": "plugin:import/typescript"
+  },
+  {
+    "name": "typescript",
+    "config": "plugin:@typescript-eslint/recommended"
+  },
+  {
+    "name": "typescript-requiring-type-checking",
+    "config": "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  },
+  {
+    "name": "jsx-a11y",
+    "config": "plugin:jsx-a11y/recommended"
+  },
+  {
+    "name": "react",
+    "config": "plugin:react/recommended"
+  },
+  {
+    "name": "react-jsx-runtime",
+    "config": "plugin:react/jsx-runtime"
+  },
+  {
+    "name": "react-hooks",
+    "config": "plugin:react-hooks/recommended"
+  }
+]

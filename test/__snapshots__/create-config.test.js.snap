@@ -19,7 +19,6 @@ Object {
       "jsx": true,
     },
     "ecmaVersion": 2021,
-    "jsxPragma": null,
     "project": "./tsconfig.json",
     "sourceType": "module",
     "tsconfigRootDir": "~/mock-dir-name",
@@ -847,7 +846,6 @@ Object {
         "roles": Array [
           "tabpanel",
         ],
-        "tags": Array [],
       },
     ],
     "jsx-a11y/no-onchange": Array [
