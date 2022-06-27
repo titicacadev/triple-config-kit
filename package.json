@@ -21,7 +21,8 @@
     "update-snapshot": "jest -u",
     "test:watch": "jest --watch",
     "test": "jest",
-    "prepare": "[ $CI ] || husky install"
+    "prepare": "[ $CI ] || husky install",
+    "capture-plugin-configs": "node scripts/capture-plugin-configs"
   },
   "repository": {
     "type": "git",

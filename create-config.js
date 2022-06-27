@@ -55,7 +55,7 @@ function createConfig({
               ...(enableTypeCheck
                 ? {
                     extends:
-                      'plugin:@typescript-eslint/recommended-requiring-type-checking',
+                    './plugin-configs/typescript-requiring-type-checking',
                     parserOptions: { project, tsconfigRootDir },
                   }
                 : {}),

@@ -1,8 +1,8 @@
 module.exports = {
   extends: [
     'eslint:recommended',
-    'plugin:import/recommended',
-    'plugin:promise/recommended',
+    './plugin-configs/import',
+    './plugin-configs/promise',
     'standard',
     ...[
       './rules/base',
@@ -23,8 +23,8 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:import/typescript',
+        './plugin-configs/typescript',
+        './plugin-configs/import-typescript',
         ...['./rules/typescript', './rules/prettier'].map(require.resolve),
       ],
       settings: {
