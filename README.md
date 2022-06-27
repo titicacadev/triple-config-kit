@@ -114,8 +114,8 @@ module.exports = createConfig({ type: 'frontend' })
 
 ```json
 {
-  "lint:etc": "prettier '**/*.{json,yaml,md}' --check",
-  "lint:etc:fix": "prettier '**/*.{json,yaml,md}' --write"
+  "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,yaml,md}' --check",
+  "prettier:fix": "prettier '**/*.{js,jsx,ts,tsx,json,yaml,md}' --write"
 }
 ```
 
