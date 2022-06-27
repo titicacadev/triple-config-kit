@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    'eslint:recommended',
+    './plugin-configs/eslint',
     './plugin-configs/import',
     './plugin-configs/promise',
     'standard',

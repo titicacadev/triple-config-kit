@@ -1,5 +1,9 @@
 [
   {
+    "name": "eslint",
+    "config": "eslint:recommended"
+  },
+  {
     "name": "promise",
     "config": "plugin:promise/recommended"
   },
