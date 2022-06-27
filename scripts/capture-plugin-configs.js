@@ -2,6 +2,7 @@ const { writeFile } = require('fs/promises')
 const { resolve } = require('path')
 
 const { ESLint } = require('eslint')
+const prettier = require('prettier')
 
 // prettier-ignore
 const plugins = require('./plugins.json');
@@ -16,7 +17,7 @@ const plugins = require('./plugins.json');
 
       await writeFile(
         resolve(__dirname, '../plugin-configs', `${name}.json`),
-        JSON.stringify(config, null, 2),
+        prettier.format(JSON.stringify(config, null, 2), { parser: 'json' }),
       )
     }),
   )
