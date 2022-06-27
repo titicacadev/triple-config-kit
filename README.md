@@ -114,8 +114,8 @@ module.exports = createConfig({ type: 'frontend' })
 
 ```json
 {
-  "prettier": "prettier '**/*.{js,jsx,ts,tsx,json,yaml,md}' --check",
-  "prettier:fix": "prettier '**/*.{js,jsx,ts,tsx,json,yaml,md}' --write"
+  "prettier": "prettier '**/*' --check",
+  "prettier:fix": "prettier '**/*' --write"
 }
 ```
 
