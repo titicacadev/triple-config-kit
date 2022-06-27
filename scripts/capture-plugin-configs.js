@@ -1,20 +1,24 @@
 const { writeFile } = require('fs/promises')
 const { resolve } = require('path')
 
-const { ESLint } = require("eslint")
+const { ESLint } = require('eslint')
 
-const plugins = require('./plugins.json')
+// prettier-ignore
+const plugins = require('./plugins.json');
 
-
-  ;
-
-(async () => {
+;(async () => {
   await Promise.all(
     plugins.map(async ({ name, config: configName }) => {
-      const { parser, ...config } = await captureEslintConfig(configName, name.includes('typescript') ? "ts" : "js")
+      const { parser, ...config } = await captureEslintConfig(
+        configName,
+        name.includes('typescript') ? 'ts' : 'js',
+      )
 
-      await writeFile(resolve(__dirname, "../plugin-configs", `${name}.json`), JSON.stringify(config, null, 2))
-    })
+      await writeFile(
+        resolve(__dirname, '../plugin-configs', `${name}.json`),
+        JSON.stringify(config, null, 2),
+      )
+    }),
   )
 })()
 
@@ -23,7 +27,7 @@ async function captureEslintConfig(configName, extension = 'js') {
     useEslintrc: false,
     overrideConfig: {
       extends: [configName],
-    }
+    },
   })
 
   const config = await eslint.calculateConfigForFile(`./mock.${extension}`)
@@ -40,9 +44,19 @@ function removeMeaninglessValues(obj) {
     return obj.map(removeMeaninglessValues)
   }
 
-  return Object.entries(obj).reduce((normalizedObj, [key, value]) => isMeaninglessValue(value) ? normalizedObj : { ...normalizedObj, [key]: removeMeaninglessValues(value) }, {})
+  return Object.entries(obj).reduce(
+    (normalizedObj, [key, value]) =>
+      isMeaninglessValue(value)
+        ? normalizedObj
+        : { ...normalizedObj, [key]: removeMeaninglessValues(value) },
+    {},
+  )
 }
 
 function isMeaninglessValue(value) {
-  return value === null || value === undefined || (typeof value === 'object' && Object.values(value).length === 0)
+  return (
+    value === null ||
+    value === undefined ||
+    (typeof value === 'object' && Object.values(value).length === 0)
+  )
 }
