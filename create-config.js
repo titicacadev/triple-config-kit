@@ -54,8 +54,9 @@ function createConfig({
               },
               ...(enableTypeCheck
                 ? {
-                    extends:
+                    extends: require.resolve(
                       './plugin-configs/typescript-requiring-type-checking',
+                    ),
                     parserOptions: { project, tsconfigRootDir },
                   }
                 : {}),
