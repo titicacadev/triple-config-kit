@@ -6,14 +6,18 @@ const {
 
 module.exports = {
   extends: [
-    './plugin-configs/react',
-    './plugin-configs/react-hooks',
-    './plugin-configs/jsx-a11y',
+    ...[
+      './plugin-configs/react',
+      './plugin-configs/react-hooks',
+      './plugin-configs/jsx-a11y',
+    ].map(require.resolve),
     'standard-jsx',
-    './plugin-configs/react-jsx-runtime',
-    ...['./rules/react', './rules/react-hooks', './rules/prettier'].map(
-      require.resolve,
-    ),
+    ...[
+      './plugin-configs/react-jsx-runtime',
+      './rules/react',
+      './rules/react-hooks',
+      './rules/prettier',
+    ].map(require.resolve),
   ],
   settings: {
     react: {

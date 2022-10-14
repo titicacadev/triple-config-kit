@@ -1,8 +1,10 @@
 module.exports = {
   extends: [
-    './plugin-configs/eslint',
-    './plugin-configs/import',
-    './plugin-configs/promise',
+    ...[
+      './plugin-configs/eslint',
+      './plugin-configs/import',
+      './plugin-configs/promise',
+    ].map(require.resolve),
     'standard',
     ...[
       './rules/base',
@@ -25,8 +27,9 @@ module.exports = {
       extends: [
         './plugin-configs/typescript',
         './plugin-configs/import-typescript',
-        ...['./rules/typescript', './rules/prettier'].map(require.resolve),
-      ],
+        './rules/typescript',
+        './rules/prettier',
+      ].map(require.resolve),
       settings: {
         /**
          * import plugin with Typescript configuration
