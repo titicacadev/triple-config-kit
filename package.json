@@ -5,6 +5,7 @@
   "main": "index.js",
   "files": [
     "rules",
+    "plugin-configs",
     "index.js",
     "prettierrc.js",
     "stylelint.js",
