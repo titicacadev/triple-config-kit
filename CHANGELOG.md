@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v4.0.0
+
+- eslint-plugin-prettier 제거 [#193](https://github.com/titicacadev/eslint-config-triple/pull/193)
+- eslint, eslint-plugin을 peer 의존성으로 변경합니다. [#200](https://github.com/titicacadev/eslint-config-triple/pull/200), [#203](https://github.com/titicacadev/eslint-config-triple/pull/203)
+  🐛 prettier가 모든 파일을 검사하도록 변경 [#201](https://github.com/titicacadev/eslint-config-triple/pull/201)
+- Use prettier@2.7.1 [#202](https://github.com/titicacadev/eslint-config-triple/pull/202)
+
 ## v3.1.0
 
 - react/jsx-runtime 플러그인을 사용합니다 [#190](https://github.com/titicacadev/eslint-config-triple/pull/190)
