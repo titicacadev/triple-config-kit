@@ -2,7 +2,7 @@ module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
   rules: {
     'alpha-value-notation': 'number',
-    'color-function-notation': 'legacy',
+    'color-function-notation': null,
   },
   overrides: [
     {
