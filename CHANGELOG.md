@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v4.1.0
+
+- off color-function-notation [#206](https://github.com/titicacadev/eslint-config-triple/pull/206)
+  - color-function-notation은 styled components에서 버그때문에 사용이 불가능해서 이 규칙을 끕니다.
+
 ## v4.0.0
 
 - eslint-plugin-prettier 제거 [#193](https://github.com/titicacadev/eslint-config-triple/pull/193)
