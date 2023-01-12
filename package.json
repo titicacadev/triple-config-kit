@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "7.15.8",
-    "@stylelint/postcss-css-in-js": "0.37.2",
+    "@stylelint/postcss-css-in-js": "0.38.0",
     "@typescript-eslint/parser": "5.6.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
