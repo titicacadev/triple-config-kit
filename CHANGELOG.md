@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v4.2.0
+
+- 스타일린트 적용 시 css의 float 속성이 cssFloat으로 변경되는 버그 수정 [#209](https://github.com/titicacadev/eslint-config-triple/pull/209)
+
 ## v4.1.0
 
 - off color-function-notation [#206](https://github.com/titicacadev/eslint-config-triple/pull/206)
