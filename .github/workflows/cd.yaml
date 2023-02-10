@@ -124,12 +124,11 @@ jobs:
 
     steps:
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: ${{ env.NPM_REGISTRY_URL }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Define canary release version
         run: |
@@ -143,13 +142,12 @@ jobs:
           SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
         run: npx @titicaca/gha-tools notify
 
-      - name: Update to defined version
-        run: npm version $DEPLOY_VERSION --git-tag-version=false
+      - run: npx changeset version --snapshot
 
       - name: Publish as canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npm publish --tag canary
+        run: npx changeset publish
 
       - name: Notify release success to Slack
         if: success()
