@@ -1,0 +1,73 @@
+{
+  "name": "@titicaca/eslint-config-triple",
+  "version": "4.2.0",
+  "description": "Triple's ESLint config, following our styleguide",
+  "main": "index.js",
+  "files": [
+    "rules",
+    "plugin-configs",
+    "index.js",
+    "prettierrc.js",
+    "stylelint.js",
+    "create-config.js",
+    "frontend.js"
+  ],
+  "scripts": {
+    "lint:es": "eslint '**/*.js'",
+    "lint:es:fix": "npm run lint:es -- --fix",
+    "prettier": "prettier '**/*' --check",
+    "prettier:fix": "prettier '**/*' --write",
+    "lint": "npm run lint:es; npm run prettier",
+    "lint:fix": "npm run lint:es:fix; npm run prettier:fix",
+    "update-snapshot": "jest -u",
+    "test:watch": "jest --watch",
+    "test": "jest",
+    "capture-plugin-configs": "node scripts/capture-plugin-configs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/titicacadev/eslint-config-triple.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "config",
+    "triple",
+    "javascript",
+    "typescript",
+    "styleguide",
+    "es2015",
+    "es2016",
+    "es2017",
+    "es2018"
+  ],
+  "author": "Triple Corp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/titicacadev/eslint-config-triple/issues"
+  },
+  "homepage": "https://github.com/titicacadev/eslint-config-triple",
+  "engines": {
+    "node": ">= 6"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "5.51.0",
+    "@typescript-eslint/parser": "5.51.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-config-standard-jsx": "11.0.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-import-resolver-typescript": "3.5.3",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react": "7.32.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.33.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0"
+  }
+}
