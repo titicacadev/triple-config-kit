@@ -1,0 +1,25 @@
+{
+  "name": "@titicaca/prettier-config-triple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prettier.js",
+  "files": [
+    "prettier.js"
+  ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/titicacadev/eslint-config-triple.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/titicacadev/eslint-config-triple/issues"
+  },
+  "homepage": "https://github.com/titicacadev/eslint-config-triple",
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  },
+  "peerDependencies": {
+    "prettier": "^2.0.0"
+  }
+}

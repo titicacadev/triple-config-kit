@@ -1,5 +1,5 @@
 {
-  "extends": ["./index"],
+  "extends": ["./packages/eslint-config-triple/index"],
   "parserOptions": {
     "requireConfigFile": false
   },
