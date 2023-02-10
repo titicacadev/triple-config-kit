@@ -2,9 +2,9 @@
   "name": "@titicaca/prettier-config-triple",
   "version": "1.0.0",
   "description": "",
-  "main": "prettier.js",
+  "main": "prettierrc.js",
   "files": [
-    "prettier.js"
+    "prettierrc.js"
   ],
   "scripts": {},
   "repository": {
