@@ -143,6 +143,8 @@ jobs:
           SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
         run: npx @titicaca/gha-tools notify
 
+      - run: npm ci
+
       - run: npx changeset version --snapshot
 
       - name: Publish as canary
