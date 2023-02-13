@@ -10,7 +10,7 @@ module.exports = {
       customSyntax: '@stylelint/postcss-css-in-js',
       rules: {
         // https://github.com/styled-components/stylelint-config-styled-components/blob/master/index.js
-        'value-no-vendor-prefix': true,
+        'value-no-vendor-prefix': false,
         'property-no-vendor-prefix': true,
         'no-empty-source': null,
         'no-missing-end-of-source-newline': null,
