@@ -14,7 +14,6 @@
     "version": "lerna version --no-push"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.0",
     "eslint": "^8.33.0",
     "husky": "^8.0.3",
     "jest": "^29.4.2",

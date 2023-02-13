@@ -91,12 +91,12 @@ jobs:
 
       - run: npm ci
 
-      - run: npx changeset version
+      - run: npm run version --yes
 
-      - name: Publish as canary
+      - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npx changeset publish
+        run: npx lerna publish --yes
 
       - name: Notify release success to Slack
         if: success()
@@ -140,12 +140,10 @@ jobs:
 
       - run: npm ci
 
-      - run: npx changeset version --snapshot
-
       - name: Publish as canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npx changeset publish --tag canary
+        run: npx lerna publish --canary --yes
 
       - name: Notify release success to Slack
         if: success()
