@@ -9,16 +9,17 @@
     "lint": "npm run lint:es; npm run prettier",
     "lint:fix": "npm run lint:es:fix; npm run prettier:fix",
     "update-snapshot": "jest -u",
-    "test": "turbo test",
-    "prepare": "[ $CI ] || husky install"
+    "test": "lerna run test",
+    "prepare": "[ $CI ] || husky install",
+    "version": "lerna version --no-push"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "eslint": "^8.33.0",
     "husky": "^8.0.3",
     "jest": "^29.4.2",
+    "lerna": "^6.4.1",
     "lint-staged": "^13.1.1",
-    "turbo": "^1.7.4",
     "typescript": "^4.9.5"
   },
   "workspaces": [
