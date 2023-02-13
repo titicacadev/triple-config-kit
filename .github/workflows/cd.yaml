@@ -113,7 +113,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
           SLACK_COLOR: fail
           SLACK_TITLE: ':pleading: Release FAILURE'
-          SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
+          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
         run: npx @titicaca/gha-tools notify
 
   canary-release:
@@ -143,7 +143,7 @@ jobs:
       - name: Publish as canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npx lerna publish --canary --yes
+        run: npx lerna publish from-package --canary --yes
 
       - name: Notify release success to Slack
         if: success()
@@ -160,5 +160,5 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
           SLACK_COLOR: fail
           SLACK_TITLE: ':pleading: Release FAILURE'
-          SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
+          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
         run: npx @titicaca/gha-tools notify
