@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/titicacadev/eslint-config-triple",
   "dependencies": {
-    "@stylelint/postcss-css-in-js": "0.38.0",
+    "postcss-styled-syntax": "^0.3.1",
     "stylelint-config-prettier": "9.0.4",
     "stylelint-config-standard": "29.0.0",
     "stylelint-config-styled-components": "0.1.1"
@@ -26,6 +26,6 @@
     "stylelint": "^14.16.1"
   },
   "peerDependencies": {
-    "stylelint": "^14.14.0"
+    "stylelint": "^14.14.0 || ^15.0.0"
   }
 }
