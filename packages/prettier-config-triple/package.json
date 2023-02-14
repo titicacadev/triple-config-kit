@@ -4,7 +4,7 @@
   "description": "",
   "main": "prettierrc.js",
   "files": [
-    "prettierrc.js"
+    "*.js"
   ],
   "scripts": {},
   "repository": {

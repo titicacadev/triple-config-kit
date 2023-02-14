@@ -4,7 +4,7 @@
   "description": "",
   "main": "stylelint.js",
   "files": [
-    "stylelint.js"
+    "*.js"
   ],
   "scripts": {},
   "repository": {
