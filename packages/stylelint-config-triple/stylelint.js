@@ -8,7 +8,7 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.{js,ts,tsx}'],
-      customSyntax: '@stylelint/postcss-css-in-js',
+      customSyntax: require('postcss-styled-syntax'),
       rules: {
         // https://github.com/styled-components/stylelint-config-styled-components/blob/master/index.js
         'value-no-vendor-prefix': true,
