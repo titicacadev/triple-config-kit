@@ -15,8 +15,7 @@
     "lint:fix": "npm run lint:es:fix; npm run prettier:fix",
     "update-snapshot": "jest -u",
     "test:watch": "jest --watch",
-    "test": "jest",
-    "capture-plugin-configs": "node scripts/capture-plugin-configs"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
