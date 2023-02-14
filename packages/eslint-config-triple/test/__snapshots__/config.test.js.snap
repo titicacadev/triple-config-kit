@@ -547,10 +547,13 @@ exports[`eslint javascript config 1`] = `
     "camelcase": [
       "error",
       {
+        "allow": [
+          "^UNSAFE_",
+        ],
         "ignoreDestructuring": false,
-        "ignoreGlobals": false,
+        "ignoreGlobals": true,
         "ignoreImports": false,
-        "properties": "always",
+        "properties": "never",
       },
     ],
     "comma-dangle": [
@@ -1626,12 +1629,15 @@ exports[`eslint typescript config 1`] = `
       },
     ],
     "camelcase": [
-      "off",
+      "error",
       {
+        "allow": [
+          "^UNSAFE_",
+        ],
         "ignoreDestructuring": false,
-        "ignoreGlobals": false,
+        "ignoreGlobals": true,
         "ignoreImports": false,
-        "properties": "always",
+        "properties": "never",
       },
     ],
     "comma-dangle": [
