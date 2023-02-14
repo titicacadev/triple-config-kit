@@ -10,7 +10,6 @@ module.exports = {
     'standard',
   ],
   rules: {
-    camelcase: ['error', { properties: 'always' }],
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     'no-console': 'error',
     'no-empty-function': 'off',
@@ -104,7 +103,6 @@ module.exports = {
           'error',
           { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
         ],
-        camelcase: 'off',
         // '@typescript-eslint/naming-convention': createNamingConventionConfig(),
 
         'import/named': 'off',
