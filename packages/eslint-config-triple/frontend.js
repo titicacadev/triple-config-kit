@@ -5,9 +5,9 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'plugin:react-jsx-runtime',
+    'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
-    'plugin:jsx-a11yrecommended',
+    'plugin:jsx-a11y/recommended',
     'standard-jsx',
   ],
   settings: {
@@ -27,31 +27,4 @@ module.exports = {
       },
     ],
   },
-
-  // extends: [
-  //   ...[
-  //     './plugin-configs/react',
-  //     './plugin-configs/react-hooks',
-  //     './plugin-configs/jsx-a11y',
-  //   ].map(require.resolve),
-  //   'standard-jsx',
-  //   ...[
-  //     './plugin-configs/react-jsx-runtime',
-  //     './rules/react',
-  //     './rules/react-hooks',
-  //     './rules/prettier',
-  //   ].map(require.resolve),
-  // ],
-  // overrides: [
-  //   {
-  //     files: ['*.ts', '*.tsx'],
-  //     rules: {
-  //       '@typescript-eslint/naming-convention': createNamingConventionConfig({
-  //         options: addReactComponentNamingConvention(
-  //           createNamingConventionOptions(),
-  //         ),
-  //       }),
-  //     },
-  //   },
-  // ],
 }
