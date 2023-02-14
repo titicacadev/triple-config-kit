@@ -1,43 +1,116 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
+  env: {
+    node: true,
+  },
   extends: [
-    ...[
-      './plugin-configs/eslint',
-      './plugin-configs/import',
-      './plugin-configs/promise',
-    ].map(require.resolve),
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:promise/recommended',
     'standard',
-    ...[
-      './rules/base',
-      './rules/import',
-      './rules/promise',
-      './rules/prettier',
-    ].map(require.resolve),
   ],
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  rules: {
+    camelcase: ['error', { properties: 'always' }],
+    'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+    'no-console': 'error',
+    'no-empty-function': 'off',
+    'no-implicit-coercion': ['error', { allow: ['!!'] }],
+    'no-return-await': 'error',
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
       },
-    },
+    ],
+    'no-unused-vars': [
+      'error',
+      { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
+    ],
+    'no-use-before-define': ['error', { functions: false }],
+    'no-void': ['error', { allowAsStatement: true }],
+    'object-shorthand': ['error', 'properties'],
+    'require-atomic-updates': 'off',
+
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'parent',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+      },
+    ],
+    'import/newline-after-import': 'error',
+
+    'promise/catch-or-return': ['error', { allowFinally: true }],
+    'promise/prefer-await-to-callbacks': 'error',
+    'promise/prefer-await-to-then': 'error',
   },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: true,
+      },
       extends: [
-        './plugin-configs/typescript',
-        './plugin-configs/import-typescript',
-        './rules/typescript',
-        './rules/prettier',
-      ].map(require.resolve),
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:import/typescript',
+      ],
       settings: {
-        /**
-         * import plugin with Typescript configuration
-         * https://github.com/alexgorbatchev/eslint-import-resolver-typescript#configuration
-         */
-        'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.tsx'],
+        'import/resolver': {
+          typescript: {
+            alwaysTryTypes: true,
+          },
+          node: true,
         },
+      },
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'error',
+        '@typescript-eslint/consistent-type-assertions': 'error',
+        '@typescript-eslint/consistent-type-definitions': [
+          'error',
+          'interface',
+        ],
+        '@typescript-eslint/no-inferrable-types': 'error',
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/explicit-member-accessibility': 'error',
+        '@typescript-eslint/no-var-requires': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': [
+          'error',
+          { functions: false },
+        ],
+        '@typescript-eslint/no-empty-function': 'off',
+        'no-unused-expressions': 'off',
+        '@typescript-eslint/no-unused-expressions': [
+          'error',
+          {
+            allowShortCircuit: true,
+            allowTernary: true,
+            allowTaggedTemplates: true,
+          },
+        ],
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          { ignoreRestSiblings: true, argsIgnorePattern: '^_+$' },
+        ],
+        camelcase: 'off',
+        // '@typescript-eslint/naming-convention': createNamingConventionConfig(),
+
+        'import/named': 'off',
+        'import/namespace': 'off',
+        'import/default': 'off',
+        'import/no-named-as-default-member': 'off',
       },
     },
   ],
