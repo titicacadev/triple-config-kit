@@ -4,13 +4,7 @@
   "description": "Triple's ESLint config, following our styleguide",
   "main": "index.js",
   "files": [
-    "rules",
-    "plugin-configs",
-    "index.js",
-    "prettierrc.js",
-    "stylelint.js",
-    "create-config.js",
-    "frontend.js"
+    "*.js"
   ],
   "scripts": {
     "lint:es": "eslint '**/*.js'",
