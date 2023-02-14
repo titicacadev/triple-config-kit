@@ -56,12 +56,8 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: true,
-      },
       extends: [
         'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:import/typescript',
       ],
       settings: {
@@ -75,20 +71,15 @@ module.exports = {
       rules: {
         '@typescript-eslint/ban-ts-comment': 'error',
         '@typescript-eslint/consistent-type-assertions': 'error',
-        '@typescript-eslint/consistent-type-definitions': [
-          'error',
-          'interface',
-        ],
-        '@typescript-eslint/no-inferrable-types': 'error',
-        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/consistent-type-definitions': 'error',
         '@typescript-eslint/explicit-member-accessibility': 'error',
         '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': [
           'error',
           { functions: false },
         ],
-        '@typescript-eslint/no-empty-function': 'off',
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': [
           'error',

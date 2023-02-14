@@ -1440,7 +1440,6 @@ exports[`eslint typescript config 1`] = `
       "jsx": true,
     },
     "ecmaVersion": 2022,
-    "project": true,
     "sourceType": "module",
   },
   "plugins": [
@@ -1454,9 +1453,6 @@ exports[`eslint typescript config 1`] = `
     "@typescript-eslint/adjacent-overload-signatures": [
       "error",
     ],
-    "@typescript-eslint/await-thenable": [
-      "error",
-    ],
     "@typescript-eslint/ban-ts-comment": [
       "error",
     ],
@@ -1468,7 +1464,6 @@ exports[`eslint typescript config 1`] = `
     ],
     "@typescript-eslint/consistent-type-definitions": [
       "error",
-      "interface",
     ],
     "@typescript-eslint/explicit-member-accessibility": [
       "error",
@@ -1483,21 +1478,12 @@ exports[`eslint typescript config 1`] = `
       "error",
     ],
     "@typescript-eslint/no-explicit-any": [
-      "error",
+      "warn",
     ],
     "@typescript-eslint/no-extra-non-null-assertion": [
       "error",
     ],
     "@typescript-eslint/no-extra-semi": [
-      "error",
-    ],
-    "@typescript-eslint/no-floating-promises": [
-      "error",
-    ],
-    "@typescript-eslint/no-for-in-array": [
-      "error",
-    ],
-    "@typescript-eslint/no-implied-eval": [
       "error",
     ],
     "@typescript-eslint/no-inferrable-types": [
@@ -1507,9 +1493,6 @@ exports[`eslint typescript config 1`] = `
       "error",
     ],
     "@typescript-eslint/no-misused-new": [
-      "error",
-    ],
-    "@typescript-eslint/no-misused-promises": [
       "error",
     ],
     "@typescript-eslint/no-namespace": [
@@ -1524,25 +1507,7 @@ exports[`eslint typescript config 1`] = `
     "@typescript-eslint/no-this-alias": [
       "error",
     ],
-    "@typescript-eslint/no-unnecessary-type-assertion": [
-      "error",
-    ],
     "@typescript-eslint/no-unnecessary-type-constraint": [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-argument": [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-assignment": [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-call": [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-member-access": [
-      "error",
-    ],
-    "@typescript-eslint/no-unsafe-return": [
       "error",
     ],
     "@typescript-eslint/no-unused-expressions": [
@@ -1576,19 +1541,7 @@ exports[`eslint typescript config 1`] = `
     "@typescript-eslint/prefer-namespace-keyword": [
       "error",
     ],
-    "@typescript-eslint/require-await": [
-      "error",
-    ],
-    "@typescript-eslint/restrict-plus-operands": [
-      "error",
-    ],
-    "@typescript-eslint/restrict-template-expressions": [
-      "error",
-    ],
     "@typescript-eslint/triple-slash-reference": [
-      "error",
-    ],
-    "@typescript-eslint/unbound-method": [
       "error",
     ],
     "accessor-pairs": [
@@ -2008,7 +1961,7 @@ exports[`eslint typescript config 1`] = `
       },
     ],
     "no-implied-eval": [
-      "off",
+      "error",
     ],
     "no-import-assign": [
       "off",
@@ -2392,9 +2345,6 @@ exports[`eslint typescript config 1`] = `
       },
     ],
     "require-atomic-updates": [
-      "off",
-    ],
-    "require-await": [
       "off",
     ],
     "require-yield": [
