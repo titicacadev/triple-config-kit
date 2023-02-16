@@ -273,7 +273,7 @@ exports[`eslint frontend config 1`] = `
       "error",
     ],
     "react/display-name": [
-      "error",
+      2,
     ],
     "react/jsx-boolean-value": [
       "error",
@@ -452,7 +452,7 @@ exports[`eslint frontend config 1`] = `
       0,
     ],
     "react/prop-types": [
-      0,
+      "off",
     ],
     "react/react-in-jsx-scope": [
       0,
