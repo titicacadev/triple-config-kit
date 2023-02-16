@@ -143,7 +143,7 @@ jobs:
       - name: Publish as canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npx lerna publish --canary --force-publish --preid=canary-1 --yes
+        run: npx lerna publish --canary --force-publish --preid=canary --yes
 
       - name: Notify release success to Slack
         if: success()
