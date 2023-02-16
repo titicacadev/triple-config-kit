@@ -9,6 +9,7 @@ module.exports = {
     'plugin:promise/recommended',
     'standard',
   ],
+  parser: '@typescript-eslint/parser',
   rules: {
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     'no-console': 'error',
@@ -55,19 +56,10 @@ module.exports = {
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      parser: '@typescript-eslint/parser',
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
       ],
-      settings: {
-        'import/resolver': {
-          typescript: {
-            alwaysTryTypes: true,
-          },
-          node: true,
-        },
-      },
       rules: {
         '@typescript-eslint/ban-ts-comment': 'error',
         '@typescript-eslint/consistent-type-assertions': 'error',
