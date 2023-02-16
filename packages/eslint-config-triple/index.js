@@ -9,7 +9,6 @@ module.exports = {
     'plugin:promise/recommended',
     'standard',
   ],
-  parser: '@typescript-eslint/parser',
   rules: {
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
     'no-console': 'error',
@@ -60,6 +59,14 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
       ],
+      parser: '@typescript-eslint/parser',
+      settings: {
+        'import/resolver': {
+          typescript: {
+            alwaysTryTypes: true,
+          },
+        },
+      },
       rules: {
         '@typescript-eslint/ban-ts-comment': 'error',
         '@typescript-eslint/consistent-type-assertions': 'error',

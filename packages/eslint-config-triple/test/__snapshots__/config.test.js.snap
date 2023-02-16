@@ -492,7 +492,7 @@ exports[`eslint javascript config 1`] = `
   },
   "ignorePatterns": [],
   "noInlineConfig": undefined,
-  "parser": "/Users/heron/Triple/eslint-config-triple/node_modules/@typescript-eslint/parser/dist/index.js",
+  "parser": null,
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
@@ -2485,6 +2485,9 @@ exports[`eslint typescript config 1`] = `
           ".js",
           ".jsx",
         ],
+      },
+      "typescript": {
+        "alwaysTryTypes": true,
       },
     },
   },
