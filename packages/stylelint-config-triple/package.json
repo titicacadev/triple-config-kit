@@ -18,14 +18,12 @@
   "homepage": "https://github.com/titicacadev/eslint-config-triple",
   "dependencies": {
     "postcss-styled-syntax": "^0.3.1",
-    "stylelint-config-prettier": "9.0.4",
-    "stylelint-config-standard": "29.0.0",
-    "stylelint-config-styled-components": "0.1.1"
+    "stylelint-config-recommended": "^10.0.1"
   },
   "devDependencies": {
-    "stylelint": "^14.16.1"
+    "stylelint": "^15.1.0"
   },
   "peerDependencies": {
-    "stylelint": "^14.14.0 || ^15.0.0"
+    "stylelint": "^15.0.0"
   }
 }
