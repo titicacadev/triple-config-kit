@@ -74,7 +74,7 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.{js,ts,tsx}'],
-      customSyntax: 'postcss-styled-syntax',
+      customSyntax: require('postcss-styled-syntax'),
       rules: {
         // postcss-styled-syntax와 같이 사용하면 아직 버그가 있어서 일부 `no-empty`, `case`, 'no-unknown' 규칙을 끕니다.
         'block-no-empty': null,
