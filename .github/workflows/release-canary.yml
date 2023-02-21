@@ -1,20 +1,16 @@
-name: CD
+name: Release Canary
 
 on:
-  push:
-    branches-ignore:
-      - '**'
-    tags:
-      - 'release-prod-*'
+  issue_comment:
+    types:
+      - created
 
 env:
-  GITHUB_API_URL_BASE: https://api.github.com/repos/${{ github.repository }}
   # Node.js
-  NODE_VERSION: '16.x'
   NPM_REGISTRY_URL: 'https://registry.npmjs.org'
   # Slack Notifications
   SLACK_WEBHOOK: ${{ secrets.GHA_NOTIFICATIONS_WEBHOOK_URL }}
-  SLACK_CHANNEL: '#eslint-config-triple' # 메시지 보낼 채널
+  SLACK_CHANNEL: '#a-dev-notifications' # 메시지 보낼 채널
   SLACK_USERNAME: 'ESLint Config Triple' # 메시지를 보내는 계정 이름
   SLACK_ICON_EMOJI: ':triple_new:'
   SLACK_DETAIL_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
@@ -26,18 +22,22 @@ env:
   SLACK_GITHUB_EVENT_NAME: ${{ github.event_name }} # 메시지에 Event로 표시되는 값
 
 jobs:
-  release:
-    if: github.event.ref != 'refs/tags/release-canary'
+  release-canary:
+    if: |
+      github.event.issue.state == 'open' &&
+      github.event.issue.pull_request &&
+      endsWith(github.event.comment.body, 'release-canary')
     runs-on: ubuntu-latest
-
     steps:
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: ${{ env.NPM_REGISTRY_URL }}
-
-      - uses: actions/checkout@v3
+      - name: Leave reaction to comment
+        run: |
+          curl \
+            --url https://api.github.com/repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.squirrel-girl-preview+json" \
+            -H "Content-Type: application/json" \
+            -f --request POST \
+            -d "{\"content\":\"+1\"}"
 
       - name: Notify release start to Slack
         env:
@@ -47,14 +47,30 @@ jobs:
           # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
         run: npx @titicaca/gha-tools notify
 
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          registry-url: ${{ env.NPM_REGISTRY_URL }}
+
       - run: npm ci
 
-      - run: npm run version --yes
-
-      - name: Publish
+      - name: Publish as canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npx lerna publish --yes
+        run: npx lerna publish --canary --force-publish --preid=pr-${{ github.event.issue.number }} --yes
+
+      - name: Notify released version on pull request
+        if: success()
+        run: |
+          curl --url $GITHUB_API_URL_BASE/issues/${{ env.PR_NUMBER }}/comments \
+            -f --request POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"body\":\"has been published!\"}"
 
       - name: Notify release success to Slack
         if: success()
