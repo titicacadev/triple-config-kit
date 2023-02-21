@@ -68,7 +68,6 @@ module.exports = {
         },
       },
       rules: {
-        '@typescript-eslint/ban-ts-comment': 'error',
         '@typescript-eslint/consistent-type-assertions': 'error',
         '@typescript-eslint/consistent-type-definitions': 'error',
         '@typescript-eslint/explicit-member-accessibility': 'error',
