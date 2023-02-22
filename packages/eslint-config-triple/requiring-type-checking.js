@@ -21,12 +21,7 @@ module.exports = {
             format: ['PascalCase'],
           },
         ],
-        '@typescript-eslint/no-floating-promises': [
-          'error',
-          {
-            ignoreVoid: true,
-          },
-        ],
+        '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/no-misused-promises': [
           'error',
           {
