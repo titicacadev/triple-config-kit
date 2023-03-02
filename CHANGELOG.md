@@ -1,4 +1,6 @@
-# CHANGELOG
+# Changelog
+
+모노레포로 변경되어서 변경사항은 각 패키지 `CHANGELOG.md`에 작성됩니다.
 
 ## v4.2.0
 
