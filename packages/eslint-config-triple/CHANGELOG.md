@@ -2,8 +2,8 @@
 
 ## v5.0.0
 
-- 컨픽들을 monorepo로 분리 [https://github.com/titicacadev/eslint-config-triple/pull/211](#211)
-- 컨픽 설정을 단순하게 변경 [https://github.com/titicacadev/eslint-config-triple/pull/213](#213)
+- 컨픽들을 monorepo로 분리 [https://github.com/titicacadev/triple-config-kit/pull/211](#211)
+- 컨픽 설정을 단순하게 변경 [https://github.com/titicacadev/triple-config-kit/pull/213](#213)
   - createConfig 함수를 사용하지 않고 eslint의 표준 옵션인 `extends`를 사용하도록 합니다.
   - capture-plugin-configs가 필요 없게 됩니다.
   - 컨픽을 4 종류로 구분했습니다.

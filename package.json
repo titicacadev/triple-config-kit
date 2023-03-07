@@ -8,7 +8,6 @@
     "prettier:fix": "prettier --write .",
     "lint": "npm run lint:es; npm run prettier",
     "lint:fix": "npm run lint:es:fix; npm run prettier:fix",
-    "update-snapshot": "jest -u",
     "test": "lerna run test",
     "prepare": "[ $CI ] || husky install",
     "version": "lerna version --no-push"

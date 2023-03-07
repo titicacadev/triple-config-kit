@@ -13,9 +13,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/titicacadev/eslint-config-triple/issues"
+    "url": "https://github.com/titicacadev/triple-config-kit/issues"
   },
-  "homepage": "https://github.com/titicacadev/eslint-config-triple",
+  "homepage": "https://github.com/titicacadev/triple-config-kit",
   "dependencies": {
     "postcss-styled-syntax": "^0.3.3",
     "stylelint-config-recommended": "^10.0.1"

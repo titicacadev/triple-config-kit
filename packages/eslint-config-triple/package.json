@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/titicacadev/eslint-config-triple.git"
+    "url": "git://github.com/titicacadev/triple-config-kit.git"
   },
   "keywords": [
     "eslint",
@@ -37,9 +37,9 @@
   "author": "Triple Corp",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/titicacadev/eslint-config-triple/issues"
+    "url": "https://github.com/titicacadev/triple-config-kit/issues"
   },
-  "homepage": "https://github.com/titicacadev/eslint-config-triple",
+  "homepage": "https://github.com/titicacadev/triple-config-kit",
   "engines": {
     "node": ">= 6"
   },
