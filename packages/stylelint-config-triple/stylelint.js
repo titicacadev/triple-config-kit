@@ -76,15 +76,9 @@ module.exports = {
       files: ['**/*.{js,ts,tsx}'],
       customSyntax: require('postcss-styled-syntax'),
       rules: {
-        // postcss-styled-syntax와 같이 사용하면 아직 버그가 있어서 일부 `no-empty`, `case`, 'no-unknown' 규칙을 끕니다.
+        // postcss-styled-syntax와 같이 사용하면 아직 버그가 있어서 일부 `no-empty` 규칙을 끕니다.
         'block-no-empty': null,
         'no-empty-source': null,
-
-        'function-name-case': null,
-        'value-keyword-case': null,
-
-        'annotation-no-unknown': null,
-        'function-no-unknown': null,
       },
     },
   ],
