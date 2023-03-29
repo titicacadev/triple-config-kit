@@ -65,7 +65,10 @@ module.exports = {
     'selector-attribute-quotes': 'always',
 
     // no-redundant
-    'declaration-block-no-redundant-longhand-properties': true,
+    'declaration-block-no-redundant-longhand-properties': [
+      true,
+      { ignoreShorthands: ['inset'] },
+    ],
     'shorthand-property-no-redundant-values': true,
 
     // white-inside
