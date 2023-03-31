@@ -9,7 +9,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/titicacadev/eslint-config-triple.git"
+    "url": "git://github.com/titicacadev/triple-config-kit.git"
   },
   "license": "MIT",
   "bugs": {
