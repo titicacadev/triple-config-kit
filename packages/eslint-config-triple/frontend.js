@@ -16,9 +16,10 @@ module.exports = {
     },
   },
   rules: {
-    'react/prop-types': 'off',
-    'react/jsx-pascal-case': 'error',
     'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
+    'react/jsx-pascal-case': 'error',
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    'react/prop-types': 'off',
     'react/self-closing-comp': [
       'error',
       {
