@@ -13,6 +13,7 @@ env:
   # Node.js
   NODE_VERSION: '16.x'
   NPM_REGISTRY_URL: 'https://registry.npmjs.org'
+  HUSKY: 0
   # Slack Notifications
   SLACK_WEBHOOK: ${{ secrets.GHA_NOTIFICATIONS_WEBHOOK_URL }}
   SLACK_CHANNEL: '#eslint-config-triple' # 메시지 보낼 채널
