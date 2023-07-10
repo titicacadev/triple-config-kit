@@ -1,21 +1,32 @@
 {
   "name": "@titicaca/prettier-config-triple",
   "version": "1.0.2",
-  "description": "",
+  "description": "Triple's Prettier config, following our styleguide.",
+  "license": "MIT",
   "main": "prettierrc.js",
   "files": [
     "*.js"
   ],
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/titicacadev/triple-config-kit.git"
-  },
-  "license": "MIT",
+  "homepage": "https://github.com/titicacadev/triple-config-kit",
   "bugs": {
     "url": "https://github.com/titicacadev/triple-config-kit/issues"
   },
-  "homepage": "https://github.com/titicacadev/triple-config-kit",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/titicacadev/triple-config-kit.git",
+    "directory": "packages/prettier-config-triple"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "npm run lint:es; npm run prettier",
+    "lint:fix": "npm run lint:es:fix; npm run prettier:fix",
+    "lint:es": "eslint '**/*.js'",
+    "lint:es:fix": "eslint '**/*.js' --fix",
+    "prettier": "prettier '**/*' --check",
+    "prettier:fix": "prettier '**/*' --write"
+  },
   "devDependencies": {
     "prettier": "^2.8.4"
   },
