@@ -31,6 +31,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
@@ -52,7 +56,7 @@ jobs:
           SLACK_COLOR: fail
           SLACK_TITLE: ':pleading: CI Waiting timeout'
           SLACK_TOPIC: 'CI workflow가 시작되었는지, 기다리는 job의 이름이 CI job과 일치하는지, 확인해주세요.'
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
       - name: Notify checking CI failure
         if: steps.wait-for-ci.outputs.conclusion == 'failure'
@@ -61,7 +65,7 @@ jobs:
           SLACK_COLOR: fail
           SLACK_TITLE: ':pleading: CI FAILURE'
           SLACK_TOPIC: '배포를 중단합니다.'
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
       - name: Shutdown workflow
         if: steps.wait-for-ci.outputs.conclusion != 'success'
@@ -73,13 +77,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: ${{ env.NPM_REGISTRY_URL }}
-
-      - uses: actions/checkout@v3
+          cache: 'pnpm'
 
       - name: Notify release start to Slack
         env:
@@ -87,14 +96,14 @@ jobs:
           SLACK_COLOR: gray
           SLACK_TITLE: ':rocket: Release WORKING'
           # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
-      - run: npm ci
+      - run: pnpm install
 
       - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npx lerna publish --yes
+        run: pnpm exec lerna publish --yes
 
       - name: Notify release success to Slack
         if: success()
@@ -103,7 +112,7 @@ jobs:
           SLACK_COLOR: success
           SLACK_TITLE: ':tada: Release SUCCESS'
           # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
       - name: Notify release failure to Slack
         if: failure()
@@ -112,7 +121,7 @@ jobs:
           SLACK_COLOR: fail
           SLACK_TITLE: ':pleading: Release FAILURE'
           # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
   canary-release:
     needs: wait-for-ci
@@ -120,15 +129,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: ${{ env.NPM_REGISTRY_URL }}
-
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+          cache: 'pnpm'
 
       - name: Notify release start to Slack
         env:
@@ -136,14 +150,14 @@ jobs:
           SLACK_COLOR: gray
           SLACK_TITLE: ':rocket: Release WORKING'
           # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
-      - run: npm ci
+      - run: pnpm install
 
       - name: Publish as canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: npx lerna publish --canary --force-publish --preid=canary --yes
+        run: pnpm exec lerna publish --canary --force-publish --preid=canary --yes
 
       - name: Notify release success to Slack
         if: success()
@@ -152,7 +166,7 @@ jobs:
           SLACK_COLOR: success
           SLACK_TITLE: ':tada: Release SUCCESS'
           # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
       - name: Notify release failure to Slack
         if: failure()
@@ -161,4 +175,4 @@ jobs:
           SLACK_COLOR: fail
           SLACK_TITLE: ':pleading: Release FAILURE'
           # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify

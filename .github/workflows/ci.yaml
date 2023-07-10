@@ -28,11 +28,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: ${{ env.NPM_REGISTRY_URL }}
+          cache: 'pnpm'
 
       - name: Notify build start to Slack
         env:
@@ -40,27 +47,13 @@ jobs:
           SLACK_COLOR: gray
           SLACK_TITLE: ':rocket: Build WORKING'
           SLACK_TOPIC: ''
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
-      - uses: actions/checkout@v2
+      - run: pnpm install
 
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-build-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ env.cache-name }}-
-            ${{ runner.OS }}-build-
+      - run: pnpm run lint
 
-      - name: Install dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-        run: npm ci
-
-      - run: npm run lint
-
-      - run: npm run test
+      - run: pnpm run test
 
       - name: Notify build success to Slack
         if: success()
@@ -69,7 +62,7 @@ jobs:
           SLACK_COLOR: success
           SLACK_TITLE: ':tada: Build SUCCESS'
           SLACK_TOPIC: ''
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
 
       - name: Notify build failure to Slack
         if: failure()
@@ -78,4 +71,4 @@ jobs:
           SLACK_COLOR: fail
           SLACK_TITLE: ':pleading: Build FAILURE'
           SLACK_TOPIC: ''
-        run: npx @titicaca/gha-tools notify
+        run: pnpm dlx @titicaca/gha-tools notify
