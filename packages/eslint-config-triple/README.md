@@ -67,17 +67,17 @@ React 프론트엔드 프로젝트에서는 다음을 추가하세요.
 eslint의 최종 설정을 스냅샷으로 기록합니다.
 
 ```bash
-npm run test:snapshot
+ppnpm run test:snapshot
 ```
 
 새로운 rule을 추가하여 스냅샷이 깨졌다면, 스냅샷을 업데이트해주세요.
 
 ```bash
-npm run update-snapshot
+ppnpm run update-snapshot
 ```
 
 개발중 스냅샷 테스트를 계속 수행하고 싶다면, watch 옵션을 사용하세요.
 
 ```bash
-npm run test:snapshot:watch
+ppnpm run test:snapshot:watch
 ```
