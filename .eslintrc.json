@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": [
     "./packages/eslint-config-triple/index",
     "./packages/eslint-config-triple/prettier"
