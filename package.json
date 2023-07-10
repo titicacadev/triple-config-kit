@@ -2,14 +2,10 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "lint:es": "eslint '**/*.js'",
-    "lint:es:fix": "npm run lint:es -- --fix",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
-    "lint": "npm run lint:es; npm run prettier",
-    "lint:fix": "npm run lint:es:fix; npm run prettier:fix",
-    "test": "lerna run test",
     "prepare": "[ $CI ] || husky install",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
+    "test": "lerna run test",
     "version": "lerna version --no-push"
   },
   "devDependencies": {
