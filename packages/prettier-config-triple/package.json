@@ -1,6 +1,6 @@
 {
   "name": "@titicaca/prettier-config-triple",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Triple's Prettier config, following our styleguide.",
   "license": "MIT",
   "main": "prettierrc.js",
