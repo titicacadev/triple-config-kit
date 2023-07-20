@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.0
+
+- 의존성 업데이트 [https://github.com/titicacadev/triple-config-kit/pull/225](#225)
+
 ## v1.1.0
 
 - stylelint peer dependency 15.3.0 버전 이상으로 변경 [https://github.com/titicacadev/triple-config-kit/pull/218](#218)
