@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.1.0
+
+- css prop 허용 [https://github.com/titicacadev/triple-config-kit/pull/220](#220)
+- 의존성 업데이트 [https://github.com/titicacadev/triple-config-kit/pull/225](#225)
+
 ## v5.0.0
 
 - 컨픽들을 monorepo로 분리 [https://github.com/titicacadev/triple-config-kit/pull/211](#211)
