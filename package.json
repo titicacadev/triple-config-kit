@@ -21,9 +21,6 @@
     "only-allow": "^1.1.1",
     "typescript": "^4.9.5"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
       "eslint"
