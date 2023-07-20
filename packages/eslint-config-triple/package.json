@@ -31,12 +31,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "5.54.0",
-    "@typescript-eslint/parser": "5.54.0",
-    "eslint-config-prettier": "8.6.0",
-    "eslint-config-standard": "17.0.0",
+    "@typescript-eslint/eslint-plugin": "6.1.0",
+    "@typescript-eslint/parser": "6.1.0",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-config-standard": "17.1.0",
     "eslint-config-standard-jsx": "11.0.0",
-    "eslint-import-resolver-typescript": "3.5.3",
+    "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-node": "11.1.0",
@@ -45,7 +45,7 @@
     "eslint-plugin-react-hooks": "4.6.0"
   },
   "devDependencies": {
-    "eslint": "^8.35.0"
+    "eslint": "^8.45.0"
   },
   "peerDependencies": {
     "eslint": "^8.0.0"
