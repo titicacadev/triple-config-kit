@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.1
+
+- css-in-js에서 media-query-no-invalid 끔
+
 ## v1.2.0
 
 - 의존성 업데이트 [https://github.com/titicacadev/triple-config-kit/pull/225](#225)
