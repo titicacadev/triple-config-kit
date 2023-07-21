@@ -82,6 +82,9 @@ module.exports = {
         // postcss-styled-syntax와 같이 사용하면 아직 버그가 있어서 일부 `no-empty` 규칙을 끕니다.
         'block-no-empty': null,
         'no-empty-source': null,
+
+        // css 표준 media query 명세가 css-in-js과 호환되지 않아서 끕니다.
+        'media-query-no-invalid': null,
       },
     },
   ],
