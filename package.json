@@ -13,7 +13,7 @@
     "version": "lerna version --no-push"
   },
   "devDependencies": {
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "husky": "^8.0.3",
     "jest": "^29.6.4",
     "lerna": "^7.1.5",
