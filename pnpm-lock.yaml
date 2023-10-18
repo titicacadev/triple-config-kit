@@ -18,8 +18,8 @@ importers:
         specifier: ^29.7.0
         version: 29.7.0
       lerna:
-        specifier: ^7.4.0
-        version: 7.4.0
+        specifier: ^7.4.1
+        version: 7.4.1
       lint-staged:
         specifier: ^14.0.1
         version: 14.0.1
@@ -802,8 +802,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@lerna/child-process@7.4.0:
-    resolution: {integrity: sha512-KhocFx7HI04N2tUdKv/kJDy627m9TzIDrtudRTMTFVS8vKzGtxpfjgWZAnJ20hwQqe/MvvfrOhHsvDBrcBEW/g==}
+  /@lerna/child-process@7.4.1:
+    resolution: {integrity: sha512-Bx1cRCZcVcWoz+atDQc4CSVzGuEgGJPOpIAXjQbBEA2cX5nqIBWdbye8eHu31En/F03aH9BhpNEJghs6wy4iTg==}
     engines: {node: '>=16.0.0'}
     dependencies:
       chalk: 4.1.2
@@ -811,11 +811,11 @@ packages:
       strong-log-transformer: 2.1.0
     dev: true
 
-  /@lerna/create@7.4.0:
-    resolution: {integrity: sha512-VmuJCS/cC2itJjpMNNBWBl1YRfYNBjo6BR4+KVdDYPO2/WT+CWqv5gWGrm0bU5/djwGJ2BN96STzHnWegACK0A==}
+  /@lerna/create@7.4.1:
+    resolution: {integrity: sha512-zPO9GyWceRimtMD+j+aQ8xJgNPYn/Q/SzHf4wYN+4Rj5nrFKMyX+Et7FbWgUNpj0dRgyCCKBDYmTB7xQVVq4gQ==}
     engines: {node: '>=16.0.0'}
     dependencies:
-      '@lerna/child-process': 7.4.0
+      '@lerna/child-process': 7.4.1
       '@npmcli/run-script': 6.0.2
       '@nx/devkit': 16.5.3(nx@16.5.3)
       '@octokit/plugin-enterprise-rest': 6.0.1
@@ -4831,13 +4831,13 @@ packages:
       language-subtag-registry: 0.3.22
     dev: false
 
-  /lerna@7.4.0:
-    resolution: {integrity: sha512-Dp5js6R7mygy3Ncxc/1HxDd5EgiE7mFqZbCAYKm6FzeOn/GLcqyOPJHLsck6PlSu/uvqUh1lZO4wGaJJQAcW2Q==}
+  /lerna@7.4.1:
+    resolution: {integrity: sha512-c6sOO0dlJU689vStIsko+zjRdn2fJOWH8aNjePLNv2AubAdABKqfrDCpE2H/Q7+O80Duo68ZQtWYkUUk7hRWDw==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     dependencies:
-      '@lerna/child-process': 7.4.0
-      '@lerna/create': 7.4.0
+      '@lerna/child-process': 7.4.1
+      '@lerna/create': 7.4.1
       '@npmcli/run-script': 6.0.2
       '@nx/devkit': 16.5.3(nx@16.5.3)
       '@octokit/plugin-enterprise-rest': 6.0.1
