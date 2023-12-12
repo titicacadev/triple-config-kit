@@ -24,6 +24,10 @@ exports[`eslint frontend config 1`] = `
   ],
   "reportUnusedDisableDirectives": undefined,
   "rules": {
+    "curly": [
+      "error",
+      "all",
+    ],
     "jsx-a11y/alt-text": [
       "error",
     ],

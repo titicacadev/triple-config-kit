@@ -27,5 +27,6 @@ module.exports = {
         html: true,
       },
     ],
+    curly: ['error', 'all'],
   },
 }
