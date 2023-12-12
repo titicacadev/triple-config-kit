@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.1.1
+
+- curly 룰 추가 [https://github.com/titicacadev/triple-config-kit/pull/265](#265)
+
 ## v5.1.0
 
 - css prop 허용 [https://github.com/titicacadev/triple-config-kit/pull/220](#220)
