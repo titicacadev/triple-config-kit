@@ -2462,6 +2462,8 @@ exports[`eslint typescript config 1`] = `
   "settings": {
     "import/extensions": [
       ".ts",
+      ".cts",
+      ".mts",
       ".tsx",
       ".js",
       ".jsx",
@@ -2473,6 +2475,8 @@ exports[`eslint typescript config 1`] = `
     "import/parsers": {
       "@typescript-eslint/parser": [
         ".ts",
+        ".cts",
+        ".mts",
         ".tsx",
       ],
     },
@@ -2480,6 +2484,8 @@ exports[`eslint typescript config 1`] = `
       "node": {
         "extensions": [
           ".ts",
+          ".cts",
+          ".mts",
           ".tsx",
           ".js",
           ".jsx",
