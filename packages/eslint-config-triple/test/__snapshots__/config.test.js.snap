@@ -534,6 +534,7 @@ exports[`eslint javascript config 1`] = `
       "error",
       {
         "allowImplicit": false,
+        "allowVoid": false,
         "checkForEach": false,
       },
     ],
@@ -1560,6 +1561,7 @@ exports[`eslint typescript config 1`] = `
       "error",
       {
         "allowImplicit": false,
+        "allowVoid": false,
         "checkForEach": false,
       },
     ],
