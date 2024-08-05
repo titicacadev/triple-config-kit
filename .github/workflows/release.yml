@@ -36,12 +36,12 @@ jobs:
           git config --global user.name "TRIPLE Bot"
           git config --global user.email "triple-bot@interpark.com"
 
-      - name: Create Release Pull Request
+      - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
           publish: pnpm -r publish --no-git-checks
           setupGitUser: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TRIPLE_BOT_GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
