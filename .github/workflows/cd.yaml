@@ -2,178 +2,34 @@ name: CD
 
 on:
   push:
-    branches-ignore:
+    branches:
       - '**'
-    tags:
-      - 'release-prod-*'
-      - 'release-canary'
 
 env:
-  GITHUB_API_URL_BASE: https://api.github.com/repos/${{ github.repository }}
   # Node.js
-  NODE_VERSION: '16.x'
+  NODE_VERSION: '20'
   NPM_REGISTRY_URL: 'https://registry.npmjs.org'
   HUSKY: 0
-  # Slack Notifications
-  SLACK_WEBHOOK: ${{ secrets.GHA_NOTIFICATIONS_WEBHOOK_URL }}
-  SLACK_CHANNEL: '#eslint-config-triple' # 메시지 보낼 채널
-  SLACK_USERNAME: 'ESLint Config Triple' # 메시지를 보내는 계정 이름
-  SLACK_ICON_EMOJI: ':triple_new:'
-  SLACK_DETAIL_URL: 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
-  SLACK_GITHUB_REPOSITORY: ${{ github.repository }}
-  SLACK_AUTHOR_NAME: ${{ github.event.sender.login }}
-  SLACK_AUTHOR_ICON: ${{ github.event.sender.avatar_url }}
-  SLACK_FOOTER: ${{ github.repository }}
-  SLACK_GITHUB_REF: ${{ github.event.ref }} # 메시지에 ref로 표시되는 값
-  SLACK_GITHUB_EVENT_NAME: ${{ github.event_name }} # 메시지에 Event로 표시되는 값
 
 jobs:
-  wait-for-ci:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: ${{ env.NPM_REGISTRY_URL }}
-
-      - name: Wait for CI
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-ci
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: build
-          ref: ${{ github.event.head }}
-
-      - name: Notify checking CI timeout
-        if: steps.wait-for-ci.outputs.conclusion == 'timed_out'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: fail
-          SLACK_TITLE: ':pleading: CI Waiting timeout'
-          SLACK_TOPIC: 'CI workflow가 시작되었는지, 기다리는 job의 이름이 CI job과 일치하는지, 확인해주세요.'
-        run: pnpm dlx @titicaca/gha-tools notify
-
-      - name: Notify checking CI failure
-        if: steps.wait-for-ci.outputs.conclusion == 'failure'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: fail
-          SLACK_TITLE: ':pleading: CI FAILURE'
-          SLACK_TOPIC: '배포를 중단합니다.'
-        run: pnpm dlx @titicaca/gha-tools notify
-
-      - name: Shutdown workflow
-        if: steps.wait-for-ci.outputs.conclusion != 'success'
-        run: node -e 'process.exit(1)'
-
   release:
-    needs: wait-for-ci
-    if: github.event.ref != 'refs/tags/release-canary'
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: ${{ env.NPM_REGISTRY_URL }}
           cache: 'pnpm'
-
-      - name: Notify release start to Slack
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: gray
-          SLACK_TITLE: ':rocket: Release WORKING'
-          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: pnpm dlx @titicaca/gha-tools notify
-
-      - run: pnpm install
 
       - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: pnpm exec lerna publish --yes
-
-      - name: Notify release success to Slack
-        if: success()
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: success
-          SLACK_TITLE: ':tada: Release SUCCESS'
-          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: pnpm dlx @titicaca/gha-tools notify
-
-      - name: Notify release failure to Slack
-        if: failure()
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: fail
-          SLACK_TITLE: ':pleading: Release FAILURE'
-          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: pnpm dlx @titicaca/gha-tools notify
-
-  canary-release:
-    needs: wait-for-ci
-    if: github.event.ref == 'refs/tags/release-canary'
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: ${{ env.NPM_REGISTRY_URL }}
-          cache: 'pnpm'
-
-      - name: Notify release start to Slack
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: gray
-          SLACK_TITLE: ':rocket: Release WORKING'
-          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: pnpm dlx @titicaca/gha-tools notify
-
-      - run: pnpm install
-
-      - name: Publish as canary
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: pnpm exec lerna publish --canary --force-publish --preid=canary --yes
-
-      - name: Notify release success to Slack
-        if: success()
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: success
-          SLACK_TITLE: ':tada: Release SUCCESS'
-          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: pnpm dlx @titicaca/gha-tools notify
-
-      - name: Notify release failure to Slack
-        if: failure()
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_ONLY_NPM_TOKEN }}
-          SLACK_COLOR: fail
-          SLACK_TITLE: ':pleading: Release FAILURE'
-          # SLACK_TOPIC: ${{ env.DEPLOY_VERSION }}
-        run: pnpm dlx @titicaca/gha-tools notify
+        run: pnpm -r publish --no-git-checks
