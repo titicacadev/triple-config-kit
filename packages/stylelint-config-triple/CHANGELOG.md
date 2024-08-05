@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1
+
+### Patch Changes
+
+- ada71e5: release 워크플로우 수정
+
 ## 1.3.0
 
 ### Minor Changes

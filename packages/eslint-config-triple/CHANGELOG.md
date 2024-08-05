@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.1
+
+### Patch Changes
+
+- ada71e5: release 워크플로우 수정
+
 ## 5.2.0
 
 ### Minor Changes
