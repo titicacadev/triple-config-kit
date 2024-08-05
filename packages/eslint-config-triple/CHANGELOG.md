@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.2.0
+
+### Minor Changes
+
+- 9cdd78a: 패키지 업데이트
+
 ## v5.1.1
 
 - curly 룰 추가 [https://github.com/titicacadev/triple-config-kit/pull/265](#265)

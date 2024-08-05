@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- 9cdd78a: 패키지 업데이트
+
 ## v1.1.0
 
 - prettier 3 지원 [https://github.com/titicacadev/triple-config-kit/pull/222](#222)

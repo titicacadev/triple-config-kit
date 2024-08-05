@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0
+
+### Minor Changes
+
+- 9cdd78a: 패키지 업데이트
+
 ## v1.2.1
 
 - css-in-js에서 media-query-no-invalid 끔
