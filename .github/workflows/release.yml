@@ -1,9 +1,9 @@
-name: CD
+name: Release
 
 on:
   push:
     branches:
-      - '**'
+      - main
 
 env:
   # Node.js
@@ -22,14 +22,21 @@ jobs:
         with:
           version: 9
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           registry-url: ${{ env.NPM_REGISTRY_URL }}
           cache: 'pnpm'
 
-      - name: Publish
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm -r publish --no-git-checks
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
-        run: pnpm -r publish --no-git-checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.READ_WRITE_NPM_TOKEN }}
