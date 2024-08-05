@@ -196,6 +196,8 @@ exports[`eslint frontend config 1`] = `
         ],
         "li": [
           "menuitem",
+          "menuitemradio",
+          "menuitemcheckbox",
           "option",
           "row",
           "tab",
