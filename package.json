@@ -9,8 +9,7 @@
     "preinstall": "npx only-allow pnpm",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
-    "test": "lerna run test",
-    "version": "lerna version --no-push"
+    "test": "lerna run test"
   },
   "devDependencies": {
     "eslint": "^8.57.0",
