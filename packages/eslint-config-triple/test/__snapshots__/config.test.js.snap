@@ -457,6 +457,7 @@ exports[`eslint frontend config 1`] = `
         "ignore": [
           "css",
         ],
+        "requireDataLowercase": false,
       },
     ],
     "react/no-unsafe": [
