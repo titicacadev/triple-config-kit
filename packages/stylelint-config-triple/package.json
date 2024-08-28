@@ -32,9 +32,9 @@
     "stylelint-config-recommended": "^13.0.0"
   },
   "devDependencies": {
-    "stylelint": "^15.11.0"
+    "stylelint": "^16.9.0"
   },
   "peerDependencies": {
-    "stylelint": "^15.10.0"
+    "stylelint": "^15.10.0 || ^16.0.0"
   }
 }
