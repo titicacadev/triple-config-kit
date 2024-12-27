@@ -28,7 +28,7 @@
     "prettier:fix": "prettier '**/*' --write"
   },
   "dependencies": {
-    "postcss-styled-syntax": "^0.6.4",
+    "postcss-styled-syntax": "^0.7.0",
     "stylelint-config-recommended": "^13.0.0"
   },
   "devDependencies": {
