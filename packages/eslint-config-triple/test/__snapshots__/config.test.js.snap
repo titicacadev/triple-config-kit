@@ -700,6 +700,7 @@ exports[`eslint javascript config 1`] = `
       "error",
       {
         "distinctGroup": true,
+        "named": false,
         "newlines-between": "always",
         "pathGroups": [
           {
@@ -1467,9 +1468,6 @@ exports[`eslint typescript config 1`] = `
     "@typescript-eslint/ban-ts-comment": [
       "error",
     ],
-    "@typescript-eslint/ban-types": [
-      "error",
-    ],
     "@typescript-eslint/consistent-type-assertions": [
       "error",
     ],
@@ -1488,13 +1486,13 @@ exports[`eslint typescript config 1`] = `
     "@typescript-eslint/no-empty-function": [
       "off",
     ],
+    "@typescript-eslint/no-empty-object-type": [
+      "error",
+    ],
     "@typescript-eslint/no-explicit-any": [
       "error",
     ],
     "@typescript-eslint/no-extra-non-null-assertion": [
-      "error",
-    ],
-    "@typescript-eslint/no-loss-of-precision": [
       "error",
     ],
     "@typescript-eslint/no-misused-new": [
@@ -1506,6 +1504,9 @@ exports[`eslint typescript config 1`] = `
     "@typescript-eslint/no-non-null-asserted-optional-chain": [
       "error",
     ],
+    "@typescript-eslint/no-require-imports": [
+      "error",
+    ],
     "@typescript-eslint/no-this-alias": [
       "error",
     ],
@@ -1513,6 +1514,9 @@ exports[`eslint typescript config 1`] = `
       "error",
     ],
     "@typescript-eslint/no-unsafe-declaration-merging": [
+      "error",
+    ],
+    "@typescript-eslint/no-unsafe-function-type": [
       "error",
     ],
     "@typescript-eslint/no-unused-expressions": [
@@ -1540,7 +1544,13 @@ exports[`eslint typescript config 1`] = `
     "@typescript-eslint/no-var-requires": [
       "off",
     ],
+    "@typescript-eslint/no-wrapper-object-types": [
+      "error",
+    ],
     "@typescript-eslint/prefer-as-const": [
+      "error",
+    ],
+    "@typescript-eslint/prefer-namespace-keyword": [
       "error",
     ],
     "@typescript-eslint/triple-slash-reference": [
@@ -1727,6 +1737,7 @@ exports[`eslint typescript config 1`] = `
       "error",
       {
         "distinctGroup": true,
+        "named": false,
         "newlines-between": "always",
         "pathGroups": [
           {
@@ -1858,7 +1869,7 @@ exports[`eslint typescript config 1`] = `
       "error",
     ],
     "no-class-assign": [
-      "error",
+      "off",
     ],
     "no-compare-neg-zero": [
       "error",
@@ -1992,7 +2003,7 @@ exports[`eslint typescript config 1`] = `
       "error",
     ],
     "no-loss-of-precision": [
-      "off",
+      "error",
     ],
     "no-misleading-character-class": [
       "error",
@@ -2045,6 +2056,9 @@ exports[`eslint typescript config 1`] = `
     ],
     "no-new-func": [
       "error",
+    ],
+    "no-new-native-nonconstructor": [
+      "off",
     ],
     "no-new-object": [
       "error",
@@ -2472,6 +2486,8 @@ exports[`eslint typescript config 1`] = `
       ".tsx",
       ".js",
       ".jsx",
+      ".mjs",
+      ".cjs",
     ],
     "import/external-module-folders": [
       "node_modules",
@@ -2494,6 +2510,8 @@ exports[`eslint typescript config 1`] = `
           ".tsx",
           ".js",
           ".jsx",
+          ".mjs",
+          ".cjs",
         ],
       },
       "typescript": {
