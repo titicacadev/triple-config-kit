@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.3.0
+
+### Minor Changes
+
+- c159982: 의존성 업데이트
+
 ## 5.2.1
 
 ### Patch Changes
