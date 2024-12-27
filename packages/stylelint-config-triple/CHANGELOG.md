@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0
+
+### Minor Changes
+
+- c159982: 의존성 업데이트
+
 ## 1.3.1
 
 ### Patch Changes
