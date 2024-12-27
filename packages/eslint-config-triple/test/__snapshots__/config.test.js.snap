@@ -1488,6 +1488,9 @@ exports[`eslint typescript config 1`] = `
     ],
     "@typescript-eslint/no-empty-object-type": [
       "error",
+      {
+        "allowInterfaces": "always",
+      },
     ],
     "@typescript-eslint/no-explicit-any": [
       "error",

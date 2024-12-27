@@ -73,6 +73,10 @@ module.exports = {
         '@typescript-eslint/explicit-member-accessibility': 'error',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-empty-object-type': [
+          'error',
+          { allowInterfaces: 'always' },
+        ],
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': [
           'error',
