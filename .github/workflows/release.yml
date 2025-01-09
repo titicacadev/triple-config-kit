@@ -42,7 +42,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm -r publish --no-git-checks
+          publish: pnpm changeset publish
           setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ secrets.TRIPLE_BOT_GITHUB_TOKEN }}
