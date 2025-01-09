@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.3.1
+
+### Patch Changes
+
+- f0fe7ef: standard의 peer depdencies 버전 수정
+
 ## 5.3.0
 
 ### Minor Changes
