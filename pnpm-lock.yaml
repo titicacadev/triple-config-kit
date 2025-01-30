@@ -21,7 +21,7 @@ importers:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.4.2)
       lint-staged:
-        specifier: ^15.4.2
+        specifier: ^15.4.3
         version: 15.4.3
       only-allow:
         specifier: ^1.2.1
